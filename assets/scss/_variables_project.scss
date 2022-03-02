@@ -1,5 +1,6 @@
 $primary: #111111;
 $secondary: #DDDDDD;
+$dark: #222222;
 
 $enable-gradients: false;
 $enable-shadows: false;
@@ -26,8 +27,7 @@ $td-enable-google-fonts: false;
 }
 
 footer.bg-dark {
-  background-color: $primary !important;
   a {
-    color: white;
+    color: #CCCCCC;
   }
 }
