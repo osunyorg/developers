@@ -1,6 +1,26 @@
-/*
+$primary: #111111;
+$secondary: #DDDDDD;
 
-Add styles or override variables from the theme here.
+$enable-gradients: false;
+$enable-shadows: false;
+$td-enable-google-fonts: false;
 
-*/
+.navbar-brand {
+  svg {
+    width: 100px;
+  }
+  span.text-uppercase.font-weight-bold {
+    display: none;
+  }
+}
 
+.td-overlay--dark::after {
+  display: none;
+}
+.td-cover-block {
+  color: white;
+  background: black;
+}
+.td-navbar, .navbar {
+  background-color: black !important;
+}
