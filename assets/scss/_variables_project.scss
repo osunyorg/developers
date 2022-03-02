@@ -24,3 +24,10 @@ $td-enable-google-fonts: false;
 .td-navbar, .navbar {
   background-color: black !important;
 }
+
+footer.bg-dark {
+  background-color: $primary !important;
+  a {
+    color: white;
+  }
+}
