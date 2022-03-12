@@ -129,7 +129,7 @@ github_project_repo = "https://github.com/noesya/osuny"
 # github_branch= "main"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-# gcs_engine_id = "d72aa9b2712488cc3"
+gcs_engine_id = "AIzaSyD3e95WZpROgwc4GvEkZPOGELrVkeAVYkI"
 
 # Enable Algolia DocSearch
 algolia_docsearch = false
