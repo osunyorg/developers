@@ -6,10 +6,9 @@ weight: 4
 ## education/AcademicYear
 
 - university:references
-- program:references
 - year:integer
-- from:date
-- to:date
+- beginning:date
+- end:date
 
 ## education/Cohort
 
