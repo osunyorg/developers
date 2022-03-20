@@ -1,6 +1,6 @@
 ---
 title: Enseignement
-weight: 1
+weight: 10
 ---
 
 ## Modèles
@@ -45,6 +45,8 @@ https://schema.org/EducationalOccupationalProgram
 #  parent_id          :uuid             indexed
 #  university_id      :uuid             not null, indexed
 ```
+
+https://dossierdoc.typepad.com/descripteurs/2016/05/secteur-de-l-%C3%A9ducation-et-de-la-formation-schemas-de-metadonnees-et-vocab.html
 
 ### Ecole
 
