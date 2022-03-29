@@ -4,8 +4,6 @@ description: >
   Liste des blocs disponibles
 ---
 
-## Blocs existants 
-
 ### Chapitre
 * titre ```text```
 * contenu ```summernote```
