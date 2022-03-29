@@ -1,3 +1,9 @@
+---
+title: "Blocs"
+description: >
+  Liste des blocs disponibles et ceux proposés
+---
+
 ## Blocs existants 
 
 ### Chapitre
