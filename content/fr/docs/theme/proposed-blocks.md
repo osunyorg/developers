@@ -25,7 +25,15 @@ description: >
   * lien ```url```
   * nom du bouton ```text```
 
+### Image
+* image ```file```
+* alt ```text```
+* legend ```text```
+ 
 ### Video
 * titre ```text```
 * plateform ```select```
 * id de la video ```file```
+
+### Table
+Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…)
