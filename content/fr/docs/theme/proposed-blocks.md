@@ -4,6 +4,11 @@ description: >
   Liste des blocs proposés
 ---
 
+### Actualités
+* titre ```text```
+* catégorie ```select```
+* nombre à afficher ```number``` ou ```range```
+ 
 ### Editorial texte / image
 * titre ```text```
 * contenu ```summernote```
