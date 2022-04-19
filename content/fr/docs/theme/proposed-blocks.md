@@ -41,4 +41,10 @@ description: >
 * id de la video ```file```
 
 ### Table
-Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…)
+Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). À définir
+
+### Liste de définitions
+* titre ```text```
+* donnée```each```
+  * titre ```text```
+  * description ```text```
