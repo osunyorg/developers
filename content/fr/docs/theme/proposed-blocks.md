@@ -11,13 +11,13 @@ description: >
  
 ### Editorial texte / image
 * titre ```text```
-* contenu ```summernote```
+* contenu ```summernote_light```
 * image ```file```
 * inverser le sens ```toggle```
 
 ### Push (cta)
 * titre ```text```
-* contenu ```summernote```
+* contenu ```summernote_light```
 * image ```file```
 * lien ```url```
 * nom du bouton ```text```
@@ -60,4 +60,7 @@ Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). À déf
 * titre ```text```
 * évènement ```each```
   * date ```text```
-  * description ```summernote```
+  * description ```summernote_light```
+
+### Wysiwyg
+* texte ```summernote```
