@@ -48,3 +48,10 @@ Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). À déf
 * donnée```each```
   * titre ```text```
   * description ```text```
+
+### Liste de pages
+* page principale ```page```
+* option description_short ```toggle```
+* pages ```each```
+* option image ```toggle```
+* option description_short ```toggle```
