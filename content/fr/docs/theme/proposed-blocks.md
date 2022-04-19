@@ -55,3 +55,9 @@ Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). À déf
 * pages ```each```
 * option image ```toggle```
 * option description_short ```toggle```
+
+### Timeline
+* titre ```text```
+* évènement ```each```
+  * date ```text```
+  * description ```summernote```
