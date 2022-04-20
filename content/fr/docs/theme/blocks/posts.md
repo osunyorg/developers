@@ -1,10 +1,11 @@
 ---
-title: "Actualité"
+title: "Actualités"
 description: >
   Bloc de posts
 ---
 
-### Actualité
+### Actualités
 * titre ```text```
 * catégorie ```select```
 * nombre à afficher ```number```
+* posts ```each``` (si catégorie spécifique)
