@@ -1,5 +1,5 @@
 ---
-title: "Bloc partenaires"
+title: "Partenaires"
 description: >
   Bloc partenaires
 ---

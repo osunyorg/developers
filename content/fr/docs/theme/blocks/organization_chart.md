@@ -1,15 +1,13 @@
 ---
-title: "Bloc témoignages"
+title: "Organigramme"
 description: >
   Bloc de témoignages en carousel
 ---
 
-### Témoignages
+### Organigramme
 * titre ```text```
-* slide```each```
-  * texte ```textarea```
-  * auteur ```text```
-  * métier ```text```
-  * photo ```file```
+* personne ```each```
+  * choix ```select```
+  * rôle ```text```
 
-![image](https://user-images.githubusercontent.com/4457294/160696175-820e9ed0-3ce7-4a9b-bdca-44fb432812f9.png)
+![image](https://user-images.githubusercontent.com/4457294/160695968-2d180031-fee0-4cfa-bc4a-d5ce438fb6bb.png)

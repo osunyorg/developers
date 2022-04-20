@@ -1,5 +1,5 @@
 ---
-title: "Bloc galerie"
+title: "Galerie"
 description: >
   Bloc galerie d’images
 ---

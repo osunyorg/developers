@@ -1,5 +1,5 @@
 ---
-title: "Bloc témoignages"
+title: "Témoignages"
 description: >
   Bloc de témoignages en carousel
 ---
