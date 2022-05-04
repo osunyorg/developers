@@ -40,6 +40,14 @@ git merge template/master --allow-unrelated-histories
 - https://www.harvard.edu/
 - https://www.mit.edu/
 
+### Inspirations
+
+- https://www.gobelins.fr/formation/photo-bachelor-photographe-et-videaste
+- https://www.arts.ac.uk/
+- https://www.arts.ac.uk/study-at-ual/postgraduate-study/postgraduate-community/stories/hannah-peschar-sculpture-awards
+- https://www.hatvp.fr/actualites-et-publications/
+- https://www.uschamber.com/international/tariff-relief-a-tonic-for-the-us-economy
+
 ### Sites Web
 
 - https://www.stanford.edu/
