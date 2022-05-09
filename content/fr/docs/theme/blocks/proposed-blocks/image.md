@@ -5,6 +5,7 @@ description: >
 ---
 
 ### Image
+* title ```text```
 * image ```file```
 * alt ```text```
 * legend ```text```
