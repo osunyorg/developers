@@ -21,9 +21,9 @@ Commandes séparées dans le package.json d'un site :
 
 ```json
 "scripts": {
-    "update": "git pull --recurse-submodules --depth 1 || cd osuny-example && git checkout main && git pull",
-    "setup-example": "git submodule add https://github.com/noesya/osuny-example",
-    "server-example": "hugo server --config 'osuny-example/config/example/config.yaml'"
+  "update": "git pull --recurse-submodules --depth 1 && git submodule update --remote",
+  "setup-example": "git submodule add https://github.com/noesya/osuny-example",
+  "server-example": "hugo server --config 'osuny-example/config/example/config.yaml'",
 }
 ```
 
@@ -31,7 +31,7 @@ Commande chaînée :
 
 ```json
 "scripts": {
-    "example": "yarn setup-example > /dev/null || yarn update && yarn server-example"
+  "example": "yarn setup-example > /dev/null || yarn update && yarn server-example"
 }
 ```
 
