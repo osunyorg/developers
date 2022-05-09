@@ -13,7 +13,16 @@ Une solution commune à deux tâches est proposée :
 
 # Proposition
 
-Ajouter en submodule git un site de démonstration : https://github.com/noesya/osuny-example
+Ajouter en submodule git un site d'exemples : https://github.com/noesya/osuny-example
+
+Dans ce site d'exemple, une configuration hugo a été ajoutée dans config/examples/config.yaml :
+
+```
+contentDir: "osuny-example/content"
+dataDir: "osuny-example/data"
+```
+
+Cela permet ensuite via une commande, de lancer notre site en s'appuyant sur les données de osuny-example, données présentes dans osuny-example/content et  osuny-example/data.
 
 Ajouter une commande à lancer via yarn (ou npm) qui permet d'ajouter le submodule, le mettre à jour, puis lancer le site en s'appuyant sur la configuration du site d'exemple (osuny-example).
 
@@ -34,6 +43,8 @@ Commande chaînée :
   "example": "yarn setup-example > /dev/null || yarn update && yarn server-example"
 }
 ```
+
+
 
 
 
