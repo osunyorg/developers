@@ -121,7 +121,81 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
 
 ### Fichier de configuration du style du thème
 
-L'arborescence du thème se présente de cette manière : 
+Lors de la création d'un site, vous pouvez overridé le fichier configuration/_site.sass pour modifier les variables du thème par défaut, de bootstrap, et y déclarer toutes les variables nécessaires à l'intégration de votre site. Par exemple :
+
+Dans **/assets/sass/_theme/_default/configuration/_site.sass
+
+````
+/*  Theme & Bootstrap variables
+    Get all bootstrap variables in node_modules/bootstrap/scss/_variables.scss
+
+$font-family-serif: 'Big Moore It', Serif
+$text-width-8: calc((100%/12*8) - (24px/14)*5)
+$text-width-10: calc((100%/12*10) - (24px/14)*3)
+
+// Bootstrap
+$primary: #FFFFFF
+$body-bg: #222222
+$body-color: #FFFFFF
+$link-color: #FFFFFF
+
+// Button
+$btn-border-radius: 0
+
+$gray-600: #CED4DA
+
+$blockquote-font-size: px2rem(30)
+$blockquote-footer-color: inherit
+$blockquote-footer-font-size: 1rem
+$blockquote-margin-y: 0
+
+$border-color: rgba(white, .4)
+
+$breadcrumb-active-color: white
+$breadcrumb-font-size: px2rem(14)
+$breadcrumb-margin-bottom: 0
+
+$card-bg: transparent
+
+$dropdown-bg: black
+$dropdown-border-radius: 0
+$dropdown-color: white
+$dropdown-link-color: white
+$dropdown-link-hover-bg: transparent
+
+$font-family-sans-serif: 'Aestetico', Sans-Serif
+$font-size-root: 1rem
+$font-size-base: 1.125rem
+$line-height-base: 1.6
+
+
+$h1-font-size: px2rem(30)
+$h2-font-size: px2rem(28)
+
+$headings-font-weight: 300
+
+$modal-inner-padding: 0
+
+$navbar-padding-y: px2rem(25)
+
+$navbar-brand-padding-y: 0
+$navbar-brand-margin-end: 0
+
+$small-font-size: px2rem(14)
+
+$table-border-color: $border-color
+
+$menu-background-color: black
+$pagination-bg: transparent
+$pagination-border-width: 0
+$pagination-border-radius: 0
+$pagination-border-color: transparent
+$pagination-disabled-bg: transparent
+$pagination-hover-bg: black
+$pagination-active-bg: black
+$pagination-focus-bg: black
+````
+
 
 
 ### Organisation des fichiers js
