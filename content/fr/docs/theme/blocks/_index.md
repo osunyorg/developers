@@ -14,3 +14,14 @@ Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "c
 
 Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
 
+
+## Roadmap 
+
+1. Block pages : modifier la clé "slug" des pages enfant en "page". Modifier le static généré côté osuny, modifier le thème (remplacer slug par page), modifier les fichiers statics de legacy dans les sites existants
+2. Homogénéiser les images, structure à suivre : 
+  ```
+    image: 
+      id: 
+      alt: >
+      credit: >
+  ```
