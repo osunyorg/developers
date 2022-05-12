@@ -4,7 +4,13 @@ description: >
   Bloc de témoignages en carousel
 ---
 
-### Témoignages
+## Présentation
+
+![image](https://user-images.githubusercontent.com/4457294/160696175-820e9ed0-3ce7-4a9b-bdca-44fb432812f9.png)
+
+
+## Edit
+
 * titre ```text```
 * slide```each```
   * texte ```textarea```
@@ -12,10 +18,9 @@ description: >
   * métier ```text```
   * photo ```file```
 
-![image](https://user-images.githubusercontent.com/4457294/160696175-820e9ed0-3ce7-4a9b-bdca-44fb432812f9.png)
 
 
-### Fichier static généré
+## Static
 
 Exemple de contenu static généré :
 

@@ -4,7 +4,8 @@ description: >
   Bloc pour afficher une timeline
 ---
 
-### Timeline
+## Edit
+
 * titre ```text```
 * description ```summernote_light```
 * évènement ```each```
@@ -12,7 +13,7 @@ description: >
   * description ```summernote_light```
 
 
-### Fichier static généré
+## Static
 
 Exemple de contenu static généré :
 

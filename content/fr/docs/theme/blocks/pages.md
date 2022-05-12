@@ -4,7 +4,8 @@ description: >
   Bloc de pages sélectionnées
 ---
 
-### Liste de pages
+## Edit
+
 * page principale ```page```
 * option description_short ```toggle```
 * pages ```each```
@@ -12,9 +13,7 @@ description: >
   * option description_short ```toggle```
 
 
-### Fichier static généré
-
-Exemple de contenu static généré :
+## Static
 
 ```
 - template: pages

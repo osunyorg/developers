@@ -4,13 +4,14 @@ description: >
   Bloc de posts
 ---
 
-### Actualités
+## Edit
+
 * titre ```text```
 * catégorie ```select```
 * nombre à afficher ```number```
 * posts ```each``` (si catégorie spécifique)
 
-Exemple de contenu static généré :
+## Static
 
 ```
 - template: posts

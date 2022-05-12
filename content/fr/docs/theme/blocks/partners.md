@@ -4,7 +4,8 @@ description: >
   Bloc partenaires
 ---
 
-### Partenaires
+## Edit
+
 * titre ```text```
 * partenaire```each```
   * choix ```select```
@@ -15,9 +16,7 @@ description: >
 ![image](https://user-images.githubusercontent.com/4457294/160695991-7349a7ee-d4b1-4b34-b785-068cdbf2ed1d.png)
 
 
-### Fichier static généré
-
-Exemple de contenu static généré :
+## Static
 
 ```
 - template: partners

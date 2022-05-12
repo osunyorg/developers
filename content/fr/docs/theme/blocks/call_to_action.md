@@ -4,11 +4,12 @@ description: >
   Bloc call to action
 ---
 
-### Exemples
+## Exemples
 
 https://blog.hubspot.com/marketing/call-to-action-examples
 
-### Appel à action (CTA)
+## Edit
+
 * titre ```text```
 * contenu ```summernote_light```
 * image ```file```
@@ -16,9 +17,7 @@ https://blog.hubspot.com/marketing/call-to-action-examples
   * lien ```url```
   * nom du bouton ```text```
 
-### Fichier static généré
-
-Exemple de contenu static généré :
+## Static
 
 ```
 - template: call_to_action

@@ -4,16 +4,15 @@ description: >
   Bloc pour avoir une liste de définitions
 ---
 
-### Liste de définitions
-* titre ```text```
-* donnée```each```
-  * titre ```text```
-  * description ```text```
+## Edit
+
+* title ```text```
+* list ```each```
+  * title ```text```
+  * text ```text```
 
 
-### Fichier static généré
-
-Exemple de contenu static généré :
+## Static
 
 ```
 - template: definitions
