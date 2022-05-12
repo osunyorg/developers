@@ -24,6 +24,7 @@ Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). Bloc à
 - template: datatable
   title: >-
     Titre du bloc
+  position: 1
   headers: 
     - name: Colonne 1
     - name: Colonne 2

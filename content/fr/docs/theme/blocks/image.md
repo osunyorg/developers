@@ -19,6 +19,7 @@ description: >
 - template: image
   title: >-
     Titre du bloc
+  position: 1
   text: >-
     Le texte qui accompagne l'image
   image: 

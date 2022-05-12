@@ -18,6 +18,7 @@ Osuny renvoie l'url entrée par l'utilisateur, c'est le thème Hugo qui crée le
 - template: video
   title: >-
     Titre du bloc
+  position: 1
   url: >-
     https://vimeo.com/679674827
   transcription: >-

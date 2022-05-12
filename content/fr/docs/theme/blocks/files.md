@@ -17,6 +17,7 @@ description: >
 - template: files
   title: >-
     Titre du bloc
+  position: 1
   files:
     - name: >-
         Nom du fichier
