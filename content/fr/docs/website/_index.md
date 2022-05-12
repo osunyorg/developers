@@ -47,6 +47,7 @@ git merge template/master --allow-unrelated-histories
 - https://www.arts.ac.uk/study-at-ual/postgraduate-study/postgraduate-community/stories/hannah-peschar-sculpture-awards
 - https://www.hatvp.fr/actualites-et-publications/
 - https://www.uschamber.com/international/tariff-relief-a-tonic-for-the-us-economy
+- https://www.ecv.fr/digital/formations/mastere-developpement-web/
 
 ### Sites Web
 
