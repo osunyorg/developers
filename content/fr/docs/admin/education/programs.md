@@ -6,32 +6,31 @@ La présentation de l'offre de formation est un sujet crucial et complexe. De no
 
 ## Variables caractérisant une formation
 
-| variable    | description | exemples | Lhéo |
-|-------------|-------------|----------|------|
-| accessibility | Accessibilité | L’ensemble des locaux est accessible. De nombreux aménagements ont été réalisés afin de faciliter l’accès des étudiants en situation de handicap moteur dans l’université. Il en va de même pour les équipements sanitaires. | intitule-formation |
-| capacity | Capacité | Nombre d'étudiantes et étudiants par promotion |
+| variable | description | exemples | Lhéo | Organisation |
+|----------|-------------|----------|------|--------------|
+| accessibility | Accessibilité | L’ensemble des locaux est accessible. De nombreux aménagements ont été réalisés afin de faciliter l’accès des étudiants en situation de handicap moteur dans l’université. Il en va de même pour les équipements sanitaires. | intitule-formation | Admission |
+| capacity | Capacité | Nombre d'étudiantes et étudiants par promotion | Essentiel |
 | content | Contenus de la formation | Description du programme | contenu-formation |
-| continuing | formation continue ? | true / false|
-| contacts | Contacts | Texte libre, utilisé à la place ou en complément des listes de personnes dotées de missions administratives |
-| duration | Durée | 3 ans |
-| ects | Crédits ECTS | 180 |
-| evaluation | Modalités d’évaluation | Moyens mobilisés pour mesurer à l'aide de critères objectifs les acquis du bénéficiaire en cours et/ou à la fin de la prestation. |
-| level | Niveau | not_applicable / primary / secondary / high / first_year / second_year / dut / bachelor /master / doctor |
-| main_information | Informations essentielles | |
-| name | Nom | BUT Métiers du Multimédia et de l'Internet |
-| objectives | Objectifs | Devenir un·e spécialiste des nouvelles technologies avec un sens aigu de la communication pour : comprendre les écosystèmes, les besoins des utilisateurs et les dispositifs de communication numérique, concevoir ou co-concevoir une réponse stratégique pertinente à une problématique complexe, exprimer un message avec les médias numériques pour informer et communiquer, développer pour le web et les médias numériques, entreprendre dans le secteur du numérique. | objectif-formation |
-| opportunities | Débouchés | À l’issue de la formation, les étudiants peuvent choisir de poursuivre en master spécialisé ou s’insérer selon les trois parcours proposés. [...] |
-| other | Autre | Accompagnement et aménagement des études pour les sportifs de haut et bon niveau. Vous êtes sportif inscrit sur liste ministérielle, appartenant à un centre de formation ou ayant un bon niveau national ? Vous pouvez bénéficier d'un aménagement des études et d'un accompagnement par le bureau des sports tout le long de votre cursus. |
-| pedagogy | Méthodes mobilisées | La formation s’appuie sur une pédagogie innovante, fondée sur des projets interdisciplinaires, des ateliers encadrés par des enseignants et des intervenants extérieurs issus du monde de l’entreprise, et une approche culturelle et opérationnelle des enjeux environnementaux et éthiques du numérique. |
-| prerequisites | Prérequis | La formation est ouverte aux élèves de terminale (toutes spécialités), aux titulaires du baccalauréat ou d’un diplôme équivalent (DAEU, etc.), aux étudiants de l’enseignement supérieur. |
-| presentation | Présentation | Devenir un·e spécialiste des nouvelles technologies avec un sens aigu de la communication |
-| pricing | Tarifs | Les étudiants doivent s'acquitter des droits universitaires annuels (170€ pour 2021/2022) ainsi que de la Contribution de la Vie Étudiante et de Campus (92€ pour 2021/2022). Ils doivent également justifier d'une assurance responsabilité civile. |
-| registration | Modalités et délais d’accès | La sélection s’effectue sur dossier à partir des éléments suivants : cursus scolaire/universitaire, parcours comportant les éventuelles expériences pré-professionnelles, projet de formation motivé, réponses aux six questions complémentaires. |
-| results | Indicateurs de résultats | | resultats-attendus |
-| roles | Rôles | Cheffe de département, directrice des études... |
-| schools | Écoles proposant cette formation | IUT Bordeaux Montaigne | nom-organisme |
-| teachers | Enseignants·es | Liste des enseignants, avec le nom de leurs enseignements |
-| team | Équipe | Liste des personne dans chaque rôle |
+| continuing | formation continue ? | true / false | | Essentiel |
+| contacts | Contacts | Texte libre, utilisé à la place ou en complément des listes de personnes dotées de missions administratives | | Admission |
+| duration | Durée | 3 ans | | Essentiel |
+| ects | Crédits ECTS | 180 | | Essentiel |
+| evaluation | Modalités d’évaluation | Moyens mobilisés pour mesurer à l'aide de critères objectifs les acquis du bénéficiaire en cours et/ou à la fin de la prestation. | | Pédagogie |
+| level | Niveau | not_applicable / primary / secondary / high / first_year / second_year / dut / bachelor /master / doctor | | Essentiel |
+| name | Nom | BUT Métiers du Multimédia et de l'Internet | | Essentiel |
+| objectives | Objectifs | Devenir un·e spécialiste des nouvelles technologies avec un sens aigu de la communication pour : comprendre les écosystèmes, les besoins des utilisateurs et les dispositifs de communication numérique, concevoir ou co-concevoir une réponse stratégique pertinente à une problématique complexe, exprimer un message avec les médias numériques pour informer et communiquer, développer pour le web et les médias numériques, entreprendre dans le secteur du numérique. | objectif-formation | | Présentation |
+| opportunities | Débouchés | À l’issue de la formation, les étudiants peuvent choisir de poursuivre en master spécialisé ou s’insérer selon les trois parcours proposés. [...] | | Résultats |
+| other | Autre | Accompagnement et aménagement des études pour les sportifs de haut et bon niveau. Vous êtes sportif inscrit sur liste ministérielle, appartenant à un centre de formation ou ayant un bon niveau national ? Vous pouvez bénéficier d'un aménagement des études et d'un accompagnement par le bureau des sports tout le long de votre cursus. | | Admission |
+| pedagogy | Méthodes mobilisées | La formation s’appuie sur une pédagogie innovante, fondée sur des projets interdisciplinaires, des ateliers encadrés par des enseignants et des intervenants extérieurs issus du monde de l’entreprise, et une approche culturelle et opérationnelle des enjeux environnementaux et éthiques du numérique. | | Pédagogie |
+| prerequisites | Prérequis | La formation est ouverte aux élèves de terminale (toutes spécialités), aux titulaires du baccalauréat ou d’un diplôme équivalent (DAEU, etc.), aux étudiants de l’enseignement supérieur. | | Admission |
+| presentation | Présentation | Devenir un·e spécialiste des nouvelles technologies avec un sens aigu de la communication | | Essentiel |
+| pricing | Tarifs | Les étudiants doivent s'acquitter des droits universitaires annuels (170€ pour 2021/2022) ainsi que de la Contribution de la Vie Étudiante et de Campus (92€ pour 2021/2022). Ils doivent également justifier d'une assurance responsabilité civile. | | Admission |
+| registration | Modalités et délais d’accès | La sélection s’effectue sur dossier à partir des éléments suivants : cursus scolaire/universitaire, parcours comportant les éventuelles expériences pré-professionnelles, projet de formation motivé, réponses aux six questions complémentaires. | | Admission |
+| results | Indicateurs de résultats | | resultats-attendus | | Résultats |
+| roles | Rôles | Cheffe de département, directrice des études... | | Admission |
+| schools | Écoles proposant cette formation | IUT Bordeaux Montaigne | nom-organisme | | Essentiel |
+| teachers | Enseignants·es | Liste des enseignants, avec le nom de leurs enseignements | | Admission |
+| team | Équipe | Liste des personne dans chaque rôle | | Admission |
 
 ## Organisation
 
@@ -69,7 +68,9 @@ Variables :
 Variables :
 - registration
 - prerequisites
+- accessibility
 - pricing
+- contacts
 - roles
 - team
 - other
