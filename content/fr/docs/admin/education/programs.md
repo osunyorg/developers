@@ -47,6 +47,7 @@ Champs de la fiche technique :
 ### Présentation
 Informations détaillées sur la formation et ses objectifs. C'est l'espace permettant, en plus des variables liées à la formation, d'utiliser des blocs de façon libre.
 
+- presentation
 - objectives
 
 ### Pédagogie
