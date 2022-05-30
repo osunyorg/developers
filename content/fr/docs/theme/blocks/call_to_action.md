@@ -13,7 +13,7 @@ description: >
 ### JSON (Osuny)
 
 * text ```richtext (mini)```
-* image ```file```
+* image ```blob```
 * image_alt ```string```
 * image_credit ```string```
 * button ```string```
@@ -24,7 +24,38 @@ description: >
 * url_tertiary ```string```
 
 
+```json
+{
+  "text": "<p>Lorem ipsum</p>",
+  "image": {
+    "id": "290c9549-73a7-412c-b902-92403f486861",
+    "filename": "image.jpeg",
+    "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+  },
+  "image_alt": "Texte alternatif de l'image",
+  "image_credit": "Crédit de l'image",
+  "button": "Osuny",
+  "url": "https://www.osuny.org",
+  "button_secondary": "Noesya",
+  "url_secondary": "https://www.noesya.coop",
+  "button_tertiary": "Hugo",
+  "url_tertiary": "https://gohugo.io",
+}
+```
+
 ### Static (Hugo)
+
+* text ```richtext```
+* image ```image```
+* button ```hash```
+  * text ```string```
+  * url ```string```
+* button_secondary ```hash```
+  * text ```string```
+  * url ```string```
+* button_tertiary ```hash```
+  * text ```string```
+  * url ```string```
 
 ```
 - template: call_to_action

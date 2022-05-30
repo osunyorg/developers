@@ -15,7 +15,7 @@ description: >
 
 * text ```richtext (mini-list)```
 * notes ```richtext (mini)```
-* image ```file```
+* image ```blob```
 * image_alt ```string```
 * image_credit ```string```
 
