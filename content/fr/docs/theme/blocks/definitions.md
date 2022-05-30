@@ -17,7 +17,30 @@ description: >
   * title ```string```
   * text ```text```
 
+```json
+{
+  "elements": [
+    {
+      "title": "Nom complet",
+      "text": "Tim Berners-Lee"
+    },
+    {
+      "title": "Date de naissance",
+      "text": "8 juin 1955"
+    },
+    {
+      "title": "Entreprises",
+      "text": "CERN (1984-1994)\nWorld Wide Web Consortium\net bien d'autres..."
+    }
+  ]
+}
+```
+
 ### Static (Hugo)
+
+* ```array```
+  * title ```string```
+  * text ```text```
 
 ```
 - template: definitions
