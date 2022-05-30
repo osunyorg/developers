@@ -39,7 +39,7 @@ description: >
 * notes ```richtext```
 * image ```image```
 
-```yaml
+```
 - template: chapter
   title: >
     Chapitre 1
@@ -50,7 +50,9 @@ description: >
     notes: >-
       <p>Notes de chapitre</p>
     image:
-      file: "290c9549-73a7-412c-b902-92403f486861"
-      alt: texte alternatif de l'image
-      credit: crédit de l'image
+      id: "290c9549-73a7-412c-b902-92403f486861"
+      alt: >-
+        Texte alternatif de l'image
+      credit: >-
+        Crédit de l'image
 ```
