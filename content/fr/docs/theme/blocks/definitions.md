@@ -4,28 +4,39 @@ description: >
   Bloc pour avoir une liste de définitions
 ---
 
-## Edit
+## Présentation
 
-* title ```text```
-* list ```each```
-  * title ```text```
+Image à insérer
+
+
+## Data
+
+### JSON (Osuny)
+
+* elements ```array```
+  * title ```string```
   * text ```text```
 
-
-## Static
+### Static (Hugo)
 
 ```
 - template: definitions
   title: >
-    Définition
-  position: 9
+    Définitions
+  position: 1
   data:
     - title: >-
-        2021
+        Nom complet
       text: >-
-        Lorem ipsum
+        Tim Berners-Lee
     - title: >-
-        24M€
+        Date de naissance
       text: >-
-        Lorem
+        8 juin 1955
+    - title: >-
+        Entreprises
+      text: >-
+        CERN (1984-1994)
+        World Wide Web Consortium
+        et bien d'autres...
 ```
