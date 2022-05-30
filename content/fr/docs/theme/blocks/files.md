@@ -4,22 +4,59 @@ description: >
   Bloc pour lister des fichiers à télécharger
 ---
 
-## Edit
+## Présentation
 
-* title ```string```
-* list ```array```
-  * name ```string```
+Image à insérer
+
+
+## Data
+
+### JSON (Osuny)
+
+* elements ```array```
+  * title ```string```
   * file ```blob```
 
-## Static
+```json
+{
+  "elements": [
+    {
+      "title": "Course de 5km",
+      "file": {
+        "id": "9f2fde46-9de0-4b02-97e1-0500fc0bd2da",
+        "filename": "5k.png",
+        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+      }
+    },
+    {
+      "title": "Course de 10km",
+      "file": {
+        "id": "af05c47b-e3e2-473d-90b1-3593d53dc3a2",
+        "filename": "10k.png",
+        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+      }
+    }
+  ]
+}
+```
+
+## Static (Hugo)
+
+* files ```array```
+  * title ```string```
+  * file ```references (ActiveStorage::Blob)```
 
 ```
 - template: files
   title: >-
     Titre du bloc
   position: 1
-  files:
-    - name: >-
-        Nom du fichier
-      file: "1587c1df-f29b-451d-bddc-3295a91cf13c"
+  data:
+    files:
+      - title: >-
+          Course de 5km
+        file: "9f2fde46-9de0-4b02-97e1-0500fc0bd2da"
+      - title: >-
+          Course de 10km
+        file: "af05c47b-e3e2-473d-90b1-3593d53dc3a2"
 ```

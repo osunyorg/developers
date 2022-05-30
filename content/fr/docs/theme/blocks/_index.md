@@ -18,7 +18,7 @@ Les attributs dans le JSONB côté Osuny peuvent avoir un type parmi :
 * `boolean` : Case à cocher (vrai/faux)
 * `references (<model>)` : UUID faisant référence à un objet avec le modèle associé
   * exemple : `references (Communication::Website::Page)`
-* `blob` : Champ d'upload de fichier (pour les images notamment)
+* `blob` : Champ d'upload de fichier (pour les images notamment), représenté par un objet ayant des attributs `id`, `filename` et `signed_id`
 * `array` : Pour un tableau d'éléments
 * `hash` : Pour un objet avec des paires clé-valeur
 
@@ -33,6 +33,7 @@ Les attributs dans le YAML statique côté Hugo peuvent avoir un type parmi :
 * `references (<model>)` : Référence à un objet avec le modèle associé
   * Pour une catégorie ou une page, il s'agit du `path`
   * Pour un post, il s'agit du `slug`
+  * Pour un blob, il s'agit de l'`uuid`
 * `image` : Un objet ayant des attributs `id`, `alt` et `credit` pour représenter une image situé dans le dossier `data/medias`
 * `array` : Pour un tableau d'éléments
 * `hash` : Pour un objet avec des paires clé-valeur
