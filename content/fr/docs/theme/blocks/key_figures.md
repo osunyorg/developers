@@ -6,7 +6,7 @@ description: >
 
 ## Présentation
 
-Image à insérer
+![image](https://user-images.githubusercontent.com/7761386/171762150-456a6a1b-1268-4764-9371-0a29d10c92f2.jpg)
 
 
 ## Data
@@ -72,5 +72,4 @@ Image à insérer
 
           description: >-
             enseignant·e·s
-
 ```
