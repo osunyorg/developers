@@ -4,34 +4,73 @@ description: >
   Bloc pour avoir une liste de chiffres clés
 ---
 
-## Edit
+## Présentation
 
-* title ```text```
-* list ```each```
-  * number ```number```
-  * unit ```text```
-  * text ```text```
+Image à insérer
 
 
-## Static
+## Data
+
+### JSON (Osuny)
+
+* elements ```array```
+  * number ```integer```
+  * unit ```string```
+  * description ```string```
+
+```json
+{
+  "elements": [
+    {
+      "number": 13000,
+      "unit": "m²",
+      "description": "au centre-ville"
+    },
+    {
+      "number": 1000,
+      "unit": "",
+      "description": "étudiant·e·s"
+    },
+    {
+      "number": 300,
+      "unit": "",
+      "description": "enseignant·e·s"
+    }
+  ]
+}
+```
+
+## Static (Hugo)
+
+* figures ```array```
+  * number ```string```
+  * unit ```string```
+  * description ```string```
 
 ```
-- template: key-figures
-  title: >
+- template: key_figures
+  title: >-
     Titre du bloc
-  position: 9
+  position: 1
   data:
-    - number: >-
-        58
-      unit: >-
-        kg
-      text: >-
-        c'est peu
-    
-    - number: >-
-        1
-      unit: >-
-        tonne
-      text: >-
-        c'est beaucoup
+      figures:
+        - number: >-
+            13000
+          unit: >-
+            m²
+          description: >-
+            au centre-ville
+        - number: >-
+            1000
+          unit: >-
+
+          description: >-
+            étudiant·e·s
+        - number: >-
+            300
+          unit: >-
+
+          description: >-
+            enseignant·e·s
+
 ```
