@@ -62,6 +62,19 @@ Quelle logique ?
 
 ## Dev
 
+### Architecture
+
+Le système est développé en 3 parties :
+- blocks
+- templates
+- components
+
+Le block est enregistré en base de donnée, et contient des données json. Il fait le lien avec l'objet auquel il est ajouté, et il définit son template. C'est un objet neutre, tout le spécifique métier est défini dans le template.
+
+Le template répond à un besoin métier (un chapitre, un CTA, une galerie d'images, un organigramme...). Il définit un ensemble de components, qui vont permettre de générer les vues d'édition, de preview, d'export statique et de traduction.
+
+Le component est un objet de bas niveau, comme un champ de texte ou une valeur booléenne. Il correspond à une propriété typée, et propose un éditeur standardisé (comme simple_form), une prévisualisation et un export statique.
+
 ### Model
 
 ```
