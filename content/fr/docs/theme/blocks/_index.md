@@ -57,6 +57,8 @@ Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page plei
   ```
     image:
       id:
-      alt: >
-      credit: >
+      alt: >-
+        Texte alternatif de l'image
+      credit: >-
+        Crédit de l'image
   ```

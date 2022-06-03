@@ -44,7 +44,7 @@ description: >
 
 * files ```array```
   * title ```string```
-  * file ```references (ActiveStorage::Blob)```
+  * id ```references (ActiveStorage::Blob)```
 
 ```
 - template: files
@@ -55,8 +55,8 @@ description: >
     files:
       - title: >-
           Course de 5km
-        file: "9f2fde46-9de0-4b02-97e1-0500fc0bd2da"
+        id: "9f2fde46-9de0-4b02-97e1-0500fc0bd2da"
       - title: >-
           Course de 10km
-        file: "af05c47b-e3e2-473d-90b1-3593d53dc3a2"
+        id: "af05c47b-e3e2-473d-90b1-3593d53dc3a2"
 ```

@@ -30,7 +30,7 @@ description: >
 
 ```
 - template: embed
-  title: >
+  title: >-
     Code d'intégration HTML
   position: 1
   data:

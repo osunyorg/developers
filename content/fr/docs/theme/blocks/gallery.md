@@ -66,7 +66,7 @@ description: >
 
 ```
 - template: gallery
-  title: >
+  title: >-
     Galerie
   position: 1
   data:
@@ -74,22 +74,22 @@ description: >
       - id: "d90208f3-f694-419d-983e-17965aa0484d"
         alt: >-
           Texte alternatif de la photo
-        credit: >
+        credit: >-
           Photo par Alisa Anton
-        text: >
+        text: >-
           Petit café, petit livre
       - id: "dc9cde16-4f76-45ed-85fa-3a61d0b1e356"
         alt: >-
           Texte alternatif de la photo
-        credit: >
+        credit: >-
           Photo par Joseph Ashraf
-        text: >
+        text: >-
           Pyramides en Egypte
       - id: "2dc69784-f6e7-46a0-a3f8-80800374c4d4"
         alt: >-
           Texte alternatif de la photo
-        credit: >
+        credit: >-
           Photo par Verstappen
-        text: >
+        text: >-
           Tour au coucher de soleil
 ```
