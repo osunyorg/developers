@@ -1,26 +1,45 @@
 ---
 title: "Vidéo"
 description: >
-  Bloc pour afficher un embed
+  Bloc pour afficher une vidéo en embed
 ---
 
-## Edit
+## Présentation
 
-* titrle ```string```
-* url ```url```
-* transcription ```textarea```
+Image à insérer
 
-## Static
 
-Osuny renvoie l'url entrée par l'utilisateur, c'est le thème Hugo qui crée le code embed qui permet de modifier le type d'intégration en front.
+## Data
+
+### JSON (Osuny)
+
+* url ```string```
+* transcription ```text```
+
+```json
+{
+  "url": "https://vimeo.com/679674827",
+  "transcription": "Ceci est le texte de transcription de la vidéo qui rend le contenu accessible (RGAA)"
+}
+```
+
+### Static (Hugo)
+
+* url ```string```
+* transcription ```text```
 
 ```
 - template: video
   title: >-
     Titre du bloc
   position: 1
-  url: >-
-    https://vimeo.com/679674827
-  transcription: >-
-    Ceci est le texte de transcription de la vidéo qui rend le contenu accessible (RGAA)
+  data:
+    url: >-
+      https://vimeo.com/679674827
+    transcription: >-
+      Ceci est le texte de transcription de la vidéo qui rend le contenu accessible (RGAA)
 ```
+
+#### Notes
+
+Osuny renvoie l'URL entrée par l'utilisateur, c'est le thème Hugo qui crée le code embed qui permet de modifier le type d'intégration en front.
