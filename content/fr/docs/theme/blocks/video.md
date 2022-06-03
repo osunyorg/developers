@@ -6,7 +6,7 @@ description: >
 
 ## Présentation
 
-Image à insérer
+![image](https://user-images.githubusercontent.com/7761386/171763027-63e90433-9f33-4e63-a543-8e6dffee7641.jpg)
 
 
 ## Data
