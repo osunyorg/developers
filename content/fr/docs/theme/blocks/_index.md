@@ -16,6 +16,7 @@ Les attributs dans le JSONB côté Osuny peuvent avoir un type parmi :
 * `integer` : Champ de nombre entier
 * `float` : Champ de nombre décimal
 * `boolean` : Case à cocher (vrai/faux)
+* `enum (<value1>, <value2>[, ...])` : Enumération de valeurs possibles
 * `references (<model>)` : UUID faisant référence à un objet avec le modèle associé
   * exemple : `references (Communication::Website::Page)`
 * `blob` : Champ d'upload de fichier (pour les images notamment), représenté par un objet ayant des attributs `id`, `filename` et `signed_id`
@@ -56,6 +57,8 @@ Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page plei
   ```
     image:
       id:
-      alt: >
-      credit: >
+      alt: >-
+        Texte alternatif de l'image
+      credit: >-
+        Crédit de l'image
   ```

@@ -44,7 +44,7 @@ description: >
 
 ```
 - template: definitions
-  title: >
+  title: >-
     Définitions
   position: 1
   data:

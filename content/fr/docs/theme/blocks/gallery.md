@@ -9,59 +9,87 @@ description: >
 ![image](https://user-images.githubusercontent.com/4457294/160696042-2ef6aa5d-3135-4c60-ab8b-c373743220cf.png)
 
 
-## Edit
+## Data
 
-* titre ```text```
-* image ```each```
-  * fichier ```file```
-  * alt ```text```
+### JSON (Osuny)
+
+* layout ```enum (grid, carousel)```
+* elements ```array```
+  * file ```blob```
+  * alt ```string```
+  * credit ```string```
   * text ```text```
 
-## Static
+```json
+{
+  "layout": "grid",
+  "elements": [
+    {
+      "file": {
+        "id": "d90208f3-f694-419d-983e-17965aa0484d",
+        "filename": "alisa-anton-JhxGkGgd3Sw-unsplash-1920.jpg",
+        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+      },
+      "alt": "Texte alternatif de la photo",
+      "credit": "Photo par Alisa Anton",
+      "text": "Petit café, petit livre"
+    },
+    {
+      "file": {
+        "id": "dc9cde16-4f76-45ed-85fa-3a61d0b1e356",
+        "filename": "joseph-ashraf-pNWa4OOIEa8-unsplash-1920.jpg",
+        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+      },
+      "alt": "Texte alternatif de la photo",
+      "credit": "Photo par Joseph Ashraf",
+      "text": "Pyramides en Egypte"
+    },
+    {
+      "file": {
+        "id": "2dc69784-f6e7-46a0-a3f8-80800374c4d4",
+        "filename": "verstappen-photography-HSzG00PhyPc-unsplash-1920.jpg",
+        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
+      },
+      "alt": "Texte alternatif de la photo",
+      "credit": "Photo par Verstappen",
+      "text": "Tour au coucher de soleil"
+    }
+  ]
+}
+```
+
+### Static (Hugo)
+
+* images ```array```
+  * ```image```
+  * text ```text```
 
 ```
 - template: gallery
-  title: >
+  title: >-
     Galerie
-  position: 4
+  position: 1
   data:
     images:
-      - file: "1587c1df-f29b-451d-bddc-3295a91cf13c"
-        alt: >
-          Alex
-        credit: >
-          
-        text: >
-          
-        
-      - file: "fb6b1c64-3637-4505-9c80-72ad66660dce"
-        alt: >
-          Arnaud
-        credit: >
-          
-        text: >
-          
-        
-      - file: "25502e1a-5ba9-4aca-bef3-54c6568126b1"
-        alt: >
-          Pierre-André
-        credit: >
-          
-        text: >
-          
-        
-      - file: "f529b69c-4513-4596-a39f-c7243e19ed2e"
-        alt: >
-          Sébastien
-        credit: >
-          
-        text: >
-          
-        
-      - file: "4a59a173-f3a4-468b-8e8c-4baea360769e"
-        alt: >
-          Sébastien
-        credit: >
-          
-        text: >
+      - id: "d90208f3-f694-419d-983e-17965aa0484d"
+        alt: >-
+          Texte alternatif de la photo
+        credit: >-
+          Photo par Alisa Anton
+        text: >-
+          Petit café, petit livre
+      - id: "dc9cde16-4f76-45ed-85fa-3a61d0b1e356"
+        alt: >-
+          Texte alternatif de la photo
+        credit: >-
+          Photo par Joseph Ashraf
+        text: >-
+          Pyramides en Egypte
+      - id: "2dc69784-f6e7-46a0-a3f8-80800374c4d4"
+        alt: >-
+          Texte alternatif de la photo
+        credit: >-
+          Photo par Verstappen
+        text: >-
+          Tour au coucher de soleil
 ```

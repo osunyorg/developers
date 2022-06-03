@@ -41,7 +41,7 @@ description: >
 
 ```
 - template: chapter
-  title: >
+  title: >-
     Chapitre 1
   position: 1
   data:

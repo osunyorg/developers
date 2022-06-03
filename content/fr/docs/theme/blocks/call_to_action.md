@@ -59,7 +59,7 @@ description: >
 
 ```
 - template: call_to_action
-  title: >
+  title: >-
     CTA
   position: 1
   data:
