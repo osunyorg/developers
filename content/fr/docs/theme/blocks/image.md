@@ -14,8 +14,8 @@ description: >
 ### JSON (Osuny)
 
 * image ```blob```
-* image_alt ```string```
-* image_credit ```string```
+  * alt ```string```
+  * credit ```string```
 * text ```richtext (mini)```
 
 ```json
@@ -25,8 +25,8 @@ description: >
     "filename": "picture.jpeg",
     "signed_id": "eyJfcmFpbHMiOnsibWVz..."
   },
-  "image_alt": "Un paysage verdoyant",
-  "image_credit": "Photo par Jean Dupont",
+  "alt": "Un paysage verdoyant",
+  "credit": "Photo par Jean Dupont",
   "text": "<p>Image d'exemple</p>"
 }
 ```
@@ -38,16 +38,23 @@ description: >
 
 ```
 - template: image
-  title: >-
-    Titre du bloc
-  position: 1
-  data:
-    text: >-
-      <p>Image d'exemple</p>
-    image:
-      id: "1587c1df-f29b-451d-bddc-3295a91cf13c"
-      alt: >-
-        Un paysage verdoyant
-      credit: >-
-        Photo par Jean Dupont
+    title: >-
+      Titre du bloc
+    position: 1
+    data:
+      text: >-
+        Image d'exemple
+
+
+      image:
+        id: "1587c1df-f29b-451d-bddc-3295a91cf13c"
+        file: "dfd1162d-e3d0-43b0-a7ff-6d3c5749dc2b"
+
+
+        alt: >-
+          Un paysage verdoyant
+
+
+        credit: >-
+          <p>Photo par Jean Dupont</p>
 ```

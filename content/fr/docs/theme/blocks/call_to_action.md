@@ -14,32 +14,38 @@ description: >
 
 * text ```richtext (mini)```
 * image ```blob```
-* image_alt ```string```
-* image_credit ```string```
-* button ```string```
-* url ```string```
-* button_secondary ```string```
-* url_secondary ```string```
-* button_tertiary ```string```
-* url_tertiary ```string```
-
+  * alt ```string```
+  * credit ```richtext```
+* elements
+  * title ```string```
+  * url ```string```
+  * target_blank ```boolean```
 
 ```json
 {
-  "text": "<p>Lorem ipsum</p>",
+  "elements": [
+    {
+      "title": "Osuny", 
+      "url": "https://www.osuny.org", 
+      "target_blank": false
+    }, {
+      "title": "Noesya", 
+      "url": "https://www.noesya.coop", 
+      "target_blank": true
+      }, {
+        "title": "Hugo", 
+        "url": "https://gohugo.io", 
+        "target_blank" : false
+    },
+  ], 
+  "text": "<p>Lorem ipsum</p>", 
   "image": {
-    "id": "290c9549-73a7-412c-b902-92403f486861",
-    "filename": "image.jpeg",
-    "signed_id": "eyJfcmFpbHMiOnsibWVz..."
-  },
-  "image_alt": "Texte alternatif de l'image",
-  "image_credit": "Crédit de l'image",
-  "button": "Osuny",
-  "url": "https://www.osuny.org",
-  "button_secondary": "Noesya",
-  "url_secondary": "https://www.noesya.coop",
-  "button_tertiary": "Hugo",
-  "url_tertiary": "https://gohugo.io",
+    "id": "2a8c2241-04c5-4ff3-aa0b-a1240155f1f4", 
+    "filename": "ios-14-blue-and-pink-abstract-fnkg9z594gq55bfl.jpg", 
+    "signed_id" :"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWt5WVRoak1..."
+    }, 
+    "alt": "Texte alternatif de l'image", 
+    "credit": "<p>Crédit de l'image</p>",
 }
 ```
 
@@ -47,43 +53,65 @@ description: >
 
 * text ```richtext```
 * image ```image```
-* button ```hash```
+* buttons ```hash```
+  * title ```string```
   * text ```string```
   * url ```string```
-* button_secondary ```hash```
-  * text ```string```
-  * url ```string```
-* button_tertiary ```hash```
-  * text ```string```
-  * url ```string```
+  * target_blank ```boolean```
 
 ```
 - template: call_to_action
-  title: >-
-    CTA
-  position: 1
-  data:
-    text: >-
-      <p>Lorem ipsum</p>
-    image:
-      id: "7ce9ae91-3c9a-4700-ac2d-157df2e88855"
+    title: >-
+      CTA
+    position: 1
+    data:
+      text: >-
+        <p>Lorem ipsum</p>
+
+
+      image:
+        id: "7ce9ae91-3c9a-4700-ac2d-157df2e88855"
+        file: "2a8c2241-04c5-4ff3-aa0b-a1240155f1f4"
+
+
       alt: >-
         Texte alternatif de l'image
+
+
       credit: >-
-        Crédit de l'image
-    button:
-      text: >-
-        Osuny
-      url: >-
-        https://www.osuny.org
-    button_secondary:
-      text: >-
-        Noesya
-      url: >-
-        https://www.noesya.coop
-    button_tertiary:
-      text: >-
-        Hugo
-      url: >-
-        https://gohugo.io
+        <p>Crédit de l'image</p>
+
+
+      buttons:
+        - title: >-
+            Osuny
+
+
+          url: >-
+            https://www.osuny.org
+
+
+          target_blank: false
+
+
+        - title: >-
+            Noesya
+
+
+          url: >-
+            https://www.noesya.coop
+
+
+          target_blank: true
+
+
+        - title: >-
+            Hugo
+
+
+          url: >-
+            https://gohugo.io
+
+
+          target_blank: true
 ```
