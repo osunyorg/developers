@@ -43,7 +43,7 @@ description: >
 - template: chapter
     title: >-
       Un bloc chapter
-    position: 2
+    position: 1
     data:
       text: >-
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id felis et nunc euismod consectetur. Maecenas eu tortor nunc. Duis aliquet mauris mauris, in fermentum ex tempus sed.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id felis et nunc euismod consectetur. Maecenas eu tortor nunc. Duis aliquet mauris mauris, in fermentum ex tempus sed.<br></p>

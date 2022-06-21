@@ -41,7 +41,7 @@ Il y a un enjeu d’accessibilité sur ce sujet (caption, th, scope…). Bloc à
 - template: datatable
     title: >-
       Titre du bloc
-    position: 3
+    position: 1
     data:
 
       columns: ["Colonne 1", "Colonne 2"]

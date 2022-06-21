@@ -69,7 +69,7 @@ description: >
 - template: gallery
     title: >-
       Galerie
-    position: 7
+    position: 1
     data:
       description: >-
         <p>Description de la galerie et de son contenu.</p>

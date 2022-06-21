@@ -17,7 +17,7 @@ description: >
 - template: posts
   title: >
     actualités
-  position: 7
+  position: 1
   data:
     posts:
       - covid-19-informations-vaccination

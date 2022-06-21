@@ -15,22 +15,22 @@ description: >
 
 * elements ```array```
   * title ```string```
-  * text ```text```
+  * description ```text```
 
 ```json
 {
   "elements": [
     {
       "title": "Nom complet",
-      "text": "Tim Berners-Lee"
+      "description": "Tim Berners-Lee"
     },
     {
       "title": "Date de naissance",
-      "text": "8 juin 1955"
+      "description": "8 juin 1955"
     },
     {
       "title": "Entreprises",
-      "text": "CERN (1984-1994)\nWorld Wide Web Consortium\net bien d'autres..."
+      "description": "CERN (1984-1994)\nWorld Wide Web Consortium\net bien d'autres..."
     }
   ]
 }
@@ -38,28 +38,39 @@ description: >
 
 ### Static (Hugo)
 
-* ```array```
+* elements ```array```
   * title ```string```
-  * text ```text```
+  * description ```text```
 
 ```
-- template: definitions
-  title: >-
-    Définitions
-  position: 1
-  data:
-    - title: >-
-        Nom complet
-      text: >-
-        Tim Berners-Lee
-    - title: >-
-        Date de naissance
-      text: >-
-        8 juin 1955
-    - title: >-
-        Entreprises
-      text: >-
-        CERN (1984-1994)
-        World Wide Web Consortium
-        et bien d'autres...
+ - template: definitions
+    title: >-
+      Un bloc définitions
+    position: 1
+    data:
+      elements:
+        - title: >-
+            Nom complet
+
+
+          description: >-
+            Tim Berners-Lee
+
+
+        - title: >-
+            Date de naissance
+
+
+          description: >-
+            8 juin 1955
+
+
+        - title: >-
+            Entreprises
+
+
+          description: >-
+            CERN (1984-1994)
+            World Wide Web Consortium
+            et bien d'autres...
 ```

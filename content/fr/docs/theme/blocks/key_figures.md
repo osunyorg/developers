@@ -51,7 +51,7 @@ description: >
 - template: key_figures
     title: >-
       Titre du bloc
-    position: 9
+    position: 1
     data:
       figures:
         - number: 13000

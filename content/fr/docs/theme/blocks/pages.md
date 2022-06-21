@@ -19,7 +19,7 @@ description: >
 - template: pages
   title: >
     Team
-  position: 11
+  position: 1
   data:
     page: /equipe/
     show_descriptions: true
