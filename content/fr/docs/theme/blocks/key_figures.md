@@ -49,26 +49,36 @@ description: >
 
 ```
 - template: key_figures
-  title: >-
-    Titre du bloc
-  position: 1
-  data:
+    title: >-
+      Titre du bloc
+    position: 9
+    data:
       figures:
-        - number: >-
-            13000
+        - number: 13000
+
           unit: >-
             m²
+
+
           description: >-
             au centre-ville
-        - number: >-
-            1000
+
+
+        - number: 1000
+
           unit: >-
+            
+
 
           description: >-
             étudiant·e·s
-        - number: >-
-            300
+
+
+        - number: 300
+
           unit: >-
+            
+
 
           description: >-
             enseignant·e·s
