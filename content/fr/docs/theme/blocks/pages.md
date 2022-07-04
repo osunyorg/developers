@@ -44,3 +44,11 @@ description: >
 ```
 
 > La clé *slug* devra être remplacée par *page* 
+
+
+## Configuration style
+
+```(sass)
+// _theme/_default_config.sass
+$block-pages-card-background: #f8f9fa !default
+```
