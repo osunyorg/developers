@@ -22,7 +22,7 @@ description: >
 - template: partners
   title: >
     Partenaires
-  position: 5
+  position: 1
   data:
     - name: >
         Noesya

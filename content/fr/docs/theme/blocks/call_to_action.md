@@ -4,45 +4,114 @@ description: >
   Bloc call to action
 ---
 
-## Exemples
+## Présentation
 
-https://blog.hubspot.com/marketing/call-to-action-examples
+![image](https://user-images.githubusercontent.com/7761386/170986725-a100f286-1f00-4ad0-9f7e-01bc2a47a48c.jpg)
 
-## Edit
+## Data
 
-* titre ```text```
-* contenu ```summernote_light```
-* image ```file```
-* 2 boutons :
-  * lien ```url```
-  * nom du bouton ```text```
+### JSON (Osuny)
 
-## Static
+* text ```richtext (mini)```
+* image ```blob```
+  * alt ```string```
+  * credit ```richtext```
+* elements
+  * title ```string```
+  * url ```string```
+  * target_blank ```boolean```
+
+```json
+{
+  "elements": [
+    {
+      "title": "Osuny", 
+      "url": "https://www.osuny.org", 
+      "target_blank": false
+    }, {
+      "title": "Noesya", 
+      "url": "https://www.noesya.coop", 
+      "target_blank": true
+      }, {
+        "title": "Hugo", 
+        "url": "https://gohugo.io", 
+        "target_blank" : false
+    },
+  ], 
+  "text": "<p>Lorem ipsum</p>", 
+  "image": {
+    "id": "2a8c2241-04c5-4ff3-aa0b-a1240155f1f4", 
+    "filename": "ios-14-blue-and-pink-abstract-fnkg9z594gq55bfl.jpg", 
+    "signed_id" :"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWt5WVRoak1..."
+    }, 
+    "alt": "Texte alternatif de l'image", 
+    "credit": "<p>Crédit de l'image</p>",
+}
+```
+
+### Static (Hugo)
+
+* text ```richtext```
+* image ```image```
+* buttons ```hash```
+  * title ```string```
+  * text ```string```
+  * url ```string```
+  * target_blank ```boolean```
 
 ```
 - template: call_to_action
-    title: >
+    title: >-
       CTA
-    position: 8
+    position: 1
     data:
       text: >-
         <p>Lorem ipsum</p>
+
+
       image:
-        file: "7ce9ae91-3c9a-4700-ac2d-157df2e88855"
-        alt: Alternatif text
-      button:
-        text: >-
-          noesya
-        url: >-
-          https://noesya.coop
-      button_secondary:
-        text: >-
-          noesya
-        url: >-
-          https://noesya.coop
-      button_tertiary:
-        text: >-
-          noesya
-        url: >-
-          https://noesya.coop
+        id: "7ce9ae91-3c9a-4700-ac2d-157df2e88855"
+        file: "2a8c2241-04c5-4ff3-aa0b-a1240155f1f4"
+
+
+      alt: >-
+        Texte alternatif de l'image
+
+
+      credit: >-
+        <p>Crédit de l'image</p>
+
+
+      buttons:
+        - title: >-
+            Osuny
+
+
+          url: >-
+            https://www.osuny.org
+
+
+          target_blank: false
+
+
+        - title: >-
+            Noesya
+
+
+          url: >-
+            https://www.noesya.coop
+
+
+          target_blank: true
+
+
+        - title: >-
+            Hugo
+
+
+          url: >-
+            https://gohugo.io
+
+
+          target_blank: true
 ```

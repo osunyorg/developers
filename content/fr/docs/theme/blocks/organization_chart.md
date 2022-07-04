@@ -21,7 +21,7 @@ description: >
 - template: organization_chart
   title: >
     Organigramme
-  position: 6
+  position: 1
   data:
     - slug: "alexis-benoit"
       role: >
