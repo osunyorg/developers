@@ -14,90 +14,124 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
 
 ```
 |-- assets/
-    |-- main.sass
-    |-- _theme/
-        |-- hugo-osuny.sass
-        |-- _default/
-        |   |-- abstracts/
-        |   |   |-- _functions.sass
-        |   |   |-- _icons.sass
-        |   |   |-- _mixins.sass
-        |   |-- base/
-        |   |   |-- _defaults.sass
-        |   |   |-- _fonts-icons.sass
-        |   |   |-- _fonts.sass
-        |   |   |-- _typography.sass
-        |   |-- configuration/
-        |   |   |-- _site.sass              # Ce fichier de variables est destiné à être overridé 
-        |   |   |-- _theme.sass             # Ce fichier ne doit pas être overridé car il contient les variables du thème nécessaires à son fonctionnement. Ce fichier importe "_site.sass" ce qui permet un override et un ordre d'appel fonctionnel.
-        |   |-- layouts/
-        |   |   |-- _footer.sass
-        |   |   |-- _header.sass
-        |   |   |-- _main.sass
-        |   |   …
-        |   |-- partials/
-        |       |-- _avatar.sass
-        |       |-- _contacts-list.sass
-        |       |-- _featured-image.sass
-        |       |-- _footer-nav-expand.sass
-        |       |-- _hero.sass
-        |       …
-        |-- _vendors
-        |   |-- bootstrap
-        |   |   |-- _blockquote.sass
-        |   |   |-- _breadcrumb.sass
-        |   |   |-- _btn.sass
-        |   |   …
-        |   |-- splide
-        |       |-- _splide.sass
-        |   |-- glightbox
-        |       |-- _glightbox.sass
-        |-- administrators
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- articles
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- authors
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- blocks                          # Nous avons fait le choix de placer les blocks au même niveau que les modèles car ceci contient des informations proopre
-        |   |-- _blocks.sass
-        |   |-- _call_to_action.sass
-        |   |-- _chapter.sass
-        |   |-- _gallery.sass
-        |   …
-        |-- categories
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- home
-        |   |-- _pages.sass
-        |-- organizations
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- pages
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- persons
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- posts
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- programs
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- researchers
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- sitemap
-        |   |-- _pages.sass
-        |-- teachers
-        |   |-- _pages.sass
-        |   |-- _widgets.sass
-        |-- volumes
-            |-- _pages.sass
-            |-- _widgets.sass
+    |____main.sass
+    |_____theme
+    | |____organizations
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____researchers
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____home
+    | | |_____pages.sass
+    | |____posts
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____diplomas
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____authors
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____articles
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____sitemap
+    | | |_____pages.sass
+    | |____teachers
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |_____default_config.sass
+    | |____hugo-osuny.sass
+    | |____programs
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |_____utils.sass
+    | |____persons
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____volumes
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____pages
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____categories
+    | | |_____pages.sass
+    | | |_____widgets.sass
+    | |____partials
+    | | |____blocks
+    | | | |_____blocks.sass
+    | | | |_____definitions.sass
+    | | | |_____embed.sass
+    | | | |_____chapter.sass
+    | | | |_____gallery.sass
+    | | | |_____organization_chart.sass
+    | | | |_____partners.sass
+    | | | |_____key_figures.sass
+    | | | |_____timeline.sass
+    | | | |_____testimonials.sass
+    | | | |_____pages.sass
+    | | | |_____image.sass
+    | | | |_____files.sass
+    | | | |_____contact.sass
+    | | | |_____video.sass
+    | | | |_____posts.sass
+    | | | |_____datatable.sass
+    | | | |_____call_to_action.sass
+    | | |____footer
+    | | | |_____footer-nav-expand.sass
+    | | | |_____footer.sass
+    | | | |_____gdpr.sass
+    | | |____posts
+    | | | |_____related.sass
+    | | |____body
+    | | | |_____content.sass
+    | | | |_____grid.sass
+    | | | |_____link.sass
+    | | | |_____icons.sass
+    | | | |_____typography.sass
+    | | | |_____top.sass
+    | | | |_____featured-image.sass
+    | | | |_____global.sass
+    | | | |_____main.sass
+    | | |____a11y
+    | | | |_____nav-accessibility.sass
+    | | | |_____transcription.sass
+    | | |____persons
+    | | | |_____contacts-list.sass
+    | | | |_____avatar.sass
+    | | |____nav
+    | | | |_____menu.sass
+    | | | |_____menu-expand.sass
+    | | | |_____sticky.sass
+    | | | |_____toc.sass
+    | | |____header
+    | | | |_____hero.sass
+    | | | |_____header.sass
+    | | |____share
+    | | | |_____share.sass
+    | | | |_____dropdown-share.sass
+    | |_____vendors
+    | | |____bootstrap
+    | | | |_____card.sass
+    | | | |_____pagination.sass
+    | | | |_____nav.sass
+    | | | |_____dropdown.sass
+    | | | |_____modal.sass
+    | | | |_____row.sass
+    | | | |_____breadcrumb.sass
+    | | | |_____offcanvas.sass
+    | | | |_____blockquote.sass
+    | | | |_____btn.sass
+    | | | |_____table.sass
+    | | |____glightbox
+    | | | |_____glightbox.sass
+    | | |____splide
+    | | | |_____splide.sass
+    | |____administrators
+    | | |_____pages.sass
+    | | |_____widgets.sass
 ```
 
 ### L'organisation des fichiers de style :
@@ -107,15 +141,9 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
     1. _pages.sass : les styles concernants les pages propres au modèle (index / show / term...)
     2. _widgets.sass : les styles concernants les partials relatif au model.
     
-2. Un dossier **_default**, contenant tout le style propre aux éléments de mise en page qui ne possède pas de contenu/type propre. À l’intérieur, une découpe par fichier :
-    1. *abstracts* : tout le style qui ne générera pas de css (variables, functions, mixins...)
-    2. *base* : tout ce qui concerne la base du site (le design system typographic, les familles de typo, les icons, les states généraux — ::selection, ::hover...)
-    3. *blocks* : le style propre aux blocks qui composent les pages —> **à déplacer à la racine de _theme ?** Certains blocks contiennent du contenu propre mais d’autres servent à de la mise en page 
-    4. *layouts* : le style concernant les contenants uniquement, ils servent généralement à assembler des components/partials 
-    5. *partials*: le style concernant les components ou petits éléments génériques (liens, icônes, breadcrumbs...)
-    6. un fichier *_configurations* : il faut ici mettre les configurations pour facilement overrider un thème sans entrer dans tous les fichiers
-3. Un dossier **_vendors**, contenant les overrides des librairies utilisées (bootstrap / splide). Le restant des librairies est installé via npm.
+2. 
 
+3. Un dossier **_vendors**, contenant les overrides des librairies utilisées (bootstrap / splide). Le restant des librairies est installé via npm.
 
 4. Scoper le style du thème dans un dossier _theme pour faciliter la compréhension de l’override du thème et supprimer le dossier _custom. Cela permet de mieux ordonner le sass et de ne pas mélanger la création et l’ajout de nouveaux fichiers au site.
 
