@@ -141,7 +141,7 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
     1. _pages.sass : les styles concernants les pages propres au modèle (index / show / term...)
     2. _widgets.sass : les styles concernants les partials relatif au model.
     
-2. 
+2. Le fichier de configuration principale : _configuration.sass
 
 3. Un dossier **_vendors**, contenant les overrides des librairies utilisées (bootstrap / splide). Le restant des librairies est installé via npm.
 
