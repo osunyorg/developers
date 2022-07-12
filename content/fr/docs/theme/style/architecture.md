@@ -16,6 +16,8 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
 |-- assets/
     |____main.sass
     |_____theme
+    | |____default_config.sass
+    | |____utils.sass
     | |____organizations
     | | |_____pages.sass
     | | |_____widgets.sass
@@ -41,12 +43,10 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
     | |____teachers
     | | |_____pages.sass
     | | |_____widgets.sass
-    | |_____default_config.sass
     | |____hugo-osuny.sass
     | |____programs
     | | |_____pages.sass
     | | |_____widgets.sass
-    | |_____utils.sass
     | |____persons
     | | |_____pages.sass
     | | |_____widgets.sass
@@ -144,6 +144,7 @@ Essayer de rendre plus similaire l'organisation des fichiers de style et ceux de
 2. 
 
 3. Un dossier **_vendors**, contenant les overrides des librairies utilisées (bootstrap / splide). Le restant des librairies est installé via npm.
+
 
 4. Scoper le style du thème dans un dossier _theme pour faciliter la compréhension de l’override du thème et supprimer le dossier _custom. Cela permet de mieux ordonner le sass et de ne pas mélanger la création et l’ajout de nouveaux fichiers au site.
 
