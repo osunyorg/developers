@@ -51,14 +51,14 @@ $block-call-to-action-color: white !default
 
 #### Block pages
 
+###### Layout cards
+
 Permet de changer la couleur de fond du block
 
 ```(sass)
 // block pages layout cards
 $block-pages-card-background: #F8F9FA !default
 ````
-
-###### Layout cards
 
 Permet de changer les couleurs des cartes
 
