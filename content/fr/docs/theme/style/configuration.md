@@ -51,7 +51,7 @@ $block-call-to-action-color: white !default
 
 #### Block pages
 
-###### Layout cards
+##### Layout cards
 
 Permet de changer la couleur de fond du block
 
@@ -76,7 +76,7 @@ $block-pages-card-page-background-hover: $primary !default
 $block-pages-card-page-color-hover: white !default
 ```
 
-###### Layout list
+##### Layout list
 
 Permet de changer la transition de l'animation des flèches
 
@@ -87,7 +87,7 @@ $arrow-ease-transition-2: cubic-bezier(0, 0.65, 0.4, 1)
 
 #### Block timeline
 
-###### Layout horizontal
+##### Layout horizontal
 
 Permet de changer la couleur de fond du block
 
