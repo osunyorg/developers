@@ -58,3 +58,17 @@ Pour assigner une valeur (width, padding...) d'un nombre de colonnes, on utilise
 ```
 
 > Faut-il aussi gérer le breakpoint dans le mixin ?
+
+Création d'un mixin **button-reset** qui efface les propriétés par défaut des boutons :
+
+```
+@mixin button-reset
+    background: transparent
+    border: none
+    cursor: pointer
+    &:active, &:focus
+        box-shadow: 0 0 0 0.25rem rgba($main-color, 0.25)
+        outline: 0
+```
+
+> Enjeu pour la transcription : Est-ce que cela restera un bouton ? Possibilité d'utiliser **<details>** pour le collapse.
