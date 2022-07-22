@@ -71,4 +71,4 @@ Création d'un mixin **button-reset** qui efface les propriétés par défaut de
         outline: 0
 ```
 
-> Enjeu pour la transcription : Est-ce que cela restera un bouton ? Possibilité d'utiliser **<details>** pour le collapse.
+> Enjeu pour la transcription : Est-ce que cela restera un bouton ? Possibilité d'utiliser ```<details>``` pour le collapse.
