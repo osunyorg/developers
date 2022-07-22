@@ -26,15 +26,35 @@ Pour placer un container (goutières latérales et max-width)
 ```
 
 
+Usage des colonnages avec CSS Grid.
+
+Utilise le mixin **grid**, avec le nombre de colonnes voulues, et à quel breakpoint. Par défaut, pas de grid sous le breakpoint **md**
+
 ```
 @mixin grid($cols: 12, $breakpoint: md)
     @include media-breakpoint-up($breakpoint)
         display: grid
         grid-gap: 0 $grid-gutter
         grid-template-columns: repeat($cols, 1fr)
+```
 
+> Problème : il faut mettre les appels avec des breakpoints dans l'ordre croissant de largeur. 
+> Faut-il vraiment gérer le breakpoint dans le mixin ?
+> Par exemple, on veut 3 posts côte à côte en **xl**, et 2 en **md** :
+> ```
+> .posts
+>    @include grid(2)
+>    @include grid(3, xl)
+> ```
+
+
+Pour assigner une valeur (width, padding...) d'un nombre de colonnes, on utilise le mixin **col**
+
+```
 @function col($nb, $base: 12)
     $nb: $nb/$base * 12
     $nbCol: calc( (100% + #{$grid-gutter}) / 12 * #{$nb} )
     @return #{$nbCol}
 ```
+
+> Faut-il aussi gérer le breakpoint dans le mixin ?
