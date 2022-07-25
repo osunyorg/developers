@@ -62,10 +62,12 @@ Pour assigner une valeur (width, padding...) d'un nombre de colonnes, on utilise
 Création d'un mixin **button-reset** qui efface les propriétés par défaut des boutons :
 
 ```
-@mixin button-reset
+ appearance: none
     background: transparent
     border: none
+    border-radius: 0
     cursor: pointer
+    user-select: none
     &:active, &:focus
         box-shadow: 0 0 0 0.25rem rgba($main-color, 0.25)
         outline: 0
