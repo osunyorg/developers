@@ -4,28 +4,73 @@ description: >
   Bloc pour avoir une liste de définitions
 ---
 
-## Edit
+## Présentation
 
-* title ```text```
-* list ```each```
-  * title ```text```
-  * text ```text```
+![image](https://user-images.githubusercontent.com/7761386/170989374-8b73382d-50d2-4f52-918d-70f19e26c58c.jpg)
 
 
-## Static
+## Data
+
+### JSON (Osuny)
+
+* elements ```array```
+  * title ```string```
+  * description ```text```
+
+```json
+{
+  "elements": [
+    {
+      "title": "Nom complet",
+      "description": "Tim Berners-Lee"
+    },
+    {
+      "title": "Date de naissance",
+      "description": "8 juin 1955"
+    },
+    {
+      "title": "Entreprises",
+      "description": "CERN (1984-1994)\nWorld Wide Web Consortium\net bien d'autres..."
+    }
+  ]
+}
+```
+
+### Static (Hugo)
+
+* elements ```array```
+  * title ```string```
+  * description ```text```
 
 ```
-- template: definitions
-  title: >
-    Définition
-  position: 9
-  data:
-    - title: >-
-        2021
-      text: >-
-        Lorem ipsum
-    - title: >-
-        24M€
-      text: >-
-        Lorem
+ - template: definitions
+    title: >-
+      Un bloc définitions
+    position: 1
+    data:
+      elements:
+        - title: >-
+            Nom complet
+
+
+          description: >-
+            Tim Berners-Lee
+
+
+        - title: >-
+            Date de naissance
+
+
+          description: >-
+            8 juin 1955
+
+
+        - title: >-
+            Entreprises
+
+
+          description: >-
+            CERN (1984-1994)
+            World Wide Web Consortium
+            et bien d'autres...
 ```

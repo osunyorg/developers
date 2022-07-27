@@ -2,17 +2,83 @@
 title: Blocs de contenu
 ---
 
-Blocs de contenus ajoutés à un objet (page, post, program...),
-avec des templates (organigramme, partenaires...).
+Les blocs sont des éléments narratifs qui s'ajoutent à un objet pour le raconter :
+sur une page ou une actualité dans un site Web,
+sur une formation (dans un site d'école)
+sur une école (dans un site d'université)
+sur une personne (dans un site).
 
-Il faut lister les dépendances des blocs et les ajouter à l'objet about.
+Les blocs répondent à des besoins plus ou moins sophistiqués, allant d'une image (avec son crédit, son texte alternatif et son alt) à un organigramme faisant référence à des personnes.
+
+Nous utilisons des blocs notamment pour minimiser l'utilisation des éditeurs wysiwyg, qui génèrent du code problématique (HTML non valide).
+De plus, ce fonctionnement permet de gérer finement les enjeux d'accessibilité, et les comportements spécifiques (ex: actualités).
+
+Pour faire fonctionner les blocs, il faut :
+1. un éditeur
+2. un modèle qui liste les dépendances
+3. un export statique
+4. une prévisualisation (mobile, offcanvas)
+5. une gestion des traductions
+
+## 1. Editeur
+
+Les éditeurs sont codés en Vue (parce qu'Angularjs est mort), et doivent permettre une variété d'entrées :
+- chaîne de caractère (input text)
+- texte long (textarea)
+- texte rich (summernote, simple [b, i, ul, ol, a])
+- sélecteur natif HTML
+- sélecteur custom (liste de layouts)
+- nombre
+- case à cocher
+- upload de fichiers
+- éditeur d'objets composites (ex: images dans une galerie)
+
+## 2. Modèle
+
+Le modèle permet de :
+- enregistrer les données json dans la base
+- sanitizer
+- encapsuler les logiques métiers (ex: les partenaires libres vs organisations, les articles non publiés...)
+- lister les dépendances
+
+## 3. Export
+
+Les blocs doivent être exportables en Frontmatter pour Hugo.
+
+## 4. Prévisualisation
+
+Une prévisualisation est souhaitable, si possible :
+- en temps réel (pas de temps de compilation)
+- desktop et mobile
+- avec les bons styles
+
+Le précompilé ne permet pas simplement ces 3 souhaits, l'arbitrage actuel est mobile, sans style.
+
+## 5. Traductions
+
+Quelle logique ?
+- Master + trads, avec le master qui reste en contrôle (logique "empilée")
+- versions autonomes, avec le "master" qui initialise la version, puis chacun vit sa vie (logique "séparée")
 
 ## Dev
+
+### Architecture
+
+Le système est développé en 3 parties :
+- blocks
+- templates
+- components
+
+Le block est enregistré en base de donnée, et contient des données json. Il fait le lien avec l'objet auquel il est ajouté, et il définit son template. C'est un objet neutre, tout le spécifique métier est défini dans le template.
+
+Le template répond à un besoin métier (un chapitre, un CTA, une galerie d'images, un organigramme...). Il définit un ensemble de components, qui vont permettre de générer les vues d'édition, de preview, d'export statique et de traduction.
+
+Le component est un objet de bas niveau, comme un champ de texte ou une valeur booléenne. Il correspond à une propriété typée, et propose un éditeur standardisé (comme simple_form), une prévisualisation et un export statique.
 
 ### Model
 
 ```
-communication/website/Block
+communication/Block
 - university:references
 - about:references (polymorphic)
 - template:integer (enum)

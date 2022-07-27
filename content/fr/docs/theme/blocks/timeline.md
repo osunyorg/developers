@@ -4,35 +4,75 @@ description: >
   Bloc pour afficher une timeline
 ---
 
-## Edit
+## Présentation
 
-* titre ```text```
-* description ```summernote_light```
-* évènement ```each```
-  * date ```text```
-  * description ```summernote_light```
+![image](https://user-images.githubusercontent.com/7761386/171764607-94ed6bb6-8ff8-4a91-8bd7-3aa1c4577853.jpg)
 
 
-## Static
+## Data
 
-Exemple de contenu static généré :
+### JSON (Osuny)
+
+* layout ```enum (vertical, horizontal)```
+* elements ```array```
+  * title ```string```
+  * text ```text```
+
+```json
+{
+  "elements": [
+    {
+      "title": "Décembre 2019",
+      "text": "COP 25 (Madrid)"
+    },
+    {
+      "title": "Novembre 2021",
+      "text": "COP 26 (Glasgow)"
+    },
+    {
+      "title": "Novembre 2022",
+      "text": "COP 27 (Charm el-Cheikh)"
+    }
+  ],
+  "layout": "vertical"
+}
+```
+
+### Static (Hugo)
+
+* events ```array```
+  * title ```string```
+  * text ```text```
 
 ```
 - template: timeline
-  title: >
+  title: >-
     Timeline
-  position: 12
+  position: 1
   data:
+    layout: vertical
+
     events:
       - title: >-
-          1998
+          Décembre 2019
+
+
         text: >-
-          Lorem
+          COP 25 (Madrid)
+
+
       - title: >-
-          2000
+          Novembre 2021
+
+
         text: >-
-          Ipsum
+          COP 26 (Glasgow)
+
+
       - title: >-
-          2010
+          Novembre 2022
+
+
         text: >-
+          COP 27 (Charm el-Cheikh)
 ```

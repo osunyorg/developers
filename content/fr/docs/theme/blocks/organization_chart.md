@@ -10,32 +10,68 @@ description: >
 
 ## Edit
 
-* titre ```text```
-* personne ```each```
+* elements ```each```
   * choix ```select```
   * rôle ```text```
+* description ```text```
+
+```json
+
+{
+  "elements":
+    [
+      {
+      "id":"b5c39702-caa7-482d-8679-56ecf0f721c3", 
+      "role": "Dev back"
+      }, {
+      "id":"ff731be6-6b2e-4e0a-8abc-823f3da577cf", 
+      "role":"Dev front"
+      }
+    ], 
+  "description": "Texte associé à l'organigramme"
+}
+```
 
 ## Static
 
 ```
 - template: organization_chart
-  title: >
-    Organigramme
-  position: 6
-  data:
-    - slug: "alexis-benoit"
-      role: >
-        Dev front
-    - slug: "pierre-andre-boissinot"
-      role: >
-        Dev back
-    - slug: "sebastien-gaya"
-      role: >
-        Dev back
-    - slug: "arnaud-levy"
-      role: >
-        Dev back
-    - slug: "sebastien-moulene"
-      role: >
-        Dev front
+    title: >-
+      Organigramme
+    position: 1
+    data:
+      description: >-
+        <p>Texte associé à l'organigramme</p>
+        
+
+
+      with_link: false
+
+      with_photo: false
+
+      persons:
+        - slug: "alexis-benoit"
+          role: >-
+            Dev front
+
+
+        - slug: "pierre-andre-boissinot"
+          role: >-
+            Dev back
+
+
+        - slug: "sebastien-gaya"
+          role: >-
+            Dev back
+
+
+        - slug: "arnaud-levy"
+          role: >-
+            Dev back
+
+
+        - slug: "sebastien-moulene"
+          role: >-
+            Dev front
+        
 ```
