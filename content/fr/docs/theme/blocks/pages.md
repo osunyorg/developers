@@ -7,10 +7,9 @@ description: >
 ## Edit
 
 * page principale ```page```
+* option image ```toggle```
 * option description_short ```toggle```
 * pages ```each```
-  * option image ```toggle```
-  * option description_short ```toggle```
 
 ```json
 {"elements":[
@@ -45,3 +44,11 @@ description: >
 ```
 
 > La clé *slug* devra être remplacée par *page* 
+
+
+## Configuration style
+
+```(sass)
+// _theme/_default_config.sass
+$block-pages-card-background: #f8f9fa !default
+```

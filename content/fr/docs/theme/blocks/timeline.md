@@ -13,6 +13,7 @@ description: >
 
 ### JSON (Osuny)
 
+* layout ```enum (vertical, horizontal)```
 * elements ```array```
   * title ```string```
   * text ```text```
@@ -32,7 +33,8 @@ description: >
       "title": "Novembre 2022",
       "text": "COP 27 (Charm el-Cheikh)"
     }
-  ]
+  ],
+  "layout": "vertical"
 }
 ```
 
@@ -48,17 +50,29 @@ description: >
     Timeline
   position: 1
   data:
+    layout: vertical
+
     events:
       - title: >-
           Décembre 2019
+
+
         text: >-
           COP 25 (Madrid)
+
+
       - title: >-
           Novembre 2021
+
+
         text: >-
           COP 26 (Glasgow)
+
+
       - title: >-
           Novembre 2022
+
+
         text: >-
           COP 27 (Charm el-Cheikh)
 ```

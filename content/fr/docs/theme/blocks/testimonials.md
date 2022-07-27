@@ -62,17 +62,31 @@ description: >
   data:
     testimonials:
       - text: >-
-          Suspendisse non posuere nibh, eu molestie libero. Sed interdum erat id orci dictum, a vehicula justo rutrum.
+          Suspendisse non posuere nibh, eu molestie libero. Sed interdum erat id orci dictum, a vehicula justo rutrum. 
+
+
         author: >-
-            John Doe
+          John Doe
+
+
         job: >-
-            Auteur
-        photo: "133bfa15-a02b-40d9-9eea-705162672ce2"
+          Auteur
+
+
+        photo:
+          id: "dbd6206b-e89c-4899-ac96-d1effc35f517"
+          file: "dbd6206b-e89c-4899-ac96-d1effc35f517"
+
+
       - text: >-
           Proin leo neque, imperdiet id tristique in, porttitor eu sem. Proin bibendum justo ultricies, imperdiet arcu id, blandit dui.
+
+
         author: >-
-            Jean Dupont
-        job: >-
-            Éditeur
-        photo: "6b2940b2-c166-4836-a430-a4d1f08818f9"
+          Jean Dupont
+
+
+        photo:
+          id: "8758cdc8-1f16-496d-b385-985782124245"
+          file: "8758cdc8-1f16-496d-b385-985782124245"
 ```
