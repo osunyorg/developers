@@ -1,25 +1,38 @@
 ---
-title: Rôles
+title: Missions
 ---
+
+Les personnes ont différentes missions : 
+- les enseignants enseignent dans des formations
+- certaines personnes remplissent une mission administrative au sein d'une formation
+- le personnel administratif de l'Université remplissent une mission administrative au sein de l'Université, d'une école, d'un laboratoire...
+
+## Involvement
+
+```
+University::Person::Involvement
+```
+
+L'objet involvement sert à faire le lien entre une personne et une cible (target), qui peut être :
+- une formation (pour les enseignants)
+- un rôle (pour les autres)
+
+Dans l'involvement, on a une description permettant de décrire ce que fait précisément la personne, par exemple :
+- ce qu'elle enseigne (Expression et communication)
+- ce qu'elle fait dans un service (Chef de service)
+
 ## Roles
 
-Les personnes d'une université peuvent avoir plusieurs rôles, que ce soit au niveau de l'université ou d'un objet spécifique telle qu'une formation ou un laboratoire.
+```
+University::Role
+```
 
-Ces rôles peuvent être intrinsèques ou non. Par exemple, être enseignant dans une formation est un lien intrinsèque, alors qu'un rôle « directeur des études » dans une formation peut ne pas exister.
+L'objet role permet de définir une mission, dont le contexte est indiqué par la propriété `target`: 
+- Cheffe de département, (target -> une formation)
+- Direction (target -> une école)
+- Vice-présidence (target -> Université)
 
-Pour cela, on a 2 façons de créer ces liens, à partir d'un modèle commun
-
-### University::Person::Involvement
-
-Ce modèle permet de lier une personne à une cible polymorphique. On définit au niveau de l'objet si l'involvement est de type administratif, enseignant ou chercheur. On renseigne également une description et une position.
-
-### University::Role
-
-Ce modèle sert pour les liens non intrinsèques. On crée un rôle au niveau d'une cible polymorphique, description et position, et possiblement un rôle parent pour définir la hiérarchie au sein d'un organigramme.
-
-Ensuite, on connecte une personne à ce rôle en utilisant le modèle Involvement avec pour target, le rôle en question.
-
-### Exemples
+## Exemples
 
 Soient :
 - `mmi_program` : l'objet `Education::Program` représentant le BUT MMI
