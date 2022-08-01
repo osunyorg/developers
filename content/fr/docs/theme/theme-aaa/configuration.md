@@ -271,6 +271,33 @@ $widget-title-size: $h4-size !default
 $widget-title-size-md: $h4-size-md !default
 ```
 
+### Table of content
+
+```(sass)
+$toc-color: $main-color !default
+$toc-active-color: $main-color !default // TODO : checker ce que ça fait
+```
+
+### Program
+
+Font-size du cadre ```.essential``` :
+
+```(sass)
+$program-essential-font-size: $h5-size !default
+$program-essential-font-size-md: $h5-size-md !default
+```
+
+Font-size du bouton de partage d'une formation :
+```(sass)
+$program-share-font-size: $h4-size !default
+$program-share-font-size-md: $h4-size-md !default
+```
+
+Paramétrage du z-index de l'aside horizontal et sticky :
+```(sass)
+$program-zindex-toc: $zindex-toc !default
+```
+
 ## MISC
 
 ### Animations
