@@ -133,6 +133,13 @@ $zindex-stretched-link: 2 !default
 $breadcrumb-color: invert($main-color) !default
 ```
 
+### Breakpoints
+
+```(sass)
+// TODO: réécrire en sass les mixins bootstrap
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
+```
+
 ### Header
 
 Les couleurs du header sont personnalisables :
@@ -205,11 +212,11 @@ $icons: map-merge($icons, ("linkedin": "\e90c"))
 $icons: map-merge($icons, ("twitter": "\e90d"))
 ```
 
-### Breakpoints
+### Navigation
 
+Définition du background de l'overlay qui apparaît lorsque les dropdowns du menu sont activés ou que le menu est développé en mobile :
 ```(sass)
-// TODO: réécrire en sass les mixins bootstrap
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
+$body-overlay-color: rgba(0, 0, 0, 0.3) !default
 ```
 
 ## BLOCKS
