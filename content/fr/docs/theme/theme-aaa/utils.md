@@ -116,9 +116,24 @@ Création d'un mixin permettant de reproduire le fonctionnement bootstrap du str
         z-index: $zindex-stretched-link
 ```
 
+Utilisé principalement pour masquer les ```<caption>```, le mixin visually-hidden permet de faire en sorte de dissimuler un élément lisible par les technologie d'assistance.
+
+```(sass)
+@mixin visually-hidden
+    clip: rect(0,0,0,0) !important
+    border: 0 !important
+    height: 1px !important
+    margin: -1px !important
+    overflow: hidden !important
+    padding: 0 !important
+    position: absolute !important
+    white-space: nowrap !important
+    width: 1px !important
+```
+
 ## Icons
 
-Le mixin icons, déclaré comme ceci : ```@include icon(icon-name, pseudo-element)``` où "icon" correspond au nom de l'icon défini dans le fichier [configuration.sass](/docs/theme/theme-aaa/configuration/#icons) et "pseudo-element", paramétré par défaut comme ```::before``` permet de définir quel pseudo-element contient l'icon. Ce deuxième paramètre est donc facultatif.
+Le mixin icon, déclaré comme ceci : ```@include icon(icon-name, pseudo-element)``` où "icon" correspond au nom de l'icon défini dans le fichier [configuration.sass](/docs/theme/theme-aaa/configuration/#icons) et "pseudo-element", paramétré par défaut comme ```::before``` permet de définir quel pseudo-element contient l'icon. Ce deuxième paramètre est donc facultatif.
 
 ```(sass)
 @mixin icon($icon-name: '', $pseudo-element: before, $font-size: px2rem(10))
