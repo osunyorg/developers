@@ -231,6 +231,24 @@ $block-pages-card-page-background-hover: lighten($main-background-color, 2) !def
 $block-pages-card-page-color-hover: white !default
 ```
 
+### Block testimonials
+
+Paramètres par défaut :
+```(sass)
+$block-testimonials-font-size: px2rem(24) !default
+$block-testimonials-line-height: px2rem(28.8) !default
+$block-testimonials-pagination-background: $main-border-color !default
+$block-testimonials-pagination-progress-background: $main-color !default
+```
+
+Pour les grands écrans :
+```(sass)
+$block-testimonials-xl-font-size: px2rem(50) !default
+$block-testimonials-xl-line-height: px2rem(55) !default
+$block-testimonials-xl-font-size-long-text: px2rem(36) !default
+$block-testimonials-xl-line-height-long-text: px2rem(39.6) !default
+```
+
 ### Block timeline
 ```(sass)
 $block-timeline-horizontal-background: black !default
