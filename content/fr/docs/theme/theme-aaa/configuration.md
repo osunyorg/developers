@@ -221,10 +221,24 @@ $body-overlay-color: rgba(0, 0, 0, 0.3) !default
 
 ## BLOCKS
 
+### Block definitions
+
+Seules les bordures inférieures des définitions sont personnalisables pour ce block :
+```(sass)
+$definition-border-color: $main-border-color !default
+$definition-border-color-hovered: darken($definition-border-color, 100) !default
+```
+
 ### Block call to action
 ```(sass)
 $block-call-to-action-background: $main-background-color !default
 $block-call-to-action-color: $main-color !default
+```
+
+### Block key_figures
+
+```(sass)
+$block-key_figures-number-font-size: px2rem(60)
 ```
 
 ### Block pages
