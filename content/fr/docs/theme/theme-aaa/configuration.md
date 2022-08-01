@@ -235,7 +235,7 @@ $block-call-to-action-background: $main-background-color !default
 $block-call-to-action-color: $main-color !default
 ```
 
-### Block key_figures
+### Block key figures
 
 ```(sass)
 $block-key_figures-number-font-size: px2rem(60)
@@ -292,11 +292,11 @@ $widget-title-size: $h4-size !default
 $widget-title-size-md: $h4-size-md !default
 ```
 
-### Table of content
+### Person
 
+Personnalisation de la couleur de fond des ronds qui remplacent les photo d'une personne lorsqu'il n'y en a pas :
 ```(sass)
-$toc-color: $main-color !default
-$toc-active-color: $main-color !default // TODO : checker ce que ça fait
+$persons-avatar-background-color: $main-light-color !default
 ```
 
 ### Program
@@ -317,6 +317,13 @@ $program-share-font-size-md: $h4-size-md !default
 Paramétrage du z-index de l'aside horizontal et sticky :
 ```(sass)
 $program-zindex-toc: $zindex-toc !default
+```
+
+### Table of content
+
+```(sass)
+$toc-color: $main-color !default
+$toc-active-color: $main-color !default // TODO : checker ce que ça fait
 ```
 
 ## MISC
