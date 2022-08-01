@@ -284,12 +284,12 @@ $post-categories-color: lighten($main-color, 2) !default
 $post-time-color: lighten($main-color, 2) !default
 ```
 
-### Widgets
+### Articles
 
 ```(sass)
-$widget-media-background: darken($main-background-color, 2) !default
-$widget-title-size: $h4-size !default
-$widget-title-size-md: $h4-size-md !default
+$article-media-background: darken($main-background-color, 2) !default
+$article-title-size: $h4-size !default
+$article-title-size-md: $h4-size-md !default
 ```
 
 ### Person

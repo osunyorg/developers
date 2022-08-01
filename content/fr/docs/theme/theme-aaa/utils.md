@@ -118,7 +118,7 @@ Création d'un mixin permettant de reproduire le fonctionnement bootstrap du str
 
 ## Icons
 
-Le mixin icons, déclaré comme ceci : ```@include icon(icon, pseudo-element)``` où "icon" correspond au nom de l'icon défini dans le fichier configuration.sass et "pseudo-element", paramétré par défaut comme ```::before``` permet de définir quel pseudo-element contient l'icon. Ce deuxième paramètre est donc facultatif.
+Le mixin icons, déclaré comme ceci : ```@include icon(icon-name, pseudo-element)``` où "icon" correspond au nom de l'icon défini dans le fichier [configuration.sass](/docs/theme/theme-aaa/configuration/#icons) et "pseudo-element", paramétré par défaut comme ```::before``` permet de définir quel pseudo-element contient l'icon. Ce deuxième paramètre est donc facultatif.
 
 ```(sass)
 @mixin icon($icon-name: '', $pseudo-element: before, $font-size: px2rem(10))
