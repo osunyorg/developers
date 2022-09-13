@@ -22,8 +22,7 @@ Créer une branche git spécifique pour votre site en AAA le temps de la migrati
 1. Ajouter le submodule git themes/osuny-hugo-theme-aaa :
 
 ```
-cd themes
-git submodule add git@github.com:noesya/osuny-hugo-theme-AAA.git
+git submodule add git@github.com:noesya/osuny-hugo-theme-AAA.git themes/osuny-hugo-theme-AAA
 ```
 > https://git-scm.com/book/en/v2/Git-Tools-Submodules 
 
