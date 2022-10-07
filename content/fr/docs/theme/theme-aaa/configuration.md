@@ -158,15 +158,17 @@ $header-sticky-transition: $header-transition !default
 $header-dropdown-transition: $header-transition !default
 ```
 
-Il est possible de personnaliser la hauteur du header de navigation, sur desktop et mobile :
+Customisation des sous-menus :
 
 ```(sass)
-// Mobile
-$header-height: 61px !default
-
-// Desktop
-$header-height-md: 74px !default
+$header-dropdown-full: false !default
+$header-dropdown-background: $header-background !default
+$header-dropdown-color: $header-color !default
+$header-dropdown-transition: $header-transition !default
 ```
+
+> L'option header-dropdown-full change l'affichage des sous-menu et permet un affichage pleine largeur avec une mise en place des liens en colonnes.
+
 
 ### Footer
 
