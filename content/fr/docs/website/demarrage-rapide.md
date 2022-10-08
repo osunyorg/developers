@@ -4,7 +4,7 @@ weight: 1
 ---
 
 Pour faire un site avec Osuny, la solution la plus simple est de partir du template Github [osuny-hugo-template-AAA](https://github.com/noesya/osuny-hugo-template-AAA). 
-Ce template utilise le thème osuny-hugo-theme-AAA(https://github.com/noesya/osuny-hugo-theme-AAA). 
+Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/noesya/osuny-hugo-theme-AAA). 
 Le template propose une configuration de site à jour, avec Hugo, le thème et les scripts facilitant les mises à jour. 
 Comme les sites sont développés avec Hugo, il faut l'installer pour coder en local.
 
@@ -28,9 +28,14 @@ brew install yarn
 
 [Documentation officielle d'installation](https://yarnpkg.com/getting-started/install).
 
-## Cloner le référentiel
+## Créer le référentiel
 
-Le thème est un sous-module git. Pour cloner avec le thème, il faut utiliser la commande :
+Sur [la page du template](https://github.com/noesya/osuny-hugo-template-AAA), il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
+Dans ce tutoriel, nous utiliserons le nom monreferentiel.
+
+Une fois le référentiel créé, il faut le cloner en local.
+Le thème est un sous-module git. 
+Pour cloner avec le thème, il faut utiliser la commande :
 ```bash
 git clone git@github.com:monorganisation/monreferentiel.git --recurse-submodules
 ```
