@@ -3,14 +3,20 @@ title: Exemples
 weight: 6
 ---
 
-## Site d'un journal
+Cette page présente des sites réalisés avec Osuny, et le code source correspondant. 
+Toutes les contributions sont bienvenues, en maintenant l'ordre alphabétique !
 
-https://github.com/osuny-org/clermontauvergne-journal-degrowth
 
-Pour faire la mise à jour :
+## Communication & démocratie
+https://www.communication-democratie.org
 
-```
-git remote add template git@github.com:noesya/osuny-hugo-template-AAA.git
-git fetch --all
-git merge template/master --allow-unrelated-histories
-```
+https://github.com/noesya/communicationdemocratie-site
+## Degrowth Journal
+https://www.degrowthjournal.org
+
+https://github.com/noesya/clermontauvergne-journal-degrowth
+
+## IUT Bordeaux Montaigne
+https://www.iut.u-bordeaux-montaigne.fr
+
+https://github.com/noesya/bordeauxmontaigne-iut

@@ -3,6 +3,7 @@ title: Inspirations
 weight: 10
 ---
 
+Cette page liste les sites utilisés comme inspirations ou références pour concevoir Osuny.
 ### Sites Web excellents
 
 - https://www.harvard.edu/

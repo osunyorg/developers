@@ -13,6 +13,9 @@ En connectant Netlify au référentiel Github, tout est pris en charge automatiq
 
 [Suivre la documentation officielle](https://docs.netlify.com/welcome/add-new-site/#import-from-an-existing-repository)
 
+Pour déployer le site avec Netlify, penser à ajouter la deploy key. 
+TODO comment faire sans deploy key? 
+
 ## Avec Infomaniak
 
 Pour publier chez Infomaniak, il faut utiliser une action Github, c'est à dire une tâche qui va s'exécuter à chaque modification du site.
