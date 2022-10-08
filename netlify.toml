@@ -4,3 +4,10 @@
 
 [build.environment]
   HUGO_VERSION = "0.104.3"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "0"
+    X-Content-Type-Options = "nosniff"
