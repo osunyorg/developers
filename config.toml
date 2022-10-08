@@ -172,23 +172,11 @@ no = 'Sorry to hear that. Please <a href="https://github.com/noesya/osuny-develo
 enable = false
 
 [params.links]
-# End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
   name = "Site officiel"
   url = "https://www.osuny.org"
   icon = "fa fa-info-circle"
   desc = "Découvrir le projet Osuny"
-# [[params.links.user]]
-#   name ="Twitter"
-#   url = "https://example.org/twitter"
-#   icon = "fab fa-twitter"
-#   desc = "Follow us on Twitter to get the latest news!"
-# [[params.links.user]]
-#   name = "Stack Overflow"
-#   url = "https://example.org/stack"
-#   icon = "fab fa-stack-overflow"
-#   desc = "Practical questions and curated answers"
-# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
   name = "GitHub"
   url = "https://github.com/noesya/osuny"
@@ -199,8 +187,3 @@ enable = false
   url = "https://framateam.org/osuny/"
   icon = "fas fa-comment"
   desc = "Discutez avec la communauté"
-# [[params.links.developer]]
-#   name = "Developer mailing list"
-#   url = "https://example.org/mail"
-#   icon = "fa fa-envelope"
-#   desc = "Discuss development issues around the project"
