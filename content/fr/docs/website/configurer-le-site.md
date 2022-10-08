@@ -1,9 +1,9 @@
 ---
 title: Configurer le site
 weight: 2
+description: >
+  De nombreuses possibilités de personnalisation sont offertes avec des paramètres
 ---
-
-De nombreuses possibilités de personnalisation sont offertes avec des paramètres.
 
 ## Logos et favicons
 ## Paramètres Hugo

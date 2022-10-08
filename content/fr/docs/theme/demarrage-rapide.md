@@ -1,5 +1,7 @@
 ---
 title: Démarrage rapide
+description: >
+  Travailler rapidement sur le Thème Osuny Hugo AAA
 weight: 1
 ---
 

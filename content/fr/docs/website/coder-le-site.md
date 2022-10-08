@@ -1,9 +1,11 @@
 ---
 title: Coder le site
-weight: 4
+weight: 3
+description: >
+  Quand les paramètres ne suffisent plus, on peut facilement coder ce que l'on veut
+
 ---
 
-Quand les paramètres ne suffisent plus, on peut facilement coder ce que l'on veut.
 
 TODO expliquer comment configurer le css au-delà de la configuration :
 - la version très simple à 1 seul fichier

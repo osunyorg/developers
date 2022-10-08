@@ -1,6 +1,8 @@
 ---
 title: Exemples
 weight: 6
+description: >
+  Exemples produits avec Osuny et inspirations hors Osuny
 ---
 
 ## Sites produits avec Osuny

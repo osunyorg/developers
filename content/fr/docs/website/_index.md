@@ -2,6 +2,6 @@
 title: "Développer un site"
 weight: 3
 description: >
-  Comment développer un site avec le thème Hugo Osuny ?
+  Intégrer un site Web accessible et sobre avec Osuny
 ---
 

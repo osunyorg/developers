@@ -1,7 +1,8 @@
 ---
 title: "Blocs"
+weight: 4
 description: >
-  Liste des blocs disponibles
+  Utiliser les blocs de contenu
 ---
 
 # Comportement back

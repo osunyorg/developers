@@ -1,9 +1,10 @@
 ---
 title: Mettre à jour le thème
 weight: 5
+description: >
+  Le thème évolue fréquemment, et il est préférable de le maintenir à jour
 ---
 
-Le thème évolue fréquemment, et il est préférable de le maintenir à jour. 
 ## Mettre à jour le thème
 Pour récupérer la dernière version du thème :
 ```bash

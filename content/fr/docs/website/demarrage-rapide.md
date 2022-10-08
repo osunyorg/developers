@@ -1,6 +1,8 @@
 ---
 title: Démarrage rapide
 weight: 1
+description: >
+  Tout pour faire un site avec Osuny
 ---
 
 Pour faire un site avec Osuny, la solution la plus simple est de partir du template Github [osuny-hugo-template-AAA](https://github.com/noesya/osuny-hugo-template-AAA). 
@@ -8,7 +10,7 @@ Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/noesya/o
 Le template propose une configuration de site à jour, avec Hugo, le thème et les scripts facilitant les mises à jour. 
 Comme les sites sont développés avec Hugo, il faut l'installer pour coder en local.
 
-> Avant le template AAA, il y a eu un autre template, nommé [osuny-hugo-template](https://github.com/noesya/osuny-hugo-template), qui utilisait le thème [osuny-hugo-theme](https://github.com/noesya/osuny-hugo-theme). Ce template et ce thème sont obsolètes. Il a fait l'objet de plusieurs refontes, et a lui-même succédé au thème Jekyll, au début d'Osuny.
+> Avant le template AAA, il y a eu un autre template, nommé [osuny-hugo-template](https://github.com/noesya/osuny-hugo-template), qui utilisait le thème [osuny-hugo-theme](https://github.com/noesya/osuny-hugo-theme). Ce template et ce thème sont obsolètes. Il a fait l'objet de plusieurs refontes, et a lui-même succédé au thème Jekyll, au début d'Osuny. La mention AAA se réfère à l'article [Qualité frontend : à la recherche du AAA](https://lab.noesya.coop/2022/qualite-front), publié sur le [Lab noesya](https://lab.noesya.coop).
 
 ## Installer Hugo 
 
@@ -57,3 +59,17 @@ On peut aussi utiliser la commande :
 ```bash
 yarn dev
 ```
+
+## Travailler avec des données d'exemple
+
+Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas possibles avec Osuny, ce qui vous permet de travailler sur l'apparence du site avant même d'avoir publié du contenu.
+
+Pour installer le contenu d'exemple, on utilise la commande :
+```bash
+yarn setup-example
+```
+Pour travailler sur le site avec le contenu d'exemple, on utilise la commande :
+```bash
+yarn server-example
+```
+

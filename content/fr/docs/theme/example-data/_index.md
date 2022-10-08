@@ -1,17 +1,17 @@
 ---
-title: "Tester des jeux de données"
+title: Données d'exemple
+weight: 3
 description: >
-  Comment tester et développer un thème avec des jeux de données par défaut
+  Tester et développer un thème avec des jeux de données par défaut
 ---
 
-# Constat
+## Problème
 
 Une solution commune à deux tâches est proposée :
+- la création d'un nouveau site (comment travailler sans données ?)
+- la mise à jour d'un site existant (comment être sûr de couvrir les cas qui ne sont pas dans les données ?)
 
-- La création d'un nouveau site
-- La mise à jour d'un site existant
-
-# Proposition
+## Solution
 
 Ajouter en submodule git un site d'exemples : https://github.com/noesya/osuny-example
 
