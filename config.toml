@@ -184,6 +184,6 @@ enable = false
   desc = "Le développement se passe là!"
 [[params.links.developer]]
   name = "Framateam"
-  url = "https://framateam.org/osuny/"
+  url = "https://osunysupport.slack.com"
   icon = "fas fa-comment"
   desc = "Discutez avec la communauté"
