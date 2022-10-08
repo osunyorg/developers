@@ -10,7 +10,7 @@ $td-enable-google-fonts: false;
   svg {
     width: 100px;
   }
-  span.font-weight-bold {
+  &__name {
     display: none;
   }
 }
