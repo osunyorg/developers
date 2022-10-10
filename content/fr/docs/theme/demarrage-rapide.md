@@ -5,11 +5,15 @@ description: >
 weight: 1
 ---
 
+## Forker
+
+Dans Github, cliquez sur "Fork" pour créer votre propre version du thème.
+TODO préparer les choses pour pouvoir travailler sur les données "example" directement dans le thème. 
 ## Installer le thème
 
 ```bash
-git clone https://github.com/noesya/osuny-example.git --recurse-submodules
-cd osuny-example
+git clone git@github.com:noesya/osuny-hugo-theme-aaa.git --recurse-submodules
+cd osuny-hugo-theme-aaa
 yarn
 hugo server
 ```
