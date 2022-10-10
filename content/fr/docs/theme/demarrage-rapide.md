@@ -5,6 +5,8 @@ description: >
 weight: 1
 ---
 
+La méthode de travail pour intervenir sur le thème en dehors de l'équipe noesya n'est pas encore bien calée et documentée. 
+Contributions bienvenues !
 ## Forker
 
 Dans Github, cliquez sur "Fork" pour créer votre propre version du thème.
