@@ -73,3 +73,17 @@ Pour travailler sur le site avec le contenu d'exemple, on utilise la commande :
 yarn server-example
 ```
 
+## Autre option : ajouter le thème à un site Hugo existant
+
+TODO traiter le passage en module Hugo
+
+```bash
+git submodule add git@github.com:noesya/osuny-hugo-theme-aaa.git themes/osuny-hugo-theme-aaa
+yarn
+```
+
+Dans la configuration Hugo, définir le thème `osuny-hugo-theme-aaa`.
+
+```bash
+hugo server
+```
