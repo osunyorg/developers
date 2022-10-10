@@ -8,7 +8,7 @@ description: >
 ## Mettre à jour le thème
 Pour récupérer la dernière version du thème :
 ```bash
-git pull --recurse-submodules
+yarn update-theme
 ```
 
 ## Mettre à jour le template
