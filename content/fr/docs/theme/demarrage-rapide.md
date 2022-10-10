@@ -16,6 +16,7 @@ hugo server
 
 ## Contrôle qualité et non-régression
 
+TODO expliquer les tests à faire avant de créer la PR
 ## Versionner
 
 TODO expliquer les règles de versioning
