@@ -1,5 +1,8 @@
 ---
-title: Structure des fichiers
+title: Articulation avec Hugo
+weight: 2
+description: >
+  Comment le thème utilise-t-il Hugo ?
 ---
 
 ## Home page

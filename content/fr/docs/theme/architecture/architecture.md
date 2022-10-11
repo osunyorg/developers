@@ -1,9 +1,20 @@
 ---
-title: "Architecture"
+title: "Architecture du thème"
+weight: 1
 description: >
+  Comprendre l'organisation générale du thème
 ---
 
-# Arborescence des fichiers de styles
+## HTML
+
+TODO expliquer l'organisation des fichiers HTML
+## CSS
+
+### SASS
+
+TODO expliquer pourquoi le sass
+TODO expliquer les nommages et les règles
+### Fichiers de styles
 
 - _theme
     - configuration.sass
@@ -23,3 +34,7 @@ description: >
         - programs.sass
         - persons.sass
         - …
+
+## JS
+
+TODO expliquer les choix et la minisation des dépendances

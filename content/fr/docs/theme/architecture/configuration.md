@@ -1,7 +1,7 @@
 ---
 title: "Configuration SASS"
 description: >
-  Fichier de configuration SASS
+  Comprendre la logique de configuration
 ---
 
 TODO expliquer la logique des variables de configuration du point de vue du dev du thème :
