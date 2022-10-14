@@ -88,6 +88,7 @@ jobs:
 
 Trouver les informations de connexion dans l'interface OVH
 
+![Interface OVH](/images/ovh.png)
 
 Intégrer ces informations dans Github (cliquer sur Settings, Secrets, Actions), et définir les variables suivantes.
 Les valeurs entre crochets sont indicatives, à remplacer par les vraies valeurs.
