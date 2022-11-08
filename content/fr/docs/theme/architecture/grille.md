@@ -41,10 +41,11 @@ Configuration par défaut de la grille du Thème Osuny
   },
   {
     "columns": 12,
-    "from": 1024,
-    "gutters": 30,
-    "margins": 60,
-    "maxWidth": 1920
+    "from": 840,
+    "gutters": 32,
+    "margins": 64,
+    "maxWidth": 1980,
+    "to": 7680
   }
 ]
 ```
