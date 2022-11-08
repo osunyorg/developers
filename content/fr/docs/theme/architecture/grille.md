@@ -48,3 +48,14 @@ Configuration par défaut de la grille du Thème Osuny
   }
 ]
 ```
+
+
+## Usage des unités
+
+On favorise l'usage de REM pour l'adaptation au préférences utilisateurs.
+
+### Utiliation des ex
+
+On utilise à certains endroit l'unité ex ("La hauteur d'x de la police de l'élément." https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Values_and_units ). Cela permet de gérer les alignements verticaux en fonction de la taille de caractère.
+
+![image](https://user-images.githubusercontent.com/4630530/200541647-1c93d98a-6dc8-4cc7-b637-0b846d1cc353.png)
