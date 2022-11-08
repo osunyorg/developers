@@ -8,6 +8,22 @@ description: >
 TODO expliquer pourquoi on utilise une grille
 TODO expliquer les enjeux de responsivité liés à la grille
 
+## Les spacings
+
+Le thème prévoit 6 espacements différents, calculés en REM à partir de multiple de 12px. Nous utilisons des valeurs en REM de façon à conserver les proportions d'espacements entre les éléments peut importe les préférences d'affichage de la taille de texte de l'utilisateur.
+
+> Questionnement 
+> Comment préciser l'impact sur le design system de changement de ces valeurs ?
+
+```
+$spacing0: px2rem(12) !default
+$spacing1: px2rem(24) !default
+$spacing2: px2rem(48) !default
+$spacing3: px2rem(64) !default
+$spacing4: px2rem(128) !default
+$spacing5: px2rem(256) !default
+```
+
 ## La grille par défaut
 
 Le plugin [CSS Grid Overlay](https://chrome.google.com/webstore/detail/css-grid-overlay/hajfilceeneohkmcakehndmaeonhlack) permet d'afficher la grille de son choix, et facilite le développement.
