@@ -8,6 +8,13 @@ description: >
 TODO expliquer pourquoi on utilise une grille
 TODO expliquer les enjeux de responsivité liés à la grille
 
+## Débuggage
+
+Vous pouvez afficher la grille desktop de 12 colonnes en appuyant sur ```ctrl + g```. Le code de la grille (html, css, et js) se trouve dans le partial footer/debug.html
+
+Ce débuggage n'est pas disponible en mode production (!hugo.IsProduction)
+
+
 ## Les spacings
 
 Le thème prévoit 6 espacements différents, calculés en REM à partir de multiple de 12px. Nous utilisons des valeurs en REM de façon à conserver les proportions d'espacements entre les éléments peut importe les préférences d'affichage de la taille de texte de l'utilisateur.
