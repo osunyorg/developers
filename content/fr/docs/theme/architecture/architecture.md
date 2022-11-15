@@ -53,10 +53,10 @@ Pour être faciles à maintenir, il faut définir les règles le plus haut possi
 2. si ce n'est pas lié au design système, dans les `blocks`
 3. si ça ne concerne pas le design système ni un bloc partout, dans les `sections`
 
-Ex: si une taille de typo concerne :
-- tous les h2 -> `design-system/typography.sass`
-- tous les h2 des blocs timeline -> `blocks/timeline.sass`
-- uniquement les h2 de la page d'une personne -> `sections/persons.sass`
+**Exemple** Si une taille de typo concerne :
+1. tous les h2 -> `design-system/typography.sass`
+2. tous les h2 des blocs timeline -> `blocks/timeline.sass`
+3. uniquement les h2 de la page d'une personne -> `sections/persons.sass`
 
 ## JS
 
