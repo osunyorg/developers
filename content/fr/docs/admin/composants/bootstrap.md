@@ -1,11 +1,25 @@
 ---
-title: Bootstrap
+title: Composants
 weight: 2
 description: >
-  Bootstrap 5 et le thème Appstack
+  Gems et librairies utilisées
 ---
 
-## Appstack
+## Back
+
+### Devise
+
+### Simple form
+
+
+## Front
+### Bootstrap
+
+https://getbootstrap.com/
+
+### Appstack
+
+https://appstack.bootlab.io
 
 Pour mettre à jour :
 - remplacer les fichiers css (dark et light) dans vendor/assets/stylesheets
