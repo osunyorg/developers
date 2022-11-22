@@ -3,6 +3,12 @@ title: "Utils"
 description: >
 ---
 
+## Raccourcis en développement
+
+`ctrl+g` pour afficher la grille.
+
+`ctrl+w` passer d'une page pleine largeur à une page avec barre latérale, et inversement.
+
 ## Layout
 
 Variables associées : 
