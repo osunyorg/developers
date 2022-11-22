@@ -13,3 +13,10 @@ TODO expliquer comment configurer le css au-delà de la configuration :
 - la possibilité de remplacer des fichiers SASS du thème
 - la possibilité de remplacer HTML du thème
 - comment gérer le javascript
+
+
+## Raccourcis en développement
+
+`ctrl+g` pour afficher la grille.
+
+`ctrl+w` passer d'une page pleine largeur à une page avec barre latérale, et inversement.
