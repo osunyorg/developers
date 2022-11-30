@@ -5,15 +5,30 @@ description: >
   Comment fonctionnent les blocs ?
 ---
 
-## Types de pages
+## Contextes
 
-Les contenus des blocs sont encapsulé dans un container. Cela permet une gestion autonome de la grille au sein des blocs.
+Les contenus (pages, actualités...) peuvent être pleine largeur ou non, ce qui change leur mise en page desktop.
+Chaque bloc fonctionne donc dans 3 formats :
+- desktop pleine largeur
+- desktop avec barre latérale
+- mobile
 
-Il existe dans le thème par défaut 2 types de layout : une page en pleine largeur et une page contenant un aside qui réduit la largeur du contenu à 8 colonnes.
+*Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.*
 
-Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "content-full".
 
-Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
+Lorsque la page est en pleine largeur, le body est doté de la classe `full-width`.
+
+Les mixins suivants permettent d'adresser les contextes différents :
+- `@include in-page-without-sidebar` ou `@include full-page` pour les pages pleine largeur
+- `@include in-page-with-sidebar` ou `@include not-full-page` pour les pages avec barre latérale
+- `@include in-page-with-or-without-sidebar`pour adresser les 2 cas (TODO expliquer pourquoi ça et pas rien ?)
+
+| Périphérique | Contexte | Directive
+|-|-|-
+| mobile | | `@include media-breakpoint-down(md)`
+| desktop | | `@include media-breakpoint-up(md)`
+| desktop | pleine largeur | `@include in-page-without-sidebar` ou `@include full-page`
+| desktop | avec barre latérale | `@include in-page-with-sidebar` ou `@include not-full-page`
 
 ## Titres
 
