@@ -5,77 +5,60 @@ description: >
   Comment fonctionnent les blocs ?
 ---
 
+## Contextes
 
-# Comportement back
+Les contenus (pages, actualités...) peuvent être pleine largeur ou non, ce qui change leur mise en page desktop.
+Chaque bloc fonctionne donc dans 3 formats :
+- desktop pleine largeur
+- desktop avec barre latérale
+- mobile
 
-Tous les blocs possèdent un titre, un data en JSONB et une position.
-
-Les attributs dans le JSONB côté Osuny peuvent avoir un type parmi :
-* `string` : Champ texte classique
-* `text` : Champ textarea
-* `richtext (<config>)` : Richtext Summernote avec une configuration définie (`mini`, `mini-list` ou `default`)
-  * exemple : `richtext (mini-list)`
-* `integer` : Champ de nombre entier
-* `float` : Champ de nombre décimal
-* `boolean` : Case à cocher (vrai/faux)
-* `enum (<value1>, <value2>[, ...])` : Enumération de valeurs possibles
-* `references (<model>)` : UUID faisant référence à un objet avec le modèle associé
-  * exemple : `references (Communication::Website::Page)`
-* `blob` : Champ d'upload de fichier (pour les images notamment), représenté par un objet ayant des attributs `id`, `filename` et `signed_id`
-* `array` : Pour un tableau d'éléments
-* `hash` : Pour un objet avec des paires clé-valeur
+*Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.*
 
 
-Les attributs dans le YAML statique côté Hugo peuvent avoir un type parmi :
-* `string` : Texte classique
-* `text` : Texte avec retours à la ligne
-* `richtext` : Richtext Summernote
-* `integer` : Nombre entier
-* `float` : Nombre décimal
-* `boolean` : Booléen (vrai/faux)
-* `references (<model>)` : Référence à un objet avec le modèle associé
-  * Pour une catégorie ou une page, il s'agit du `path`
-  * Pour un post, il s'agit du `slug`
-  * Pour un blob, il s'agit de l'`uuid`
-* `image` : Un objet ayant des attributs `id`, `alt` et `credit` pour représenter une image situé dans le dossier `data/medias`
-* `array` : Pour un tableau d'éléments
-* `hash` : Pour un objet avec des paires clé-valeur
+Lorsque la page est en pleine largeur, le body est doté de la classe `full-width`.
 
-# Comportement front
+Les mixins suivants permettent d'adresser les contextes différents :
+- `@include in-page-without-sidebar` ou `@include full-page` pour les pages pleine largeur
+- `@include in-page-with-sidebar` ou `@include not-full-page` pour les pages avec barre latérale
+- `@include in-page-with-or-without-sidebar`pour adresser les 2 cas (TODO expliquer pourquoi ça et pas rien ?)
 
-Les contenus des blocs sont encapsulé dans un container. Cela permet une gestion autonome de la grille au sein des blocs.
+| Périphérique | Contexte | Directive
+|-|-|-
+| mobile | | `@include media-breakpoint-down(md)`
+| desktop | | `@include media-breakpoint-up(md)`
+| desktop | pleine largeur | `@include in-page-without-sidebar` ou `@include full-page`
+| desktop | avec barre latérale | `@include in-page-with-sidebar` ou `@include not-full-page`
 
-Il existe dans le thème par défaut 2 types de layout : une page en pleine largeur et une page contenant un aside qui réduit la largeur du contenu à 8 colonnes.
+## Titres
 
-Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "content-full".
+Tous les titres sont balisés par défaut en h2. 
+En revanche, dans les programmes, les blocs s'intègrent dans la partie présentation, comme des sous-parties.
+Il faut donc baliser les titres en h3.
 
-Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
+Afin d'obtenir ce comportement, l'idée est de pouvoir passer un niveau (level) en contexte aux blocs, qui est par défaut à 1.
+Quand le niveau est 1, les titres sont des h2, et les sous-titres des h3 (par exemple dans les timelines ou dans les listes de personnes).
+Quand le même bloc est dans un programme, le niveau est 2 donc les titres sont des h3 et les sous-titres des h4.
 
-## Blocs
-
-### Titres
-
-Balise en H2 sauf dans programme où c'est du H3
-
-En desktop pleine page les titres sont stylisés H5 (section)
 
 Cas particuliers : 
+- en desktop pleine page, tous les titres sont stylisés comme des sections (h5)
+- dans le block pages, les titres stylisés en h5 en mobile, car ils sont suivis d'un texte stylisé en h2
 
-- Block pages : titre stylisé en H5 en mobile, car le titre est suivi d'un texte stylisé en H2
-- Block chapitre : en desktop pleine page le titre est stylisé en H2
-- Block frise en layout horizontal : le titre est toujours stylisé en H5 (section)
+## Données
+
+Les attributs dans le YAML utilisent des types.
 
 
-
-## Roadmap
-
-1. Block pages : modifier la clé "slug" des pages enfant en "page". Modifier le static généré côté osuny, modifier le thème (remplacer slug par page), modifier les fichiers statics de legacy dans les sites existants
-2. Homogénéiser les images, structure à suivre :
-  ```
-    image:
-      id:
-      alt: >-
-        Texte alternatif de l'image
-      credit: >-
-        Crédit de l'image
-  ```
+| Type | Description
+|-|-
+| `string` | Texte classique
+| `text` | Texte avec retours à la ligne
+| `richtext` | Richtext Summernote
+| `integer` | Nombre entier
+| `float` | Nombre décimal
+| `boolean` | Booléen (vrai/faux)
+| `references (<model>)` | Référence à un objet avec le modèle associé : pour une catégorie ou une page, il s'agit du `path`, pour un post, il s'agit du `slug`, pour un blob, il s'agit de l'`uuid`
+| `image` | Un objet ayant des attributs `id`, `alt` et `credit` pour représenter une image situé dans le dossier `data/medias`
+| `array` | Pour un tableau d'éléments
+| `hash` | Pour un objet avec des paires clé-valeur
