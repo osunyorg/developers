@@ -5,6 +5,16 @@ description: >
   Comment fonctionnent les blocs ?
 ---
 
+## Types de pages
+
+Les contenus des blocs sont encapsulé dans un container. Cela permet une gestion autonome de la grille au sein des blocs.
+
+Il existe dans le thème par défaut 2 types de layout : une page en pleine largeur et une page contenant un aside qui réduit la largeur du contenu à 8 colonnes.
+
+Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "content-full".
+
+Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
+
 ## Titres
 
 Tous les titres sont balisés par défaut en h2. 
@@ -20,7 +30,7 @@ Cas particuliers :
 - en desktop pleine page, tous les titres sont stylisés comme des sections (h5)
 - dans le block pages, les titres stylisés en h5 en mobile, car ils sont suivis d'un texte stylisé en h2
 
-# Comportement back
+## Données
 
 Tous les blocs possèdent un titre, un data en JSONB et une position.
 
@@ -55,12 +65,3 @@ Les attributs dans le YAML statique côté Hugo peuvent avoir un type parmi :
 * `array` : Pour un tableau d'éléments
 * `hash` : Pour un objet avec des paires clé-valeur
 
-# Comportement front
-
-Les contenus des blocs sont encapsulé dans un container. Cela permet une gestion autonome de la grille au sein des blocs.
-
-Il existe dans le thème par défaut 2 types de layout : une page en pleine largeur et une page contenant un aside qui réduit la largeur du contenu à 8 colonnes.
-
-Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "content-full".
-
-Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
