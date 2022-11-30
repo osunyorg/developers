@@ -51,6 +51,21 @@ Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "c
 
 Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
 
+## Blocs
+
+### Titres
+
+Par défaut :
+
+Balise en h2 sauf dans programme où c'est du h3
+
+En desktop pleine page les titres sont stylisés h5 (section)
+
+Cas particuliers : 
+
+- Block pages : titres stylisés en h5 en mobile, car ils sont suivis d'un texte stylisé en h2
+
+
 
 ## Roadmap
 
