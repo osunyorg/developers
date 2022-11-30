@@ -77,6 +77,24 @@ Le component est un objet de bas niveau, comme un champ de texte ou une valeur b
 
 ### Model
 
+Tous les blocs possèdent un titre, un data en JSONB et une position.
+
+Les attributs dans le JSONB côté Osuny peuvent avoir un type parmi :
+* `string` : Champ texte classique
+* `text` : Champ textarea
+* `richtext (<config>)` : Richtext Summernote avec une configuration définie (`mini`, `mini-list` ou `default`)
+  * exemple : `richtext (mini-list)`
+* `integer` : Champ de nombre entier
+* `float` : Champ de nombre décimal
+* `boolean` : Case à cocher (vrai/faux)
+* `enum (<value1>, <value2>[, ...])` : Enumération de valeurs possibles
+* `references (<model>)` : UUID faisant référence à un objet avec le modèle associé
+  * exemple : `references (Communication::Website::Page)`
+* `blob` : Champ d'upload de fichier (pour les images notamment), représenté par un objet ayant des attributs `id`, `filename` et `signed_id`
+* `array` : Pour un tableau d'éléments
+* `hash` : Pour un objet avec des paires clé-valeur
+
+
 ```
 communication/Block
 - university:references
