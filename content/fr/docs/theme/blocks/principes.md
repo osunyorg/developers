@@ -5,6 +5,20 @@ description: >
   Comment fonctionnent les blocs ?
 ---
 
+## Titres
+
+Tous les titres sont balisés par défaut en h2. 
+En revanche, dans les programmes, les blocs s'intègrent dans la partie présentation, comme des sous-parties.
+Il faut donc baliser les titres en h3.
+
+Afin d'obtenir ce comportement, l'idée est de pouvoir passer un niveau (level) en contexte aux blocs, qui est par défaut à 1.
+Quand le niveau est 1, les titres sont des h2, et les sous-titres des h3 (par exemple dans les timelines ou dans les listes de personnes).
+Quand le même bloc est dans un programme, le niveau est 2 donc les titres sont des h3 et les sous-titres des h4.
+
+
+Cas particuliers : 
+- en desktop pleine page, tous les titres sont stylisés comme des sections (h5)
+- dans le block pages, les titres stylisés en h5 en mobile, car ils sont suivis d'un texte stylisé en h2
 
 # Comportement back
 
@@ -50,32 +64,3 @@ Il existe dans le thème par défaut 2 types de layout : une page en pleine larg
 Une bodyclass permet de faciliter l'affichage des blocks, "content-aside" and "content-full".
 
 Par exemple, un bloc chapitre devra s'afficher sur 8 colonnes dans une page pleine largeur, et sur toute la largeur disponible dans une page contenant un aside.
-
-## Blocs
-
-### Titres
-
-Par défaut :
-
-Balise en h2 sauf dans programme où c'est du h3
-
-En desktop pleine page les titres sont stylisés h5 (section)
-
-Cas particuliers : 
-
-- Block pages : titres stylisés en h5 en mobile, car ils sont suivis d'un texte stylisé en h2
-
-
-
-## Roadmap
-
-1. Block pages : modifier la clé "slug" des pages enfant en "page". Modifier le static généré côté osuny, modifier le thème (remplacer slug par page), modifier les fichiers statics de legacy dans les sites existants
-2. Homogénéiser les images, structure à suivre :
-  ```
-    image:
-      id:
-      alt: >-
-        Texte alternatif de l'image
-      credit: >-
-        Crédit de l'image
-  ```
