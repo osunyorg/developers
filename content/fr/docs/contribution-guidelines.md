@@ -9,9 +9,6 @@ description: >
 
 Afin de permettre une bonne compréhension des développements et une maintenance facile, nous utilisons la [gestion sémantique de version](https://semver.org/lang/fr/), à la fois pour le thème et pour l'admin.
 
-**Disclaimer : Ceci est un principe ! En pratique, on a du mal à le mettre en œuvre, mais ça va s'améliorer :)**
-
-
 ## Analyse de pratiques
 
 ### Github
@@ -33,6 +30,8 @@ Le système utilisé est développé maison, et s'appelle hugoreleaser.
 
 Rails est une gem, et utilise donc le [système de release intégré aux gems](https://guides.rubygems.org/releasing-rubygems/).
 
+Les Pull Requests sont [très petites](https://github.com/rails/rails/pull/46517), avec souvent 1 seul commit.
+
 ### Devise
 
 Idem Rails.
@@ -40,3 +39,6 @@ Idem Rails.
 ### Sympa
 
 [Sympa](https://github.com/sympa-community/sympa) est versionné en [6.2.70](https://github.com/sympa-community/sympa/releases/tag/6.2.70)
+
+## Fonctionnements
+
