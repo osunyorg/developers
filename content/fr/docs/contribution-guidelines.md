@@ -54,6 +54,10 @@ Les étapes pour contribuer sont :
 5. Faire les modifs demandées par les reviewers
 6. Quand la PR est approuvée, la fusionner (merge) pour qu'elle parte en production automatiquement
 
+La contribution directement dans main est bloquée.
+
+En revanche, les personnes de l'équipe admin peuvent auto-valider une PR, et doivent le faire uniquement pour les bugfix.
+
 ### Versions
 
 L'équipe cœur crée des releases directement sur Github, avec le système de génération automatique de changelog.
