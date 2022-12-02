@@ -9,6 +9,29 @@ description: >
 
 Afin de permettre une bonne compréhension des développements et une maintenance facile, nous utilisons la [gestion sémantique de version](https://semver.org/lang/fr/), à la fois pour le thème et pour l'admin.
 
+## Fonctionnements
+
+### Contributions
+
+Pour signaler un problème ou un souhait de fonctionnalité, créer une issue.
+
+Les étapes pour contribuer sont :
+1. Créer une branche nommée en fonction de ce qu'on fait, le plus simplement possible (en anglais, car les noms de branches n'ont ni espaces ni accents)
+2. Commit en nommant les actions simplement
+3. Faire une Pull Request (PR) avec un nom simple en français et référencer les issues en les mentionnant dans la description (avec close ou fix si c'est le cas)
+4. Demander la review
+5. Faire les modifs demandées par les reviewers
+6. Quand la PR est approuvée, la fusionner (merge) pour qu'elle parte en production automatiquement
+
+La contribution directement dans main est bloquée.
+
+En revanche, les personnes de l'équipe admin peuvent auto-valider une PR, et doivent le faire uniquement pour les bugfix.
+
+### Versions
+
+L'équipe cœur crée des releases directement sur Github, avec le système de génération automatique de changelog.
+
+
 ## Analyse de pratiques
 
 ### Github
@@ -40,24 +63,3 @@ Idem Rails.
 
 [Sympa](https://github.com/sympa-community/sympa) est versionné en [6.2.70](https://github.com/sympa-community/sympa/releases/tag/6.2.70)
 
-## Fonctionnements
-
-### Contributions
-
-Pour signaler un problème ou un souhait de fonctionnalité, créer une issue.
-
-Les étapes pour contribuer sont :
-1. Créer une branche nommée en fonction de ce qu'on fait, le plus simplement possible (en anglais, car les noms de branches n'ont ni espace ni accents)
-2. Commit en nommant les actions simplement
-3. Faire une Pull Request (PR) avec un nom simple en français et référencer les issues en les mentionnant dans la description (avec close ou fix si c'est le cas)
-4. Demander la review
-5. Faire les modifs demandées par les reviewers
-6. Quand la PR est approuvée, la fusionner (merge) pour qu'elle parte en production automatiquement
-
-La contribution directement dans main est bloquée.
-
-En revanche, les personnes de l'équipe admin peuvent auto-valider une PR, et doivent le faire uniquement pour les bugfix.
-
-### Versions
-
-L'équipe cœur crée des releases directement sur Github, avec le système de génération automatique de changelog.
