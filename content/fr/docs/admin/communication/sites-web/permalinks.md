@@ -52,7 +52,7 @@ Un concern WithPermalink qui encapsule le lien (.permalinks, .permalink_in_websi
 Responsabilité :
 - fournir le permalink actuel
 - fournir les anciens
-- se déclencher à l'enregistrement (ou au sync ? TODO @sebou)
+- se déclencher à la synchronisation (afin de gérer la cascade de dépendances en utilisant celle de la sync plutôt que de la répliquer)
 - faire le lien avec les objets par type
 
 Des objets par type :
