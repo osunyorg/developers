@@ -33,3 +33,33 @@ Pour parvenir à ce résultat, il faut conserver la trace des anciens permaliens
 - en donnant à Hugo des alias, ce qui lui permet de faire des redirections vers les nouvelles pages
 - en exportant une table de redirection, dont le format dépend du serveur
 
+## Architecture
+
+Une classe qui gère globalement les permalinks :
+```
+class Communication::Website::Permalink
+end
+```
+Responsabilité :
+- current (bool et scope)
+- historique
+- contexte (website)
+
+Un concern WithPermalink qui encapsule le lien (.permalinks, .permalink_in_website)
+```
+  include WithPermalink
+```
+Responsabilité :
+- fournir le permalink actuel
+- fournir les anciens
+- se déclencher à l'enregistrement (ou au sync ? TODO @sebou)
+- faire le lien avec les objets par type
+
+Des objets par type :
+```
+class Communication::Website::Permalink::Page
+end
+```
+Responsabilité : 
+- calcul du permalink
+- fonctionnements spécifiques par type d'objet
