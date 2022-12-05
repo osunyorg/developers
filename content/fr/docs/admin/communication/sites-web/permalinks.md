@@ -63,3 +63,9 @@ end
 Responsabilité : 
 - calcul du permalink
 - fonctionnements spécifiques par type d'objet
+
+## Objets
+
+### Page
+
+### Actualité (Post)
