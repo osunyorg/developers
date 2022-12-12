@@ -44,7 +44,7 @@ Chaque fichier a son url inclue. Il faut penser à préfixer toutes les urls par
 
 ### Les menus
 
-Nous n'utilisons pas les menus natifs de Hugo mais un système parallèle.
+Nous n'utilisons pas les menus natifs de Hugo mais un système parallèle.  
 On range les menus pour chaque langue dans un dossier `/data/menus/fr/``
 
 ### Les clés de traduction
