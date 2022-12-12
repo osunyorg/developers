@@ -53,6 +53,17 @@ Dans le thème on a un dossier `i18n` dans lequel on pose un fichier par langue.
 Ces fichiers peuvent éventuellement être overwrite dans un thème précis.  
 TODO: vérifier le deep_merge de ces fichiers
 
+### Questions / réponses sur le mono-lingue
+
+Doit-on forcer le choix d'au moins une langue pour un site web ?  
+Conceptuellement un site à toujours une langue donc ça semble bien  
+
+Si on choisit une seule langue, doit-on écrire quand même les contenus (et les menus) dans /fr/ ?  
+Ca ne semble pas poser de problème  
+
+En cas de monolingue quel pattern d'url utiliser ?  
+Si une seule langue il vaut mieux que les urls ne soient pas péfixées par la langue. En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/
+
 ## Ruby on Rails
 
 ### Le paramétrage du site
