@@ -62,7 +62,7 @@ Si on choisit une seule langue, doit-on écrire quand même les contenus (et les
 Ca ne semble pas poser de problème  
 
 En cas de monolingue quel pattern d'url utiliser ?  
-Si une seule langue il vaut mieux que les urls ne soient pas péfixées par la langue. En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/
+Si une seule langue il vaut mieux que les urls ne soient pas préfixées par la langue. En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/
 
 ## Ruby on Rails
 
