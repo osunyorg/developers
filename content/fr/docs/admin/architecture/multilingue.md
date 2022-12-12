@@ -24,18 +24,26 @@ Nous utilisons un fichier languages.yml
 ar:
   languagedirection: rtl
   title: مدونتي
+  contentDir: content/ar
 en:
   title: My blog
+  contentDir: content/en
 fr:
   title: Mon blogue
+  contentDir: content/fr
 pt-pt:
   title: O meu blog
+  contentDir: content/pt-pt
 ```
 
 Il faut aussi dans le fichier `config.yaml` indiquer
 ```
 defaultContentLanguage: fr
 languageCode: fr
+```
+
+Comme on spécifie toutes les urls on n'a a priori pas besoin d'indiquer
+```
 defaultContentLanguageInSubdir: true
 ```
 
@@ -62,7 +70,7 @@ Ces fichiers (ou juste certains termes) peuvent éventuellement être overwrite 
 ### Questions / réponses sur le monolingue
 
 Doit-on forcer le choix d'au moins une langue pour un site web ?  
-Conceptuellement un site à toujours une langue donc ça semble bien  
+Conceptuellement un site a toujours une langue donc ça semble bien  
 
 Si on choisit une seule langue, doit-on écrire quand même les contenus (et les menus) dans /fr/ ?  
 Ca ne semble pas poser de problème  
@@ -76,6 +84,13 @@ Si on est monolingue il faut désactiver dans la config `defaultContentLanguageI
 
 ### Le paramétrage du site
 
+On force le choix d'au moins une langue.
+
 ### La traduction
 
 ### L'export statique
+
+En cas de monolingue les `url` des fichiers statiques ne doivent PAS être préfixées de la langue.  
+En cas de multilingue toutes les urls sont préfixées.  
+On créé les contenus dans `content/:lang/`.
+On crée les menus dans `data/menus/:lang`.  
