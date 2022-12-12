@@ -32,6 +32,13 @@ pt-pt:
   title: O meu blog
 ```
 
+Il faut aussi dans le fichier `config.yaml` indiquer
+```
+defaultContentLanguage: fr
+languageCode: fr
+defaultContentLanguageInSubdir: true
+```
+
 ### Les contenus
 
 Il y a 2 façons de gérer les contenus multilingues dans Hugo :
@@ -61,7 +68,9 @@ Si on choisit une seule langue, doit-on écrire quand même les contenus (et les
 Ca ne semble pas poser de problème  
 
 En cas de monolingue quel pattern d'url utiliser ?  
-Si une seule langue il vaut mieux que les urls ne soient pas préfixées par la langue. En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/
+Si une seule langue il vaut mieux que les urls ne soient pas préfixées par la langue.
+En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/  
+Si on est monolingue il faut désactiver dans la config `defaultContentLanguageInSubdir: true`
 
 ## Ruby on Rails
 
