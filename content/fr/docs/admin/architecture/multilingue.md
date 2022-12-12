@@ -93,4 +93,4 @@ On force le choix d'au moins une langue.
 En cas de monolingue les `url` des fichiers statiques ne doivent PAS être préfixées de la langue.  
 En cas de multilingue toutes les urls sont préfixées.  
 On créé les contenus dans `content/:lang/`.
-On crée les menus dans `data/menus/:lang`.  
+On crée les menus dans `data/menus/:lang/`.  
