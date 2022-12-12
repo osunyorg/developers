@@ -50,10 +50,9 @@ On range les menus pour chaque langue dans un dossier `/data/menus/fr/``
 ### Les clés de traduction
 
 Dans le thème on a un dossier `i18n` dans lequel on pose un fichier par langue.  
-Ces fichiers peuvent éventuellement être overwrite dans un thème précis.  
-TODO: vérifier le deep_merge de ces fichiers
+Ces fichiers (ou juste certains termes) peuvent éventuellement être overwrite dans un thème précis.  
 
-### Questions / réponses sur le mono-lingue
+### Questions / réponses sur le monolingue
 
 Doit-on forcer le choix d'au moins une langue pour un site web ?  
 Conceptuellement un site à toujours une langue donc ça semble bien  
