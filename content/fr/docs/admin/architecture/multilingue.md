@@ -34,21 +34,18 @@ pt-pt:
 
 ### Les contenus
 
-Il y a 2 façons de gérer les contenus multilingues dans Hugo : 
+Il y a 2 façons de gérer les contenus multilingues dans Hugo :
 - toutes les langues d'un contenu dans le même répertoire
 - un répertoire par langue contenant tous les contenus
 
-Nous utilisons le second système, avec une config de type :
-```
-fr:
-  title: Site d'exemple Osuny
-  contentDir: content/fr
-en:
-  title: Osuny example website
-  contentDir: content/en
-```
+Nous utilisons le second système.  
+On range les contenus dans un dossier `/content/fr/`.  
+Chaque fichier a son url inclue. Il faut penser à préfixer toutes les urls par la langue (`/fr/actualites/2022-01-01-mon-article`)
 
-Chaque contenu doit être 
+### Les menus
+
+Nous n'utilisons pas les menus natifs de Hugo mais un système parallèle.
+On range les menus pour chaque langue dans un dossier `/data/menus/fr/``
 
 ### Les clés de traduction
 
