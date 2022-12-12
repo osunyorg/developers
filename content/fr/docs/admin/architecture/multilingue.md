@@ -49,6 +49,10 @@ On range les menus pour chaque langue dans un dossier `/data/menus/fr/``
 
 ### Les clés de traduction
 
+Dans le thème on a un dossier `i18n` dans lequel on pose un fichier par langue.  
+Ces fichiers peuvent éventuellement être overwrite dans un thème précis.  
+TODO: vérifier le deep_merge de ces fichiers
+
 ## Ruby on Rails
 
 ### Le paramétrage du site
