@@ -36,15 +36,16 @@ demo.osuny  127.0.0.1
 
 ## Mise en staging
 
-Automatique avec Scalingo
-## Mise en production
-
 Pour paramétrer le remote correspondant à Scalingo
 ```bash
-git remote add production git@ssh.osc-fr1.scalingo.com:osuny-production.git
+git remote add staging git@ssh.osc-fr1.scalingo.com:osuny-staging.git
 ```
 
-Pour envoyer en production (sous réserve d'avoir les droits)
+Pour envoyer en staging (sous réserve d'avoir les droits)
 ```bash
-git push production main
+git push staging main
 ```
+
+## Mise en production
+
+Automatique avec Scalingo, quand les Pull Requests sont acceptées.

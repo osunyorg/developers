@@ -2,7 +2,7 @@
 title: Utilisateurs et utilisatrices
 weight: 100
 ---
-# User
+## User
 
 Users can manage their profiles as:
 - teachers
