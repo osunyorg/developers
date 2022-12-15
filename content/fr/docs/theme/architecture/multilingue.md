@@ -38,7 +38,7 @@ pt-pt:
   languageName: Portugues
 ```
 
-Il faut aussi d'autres options de configuration qui sont regroupées dans les fichiers `production/config.yaml` et `development/config.yaml`. Indiquer
+Il faut aussi d'autres options de configuration qui sont regroupées dans les fichiers `production/config.yaml` et `development/config.yaml`.  
 ```
 ## LANGUAGE
 defaultContentLanguage: fr
@@ -46,7 +46,7 @@ defaultContentLanguageInSubdir: true
 ```
 Ça permet de rediriger la racine du site "/" vers la langue par défaut "/fr/".  
 
-Si on est sur un site avec une seule langue le paramètre `defaultContentLanguageInSubdir` est simplement ignoré par Hugo.  
+Si on est sur un site avec une seule langue le paramètre `defaultContentLanguageInSubdir` est simplement ignoré par Hugo (du moins actuellement en version 0.108).  
 
 
 ## Les contenus
@@ -71,14 +71,14 @@ Ces fichiers (ou juste certains termes) peuvent éventuellement être overwrite 
 
 ## Questions / réponses sur le monolingue
 
-Doit-on forcer le choix d'au moins une langue pour un site web ?  
-Conceptuellement un site a toujours une langue donc ça semble bien.  
+**Q: Doit-on forcer le choix d'au moins une langue pour un site web ?**  
+**A:** Conceptuellement un site a toujours une langue donc ça semble bien.  
 
-Si on choisit une seule langue, doit-on écrire quand même les contenus (et les menus) dans /fr/ ?  
-Ca ne semble pas poser de problème.  
+**Q: Si on choisit une seule langue, doit-on écrire quand même les contenus (et les menus) dans /fr/ ?**   
+**A:** Ca ne semble pas poser de problème.  
 
-En cas de monolingue quel pattern d'url utiliser ?  
-Si une seule langue il vaut mieux que les urls ne soient pas préfixées par la langue.  
+**Q: En cas de monolingue quel pattern d'url utiliser ?**   
+**A:** Si une seule langue il vaut mieux que les urls ne soient pas préfixées par la langue.  
 Dans ce cas les fichiers générés ne doivent pas avoir le `/:lang` dans leurs url. Idem pour les target des menus bien sûr.  
 Si on est monolingue le paramètre `defaultContentLanguageInSubdir` est de toute façon ignoré par Hugo.  
 En cas d'activation d'une seconde langue a posteriori le jeu d'alias des permalinks permettra de tout transférer sur /fr/  
