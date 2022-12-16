@@ -36,9 +36,10 @@ $body-color: $main-color !default
 $body-background-color: $main-background-color !default
 ```
 
-Pour définir la couleur des liens :
+Pour définir l'apparence des liens (couleur et espace entre le soulignement et le lien) :
 ```(sass)
 $link-color: $main-color !default
+$link-underline-offset: 6px !default
 ```
 
 ### Typographie
