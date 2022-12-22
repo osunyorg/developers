@@ -68,12 +68,27 @@ Configuration par défaut de la grille du Thème Osuny
 ]
 ```
 
+## Espacement verticaux
+
+### Blocs
+
+Difficultés rencontrées : 
+Comment gérer les espacements verticaux entre les blocs et les divers contenus des pages (sidebar ou pleine largeur) ?
+Gestion des séquences de bloc : certains blocs possèdent des fonds de couleur, il ne faut alors pas créer d'espaces en trop entre ces blocs. L'usage de padding top/bottom uniquement est une piste.
+
+
+Utilisation de margin uniquement :
+- Ne permet pas de gérer simplement les blocs avec des fonds de couleurs
+
+Utilisation de margin-top uniquement : 
+- 
+
 
 ## Usage des unités
 
 On favorise l'usage de REM pour l'adaptation au préférences utilisateurs.
 
-### Utiliation des ex
+### Utilisation des ex
 
 On utilise à certains endroit l'unité ex ("La hauteur d'x de la police de l'élément." https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Values_and_units ). Cela permet de gérer les alignements verticaux en fonction de la taille de caractère.
 
