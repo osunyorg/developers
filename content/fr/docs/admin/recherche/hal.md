@@ -2,11 +2,50 @@
 title: HAL
 ---
 
-## Documentation
+## Architecture
+
+Les chercheurs et chercheuses sont supposées partager leurs publications sur HAL.
+En indexant les documents dans Osuny automatiquement, on peut mettre à jour les bibliographies automatiquement.
+
+Une première approche consiste à lister des "Documents", qui appartiennent à la personne. C'est simple, mais ça crée des doublons (un article co-signé crée 2 documents).
+
+```
+research/Document
+- university:references
+- university_person:references
+- docid:string
+- data:jsonb
+- title:string
+- url:string
+- ref:string
+```
+
+Une seconde approche, plus robuste, consisterait à utiliser au niveau d'Osuny (pour toutes les universités à la fois), des documents qui sont reliés aux personnes, aux laboratoires, aux écoles, aux revues... On peut comme ça centraliser les mises à jour.
+
+```
+research/Document
+- docid:string
+- data:jsonb
+- title:string
+- url:string
+- ref:string
+
+research_documents_university_people
+- research_document:references
+- university_person:references
+
+research_documents_research_laboratories
+- research_document:references
+- research_laboratory:references
+
+education_schools_research_documents
+- education_school:references
+- research_document:references
+```
+
+## API
+
 https://api.archives-ouvertes.fr/docs
-
-## Requêtes
-
 ### Auteurs
 https://api.archives-ouvertes.fr/ref/author?q=Marl%C3%A8ne%20Dulaurans&fl=*
 
@@ -59,6 +98,7 @@ https://api.archives-ouvertes.fr/ref/author?q=Marl%C3%A8ne%20Dulaurans&fl=*
 ```
 
 ### Publications
+
 https://api.archives-ouvertes.fr/search/?q=authIdPerson_i:1063453
 
 ```json
@@ -442,3 +482,22 @@ https://api.archives-ouvertes.fr/search/?q=authIdPerson_i:1063453&fl=*
   }
 }
 ```
+
+https://api.archives-ouvertes.fr/search/?q=authIdHal_s:arnaudlevy
+
+```json
+{
+  "response":{
+    "numFound":1,
+    "start":0,
+    "maxScore":6.30194,
+    "numFoundExact":true,
+    "docs":[
+      {
+        "docid":"2455856",
+        "label_s":"Marlène Dulaurans, Arnaud Levy. Université, pédagogie, innovation : cherchez l'intrus !. Pratiques de la communication, 2019, 1, pp.39-59. &#x27E8;hal-02455856&#x27E9;",
+        "uri_s":"https://hal.science/hal-02455856"}
+    ]
+  }
+}
+``` 
