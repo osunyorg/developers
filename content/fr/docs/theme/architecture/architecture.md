@@ -71,3 +71,7 @@ A l'abandon de Bootstrap, nous avons recodé en JavaScript vanille :
 Certains blocs nécessitent du JavaScript spécifique :
 - chiffres clés
 - timeline
+
+## Arborescence
+
+https://www.a11yproject.com/posts/how-to-accessible-heading-structure/
