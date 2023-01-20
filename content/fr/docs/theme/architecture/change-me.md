@@ -19,10 +19,8 @@ body
       .blocks
         .block-n
           h2
-            articles
-              h3
-            articles
-              h3
+          articles
+            h3
   footer
 ```
 
@@ -42,9 +40,7 @@ body
         .blocks
           .block-n
             h2
-              articles
-                h3
-              articles
-                h3
+            articles
+              h3
   footer
 ```
