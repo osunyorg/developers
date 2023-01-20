@@ -24,8 +24,9 @@ body
   footer
 ```
 
-## Program
+## Formations
 
+Visuellement, les blocks font partis du H2 de la section "Présentation", mais il n'y pas de certitude que cette structure ne bouge, on reste donc sur un balisage similaire pour les blocs (comme Commun).
 
 ```
 body
