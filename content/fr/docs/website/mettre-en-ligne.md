@@ -188,7 +188,7 @@ Dans la configuration Apache de votre site :
 ```
 <VirtualHost *:443>
   ServerName www.example.fr
-	DocumentRoot /var/www/chemin/vers/votre/site
+  DocumentRoot /var/www/chemin/vers/votre/site
   DirectoryIndex index.html
   ErrorDocument 404 /404.html
 </VirtualHost>
@@ -200,8 +200,8 @@ Dans la configuration Nginx de votre site :
 
 ```
 server {
-	listen 443 ssl http2;
-	server_name www.exemple.fr;
+  listen 443 ssl http2;
+  server_name www.exemple.fr;
   root /var/www/chemin/vers/votre/site;
   index index.html;
   error_page 404 /404.html;
