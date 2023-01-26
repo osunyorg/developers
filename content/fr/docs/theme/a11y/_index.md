@@ -50,11 +50,7 @@ Un premier audit des sites réalisés avec Osuny a été réalisé à l’été 
 * **95.9%** des critères RGAA respectés ;
 * **98.8%** de conformité moyenne du service en ligne.
 
-Un [nouvel audit](https://ara.numerique.gouv.fr/rapports/U4SSpScTL2OP0tGrt-tt6) (réalisé sur le site de l’[IUT Bordeaux Montaigne](https://www.iut.u-bordeaux-montaigne.fr/)), en date du 17 novembre 2022, donnait un résultat légèrement différent, du fait des nouvelles pages auditées, avec un taux global de conformité au RGAA de **93%**.
-
-**NB :** l’[ARA](https://ara.numerique.gouv.fr/) ne proposant pas de déroger aux critères, certains critères ne pouvant s’appliquer ont été renseignés comme « non conformes ».
-
-Qui plus est, cet audit a mis en avant de nouvelles questions auxquelles Osuny apportera prochainement des réponses, ce qui permettrait d’augmenter encore le score de conformité global du site.
+Un [nouvel audit](https://ara.numerique.gouv.fr/rapports/23UbM0RDOAzJg6OEWaIIT) (réalisé sur le site de l’[IUT Bordeaux Montaigne](https://www.iut.u-bordeaux-montaigne.fr/)), en date du 26 Janvier 2023, fait état d'un taux global de conformité au RGAA de **100%** et souligne ainsi les progrès réalisés sur Osuny en matière d'accessibilité.
 
 ## Déclaration d'accessibilité
 
