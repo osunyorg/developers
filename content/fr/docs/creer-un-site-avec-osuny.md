@@ -6,7 +6,7 @@ description: >-
      Étape pour créer un site avec Osuny
 ---
 
-## Étape 1
+# Étape 1
 
 - Se connecter à l'instance / université Osuny
 - Aller dans Site web
