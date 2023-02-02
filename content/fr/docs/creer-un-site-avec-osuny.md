@@ -29,7 +29,7 @@ description: >-
 
 - Mise en ligne avec Netlify
 - Se connecter au compte netlify
-- Créer un nouveau site
+- Créer un nouveau site (Add new site / Import an existing project)
 - Choisir le repository du site
 - Déployer (en l'état, le premier deploy crash)
 - Aller dans "deploy settings" : Générer une deploy key, puis copier la clé
