@@ -16,7 +16,7 @@ description: >-
 # Étape 2
 
 - https://github.com/noesya/osuny-hugo-template-aaa
-- Cliquer sur "use this template"
+- Cliquer sur "use this template" / Create a New Repository
 - nommer le repo [IDENTIFIANT_DE_L_UNIVERSITE] - [NOM_DU_SITE]
 
 # Étape 3
