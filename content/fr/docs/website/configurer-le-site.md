@@ -6,6 +6,18 @@ description: >
 ---
 
 ## Logos et favicons
+### Logo
+Remplacer le fichier static/assets/images/logo.svg  
+Dans le cas où on n'aurait pas de logo svg il est possible de mettre tout autre format et il faut alors modifier le fichier de config dans config/_defaults/config.yaml pour ajouter les lignes suivantes :
+```
+params:
+  logo:
+    header: "/assets/images/logo.png"
+    footer: "/assets/images/logo.png"
+```
+### Favicon
+Pour afficher un favicon il suffit de mettre un fichier `favicon.png` ou `favicon.ico` à l'emplacement suivant : `/assets/images/favicons/favicon.png`
+
 ## Paramètres Hugo
 
 Les params principaux sont dans config.yaml du theme, pour en ajouter ou modifier il faut overider dans config/_defaults/config.yaml
