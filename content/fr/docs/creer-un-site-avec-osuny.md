@@ -32,8 +32,11 @@ description: >-
 - Créer un nouveau site (Add new site / Import an existing project)
 - Choisir le repository du site
 - Déployer (en l'état, le premier deploy crash)
-- Aller dans "deploy settings" : Générer une deploy key, puis copier la clé
-- Copier / coller la clé dans le repo theme osuny sur github 
+- Aller dans "deploys / deploy settings" puis "build & deploys" : Générer une deploy key, puis copier la clé
+- Aller dans le repo du thème Hugo utilisé (en passant par le dossier `themes` du repo du site)
+- Aller dans la partie Settings
+- Aller dans la partie Deploy keys
+- Ajouter une clé avec le nom du site et coller la clé copiée depuis Netlify. Ne pas cocher "Allow write access".
 - À documenter : explication sur les token GitHub / Netlify
 
 # Étape 5
