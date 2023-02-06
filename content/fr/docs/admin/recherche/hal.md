@@ -4,6 +4,8 @@ title: HAL
 
 ## Architecture
 
+### Etape 1
+
 Les chercheurs et chercheuses sont supposées partager leurs publications sur HAL.
 En indexant les documents dans Osuny automatiquement, on peut mettre à jour les bibliographies automatiquement.
 
@@ -20,28 +22,45 @@ research/Document
 - ref:string
 ```
 
-Une seconde approche, plus robuste, consisterait à utiliser au niveau d'Osuny (pour toutes les universités à la fois), des documents qui sont reliés aux personnes, aux laboratoires, aux écoles, aux revues... On peut comme ça centraliser les mises à jour.
+### Etape 2
+
+Une seconde approche, plus robuste, consisterait à utiliser au niveau d'Osuny (pour toutes les universités à la fois), des publications qui sont reliées aux personnes, aux laboratoires, aux écoles, aux revues... On peut comme ça centraliser les mises à jour.
 
 ```
-research/Document
+research/Publication
 - docid:string
 - data:jsonb
 - title:string
 - url:string
 - ref:string
 
-research_documents_university_people
-- research_document:references
+research_publications_university_people
+- research_publication:references
 - university_person:references
 
-research_documents_research_laboratories
-- research_document:references
+research_laboratories_research_publications
 - research_laboratory:references
+- research_publication:references
 
-education_schools_research_documents
+education_schools_research_publications
 - education_school:references
-- research_document:references
+- research_publication:references
 ```
+
+### Le problème des chercheuses ou chercheurs en doublon
+
+Si une personne existe dans 2 universités différentes, avec le même identifiant HAL, cela va créer des jointures avec 2 personnes qui sont en fait la même. Une solution pourrait être d'unifier les personnes, mais cela interdit d'avoir des contenus différents (textes, images, blocs) en fonction des contextes, ce n'est donc pas pertinent. Une autre solution consiste à dédoublonner à l'affichage, c'est à dire à ne pas mentionner les auteurs dans d'autres universités, s'ils sont déjà listés dans l'actuelle. 
+
+*Ex: Une publication est écrite par Stéphanie, qui existe à l'Université Bordeaux Montaigne et à l'Université Clermont-Auvergne. Dans le back-office de Bordeaux Montaigne, il faut ignorer le profil de Stéphanie à Clermont, et inversement.*
+
+### La mise à jour
+
+Quand une publication est ajoutée sur HAL, il faut qu'elle remonte rapidement sur les différentes pages de chaque personne. Pour cela, il faut demander régulièrement la liste des publications des personnes dotées d'un identifiant HAL, afin d'importer les nouvelles. Par ailleurs, les données liées à une publication peuvent être mises à jour dans HAL, il faut donc mettre à jour ces informations. Les documents dans HAL sont dotés d'une propriété *_version_*, que l'on peut stocker et comparer.
+
+Processus :
+- tâche quotidienne nocturne de mise à jour de chaque auteur
+- dans la tâche, récupération des versions et marquage des mises à jour nécessaires
+- après l'ensemble des récupérations, chargement des infos marquées pour la mise à jour
 
 ## API
 
