@@ -57,14 +57,22 @@ Si une personne existe dans 2 universités différentes, avec le même identifia
 
 Quand une publication est ajoutée sur HAL, il faut qu'elle remonte rapidement sur les différentes pages de chaque personne. Pour cela, il faut demander régulièrement la liste des publications des personnes dotées d'un identifiant HAL, afin d'importer les nouvelles. Par ailleurs, les données liées à une publication peuvent être mises à jour dans HAL, il faut donc mettre à jour ces informations. Les documents dans HAL sont dotés d'une propriété *_version_*, que l'on peut stocker et comparer.
 
-Processus :
-- tâche quotidienne nocturne de mise à jour de chaque auteur
-- dans la tâche, récupération des versions et marquage des mises à jour nécessaires
-- après l'ensemble des récupérations, chargement des infos marquées pour la mise à jour
-
 ```
 rails auto:update_publications_from_hal
 ```
+
+#### Version simple
+
+Processus :
+- tâche quotidienne nocturne de mise à jour de chaque auteur
+
+#### Version optimisée
+
+L'idée est de charger uniquement la version dans la tâche quotidienne, de façon à charger une seule fois un document ayant plusieurs auteurs et nécessitant une mise à jour.
+
+Processus :
+- dans la tâche, récupération des versions et marquage des mises à jour nécessaires
+- après l'ensemble des récupérations, chargement des infos marquées pour la mise à jour
 
 ## API
 
