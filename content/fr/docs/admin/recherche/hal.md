@@ -62,6 +62,10 @@ Processus :
 - dans la tâche, récupération des versions et marquage des mises à jour nécessaires
 - après l'ensemble des récupérations, chargement des infos marquées pour la mise à jour
 
+```
+rails auto:update_publications_from_hal
+```
+
 ## API
 
 https://api.archives-ouvertes.fr/docs
