@@ -12,7 +12,7 @@ Une fois ces fichiers générés, il faut les envoyer sur le serveur ou dans le 
 ## Préférer le SSH
 
 La mise à jour des fichiers peut se faire en SSH ou en SFTP. 
-Il faut systématquement privilégier le SSH, qui présente de meilleures performances.
+Il faut systématiquement privilégier le SSH, qui présente de meilleures performances.
 Lors d'un test nous avons constaté que le même site est mis à jour en 20 secondes via SSH et en 3 minutes via SFTP.
 
 ## Avec Netlify
