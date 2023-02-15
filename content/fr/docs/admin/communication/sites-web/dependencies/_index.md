@@ -39,6 +39,7 @@ Certaines dépendances natives présentent des liens entre elles.
 Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère.
 - Les catégories sont utilisées pour organiser les actualités.
 Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
+- Les pages sont arborescentes, donc il faut mettre à jour toute la descendance quand le path change.
 
 Ces 2 cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
 
