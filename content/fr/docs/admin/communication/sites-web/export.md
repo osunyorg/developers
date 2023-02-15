@@ -1,5 +1,7 @@
 ---
 title: Export Hugo
+weight: 2
+description: Envoyer les fichiers sur Git pour déclencher la compilation Hugo
 ---
 
 ## Contexte
@@ -130,19 +132,19 @@ La responsabilité de la synchronisation repose sur Communication::Website::GitF
 
 
 Pour cela, le git_file dispose des propriétés suivantes :
-- previous_path (le chemin à la dernière sauvegarde, nil si pas encore créé, ou détruit)
-- previous_sha (le hash de la précédente version, utile pour savoir si le fichier a changé)
-- identifier (l'identifiant du fichier à créer, `static` par défaut, pour les objets créant plusieurs fichiers)
+- `previous_path` (le chemin à la dernière sauvegarde, nil si pas encore créé, ou détruit)
+- `previous_sha` (le hash de la précédente version, utile pour savoir si le fichier a changé)
+- `identifier` (l'identifiant du fichier à créer, `static` par défaut, pour les objets créant plusieurs fichiers)
 
 
 Pour informer sur les actions à mener, il dispose des méthodes interrogatives suivantes :
-- synchronized_with_git? (pour évaluer l'intégrité vs le repository)
-- should_create? (pour savoir s'il faut créer ou pas)
-- should_update? (pour savoir s'il faut régénérer ou pas)
-- should_destroy? (pour savoir s'il faut supprimer)
+- `synchronized_with_git?` (pour évaluer l'intégrité vs le repository)
+- `should_create?` (pour savoir s'il faut créer ou pas)
+- `should_update?` (pour savoir s'il faut régénérer ou pas)
+- `should_destroy?` (pour savoir s'il faut supprimer)
 
 
 Pour générer les fichiers, il dispose des méthodes :
-- to_s (pour générer le fichier statique à jour)
-- sha (pour calculer le hash du fichier à jour)
-- path (pour générer le chemin à jour)
+- `to_s` (pour générer le fichier statique à jour)
+- `sha` (pour calculer le hash du fichier à jour)
+- `path` (pour générer le chemin à jour)

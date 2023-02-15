@@ -1,5 +1,7 @@
 ---
 title: Evénements
+weight: 10
+description: Gérer un calendrier d'événements
 ---
 
 Est-ce vraiment du domaine du site ? Ou est-ce plus haut, avec une publication sur le site ?

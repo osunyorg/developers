@@ -1,5 +1,7 @@
 ---
-title: Customs
+title: Objets personnalisés
+weight: 6
+description: Étendre les fonctionnalités de base
 ---
 
 Au-delà des pages et des actualités, les sites ont souvent besoin d'objets spécifiques, au cas par cas.
