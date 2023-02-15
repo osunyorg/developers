@@ -3,6 +3,9 @@ title: Version 1
 description: Implémentée en 2022
 ---
 
+Nous avons procédé à un traitement à la volée des dépendances dans tous les objets. Cette version, détaillée ici, tombe dans les boucles infinies et est pénible à maintenir.
+
+
 ## Communication::Website
 ```ruby
 def git_dependencies(website)
