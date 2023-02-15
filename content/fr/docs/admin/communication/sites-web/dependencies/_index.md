@@ -66,3 +66,40 @@ De même, les revues scientifiques ont des auteurs, et les auteurs ont des publi
 
 ### L'indirect non listé
 Il peut arriver qu'une personne ou une organisation doive être ajoutée à un site Web, alors qu'elle n'apparaît dans aucun bloc ni aucune formation.
+
+## Cas d'usage
+
+### Pages
+
+1. Je crée une page, je la publie, il faut qu'elle soit exportée
+2. J'ajoute une image à une page, il faut que l'image soit exportée
+3. Je change l'image, il faut supprimer la précédente et exporter la nouvelle
+4. Je crée une page enfant, il faut qu'elle soit exportée
+5. Je change le chemin de la page parent, il faut que le parent et l'enfant soient exportés
+6. J'ajoute un bloc "Personnes", je lie une personne, il faut que la page soit exportée, ainsi que la personne et sa photo
+7. Je change le chemin d'une page utilisée dans un élément de menu, il faut exporter la page et le menu
+
+### Actualités
+
+Les scenarii 1 à 3 ne sont pas repris, bien qu'ils soient pertinents pour les actualités et toutes les dépendances natives des sites.
+
+1. Je crée une actualité, je la publie avec une date dans le futur. Il faut qu'elle ne soit pas publiée, jusqu'à la dite date
+2. Je crée une actualité, il faut exporter toutes les pages dotées d'un bloc "actualités" afin de mettre à jour les listes
+
+### Catégories
+
+1. Je renomme une catégorie. Il faut l'exporter, et exporter tous les articles liés à la catégorie pour faire correspondre le chemin.
+2. Je déplace une catégorie. Il faut l'exporter, exporter toute la descendance, et exporter tous les articles liés à la catégorie ou à la descendance. 
+3. Je change le chemin d'une catégorie utilisée dans un élément de menu, il faut exporter la catégorie et le menu.
+
+### Personnes
+
+1. J'ajoute un bloc "chapitre" à une personne, avec une image. Il faut que cette image soit exportée pour tous les sites liés
+2. J'ajoute un bloc "organisations" à une personne, avec une organisation liée. Il faut que l'organisation et son logo soient exportés pour tous les sites liés
+
+### Formations
+
+1. Je définis un site comme site d'école. Il faut que les formations de l'école soient exportés dans le site
+2. J'ajoute un bloc "formations" dans un site. Il faut restreindre les formations proposées aux formations liées au site
+3. J'ajoute un enseignant à une formation. Il faut que l'enseignant et la personne soient exportés dans tous les sites liés
+4. J'ajoute un bloc "organisations" pour lister des partenaires. Il faut que les partenaires et leurs logos soient exportés vers tous les sites liés.

@@ -149,8 +149,8 @@ Communication::Website::Page
 
 ## La traçabilité
 
-Il est possible, mais nettement plus compliqué, de garder trace de l'origine de la connexion.
-Cela ne paraît pas indispensable.
+Il est possible, mais nettement plus compliqué, de garder trace de l'origine de la connexion, au niveau de la source et du bloc.
+Le niveau bloc ne paraît pas indispensable.
 
 ```
 Communication::Website::Connections
