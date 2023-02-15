@@ -60,10 +60,8 @@ On peut donc arriver à une référence circulaire : une personne mentionne une 
 Si l'on code un algorithme récursif qui suit la chaîne de dépendances, cette boucle est un piège logique, la mise à jour ne finira jamais, on tombe dans une boucle infinie.
 
 ### Autres dépendances indirectes
-
 Les formations et les écoles ont du personnel enseignant et administratif qui sont donc des dépendances indirectes.
 De même, les revues scientifiques ont des auteurs, et les auteurs ont des publications (pas des papiers, c'est subtil...).
 
-### L'indirect pas listé
-
+### L'indirect non listé
 Il peut arriver qu'une personne ou une organisation doive être ajoutée à un site Web, alors qu'elle n'apparaît dans aucun bloc ni aucune formation.
