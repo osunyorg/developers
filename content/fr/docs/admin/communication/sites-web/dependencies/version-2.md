@@ -19,12 +19,29 @@ Communication::Website::Connections
 #  website_id          :uuid             not null, indexed
 #  object_type         :string           indexed => [object_id]
 #  object_id           :uuid             indexed => [object_type]
+#  source_type         :string           indexed => [source_id]
+#  source_id           :uuid             indexed => [source_type]
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 ```
 
 On inscrit la connexion dans l'université et dans le site Web.
 On mentionne l'objet polymorphe (page, personne, blob...).
+
+On note comme source l'entité qui est à l'origine de la connexion.
+Dans beaucoup de scénarios, c'est une chaîne :
+- un site est lié à une école
+- une école a des formations
+- une formation a des enseignants
+- un enseignant a une photo
+
+Pour matérialiser cela, il faut créer une connexion pour chaque niveau, dans le cas précédent, pour la photo (qui est un blob) :
+- object: photo, source: école 
+- object: photo, source: formation 
+- object: photo, source: enseignant
+
+Si l'école est déconnectée du site, le lien avec les formations va disparaître, donc celui avec les enseignants, donc celui avec la photo.
+Ce calcul se fait en nettoyage nocturne pour permettre de reconstruire par le site Web.
 
 ## L'algorithme
 
