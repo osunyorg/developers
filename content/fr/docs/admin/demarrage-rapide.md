@@ -31,7 +31,7 @@ rails app:start
 
 4. Pour utiliser des urls locales de type `http://demo.osuny:3000`, il faut paramétrer le fichiers hosts (sur Mac et Linux, `/etc/hosts`)
 ```text
-demo.osuny  127.0.0.1 
+127.0.0.1   demo.osuny 
 ```
 
 ## Mise en staging
