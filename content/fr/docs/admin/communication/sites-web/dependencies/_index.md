@@ -30,7 +30,7 @@ Il suffit de déclencher un export à chaque événement (création, modificatio
 
 ### Images
 Il faut lister les images ("image à la une") utilisées par ces objets pour les ajouter à la liste des médias, et mettre à jour cette liste.
-Les images en question s'appuient sur [Active Storage](https://guides.rubyonrails.org/active_storage_overview.html), qui utilisent des objets `Blob` en base de données.
+Les images en question s'appuient sur [Active Storage](https://guides.rubyonrails.org/active_storage_overview.html), qui utilise des objets `Blob` en base de données.
 Ces objets sont créés et détruits mais jamais modifiés, il faut donc suivre uniquement les créations et suppressions.
 
 ### Références
@@ -41,13 +41,12 @@ Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère
 Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
 - Les pages sont arborescentes, donc il faut mettre à jour toute la descendance quand le path change.
 
-Ces 2 cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
+Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
 
 ## Dépendances indirectes
 
-Les objets qui utilisent des blocs peuvent présenter des dépendances indirectes.
-
 ### Blocs de base, narratifs et techniques
+Les objets qui utilisent des blocs peuvent présenter des dépendances indirectes.
 Ces blocs peuvent utiliser des images, qu'il faut lister et suivre pour les ajouter ou les supprimer de la liste des médias. 
 
 ### Blocs de liste
@@ -66,6 +65,7 @@ De même, les revues scientifiques ont des auteurs, et les auteurs ont des publi
 
 ### L'indirect non listé
 Il peut arriver qu'une personne ou une organisation doive être ajoutée à un site Web, alors qu'elle n'apparaît dans aucun bloc ni aucune formation.
+Il faut dans ce cas pouvoir l'ajouter explicitement, en utilisant une interface sur la page des personnes.
 
 ## Cas d'usage
 
