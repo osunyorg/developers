@@ -1,5 +1,5 @@
 ---
-title: Création du site dans l'admin
+title: Création du site dans le CMS
 weight: 100
 description: >-
   Créer le site sur Osuny
