@@ -7,7 +7,6 @@ description: >
 
 Si vous êtes perdus, venez sur le [Slack de Support Osuny](https://osunysupport.slack.com), on vous aidera avec plaisir !
 
-
 ## Problème d'intégrité du JS avec Cloudflare
 
 Cloudflare minifie les fichiers, ce qui invalide le sha256, et bloque le chargement [Issue 36](https://github.com/noesya/osuny-hugo-theme-aaa/issues/36).
