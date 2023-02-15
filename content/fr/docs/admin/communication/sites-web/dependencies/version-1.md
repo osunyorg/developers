@@ -3,7 +3,10 @@ title: Version 1
 description: Implémentée en 2022
 ---
 
-Nous avons procédé à un traitement à la volée des dépendances dans tous les objets. Cette version, détaillée ici, tombe dans les boucles infinies et est pénible à maintenir.
+Nous avons procédé à un traitement à la volée des dépendances dans tous les objets. 
+Cette version, détaillée ici, tombe dans les boucles infinies et est pénible à maintenir.
+
+Les objets concernés listent les dépendances dans le cadre d'un website, et les dépendances de suppression.
 
 
 ## Communication::Website
