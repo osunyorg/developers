@@ -70,7 +70,7 @@ Communication::Website::Page
 
 ### Principe
 ```
-Communication::Website::Connections
+Communication::Website::Connection
 #  id                  :uuid             not null, primary key
 #  university_id       :uuid             not null, indexed
 #  website_id          :uuid             not null, indexed
@@ -104,6 +104,8 @@ Ce calcul se fait en nettoyage nocturne pour permettre de reconstruire par le ba
 
 ```ruby
 Communication::Website
+  WithDependencies
+
   has_many  :connections
   has_many  :objects,
             through: :connections
@@ -112,55 +114,102 @@ Communication::Website
     pages +
     posts + 
     categories +
-    menus
+    menus +
+    [about]
   end
 
-  def connect_direct_dependencies
-    direct_dependencies.each do |dependency|
-      connect_dependency dependency
-    end
+  def clean_connections!
+    start = Time.now
+    connect self
+    connections.where('updated_at < ?', time).destroy_all
   end
 
-  def connect_dependencies(object, source: nil)
-    connect_dependency object, source
+  def connect(object, source = nil)
+    connect_object object, source
     object.dependencies.each do |dependency|
-      connect_dependency dependency, object
+      connect_object dependency, source
+      connect_object dependency, object # Faut-il la double connexion ?
     end
   end
 
-  def connect_dependency(dependency, source: nil)
-    if is_connected?(dependency)
-      touch_connection dependency
-    else
-      connect dependency
-      connect_dependencies website, source
+  # TODO pas pensé
+  def disconnect(object, source = nil)
+    disconnect_object object, source
+    object.dependencies.each do |dependency|
+      disconnect_object dependency, source
+      disconnect_object dependency, object # Faut-il la double connexion ?
     end
-  end
-
-  def is_connected?(object, source: nil)
-    connection(object, source: nil).any?
-  end
-
-  def connect(object, source: nil)
-    connection(object, source: nil).first_or_create
-  end
-
-  def touch_connection(object, source: nil)
-    connection(object, source: nil).touch_all
-  end
-
-  def disconnect(object, source: nil)
-    connection(object, source: nil).destroy_all
   end
 
   protected
 
-  def connection(object, source: nil)
-    connections.where(university: university, object: object, source: source)
+  def connect_object(object, source)
+    connections.where(university: university, object: object, source: source).first_or_create
+  end
+
+  def disconnect_object(object, source)
+    connections.where(university: university, object: object, source: source).destroy_all
   end
 ```
 
 ## 3. Le lien objet / sites Web
+
+### Cas
+
+1. Quand on crée une personne, elle n'est jamais liée à un site
+2. Quand on ajoute une personne à un site explicitement (en passant par la page Équipe), ça crée une connexion
+3. Quand on ajoute une personne à un bloc "Personnes" d'une page, ça crée une connexion avec la page comme source
+4. Quand on ajoute une personne à un bloc "Personnes" d'une formation, ça crée une connexion avec comme source la formation
+
+Une personne se lie à un site parce qu'on l'ajoute à un objet qui est lié à un site.
+Quand on enregistre un bloc, il faut vérifier si l'objet auquel appartient le bloc est connecté à des websites.
+
+### Implémentation
+
+Le bloc déclenche la connection de son objet de rattachement (`about`), qui le listera en retour dans ses dépendances. 
+```ruby
+Communication::Block
+  after_save :connect_about_to_websites
+
+  def connect_about_to_websites
+    about.connect_to_websites
+  end
+```
+
+```ruby
+module WithWebsites
+  extend ActiveSupport::Concern
+
+  included do
+    after_save :connect_to_websites
+
+    has_many  :connections,
+              class_name: 'Communication::Website::Connection',
+              inverse_of: :object
+    has_many  :websites,
+              -> { distinct },
+              through: :connections
+  end
+
+  def connect_to_websites
+    websites.each do |website|
+      website.connect(self)
+    end
+  end
+
+```
+
+```ruby
+University::Person
+  WithWebsites
+```
+
+Si une formation est ajoutée à une école, il faut créer la connexion aux websites de cette école.
+```ruby
+Education::Program
+  WithWebsites
+
+```
 
 ## 4. Le nettoyage nocturne
 Quotidiennement, après minuit, on reconstruit les connexions du site Web pour vérifier l'intégrité et réparer d'éventuels problèmes.
