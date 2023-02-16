@@ -8,10 +8,62 @@ Le point de départ de cette version est multiple :
 - permettre l'indirect non listé
 - simplifier la maintenance
 
+Plusieurs intuitions guident cette version :
+1. lister les dépendances avec un algorithme récursif qui évite les boucles infinies
+2. inscrire les connexions en base de données
+3. traiter clairement les liens entre objets et sites Web
+4. consolider chaque nuit les connexions (ce qui traite aussi la publication d'actualité dans le futur) 
 
-## Les connexions
-L'intuition est de ne pas lister à la volée, mais d'inscrire les dépendances en base de données.
+## 1. La liste de dépendances
 
+### Principe
+Pour éviter la boucle infinie, il faut écrire un algorithme capable de suivre la chaîne de dépendance sans tomber dans la boucle infinie :
+- prendre la liste de dépendance directe
+- pour chaque dépendance, vérifier si elle est déjà traitée
+  - si non, l'ajouter et reprendre avec les enfants
+  - si oui, l'ignorer et ignorer les enfants
+
+Pour respecter les principes de [responsabilité unique](https://en.wikipedia.org/wiki/Single-responsibility_principle) et d'[encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)), cet algorithme :
+- ne doit pas se préoccuper de site Web (pas de contexte)
+- ne doit pas fouiller dans ses propres dépendances (chacun s'occupe de son niveau)
+
+### Implémentation
+
+```ruby
+concerns/WithDependencies
+  # Cette méthode doit être définie dans chaque objet, et renvoyer un tableau de ses références directes
+  def direct_dependencies
+    []
+  end
+
+  def dependencies(list = [])
+    direct_dependencies.each do |dependency|
+      next if dependency.in?(list)
+      list << dependency
+      list += dependency.dependencies(list)
+    end
+    list
+  end
+```
+
+### Exemple pour une page
+```ruby
+Communication::Website::Page
+  def direct_dependencies
+    # Les images à la une, héritées ou pas
+    active_storage_blobs + 
+    # Les blocks (pas besoin de lister les dépendances des blocs, c'est récursif)
+    blocks + 
+    # Les enfants (pas besoin de lister tous les descendants, c'est récursif)
+    children + 
+    # Les items liés à cette page (pas besoin de lister les menus eux-mêmes, c'est récursif)
+    menu_items
+  end
+```
+
+## 2. Les connexions
+
+### Principe
 ```
 Communication::Website::Connections
 #  id                  :uuid             not null, primary key
@@ -35,7 +87,7 @@ Dans beaucoup de scénarios, c'est une chaîne :
 - une formation a des enseignants
 - un enseignant a une photo
 
-Pour matérialiser cela, il faut créer une connexion pour chaque niveau, dans le cas précédent, pour la photo (qui est un blob) :
+Pour matérialiser cela, il faut probablement créer une connexion pour chaque niveau, dans le cas précédent, pour la photo (qui est un blob) :
 - object: photo, source: école 
 - object: photo, source: formation 
 - object: photo, source: enseignant
@@ -43,38 +95,16 @@ Pour matérialiser cela, il faut créer une connexion pour chaque niveau, dans l
 Si l'école est déconnectée du site, le lien avec les formations va disparaître, donc celui avec les enseignants, donc celui avec la photo.
 Ce calcul se fait en nettoyage nocturne pour permettre de reconstruire par le bas, depuis le site Web, ce qui est plus long mais plus fiable.
 
-## L'algorithme
-
-### Principe
-Pour éviter la boucle infinie, il faut écrire un algorithme capable de suivre la chaîne de dépendance sans tomber dans la boucle infinie :
-- prendre la liste de dépendance directe
-- pour chaque dépendance, vérifier si elle est déjà traitée
-  - si oui, l'ignorer et ignorer les enfants
-  - si non, l'ajouter et reprendre avec les enfants
-
-Une version de l'algorithme qui fait juste les connexions
-```ruby
-concerns/WithDependencies
-  def connect_dependencies(website)
-    dependencies.each do |dependency|
-      connect_dependency(dependency, website)
-    end
-  end
-
-  def connect_dependency(dependency, website)
-    if website.is_connected?(dependency)
-      website.touch_connection dependency
-    else
-      website.connect dependency
-      dependency.connect_dependencies website
-    end
-  end
-```
-
-Une version qui renvoie la liste construite
+### Implémentation
 
 ```ruby
-concerns/WithDependencies
+# TODO using dependencies
+Communication::Website
+  has_many  :connections
+  has_many  :objects,
+            through: :connections
+
+
   def connect_dependencies(website)
     list = []
     dependencies.each do |dependency|
@@ -93,13 +123,6 @@ concerns/WithDependencies
     end
     lists << website.connection(dependency)
   end
-```
-
-```ruby
-Communication::Website
-  has_many  :connections
-  has_many  :objects,
-            through: :connections
 
   def is_connected?(object)
     connection(object).any?
@@ -124,7 +147,9 @@ Communication::Website
   end
 ```
 
-### Le nettoyage nocturne
+## 3. Le lien objet / sites Web
+
+## 4. Le nettoyage nocturne
 Quotidiennement, après minuit, on reconstruit les connexions du site Web pour vérifier l'intégrité et réparer d'éventuels problèmes.
 Cela permet de traiter la publication des actualités dans le futur, puisque les publications prévues pour le jour concerné seront ajoutées avec leurs connexions.
 
@@ -163,6 +188,8 @@ Communication::Website::Page
     active_storage_blobs
   end
 ```
+
+
 
 ## La traçabilité
 
