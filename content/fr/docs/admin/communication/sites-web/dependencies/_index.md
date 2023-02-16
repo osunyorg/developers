@@ -15,12 +15,22 @@ La question traitée ici est celle de la liste des objets, et de la mise à jour
 - comment supprimer les objets quand c'est nécessaire ?
 
 ## Définitions
-### Connexions
-On appelle connexions l'ensemble des objets liés au site Web, qui nécessitent un export vers Git.
-Cela correspond aux dépendances du site Web, mais on distingue les 2 pour clarifier
 
 ### Dépendances d'un objet
 L'ensemble des objets liés à un autre.
+
+Par exemple, sont des dépendances d'une actualité :
+- son image à la une
+- son auteur
+- la photo de l'auteur
+
+### Connexions
+On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
+On distingue connexions et dépendances pour clarifier la réflexion.
+
+Par exemple, sont des connexions :
+- toutes les pages, et les dépendances des pages
+- les formations d'un site d'école et les dépendances de ces formations
 
 ## Connexions directes
 
@@ -36,11 +46,13 @@ Il suffit de déclencher un export à chaque événement (création, modificatio
 
 ### Liens entre objets du site
 Certains de ces objets présentent des liens entre eux.
-- Les pages, actualités et catégories peuvent être utilisés comme éléments de menu.
+1. Les pages, actualités et catégories peuvent être utilisés comme éléments de menu.
 Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère.
-- Les catégories sont utilisées pour organiser les actualités.
+2. Les catégories sont utilisées pour organiser les actualités.
 Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
-- Les pages sont arborescentes, donc il faut mettre à jour toute la descendance quand le path change.
+3. Les pages et les catégories sont arborescentes, donc il faut mettre à jour toute la descendance quand le `path` change.
+4. Les `path` des actualités dépendent du `path` de la page spéciale "Actualités", qui sert d'index. 
+Si cette page est renommée "News", il faut mettre à jour toutes les actualités pour que "actualites/..." devienne "news/...".
 
 Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
 
@@ -92,10 +104,14 @@ Les scenarii 1 à 3 ne sont pas repris, bien qu'ils soient pertinents pour les a
 1. Je crée une actualité, je la publie avec une date dans le futur. Il faut qu'elle ne soit pas publiée, jusqu'à la dite date
 2. Je crée une actualité, il faut exporter toutes les pages dotées d'un bloc "actualités" afin de mettre à jour les listes
 
+Ce cas "2." peut être traité de 2 façons : 
+- en listant explicitement les articles concernés (c'est la situation actuelle), ce qui donne au CMS la charge des calculs et qui permet à Hugo de simplement récupérer ce qu'on lui demande
+- en indiquant les règles à Hugo (la catégorie et le nombre d'articles), ce qui donne à Hugo la charge des calculs et permet de ne pas mettre à jour les pages présentant ces blocs.
+
 ### Catégories
 
-1. Je renomme une catégorie. Il faut l'exporter, et exporter tous les articles liés à la catégorie pour faire correspondre le chemin.
-2. Je déplace une catégorie. Il faut l'exporter, exporter toute la descendance, et exporter tous les articles liés à la catégorie ou à la descendance. 
+1. Je renomme une catégorie. Il faut l'exporter, exporter sa catégorie parente (qui liste les enfants), exporter ses catégories enfants, et exporter tous les articles liés à la catégorie et à sa descendance pour faire correspondre le chemin.
+2. Je déplace une catégorie. Il faut l'exporter, exporter l'ancien parent, le nouveau parent, toute la descendance, et exporter tous les articles liés à la catégorie et à la descendance. 
 3. Je change le chemin d'une catégorie utilisée dans un élément de menu, il faut exporter la catégorie et le menu.
 
 ### Personnes
@@ -109,3 +125,7 @@ Les scenarii 1 à 3 ne sont pas repris, bien qu'ils soient pertinents pour les a
 2. J'ajoute un bloc "formations" dans un site. Il faut restreindre les formations proposées aux formations liées au site
 3. J'ajoute un enseignant à une formation. Il faut que l'enseignant et la personne soient exportés dans tous les sites liés
 4. J'ajoute un bloc "organisations" pour lister des partenaires. Il faut que les partenaires et leurs logos soient exportés vers tous les sites liés.
+
+Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui. 
+Dans le site de l'IUT Bordeaux Montaigne, un bloc "Formations" ne doit permettre de lister que des formations de l'IUT.
+Sinon, l'ajout d'une formation que l'école n'assure pas ajouterait cette formation à l'offre de formation présentée sur le site.

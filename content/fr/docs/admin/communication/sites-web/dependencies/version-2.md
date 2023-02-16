@@ -6,6 +6,7 @@ description: Implémentée en 2023
 Le point de départ de cette version est multiple :
 - résoudre les boucles infinies
 - permettre l'indirect non listé
+- éviter les commits multiples lors d'une seule action
 - simplifier la maintenance
 
 Plusieurs intuitions guident cette version :
@@ -18,7 +19,7 @@ Plusieurs intuitions guident cette version :
 
 ### Principe
 Pour éviter la boucle infinie, il faut écrire un algorithme capable de suivre la chaîne de dépendance sans tomber dans la boucle infinie :
-- prendre la liste de dépendance directe
+- prendre la liste des dépendances directes
 - pour chaque dépendance, vérifier si elle est déjà traitée
   - si non, l'ajouter et reprendre avec les enfants
   - si oui, l'ignorer et ignorer les enfants
@@ -45,6 +46,10 @@ concerns/WithDependencies
     list
   end
 ```
+
+Warning : vérifier que `dependency.in?(list)` ne donne pas de faux négatifs à cause d'active record.
+Par exemple, j'instancie 2 fois le même auteur, mais les objets sont distincts en RAM, donc interprétés comme différents.
+A mettre sous test.
 
 ### Exemple pour une page
 ```ruby
