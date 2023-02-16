@@ -31,13 +31,13 @@ Pour respecter les principes de [responsabilité unique](https://en.wikipedia.or
 ### Implémentation
 
 ```ruby
-concerns/WithDependencies
+concerns/WithSimpleDependencies
   # Cette méthode doit être définie dans chaque objet, et renvoyer un tableau de ses références directes
   def direct_dependencies
     []
   end
 
-  def dependencies(list = [])
+  def simple_dependencies(list = [])
     direct_dependencies.each do |dependency|
       next if dependency.in?(list)
       list << dependency
@@ -108,6 +108,7 @@ Communication::Website
 
   has_many  :connections
   has_many  :objects,
+            -> { distinct },
             through: :connections
 
   def direct_dependencies
