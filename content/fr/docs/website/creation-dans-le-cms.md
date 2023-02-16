@@ -40,5 +40,5 @@ description: >-
 
 ## Étape 5
 
-- Une fois le site déployer, copier / coller l'url du site public dans la configuration du site dans l'admin Osuny
+- Une fois le site déployé, copier / coller l'url du site public dans la configuration du site dans l'admin Osuny
 
