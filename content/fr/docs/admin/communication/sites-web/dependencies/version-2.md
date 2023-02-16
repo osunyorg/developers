@@ -98,52 +98,60 @@ Ce calcul se fait en nettoyage nocturne pour permettre de reconstruire par le ba
 ### Implémentation
 
 ```ruby
-# TODO using dependencies
 Communication::Website
   has_many  :connections
   has_many  :objects,
             through: :connections
 
-
-  def connect_dependencies(website)
-    list = []
-    dependencies.each do |dependency|
-      list += connect_dependency(dependency, website)
-    end
-    list
+  def direct_dependencies
+    pages +
+    posts + 
+    categories +
+    menus
   end
 
-  def connect_dependency(dependency, website)
-    list = []
-    if website.is_connected?(dependency)
-      website.touch_connection dependency
+  def connect_direct_dependencies
+    direct_dependencies.each do |dependency|
+      connect_dependency dependency
+    end
+  end
+
+  def connect_dependencies(object, source: nil)
+    connect_dependency object, source
+    object.dependencies.each do |dependency|
+      connect_dependency dependency, object
+    end
+  end
+
+  def connect_dependency(dependency, source: nil)
+    if is_connected?(dependency)
+      touch_connection dependency
     else
-      website.connect dependency
-      list += dependency.connect_dependencies website
+      connect dependency
+      connect_dependencies website, source
     end
-    lists << website.connection(dependency)
   end
 
-  def is_connected?(object)
-    connection(object).any?
+  def is_connected?(object, source: nil)
+    connection(object, source: nil).any?
   end
 
-  def connect(object)
-    connection(object).first_or_create
+  def connect(object, source: nil)
+    connection(object, source: nil).first_or_create
   end
 
-  def touch_connection(object)
-    connection(object).touch_all
+  def touch_connection(object, source: nil)
+    connection(object, source: nil).touch_all
   end
 
-  def disconnect(object)
-    connection(object).destroy_all
+  def disconnect(object, source: nil)
+    connection(object, source: nil).destroy_all
   end
 
   protected
 
-  def connection(object)
-    connections.where(university: university, object: object)
+  def connection(object, source: nil)
+    connections.where(university: university, object: object, source: source)
   end
 ```
 
