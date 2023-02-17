@@ -32,6 +32,19 @@ Par exemple, sont des connexions :
 - toutes les pages, et les dépendances des pages
 - les formations d'un site d'école et les dépendances de ces formations
 
+### Arbres
+On appelle arbres les relations de type parents / enfants.
+
+Par exemple :
+- les pages
+- les catégories
+- les liens entre catégories et actualités sont assimilés aux arbres
+
+Ces relations ne sont pas des dépendances directes, parce que les objets ne sont pas indispensables à l'affichage.
+En revanche, ils partagent des caractéristiques :
+- quand on change un `path`, il faut mettre à jour toute la descendance
+- quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
+
 ## Connexions directes
 
 ### Objets du site
@@ -70,7 +83,7 @@ Ces blocs peuvent utiliser des images ou des fichiers, qu'il faut lister et suiv
 ### Blocs de liste
 Ces blocs créent des liens entre objets. 
 Exemple : une page utilise un bloc "Organisations", qui fait référence à 5 organisations. 
-Les 5 organisations sont des dépendances indirectes de la page.
+Les 5 organisations sont des dépendances de la page, parce qu'elles sont nécessaires pour le bon affichage.
 Les objets ont eux-mêmes des images (le logo de l'organisation, la photo d'une personne), et surtout ils ont des blocs.
 
 ### Autres dépendances indirectes
