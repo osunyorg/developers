@@ -59,12 +59,22 @@ Communication::Website::Page
     active_storage_blobs + 
     # Les blocks (pas besoin de lister les dépendances des blocs, c'est récursif)
     blocks + 
-    # Les enfants (pas besoin de lister tous les descendants, c'est récursif)
-    children + 
     # Les items liés à cette page (pas besoin de lister les menus eux-mêmes, c'est récursif)
     menu_items
   end
 ```
+
+La définition des dépendances est particulièrement délicate, il faut être strict, sinon on arrive vite à mettre tout en dépendance de tout.
+La question de la nécessité pour l'affichage doit guider les choix.
+
+Quelques exemples...
+
+Le `parent` n'est pas une dépendance, parce qu'il n'est pas nécessaire pour afficher la page.
+
+Les enfants `children` ne sont pas des dépendances, parce qu'ils ne sont pas nécessaires pour afficher la page.
+En revanche, si un bloc "Pages" mentionne des pages, elles sont des dépendances parce qu'il faut les envoyer pour afficher la page complètement.
+
+Si on a le parent et les enfants, en fait toutes les pages sont reliées entre elles.
 
 ## 2. Les connexions
 

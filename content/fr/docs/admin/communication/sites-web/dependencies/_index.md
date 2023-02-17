@@ -17,7 +17,7 @@ La question traitée ici est celle de la liste des objets, et de la mise à jour
 ## Définitions
 
 ### Dépendances d'un objet
-L'ensemble des objets liés à un autre.
+L'ensemble des objets liés à un autre et nécessaires à son affichage dans le site.
 
 Par exemple, sont des dépendances d'une actualité :
 - son image à la une
