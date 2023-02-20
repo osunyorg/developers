@@ -80,6 +80,8 @@ Communication::Website::Page
   def reference_dependencies
     # Les items de menu liés à cette page
     menu_items +
+    # Les enfants en cas de changement de path
+    descendants +
     # Le parent (pour lister les enfants)
     [parent]
   end
