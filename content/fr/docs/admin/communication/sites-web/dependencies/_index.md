@@ -16,24 +16,17 @@ La question traitée ici est celle de la liste des objets, et de la mise à jour
 
 ## Définitions
 
-### Dépendances d'un objet
+### Dépendances d'affichage
 L'ensemble des objets liés à un autre et nécessaires à son affichage dans le site.
 
-Par exemple, sont des dépendances d'une actualité :
+Par exemple, sont des dépendances d'affichage d'une actualité :
 - son image à la une
 - son auteur
 - la photo de l'auteur
 
-### Connexions
-On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
-On distingue connexions et dépendances pour clarifier la réflexion.
+### Dépendances de chemin
 
-Par exemple, sont des connexions :
-- toutes les pages, et les dépendances des pages
-- les formations d'un site d'école et les dépendances de ces formations
-
-### Arbres
-On appelle arbres les relations de type parents / enfants.
+L'ensemble des objets qui doivent être mis à jour si le chemin (`path`).
 
 Par exemple :
 - les pages
@@ -44,6 +37,14 @@ Ces relations ne sont pas des dépendances directes, parce que les objets ne son
 En revanche, ils partagent des caractéristiques :
 - quand on change un `path`, il faut mettre à jour toute la descendance
 - quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
+
+### Connexions d'un site Web
+On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
+On distingue connexions et dépendances pour clarifier la réflexion.
+
+Par exemple, sont des connexions :
+- toutes les pages, et les dépendances des pages
+- les formations d'un site d'école et les dépendances de ces formations
 
 ## Connexions directes
 
@@ -57,6 +58,7 @@ Les objets suivants ont tous une propriété `website` qui les relie directement
 Chacun de ces objets est enregistré en base de données avec un lien au website, ces objets sont donc simples à gérer. 
 Il suffit de déclencher un export à chaque événement (création, modification, suppression).
 
+
 ### Liens entre objets du site
 Certains de ces objets présentent des liens entre eux.
 1. Les pages, actualités et catégories peuvent être utilisés comme éléments de menu.
@@ -69,7 +71,7 @@ Si cette page est renommée "News", il faut mettre à jour toutes les actualité
 
 Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
 
-## Dépendances indirectes d'un site Web
+## Connexions indirectes d'un site Web
 
 ### Images à la une
 Il faut lister les images ("image à la une") de tous les objets connectés pour les connecter au site Web, et tenir à jour cette liste.
