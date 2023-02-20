@@ -18,38 +18,31 @@ La question traitée ici est celle de la liste des objets, et de la mise à jour
 
 ### Dépendances d'affichage
 L'ensemble des objets liés à un autre et nécessaires à son affichage dans le site.
-
 Par exemple, sont des dépendances d'affichage d'une actualité :
 - son image à la une
 - son auteur
 - la photo de l'auteur
 
-### Dépendances de structure
-L'ensemble des objets qui doivent être mis à jour si le chemin (`path`) change, ou si une relation change.
-L'idée est qu'on doit mettre à jour d'autres objets, parce qu'ils utilisent le `path` de l'objet pour y faire référence.
-
+### Dépendances de référence
+L'ensemble des objets qui font référence à l'objet courant, en utilisant son `path` ou son `slug`.
 Par exemple :
-- une page change de nom -> le path change
-- une page change de parent -> le path change + l'ancien parent qui listait ses enfants change
-- une page change de catégorie -> les endroits qui référencent l'ancienne et la nouvelle catégorie changent
-
-Ces relations ne sont pas des dépendances d'affichage, parce que les objets ne sont pas indispensables à l'affichage.
-En revanche, ils partagent des caractéristiques :
-- quand on change un `path`, il faut mettre à jour toute la descendance
-- quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
-- quand on ajoute ou supprime une relation, il faut regénérer les dépendances de structure
+- une actualité est référencée par l'ensemble des blocs actualité (c'est un peu plus subtil)
+- une page est référencée par son parent (dans les children)
 
 ### Connexions d'un site Web
 On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
 On distingue connexions et dépendances pour clarifier la réflexion.
-
 Par exemple, sont des connexions :
 - toutes les pages, et les dépendances des pages
 - les formations d'un site d'école et les dépendances de ces formations
 
-## Connexions directes
+### Événements déclencheurs
+Certains événements (création, suppression, lien...) déclenchent certaines mises à jour de contenus.
+Pour éviter les calculs inutiles, le lien entre événements déclencheurs et dépendances doit être très précis.
 
-### Objets du site
+## Connexions
+
+### Objets du site (connexions directes)
 Les objets suivants ont tous une propriété `website` qui les relie directement au site, dans une relation d'appartenance `belongs_to` :
 - pages
 - actualités
@@ -58,21 +51,6 @@ Les objets suivants ont tous une propriété `website` qui les relie directement
 
 Chacun de ces objets est enregistré en base de données avec un lien au website, ces objets sont donc simples à gérer.
 Il suffit de déclencher un export à chaque événement (création, modification, suppression).
-
-
-### Liens entre objets du site
-Certains de ces objets présentent des liens entre eux.
-1. Les pages, actualités et catégories peuvent être utilisés comme éléments de menu.
-Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère.
-2. Les catégories sont utilisées pour organiser les actualités.
-Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
-3. Les pages et les catégories sont arborescentes, donc il faut mettre à jour toute la descendance quand le `path` change.
-4. Les `path` des actualités dépendent du `path` de la page spéciale "Actualités", qui sert d'index.
-Si cette page est renommée "News", il faut mettre à jour toutes les actualités pour que "actualites/..." devienne "news/...".
-
-Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
-
-## Connexions indirectes d'un site Web
 
 ### Images à la une
 Il faut lister les images ("image à la une") de tous les objets connectés pour les connecter au site Web, et tenir à jour cette liste.
@@ -145,3 +123,34 @@ Ce cas "2." peut être traité de 2 façons :
 Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui.
 Dans le site de l'IUT Bordeaux Montaigne, un bloc "Formations" ne doit permettre de lister que des formations de l'IUT.
 Sinon, l'ajout d'une formation que l'école n'assure pas ajouterait cette formation à l'offre de formation présentée sur le site.
+
+
+## Réflexions sur les dépendances de référence et les événements déclencheurs
+
+L'ensemble de ces objets doivent être mis à jour dans certaines conditions.
+
+Certains événements sur un objet impliquent des mises à jour des objets dépendants.
+Ces mises à jour concernent les objets listés avant l'événement (par exemple les anciennes catégories, l'ancien parent), et les objets après l'événement (les nouvelles catégories, le nouveau parent).
+
+Si le chemin (`path`) change, ou si une relation change, l'idée est qu'on doit mettre à jour d'autres objets, parce qu'ils utilisent le `path` de l'objet pour y faire référence.
+Par exemple :
+- une page change de slug -> le path change + la descendance
+- une page change de parent -> le path change + l'ancien parent qui listait ses enfants change
+- une page change de catégorie -> les objets qui référencent l'ancienne et la nouvelle catégorie changent (les blocs actu désignant ces catégories)
+
+Ces relations ne sont pas des dépendances d'affichage, parce que les objets ne sont pas indispensables à l'affichage.
+En revanche, ils partagent des caractéristiques :
+- quand on change un `path`, il faut mettre à jour toute la descendance
+- quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
+- quand on ajoute ou supprime une relation, il faut regénérer les dépendances de structure
+
+Certains de ces objets présentent des liens entre eux.
+1. Les pages, actualités et catégories peuvent être utilisés comme éléments de menu.
+Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère.
+2. Les catégories sont utilisées pour organiser les actualités.
+Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
+3. Les pages et les catégories sont arborescentes, donc il faut mettre à jour toute la descendance quand le `path` change.
+4. Les `path` des actualités dépendent du `path` de la page spéciale "Actualités", qui sert d'index.
+Si cette page est renommée "News", il faut mettre à jour toutes les actualités pour que "actualites/..." devienne "news/...".
+
+Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.

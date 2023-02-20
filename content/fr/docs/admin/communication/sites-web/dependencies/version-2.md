@@ -13,7 +13,9 @@ Plusieurs intuitions guident cette version :
 1. lister les dépendances avec un algorithme récursif qui évite les boucles infinies
 2. inscrire les connexions en base de données
 3. traiter clairement les liens entre objets et sites Web
-4. consolider chaque nuit les connexions (ce qui traite aussi la publication d'actualité dans le futur) 
+4. consolider chaque nuit les connexions (ce qui traite aussi la publication d'actualité dans le futur)
+
+Cette version se concentre sur l'intégrité et la robustesse, en laissant de côté (pour une v3 ?) la précision des événements déclencheurs.
 
 ## 1. La liste de dépendances
 
