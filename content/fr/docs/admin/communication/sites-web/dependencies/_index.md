@@ -24,19 +24,20 @@ Par exemple, sont des dépendances d'affichage d'une actualité :
 - son auteur
 - la photo de l'auteur
 
-### Dépendances de chemin
+### Dépendances de structure
 
-L'ensemble des objets qui doivent être mis à jour si le chemin (`path`).
+L'ensemble des objets qui doivent être mis à jour si le chemin (`path`) change, ou si une relation change.
 
 Par exemple :
 - les pages
 - les catégories
-- les liens entre catégories et actualités sont assimilés aux arbres
+- les liens entre catégories et actualités
 
-Ces relations ne sont pas des dépendances directes, parce que les objets ne sont pas indispensables à l'affichage.
+Ces relations ne sont pas des dépendances d'affichage, parce que les objets ne sont pas indispensables à l'affichage.
 En revanche, ils partagent des caractéristiques :
 - quand on change un `path`, il faut mettre à jour toute la descendance
 - quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
+- quand on ajoute ou supprime une relation, 
 
 ### Connexions d'un site Web
 On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
