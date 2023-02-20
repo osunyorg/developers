@@ -27,6 +27,7 @@ Par exemple, sont des dépendances d'affichage d'une actualité :
 ### Dépendances de structure
 
 L'ensemble des objets qui doivent être mis à jour si le chemin (`path`) change, ou si une relation change.
+L'idée est qu'on doit mettre à jour d'autres objets, parce qu'ils utilisent le `path` de l'objet pour y faire référence.
 
 Par exemple :
 - les pages
@@ -37,7 +38,7 @@ Ces relations ne sont pas des dépendances d'affichage, parce que les objets ne 
 En revanche, ils partagent des caractéristiques :
 - quand on change un `path`, il faut mettre à jour toute la descendance
 - quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
-- quand on ajoute ou supprime une relation, 
+- quand on ajoute ou supprime une relation, il faut regénérer les dépéndances de structure
 
 ### Connexions d'un site Web
 On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
