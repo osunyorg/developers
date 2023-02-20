@@ -21,10 +21,12 @@ Cette version se concentre sur l'intégrité et la robustesse, en laissant de c�
 
 ### Principe
 Pour éviter la boucle infinie, il faut écrire un algorithme capable de suivre la chaîne de dépendance sans tomber dans la boucle infinie :
-- prendre la liste des dépendances directes
-- pour chaque dépendance, vérifier si elle est déjà traitée
+- pour chaque dépendance d'affichage, vérifier si elle est déjà traitée
   - si non, l'ajouter et reprendre avec les enfants
   - si oui, l'ignorer et ignorer les enfants
+- pour chaque dépendance de référence, vérifier si elle est déjà traitée
+  - si non, l'ajouter
+  - si oui, l'ignorer
 
 Pour respecter les principes de [responsabilité unique](https://en.wikipedia.org/wiki/Single-responsibility_principle) et d'[encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)), cet algorithme :
 - ne doit pas se préoccuper de site Web (pas de contexte)
@@ -33,19 +35,31 @@ Pour respecter les principes de [responsabilité unique](https://en.wikipedia.or
 ### Implémentation
 
 ```ruby
-concerns/WithSimpleDependencies
-  # Cette méthode doit être définie dans chaque objet, et renvoyer un tableau de ses références directes
-  def direct_dependencies
+concerns/WithDependencies
+  # Ces 2 méthode doivent être définies dans chaque objet
+  
+  # Dépendances d'affichage
+  def display_dependencies
     []
   end
 
-  def simple_dependencies(list = [])
-    direct_dependencies.each do |dependency|
-      next if dependency.in?(list)
-      list << dependency
-      list += dependency.dependencies(list)
+  # Dépendances de référence
+  def reference_dependencies
+    []
+  end
+
+  def dependencies(array = [])
+    display_dependencies.each do |dependency|
+      next if dependency.in?(array)
+      array << dependency
+      next unless dependency.respond_to?(:dependencies)
+      array += dependency.dependencies(array)
     end
-    list
+    reference_dependencies.each do |dependency|
+      next if dependency.in?(array)
+      array << dependency
+    end
+    array
   end
 ```
 
@@ -56,27 +70,30 @@ A mettre sous test.
 ### Exemple pour une page
 ```ruby
 Communication::Website::Page
-  def direct_dependencies
+  def display_dependencies
     # Les images à la une, héritées ou pas
     active_storage_blobs + 
     # Les blocks (pas besoin de lister les dépendances des blocs, c'est récursif)
-    blocks + 
-    # Les items liés à cette page (pas besoin de lister les menus eux-mêmes, c'est récursif)
-    menu_items
+    blocks 
+  end
+
+  def reference_dependencies
+    # Les items de menu liés à cette page
+    menu_items +
+    # Le parent (pour lister les enfants)
+    [parent]
   end
 ```
 
-La définition des dépendances est particulièrement délicate, il faut être strict, sinon on arrive vite à mettre tout en dépendance de tout.
+La définition des dépendances d'affichage (`display_dependencies`) est particulièrement délicate. 
+Il faut être strict, sinon on arrive vite à mettre tout en dépendance de tout.
 La question de la nécessité pour l'affichage doit guider les choix.
 
 Quelques exemples...
-
-Le `parent` n'est pas une dépendance, parce qu'il n'est pas nécessaire pour afficher la page.
-
-Les enfants `children` ne sont pas des dépendances, parce qu'ils ne sont pas nécessaires pour afficher la page.
+- Le `parent` n'est pas une dépendance d'affichage, parce qu'il n'est pas nécessaire pour afficher la page.
+- Les enfants `children` ne sont pas des dépendances, parce qu'ils ne sont pas nécessaires pour afficher la page.
 En revanche, si un bloc "Pages" mentionne des pages, elles sont des dépendances parce qu'il faut les envoyer pour afficher la page complètement.
-
-Si on a le parent et les enfants, en fait toutes les pages sont reliées entre elles.
+- Si on a le parent et les enfants, en fait toutes les pages sont reliées entre elles.
 
 ## 2. Les connexions
 
@@ -117,24 +134,31 @@ Ce calcul se fait en nettoyage nocturne pour permettre de reconstruire par le ba
 ```ruby
 Communication::Website
   WithDependencies
-
-  has_many  :connections
-  has_many  :objects,
-            -> { distinct },
-            through: :connections
-
-  def direct_dependencies
+  WithConnections
+  
+  def display_dependencies
     pages +
     posts + 
     categories +
     menus +
     [about]
   end
+```
+
+```ruby
+module Communication::Website::WithConnections
+  extend ActiveSupport::Concern
+
+  included do
+    has_many  :connections
+
+    after_save :clean_connections!
+  end
 
   def clean_connections!
     start = Time.now
     connect self
-    connections.where('updated_at < ?', time).destroy_all
+    connections.where('updated_at < ?', start).destroy_all
   end
 
   def connect(object, source = nil)
@@ -157,7 +181,8 @@ Communication::Website
   protected
 
   def connect_object(object, source)
-    connections.where(university: university, object: object, source: source).first_or_create
+    connection = connections.where(university: university, object: object, source: source).first_or_create
+    connection.touch if connection.persisted?
   end
 
   def disconnect_object(object, source)
