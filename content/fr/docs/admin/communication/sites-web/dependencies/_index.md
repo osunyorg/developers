@@ -4,7 +4,7 @@ weight: 3
 description: Envoyer tous les fichiers nécessaires
 ---
 
-Pour être mis en ligne, les sites doivent être envoyés sur un référentiel Git. 
+Pour être mis en ligne, les sites doivent être envoyés sur un référentiel Git.
 Pour cela, il faut lister tous les objets nécessaires et les mettre à jour s'ils ont évolué.
 Certains doivent être créés, d'autres modifiés, d'autres supprimés.
 Le processus est documenté dans la page [Export Hugo](/docs/admin/communication/sites-web/export/).
@@ -29,15 +29,15 @@ Par exemple, sont des dépendances d'affichage d'une actualité :
 L'ensemble des objets qui doivent être mis à jour si le chemin (`path`) change, ou si une relation change.
 
 Par exemple :
-- les pages
-- les catégories
-- les liens entre catégories et actualités
+- une page change de nom -> le path change
+- une page change de parent -> le path change + l'ancien parent qui listait ses enfants change
+- une page change de catégorie -> les endroits qui référencent l'ancienne et la nouvelle catégorie changent
 
 Ces relations ne sont pas des dépendances d'affichage, parce que les objets ne sont pas indispensables à l'affichage.
 En revanche, ils partagent des caractéristiques :
 - quand on change un `path`, il faut mettre à jour toute la descendance
 - quand on déplace un objet, il faut mettre à jour le précédent parent, le nouveau parent, et toute la descendance
-- quand on ajoute ou supprime une relation, 
+- quand on ajoute ou supprime une relation,
 
 ### Connexions d'un site Web
 On appelle connexions l'ensemble des dépendances d'un site Web, qui nécessitent un export vers Git.
@@ -56,7 +56,7 @@ Les objets suivants ont tous une propriété `website` qui les relie directement
 - catégories
 - menus
 
-Chacun de ces objets est enregistré en base de données avec un lien au website, ces objets sont donc simples à gérer. 
+Chacun de ces objets est enregistré en base de données avec un lien au website, ces objets sont donc simples à gérer.
 Il suffit de déclencher un export à chaque événement (création, modification, suppression).
 
 
@@ -67,7 +67,7 @@ Un changement de `path` implique donc de mettre à jour le menu qui s'y réfère
 2. Les catégories sont utilisées pour organiser les actualités.
 Une mise à jour du `path` de catégorie implique de modifier les actualités liées.
 3. Les pages et les catégories sont arborescentes, donc il faut mettre à jour toute la descendance quand le `path` change.
-4. Les `path` des actualités dépendent du `path` de la page spéciale "Actualités", qui sert d'index. 
+4. Les `path` des actualités dépendent du `path` de la page spéciale "Actualités", qui sert d'index.
 Si cette page est renommée "News", il faut mettre à jour toutes les actualités pour que "actualites/..." devienne "news/...".
 
 Ces cas nécessitent, à l'enregistrement d'un objet et si son `path` a évolué, de mettre à jour d'autres objets en cascade.
@@ -81,11 +81,11 @@ Ces objets sont créés et détruits mais jamais modifiés, il faut donc suivre 
 
 ### Blocs de base, narratifs et techniques
 Les objets qui utilisent des blocs peuvent présenter des dépendances.
-Ces blocs peuvent utiliser des images ou des fichiers, qu'il faut lister et suivre pour les ajouter ou les supprimer de la liste des médias. 
+Ces blocs peuvent utiliser des images ou des fichiers, qu'il faut lister et suivre pour les ajouter ou les supprimer de la liste des médias.
 
 ### Blocs de liste
-Ces blocs créent des liens entre objets. 
-Exemple : une page utilise un bloc "Organisations", qui fait référence à 5 organisations. 
+Ces blocs créent des liens entre objets.
+Exemple : une page utilise un bloc "Organisations", qui fait référence à 5 organisations.
 Les 5 organisations sont des dépendances de la page, parce qu'elles sont nécessaires pour le bon affichage.
 Les objets ont eux-mêmes des images (le logo de l'organisation, la photo d'une personne), et surtout ils ont des blocs.
 
@@ -120,14 +120,14 @@ Les scenarii 1 à 3 ne sont pas repris, bien qu'ils soient pertinents pour les a
 1. Je crée une actualité, je la publie avec une date dans le futur. Il faut qu'elle ne soit pas publiée, jusqu'à la dite date
 2. Je crée une actualité, il faut exporter toutes les pages dotées d'un bloc "actualités" afin de mettre à jour les listes
 
-Ce cas "2." peut être traité de 2 façons : 
+Ce cas "2." peut être traité de 2 façons :
 - en listant explicitement les articles concernés (c'est la situation actuelle), ce qui donne au CMS la charge des calculs et qui permet à Hugo de simplement récupérer ce qu'on lui demande
 - en indiquant les règles à Hugo (la catégorie et le nombre d'articles), ce qui donne à Hugo la charge des calculs et permet de ne pas mettre à jour les pages présentant ces blocs.
 
 ### Catégories
 
 1. Je renomme une catégorie. Il faut l'exporter, exporter sa catégorie parente (qui liste les enfants), exporter ses catégories enfants, et exporter tous les articles liés à la catégorie et à sa descendance pour faire correspondre le chemin.
-2. Je déplace une catégorie. Il faut l'exporter, exporter l'ancien parent, le nouveau parent, toute la descendance, et exporter tous les articles liés à la catégorie et à la descendance. 
+2. Je déplace une catégorie. Il faut l'exporter, exporter l'ancien parent, le nouveau parent, toute la descendance, et exporter tous les articles liés à la catégorie et à la descendance.
 3. Je change le chemin d'une catégorie utilisée dans un élément de menu, il faut exporter la catégorie et le menu.
 
 ### Personnes
@@ -142,6 +142,6 @@ Ce cas "2." peut être traité de 2 façons :
 3. J'ajoute un enseignant à une formation. Il faut que l'enseignant et la personne soient exportés dans tous les sites liés
 4. J'ajoute un bloc "organisations" pour lister des partenaires. Il faut que les partenaires et leurs logos soient exportés vers tous les sites liés.
 
-Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui. 
+Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui.
 Dans le site de l'IUT Bordeaux Montaigne, un bloc "Formations" ne doit permettre de lister que des formations de l'IUT.
 Sinon, l'ajout d'une formation que l'école n'assure pas ajouterait cette formation à l'offre de formation présentée sur le site.
