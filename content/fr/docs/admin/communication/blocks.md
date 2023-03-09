@@ -192,9 +192,12 @@ Actuellement :
 - Les extranets et les blocs de preview sont intégrés avec Bootstrap. Or, dans le thème, les blocs sont intégrés sans Bootstrap.
 - Les DOMs des blocs sont à maintenir dans la partie back Osuny et dans la partie thème Osuny (et ça ne bouge pas).
 
-Plusieurs solutions :
-- Sortir la partie Bootstrap des extranets (il faut une *grande* ré-intégration front)
-- Exposer un ficher de style spécial pour les blocs sur le site Example pour l'importer dans les extranets
+2 solutions basées sur un site CDN Osuny qui expose un ficher de style spécial pour les blocs pour l'importer dans les extranets
+- Solution *Fast* (avec Bootstrap)
+  - Le fichier de style gère également du style Bootstrap présent dans les extranets
+- Solution *Furious* (sans Bootstrap)
+  - Remanier le front des extranets pour sortir la partie Bootstrap
+  - Ainsi, le fichier de style n'aura pas besoin de gérer du style spécifique Bootstrap
 
 ## Pour créer un bloc
 
