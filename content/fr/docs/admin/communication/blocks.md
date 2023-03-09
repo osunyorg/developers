@@ -174,6 +174,28 @@ class Communication::Block::Partner < Communication::Block::Template
 end
 ```
 
+### Blocs dans l'extranet
+
+*En construction*
+
+Les blocs sont utilisés dans 4 contextes :
+- Site Web en prod
+- Extranet en prod
+- Preview admin dans un contexte Site Web
+- Preview admin dans un contexte Extranet
+
+Dans les previews dans les sites, on utilise le style du site en allant les récupérer via l'URL du website.
+
+Dans les previews dans les extranets, il faut utiliser le style de l'extranet.
+
+Actuellement :
+- Les extranets et les blocs de preview sont intégrés avec Bootstrap. Or, dans le thème, les blocs sont intégrés sans Bootstrap.
+- Les DOMs des blocs sont à maintenir dans la partie back Osuny et dans la partie thème Osuny (et ça ne bouge pas).
+
+Plusieurs solutions :
+- Sortir la partie Bootstrap des extranets (il faut une *grande* ré-intégration front)
+- Exposer un ficher de style spécial pour les blocs sur le site Example pour l'importer dans les extranets
+
 ## Pour créer un bloc
 
 1. Déclarer le template dans l'enum du modèle block
