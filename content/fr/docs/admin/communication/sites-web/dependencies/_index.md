@@ -21,7 +21,7 @@ L'ensemble des objets liés à un autre et nécessaires à son affichage dans le
 Par exemple, sont des dépendances d'affichage d'une actualité :
 - son image à la une
 - son auteur
-- la photo de l'auteur
+- la photo de l'auteur (si elle est affichée sur la page de l'actualité)
 
 ### Dépendances de référence
 L'ensemble des objets qui font référence à l'objet courant, en utilisant son `path` ou son `slug`.
