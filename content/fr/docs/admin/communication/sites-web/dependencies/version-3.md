@@ -59,6 +59,12 @@ La source est l'entité dont l'objet est la dépendance :
 En effet, dans l'exemple où une personne A est connecté via une organisation A, si on déconnecte l'organisation A, la personne A doit aussi être déconnectée, sinon elle va reconnecter l'organisation via ses dépendances. Cela évite de rester bloqué dans des boucles logiques.
 Ainsi, dans le cas où la personne A est aussi connectée via une organisation B, elle sera connectée 2 fois (via les organisations A et B). Si l'organisation A est déconnectée, la personne gardera sa connexion au site via l'organisation B.
 
+Cependant, si je déconnecte Organisation A :
+- Je déconnecte toutes les connexions ayant pour source Organisation A
+- Je déconnecte donc personne A, or si je déconnecte personne A
+  - Je déconnecte toutes les connexions ayant pour source Organisation A
+  - Ceci est un problème car on risque de supprimer **TOUTES** les connexions ayant pour source Personne A
+
 ### L'algorithme
 
 ```ruby
