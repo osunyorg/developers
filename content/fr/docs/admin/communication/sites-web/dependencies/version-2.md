@@ -177,7 +177,7 @@ module Communication::Website::WithConnections
 1. Quand on crée une personne, elle n'est liée à aucun site Web
 2. Quand on ajoute une personne à un site explicitement (en passant par la page Équipe), ça crée une connexion
 3. Quand on ajoute une personne à un bloc "Personnes" d'une page, ça crée une connexion avec le site de la page
-4. Quand on ajoute une personne à un bloc "Personnes" d'une formation, ça crée une connexion avec tous les sites
+4. Quand on ajoute une personne à un bloc "Personnes" d'une formation, ça crée une connexion avec tous les sites mentionnant cette formation (site d'école, de formation)
 
 Une personne se lie à un site parce qu'on l'ajoute à un objet qui est lié à un site.
 Quand on enregistre un bloc, il faut vérifier si l'objet auquel appartient le bloc est connecté à des websites.
