@@ -56,14 +56,38 @@ La source est l'entité dont l'objet est la dépendance :
 - l'image d'une personne a pour source la personne
 - la personne mentionnée dans un bloc a pour source l'objet auquel est rattaché le bloc (la page, par exemple)
 
-En effet, dans l'exemple où une personne A est connecté via une organisation A, si on déconnecte l'organisation A, la personne A doit aussi être déconnectée, sinon elle va reconnecter l'organisation via ses dépendances. Cela évite de rester bloqué dans des boucles logiques.
-Ainsi, dans le cas où la personne A est aussi connectée via une organisation B, elle sera connectée 2 fois (via les organisations A et B). Si l'organisation A est déconnectée, la personne gardera sa connexion au site via l'organisation B.
+#### Cas
 
-Cependant, si je déconnecte Organisation A :
-- Je déconnecte toutes les connexions ayant pour source Organisation A
-- Je déconnecte donc personne A, or si je déconnecte personne A
-  - Je déconnecte toutes les connexions ayant pour source Organisation A
-  - Ceci est un problème car on risque de supprimer **TOUTES** les connexions ayant pour source Personne A
+- L'organisation Noesya est connectée au site
+- En cascade, Pierre-André, appartenant à Noesya, est connecté au site
+- En cascade, par un bloc Organisations de Pierre-André, l'organisation Semiodesign est connectée au site
+
+Sans avoir la source :
+- Si je déconnecte Noesya, Pierre-André reste connecté.
+- A la repasse des connexions, Pierre-André reconnecte Noesya par ses dépendances.
+
+Avec la source :
+- Si je déconnecte Noesya, je déconnecte Pierre-André en cascade.
+- En déconnectant Pierre-André, je déconnecte Semiodesign en cascade.
+- A la repasse des connexions, ni Pierre-André, ni ses organisations ne se reconnectent (plus de lien).
+
+Avec 2 sources pour Pierre-André (une organisation Noesya et une actualité "Bonnes vacances") :
+- Si je déconnecte Noesya, je déconnecte Pierre-André en cascade (par la source Noesya).
+- Je garde la connexion de Pierre-André ayant pour source l'actualité "Bonnes vacances".
+
+- Pierre-André référence 2 organization via des blocks orgas (Noesya & SemioDesign)
+- Je connecte mon actualité "Bonnes vacances" dont Pierre-André est l'auteur
+  -  ça crée une connexion à Pierre-André source l'actu Bonnes Vacances
+  -  ça crée une connextion à Noesya source l'actu Bonnes Vacances
+  -  ça crée une connexion à SemioDesign source l'actu Bonnes Vacances
+- Je connecte mon actualité "Le grand retour" dont Pierre-André est l'auteur
+  -  ça crée une connexion à Pierre-André source l'actu Le grand retour
+  -  ça crée une connextion à Noesya source l'actu Le grand retour
+  -  ça crée une connexion à SemioDesign source l'actu Le grand retour
+ - Je dépublie l'actu "bonnes vacances"
+  -  ça détruit toutes les connexions source l'actu Bonnes vacances
+  -  Pierre-André reste connecté via l'actu "Le grand retour"
+  -  Idem Noesya et SemioDesign
 
 ### L'algorithme
 
