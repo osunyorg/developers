@@ -154,12 +154,8 @@ module Communication::Website::WithConnections
     end
   end
 
-  # TODO pas pensé
   def disconnect(object)
     disconnect_object object
-    object.dependencies.each do |dependency|
-      disconnect_object dependency
-    end
   end
 
   protected
