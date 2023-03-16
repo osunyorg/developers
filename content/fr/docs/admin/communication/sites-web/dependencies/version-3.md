@@ -56,6 +56,9 @@ La source est l'entité dont l'objet est la dépendance :
 - l'image d'une personne a pour source la personne
 - la personne mentionnée dans un bloc a pour source l'objet auquel est rattaché le bloc (la page, par exemple)
 
+En effet, dans l'exemple où une personne A est connecté via une organisation A, si on déconnecte l'organisation A, la personne A doit aussi être déconnectée, sinon elle va reconnecter l'organisation via ses dépendances. Cela évite de rester bloqué dans des boucles logiques.
+Ainsi, dans le cas où la personne A est aussi connectée via une organisation B, elle sera connectée 2 fois (via les organisations A et B). Si l'organisation A est déconnectée, la personne gardera sa connexion au site via l'organisation B.
+
 ### L'algorithme
 
 ```ruby
