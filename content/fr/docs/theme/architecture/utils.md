@@ -13,7 +13,7 @@ description: >
 
 Variables associées : 
 
-```(sass)
+```sass
 $grid-gutter: 60px
 $grid-max-width: 1980px
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
@@ -21,7 +21,7 @@ $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 140
 
 Pour placer un container (goutières latérales et max-width)
 
-```(sass)
+```sass
 @mixin container
     max-width: $grid-max-width
     padding-left: $grid-gutter
@@ -36,7 +36,7 @@ Usage des colonnages avec CSS Grid.
 
 Utilise le mixin **grid**, avec le nombre de colonnes voulues, et à quel breakpoint. Par défaut, pas de grid sous le breakpoint **md**
 
-```(sass)
+```sass
 @mixin grid($cols: 12, $breakpoint: md)
     @include media-breakpoint-up($breakpoint)
         display: grid
@@ -56,7 +56,7 @@ Utilise le mixin **grid**, avec le nombre de colonnes voulues, et à quel breakp
 
 Pour assigner une valeur (width, padding...) d'un nombre de colonnes, on utilise le mixin **col**
 
-```(sass)
+```sass
 @function col($nb, $base: 12)
     $nb: $nb/$base * 12
     $nbCol: calc( (100% + #{$grid-gutter}) / 12 * #{$nb} )
@@ -69,7 +69,7 @@ Pour assigner une valeur (width, padding...) d'un nombre de colonnes, on utilise
 
 Création d'un mixin **button-reset** qui efface les propriétés par défaut des boutons :
 
-```(sass)
+```sass
  appearance: none
     background: transparent
     border: none
@@ -85,7 +85,7 @@ Création d'un mixin **button-reset** qui efface les propriétés par défaut de
 
 Même principe pour enlever le style par défaut des listes :
 
-```(sass)
+```sass
 @mixin list-reset
     list-style: none
     padding-left: 0
@@ -97,7 +97,7 @@ Même principe pour enlever le style par défaut des listes :
 
 Création d'un mixin permettant de paraméter l'équivalent de ```inset``` pour la rétrocompatibilité :
 
-```(sass)
+```sass
 @mixin inset($top: 0, $right: $top, $bottom: $top, $left: $top)
     inset: $top $right $bottom $left
     // polyfill for inset
@@ -110,7 +110,7 @@ Création d'un mixin permettant de paraméter l'équivalent de ```inset``` pour 
 
 Création d'un mixin permettant de reproduire le fonctionnement bootstrap du stretched-link des cards :
 
-```(sass)
+```sass
 @mixin stretched-link($pseudo-element: after)
     &::#{$pseudo-element}
         bottom: 0
@@ -124,7 +124,7 @@ Création d'un mixin permettant de reproduire le fonctionnement bootstrap du str
 
 Utilisé principalement pour masquer les ```<caption>```, le mixin visually-hidden permet de faire en sorte de dissimuler un élément lisible par les technologie d'assistance.
 
-```(sass)
+```sass
 @mixin visually-hidden
     clip: rect(0,0,0,0) !important
     border: 0 !important
@@ -141,7 +141,7 @@ Utilisé principalement pour masquer les ```<caption>```, le mixin visually-hidd
 
 Le mixin icon, déclaré comme ceci : ```@include icon(icon-name, pseudo-element)``` où "icon" correspond au nom de l'icon défini dans le fichier [configuration.sass](/docs/theme/theme-aaa/configuration/#icons) et "pseudo-element", paramétré par défaut comme ```::before``` permet de définir quel pseudo-element contient l'icon. Ce deuxième paramètre est donc facultatif.
 
-```(sass)
+```sass
 @mixin icon($icon-name: '', $pseudo-element: before, $font-size: px2rem(10))
     &::#{$pseudo-element}
         content: map-get($icons, $icon-name)

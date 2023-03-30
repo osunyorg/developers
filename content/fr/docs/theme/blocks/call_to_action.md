@@ -118,7 +118,7 @@ description: >
 
 ## Configuration style
 
-```(sass)
+```sass
 // _theme/_default_config.sass
 $block-call-to-action-background: $primary !default
 $block-call-to-action-color: white !default
