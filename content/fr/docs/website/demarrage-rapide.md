@@ -14,6 +14,9 @@ Comme les sites sont développés avec Hugo, il faut l'installer pour coder en l
 
 ## Installer Hugo 
 
+
+### Mac
+
 Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 ```bash
 brew install hugo
@@ -21,7 +24,12 @@ brew install hugo
 C'est la méthode que nous utilisons dans l'équipe [noesya](https://www.noesya.coop). 
 Pour d'autres méthodes, la [documentation officielle d'installation](https://gohugo.io/getting-started/installing/) est disponible sur le site [gohugo.io](https://gohugo.io).
 
+### Windows
+
+TODO
 ## Installer Yarn
+
+### Mac
 
 Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 ```bash
@@ -29,6 +37,10 @@ brew install yarn
 ```
 
 [Documentation officielle d'installation](https://yarnpkg.com/getting-started/install).
+
+### Windows
+
+TODO 
 
 ## Créer le référentiel
 
