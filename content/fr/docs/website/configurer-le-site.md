@@ -22,11 +22,11 @@ Pour afficher un favicon il suffit de mettre un fichier `favicon.png` ou `favico
 
 Les params principaux sont dans config.yaml du theme, pour en ajouter ou modifier il faut overider dans `config/_defaults/config.yaml`
 ```yml
-cdnkey: https:/*osuny-1b4da.kxcdn.com */
+cdnkey: https://osuny-1b4da.kxcdn.com/
 cookie_banner:
   enable: true
   blank: true
-  page: https:/*gdpr.eu/cookies/ */
+  page: https://gdpr.eu/cookies/
 ```
 ## Variables SASS
 ### Couleurs
