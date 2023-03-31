@@ -16,7 +16,14 @@ params:
     footer: "/assets/images/logo.png"
 ```
 ### Favicon
-Pour afficher un favicon il suffit de mettre un fichier `favicon.png` ou `favicon.ico` à l'emplacement suivant : `static/assets/images/favicons/favicon.png`
+Il existe plusieurs manière d'ajouter un favicon sur un site Osuny. La plus simple est d'ajouter un fichier `favicon.png` ou `favicon.ico` dans le dossier `static/assets/images/favicons/`.
+Si vous souhaitez ajouter plus de formats de favicon, vous pouvez ajouter les fichiers si dessous au dossier `static/assets/images/favicons/` :
+- `apple-touch-icon.png`
+- `favicon-16x16.png`
+- `favicon-32x32.png`
+- `favicon.ico`
+- `favicon.png`
+- `safari-pinned-tab.svg`
 
 ## Paramètres Hugo
 
