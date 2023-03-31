@@ -2,38 +2,57 @@
 title: Configurer le site
 weight: 2
 description: >
-  De nombreuses possibilités de personnalisation sont offertes avec des paramètres
+  De nombreuses possibilités de personnalisation sont offertes avec des fichier de configuration YAML et des variables SASS
 ---
 
 ## Logos et favicons
+
 ### Logo
-Remplacer le fichier static/assets/images/logo.svg  
-Dans le cas où on n'aurait pas de logo svg il est possible de mettre tout autre format et il faut alors modifier le fichier de config dans config/_defaults/config.yaml pour ajouter les lignes suivantes :
-```
+
+Remplacer le fichier `static/assets/images/logo.svg`  
+Dans le cas où on n'aurait pas de logo svg il est possible de mettre tout autre format et il faut alors modifier le fichier de config dans `config/_defaults/config.yaml` pour ajouter les lignes suivantes :
+
+```yml
 params:
   logo:
     header: "/assets/images/logo.png"
     footer: "/assets/images/logo.png"
 ```
+
 ### Favicon
-Pour afficher un favicon il suffit de mettre un fichier `favicon.png` ou `favicon.ico` à l'emplacement suivant : `/assets/images/favicons/favicon.png`
+
+Il existe plusieurs manière d'ajouter un favicon sur un site Osuny. La plus simple est d'ajouter un fichier `favicon.png` ou `favicon.ico` dans le dossier `static/assets/images/favicons/`.
+Si vous souhaitez ajouter plus de formats de favicon, vous pouvez ajouter les fichiers si dessous au dossier `static/assets/images/favicons/` :
+
+- `apple-touch-icon.png`
+- `favicon-16x16.png`
+- `favicon-32x32.png`
+- `favicon.ico`
+- `favicon.png`
+- `safari-pinned-tab.svg`
 
 ## Paramètres Hugo
 
-Les params principaux sont dans config.yaml du theme, pour en ajouter ou modifier il faut overider dans config/_defaults/config.yaml
-```
-cdnkey: https://osuny-1b4da.kxcdn.com
+Les params principaux sont dans config.yaml du theme, pour en ajouter ou modifier il faut overider dans `config/_defaults/config.yaml`
+
+```yml
+cdnkey: https://osuny-1b4da.kxcdn.com/
 cookie_banner:
   enable: true
   blank: true
   page: https://gdpr.eu/cookies/
 ```
+
 ## Variables SASS
+
+Le thème `osuny-hugo-theme-aaa` inclus dans le dossier `/themes/osuny-hugo-theme-aaa` est un thème hugo, de nombreuses variables SASS sont définis dans celui-ci. Il est donc possible d'utiliser ces variables pour personnaliser le site de différentes manières.
+L'intégralité des variables SASS disponible à la modification ce trouve dans le fichier [assets/sass/\_theme/\_configuration.sass](https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/assets/sass/_theme/_configuration.sass) du theme.
+
 ### Couleurs
 
 Pour définir les couleurs principales du thème :
 
-```(sass)
+```sass
 $color-accent: #0038FF !default
 $color-text: #000000 !default
 $color-text-alt: #454545 !default
@@ -43,13 +62,15 @@ $color-background: #FFFFFF !default
 ```
 
 Pour définir la couleur du texte général et la couleur de fond du site :
-```(sass)
+
+```sass
 $body-color: $main-color !default
 $body-background-color: $main-background-color !default
 ```
 
 Pour définir l'apparence des liens (couleur et espace entre le soulignement et le lien) :
-```(sass)
+
+```sass
 $link-color: $main-color !default
 $link-underline-offset: 6px !default
 ```
@@ -58,8 +79,8 @@ $link-underline-offset: 6px !default
 
 #### Font family
 
-```(sass)
-// Fonts family
+```sass
+/* Fonts family */
 $body-font-family: "Baskerville", "Times New Roman", "Times", serif !default
 $heading-font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
 ```
@@ -67,37 +88,38 @@ $heading-font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !defaul
 #### Font size, weight et height
 
 ##### Font sizes
-```(sass)
 
-// Générales
+```sass
+
+/* Générales */
 $body-size-desktop: px2rem(22) !default
 $body-size: px2rem(18) !default
 
-// Lead
+/* Lead */
 $lead-size-desktop: px2rem(60) !default
 $lead-size: px2rem(24) !default
 
-// Small
+/* Small */
 $small-size-desktop: px2rem(18) !default
 
-// Signature
+/* Signature */
 $small-size: px2rem(14) !default
 $signature-size-desktop: px2rem(22) !default
 $signature-size: px2rem(18) !default
 
-// Meta
+/* Meta */
 $meta-size-desktop: px2rem(16) !default
 $meta-size: px2rem(14) !default
 ```
 
 ##### Line height
 
-```(sass)
+```sass
 
-// Général
+/* Général */
 $body-line-height: 160% !default
 
-// Headings
+/* Headings */
 $h1-line-height: 120 !default
 $h2-line-height: 110 !default
 $h3-line-height: 110 !default
@@ -105,7 +127,7 @@ $h4-line-height: 130 !default
 $h5-line-height: 130% !default
 $h6-line-height: 130% !default
 
-// Cas particuliers
+/* Cas particuliers */
 $lead-line-height: 120% !default
 $small-line-height: 130% !default
 $signature-line-height: 130% !default
@@ -115,19 +137,19 @@ $quote-line-height: 120% !default
 
 ##### Font-weight
 
-```(sass)
+```sass
 $body-weight: normal !default
 ```
 
 Une variable globale permet de gérer les font-weight des titres :
 
-```(sass)
+```sass
 $heading-font-weight: normal !default
 ```
 
 Chaque titre peut ensuite être personnalisé :
 
-```(sass)
+```sass
 $h1-weight: bold !default
 $h2-weight: $heading-font-weight !default
 $h3-weight: bold !default
@@ -142,7 +164,7 @@ Le site étant codé en mobile-first, les apparences des titres sont par défaut
 
 ###### Mobile
 
-```(sass)
+```sass
 $h1-size: px2rem(30) !default
 $h2-size: px2rem(40) !default
 $h3-size: px2rem(30) !default
@@ -153,7 +175,7 @@ $h6-size: px2rem(16) !default
 
 ###### Desktop
 
-```(sass)
+```sass
 $h1-size-desktop: px2rem(60) !default
 $h2-size-desktop: px2rem(40) !default
 $h3-size-desktop: px2rem(30) !default
@@ -166,35 +188,35 @@ $h6-size-desktop: px2rem(16) !default
 
 De nombreuses variables permettent de personnaliser l'affichage des différents niveaux de titres dans le site :
 
-```(sass)
-// Lead
+```sass
+/* Lead */
 $lead-weight: $heading-font-weight !default
 
-// Small
+/* Small */
 $small-weight: normal !default
 
-// Signature
+/* Signature */
 $signature-weight: $heading-font-weight !default
 
-// Meta
+/* Meta */
 $meta-weight: $heading-font-weight !default
 
-// Quote
+/* Quote */
 $quote-weight: normal !default
 $quote-style: italic !default
 ```
 
 ### Grid et espacements
 
-```(sass)
-// Spacing
+```sass
+/* Spacing */
 $spacing1: 24px !default
 $spacing2: 48px !default
 $spacing3: 64px !default
 $spacing4: 128px !default
 $spacing5: 256px !default
 
-// Grid
+/* Grid */
 $grid-gutter: 60px
 $grid-max-width: 1980px
 ```
@@ -203,7 +225,7 @@ $grid-max-width: 1980px
 
 Utile pour la navigation accessible masquée destinée aux technologies d'assistance, ainsi que pour les liens des cards.
 
-```(sass)
+```sass
 $zindex-nav-accessibility: 1010 !default
 $zindex-stretched-link: 2 !default
 ```
@@ -214,93 +236,96 @@ $zindex-stretched-link: 2 !default
 
 Pour personnaliser l'apparence du fil d'ariane, on peut utiliser les variables suivantes :
 
-```(sass)
+```sass
 $breadcrumb-below-h1: false !default
 $breadcrumb-color: $color-text !default
 $breadcrumb-icon: "caret-right" !default
 $breadcrumb-icon-color: $color-text-alt !default
 ```
-> L'option breadcrumb-below-h1 permet de changer l'affichage du fil d'ariane, en le plaçant au-dessus ou en-dessous de la page.
 
+> L'option breadcrumb-below-h1 permet de changer l'affichage du fil d'ariane, en le plaçant au-dessus ou en-dessous de la page.
 
 #### Breakpoints
 
-```(sass)
-// TODO: réécrire en sass les mixins bootstrap
+```sass
+/* TODO: réécrire en sass les mixins bootstrap */
 $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
 ```
 
 #### Header
 
 Les couleurs du header sont personnalisables :
-```(sass)
-// Typographies
+
+```sass
+/* Typographies */
 $header-color: $color-text !default
 $header-hover-color: $color-accent !default
 
-// Couleurs de fond
+/* Couleurs de fond */
 $header-background: transparent !default
 ```
 
 L'animation du header (sticky) et des dropdowns est paramétrable :
 
-```(sass)
+```sass
 $header-sticky-enabled: true !default
 
-// Couleurs
+/* Couleurs */
 $header-sticky-background: $color-background !default
 $header-sticky-color: $header-color !default
 $header-sticky-dropdown-background: $header-sticky-background !default
 
-// Transitions
+/* Transitions */
 $header-transition: 0.3s !default
 $header-sticky-transition: $header-transition !default
 $header-dropdown-transition: $header-transition !default
 
-// Tailles et espacements
+/* Tailles et espacements */
 $header-nav-padding-y: px2rem(30) !default
 $header-logo-height: 32px !default
 $header-logo-height-desktop: $header-logo-height !default
 $header-height: 99px !default
 $header-height-desktop: 74px !default
 ```
+
 > L'option header-sticky-enabled détermine si la barre de navigation restera fixée ou non au haut de l'écran en scroll.
 
 Customisation des sous-menus :
 
-```(sass)
+```sass
 $header-dropdown-full: false !default
 
-// Couleurs
+/* Couleurs */
 $header-dropdown-background: $header-background !default
 $header-dropdown-color: $header-color !default
 
-// Transition
+/* Transition */
 $header-dropdown-transition: $header-transition !default
 ```
+
 > L'option header-dropdown-full change l'affichage des sous-menu et permet un affichage pleine largeur avec une mise en place des liens en colonnes.
 
 Une variable permet de changer automatiquement la couleur du logo du site lorsque le header devient fixe :
 
-```(sass)
+```sass
 $header-sticky-invert-logo: false !default
 ```
 
 #### Footer
 
-```(sass)
-// Couleurs
+```sass
+/* Couleurs */
 $footer-color: $color-text !default
 $footer-background-color: $color-background-alt !default
 
-// Affichage du logo
+/* Affichage du logo */
 $footer-logo-height: $header-logo-height !default
 $footer-logo-height-desktop: $footer-logo-height !default
 ```
 
 #### Hero
 
-```(sass)
+```sass
 $hero-height: 300px !default
 $hero-height-desktop: 400px !default
 $hero-color: $color-text !default
@@ -309,7 +334,7 @@ $hero-background-color: $color-background-alt !default
 
 ### Icons
 
-```(sass)
+```sass
 $icons: ()
 $icons: map-merge($icons, ("arrow": "\e905"))
 $icons: map-merge($icons, ("arrow-first": "\e906"))
@@ -338,7 +363,8 @@ $icons: map-merge($icons, ("twitter": "\e90d"))
 #### Navigation
 
 Définition du background de l'overlay qui apparaît lorsque les dropdowns du menu sont activés ou que le menu est développé en mobile :
-```(sass)
+
+```sass
 $body-overlay-color: rgba(0, 0, 0, 0.3) !default
 ```
 
@@ -346,7 +372,7 @@ $body-overlay-color: rgba(0, 0, 0, 0.3) !default
 
 ##### Couleurs
 
-```(sass)
+```sass
 $toc-color: $color-text !default
 $toc-active-color: $color-accent !default
 $toc-background-color: $color-background-alt !default
@@ -355,7 +381,8 @@ $toc-background-color: $color-background-alt !default
 ##### Typographies
 
 ###### Liens simples
-```(sass)
+
+```sass
 $toc-font-family: $body-font-family !default
 $toc-font-size: $body-size !default
 $toc-font-size-desktop: $body-size-desktop !default
@@ -364,7 +391,7 @@ $toc-line-height: $body-line-height !default
 
 ###### Titre du TOC
 
-```(sass)
+```sass
 $toc-title-font-family: $meta-font-family !default
 $toc-title-font-size: $meta-size !default
 $toc-title-font-size-desktop: $meta-size-desktop !default
@@ -374,7 +401,7 @@ $toc-title-font-size-desktop: $meta-size-desktop !default
 
 Pour personnaliser l'apparence des typographies utilisées dans les tableaux de données :
 
-```(sass)
+```sass
 $table-head-font-size: $h4-size !default
 $table-head-font-size-desktop: $h4-size-desktop !default
 $table-body-size: $body-size !default
@@ -385,23 +412,23 @@ $table-body-size-desktop: $body-size-desktop !default
 
 #### Block call to action
 
-```(sass)
+```sass
 $block-call-to-action-background: $color-accent !default
 $block-call-to-action-color: $color-background !default
 
-// Apparence du bouton du premier lien
+/* Apparence du bouton du premier lien */
 $block-call-to-action-button-background: $color-background !default
 $block-call-to-action-button-color: $color-text !default
 ```
 
 #### Block definitions
 
-```(sass)
-// Bordure inférieure de la définition
+```sass
+/* Bordure inférieure de la définition */
 $block-definition-border-color: $color-border !default
 $block-definition-border-color-hovered: $color-accent !default
 
-// Typographie
+/* Typographie */
 $block-definition-color-hovered: $color-accent !default
 $block-definition-font-size: $body-size !default
 $block-definition-font-size-desktop: $body-size-desktop !default
@@ -409,9 +436,9 @@ $block-definition-font-size-desktop: $body-size-desktop !default
 
 #### Block key figures
 
-La taille de la police de ce bloc est personnalisable pour plusieurs breakpoints, pour les chiffres (```block-key_figures-number-font-size```) et leur légende (```block-key_figures-font-size```) : 
+La taille de la police de ce bloc est personnalisable pour plusieurs breakpoints, pour les chiffres (`block-key_figures-number-font-size`) et leur légende (`block-key_figures-font-size`) :
 
-```(sass)
+```sass
 $block-key_figures-font-size: px2rem(16) !default
 $block-key_figures-number-font-size: px2rem(32) !default
 
@@ -432,7 +459,7 @@ $block-key_figures-number-font-size-xxl: px2rem(80) !default
 
 La couleur de fond de la galerie est personnalisable :
 
-```(sass)
+```sass
 $block-gallery-carousel-background: $color-background-alt
 ```
 
@@ -440,20 +467,20 @@ $block-gallery-carousel-background: $color-background-alt
 
 Pour personnaliser la largeur maximale d'une image, dans le cas des pages avec ou sans sidebar :
 
-```(sass)
+```sass
 $block-image-max-height-with-sidebar: calc(100vh - var(--header-height)) !default
 $block-image-max-height-without-sidebar: none !default
-````
+```
 
 #### Block pages
 
 Seul le layout cards est personnalisable :
 
-```(sass)
-// Fond du bloc
+```sass
+/* Fond du bloc */
 $block-pages-card-background: color-contrast($color-background, 10%) !default
 
-// Apparence des cartes
+/* Apparence des cartes */
 $block-pages-card-page-background: invert($color-text) !default
 $block-pages-card-page-background-hover: $color-accent !default
 $block-pages-card-page-color: $color-text !default
@@ -463,21 +490,23 @@ $block-pages-card-page-color-hover: $color-background !default
 #### Block testimonials
 
 Paramètres par défaut :
-```(sass)
-// Typographies
+
+```sass
+/* Typographies */
 $block-testimonials-color: $color-accent !default
 $block-testimonials-font-family: $quote-font-family !default
 $block-testimonials-font-size: $quote-size !default
 $block-testimonials-line-height: $quote-line-height !default
 $block-testimonials-style: $quote-style !default
 
-// Couleurs
+/* Couleurs */
 $block-testimonials-pagination-background: $color-border !default
 $block-testimonials-pagination-progress-background: $color-accent !default
 ```
 
 Pour les grands écrans :
-```(sass)
+
+```sass
 $block-testimonials-xl-font-size: $quote-size-desktop-short !default
 $block-testimonials-xl-line-height: $quote-line-height !default
 $block-testimonials-xl-font-size-long-text: $quote-size-desktop-long !default
@@ -485,28 +514,29 @@ $block-testimonials-xl-line-height-long-text: $quote-line-height !default
 ```
 
 #### Block timeline
-```(sass)
+
+```sass
 $block-timeline-horizontal-background: $color-background-alt !default
 $block-timeline-horizontal-color: $color-text !default
 ```
 
 ### Sections
 
-```(sass)
+```sass
 $post-media-background: $article-media-background !default
 $post-categories-color: color-contrast($color-text, 20%) !default
 $post-time-color: $color-text-alt !default
 
-// Layout posts list (ne concerne pas les blocks posts)
+/* Layout posts list (ne concerne pas les blocks posts) */
 $posts-layout-list: true !default
 
-// Si layout posts grid (ne concerne pas les blocks posts)
+/* Si layout posts grid (ne concerne pas les blocks posts) */
 $posts-grid-columns: $block-posts-grid-columns !default
 ```
 
 #### Articles
 
-```(sass)
+```sass
 $article-media-background: color-contrast($color-background, 3%) !default
 $article-media-aspect-ratio: 2 !default
 ```
@@ -514,35 +544,38 @@ $article-media-aspect-ratio: 2 !default
 #### Person
 
 Personnalisation de la couleur de fond des ronds qui remplacent les photo d'une personne lorsqu'il n'y en a pas :
-```(sass)
+
+```sass
 $persons-avatar-background-color: $color-background-alt !default
 ```
 
 #### Program
 
-Font-size du cadre ```.essential``` :
+Font-size du cadre `.essential` :
 
-```(sass)
+```sass
 $program-essential-font-size: $meta-size !default
 $program-essential-font-size-desktop: $meta-size-desktop !default
 ```
 
 Font-size du bouton de partage d'une formation :
-```(sass)
+
+```sass
 $program-share-font-size: $meta-size !default
 $program-share-font-size-desktop: $meta-size-desktop !default
 ```
 
 Paramétrage du z-index de l'aside horizontal et sticky :
-```(sass)
+
+```sass
 $program-zindex-toc: $zindex-toc !default
 ```
-
 
 ### MISC
 
 #### Animations
-```(sass)
+
+```sass
 $arrow-ease-transition: cubic-bezier(0, 0.65, 0.4, 1.2) !default
 $arrow-ease-transition-2: cubic-bezier(0, 0.65, 0.4, 1) !default
 ```
