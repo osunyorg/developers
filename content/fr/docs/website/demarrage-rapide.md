@@ -29,7 +29,7 @@ Pour d'autres méthodes, la [documentation officielle d'installation](https://go
 
 La méthode la plus simple pour installer Hugo sur Windows est d'utiliser un package manager, comme [Scoop](https://scoop.sh) ou [Chocolatey](https://chocolatey.org).
 
-```
+```bash
 choco install hugo-extended
 ```
 
