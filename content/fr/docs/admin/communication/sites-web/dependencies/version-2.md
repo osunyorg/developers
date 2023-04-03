@@ -1,6 +1,6 @@
 ---
 title: Version 2
-description: Implémentée en 2023
+description: Réflexion en cours
 ---
 
 Le point de départ de cette version est multiple :
@@ -18,6 +18,8 @@ Plusieurs intuitions guident cette version :
 Cette version se concentre sur l'intégrité et la robustesse, en laissant de côté (pour une v3 ?) la précision des événements déclencheurs.
 
 ## 1. La liste de dépendances
+
+Les dépendendances se placent du point de vue de l'objet, afin d'embarquer tout ce qui est nécessaire (dépendances d'affichage)
 
 ### Principe
 Pour éviter la boucle infinie, il faut écrire un algorithme capable de suivre la chaîne de dépendance sans tomber dans la boucle infinie :
@@ -98,6 +100,8 @@ En revanche, si un bloc "Pages" mentionne des pages, elles sont des dépendances
 - Si on a le parent et les enfants, en fait toutes les pages sont reliées entre elles.
 
 ## 2. Les connexions
+
+L'objectif 
 
 ### Principe
 ```

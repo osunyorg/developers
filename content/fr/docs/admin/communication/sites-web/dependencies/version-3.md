@@ -1,6 +1,6 @@
 ---
 title: Version 3
-description: Pas encore implémentée
+description: Réflexion en cours
 ---
 
 ## La traçabilité
