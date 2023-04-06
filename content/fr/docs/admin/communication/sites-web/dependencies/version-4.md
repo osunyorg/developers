@@ -160,7 +160,9 @@ Pour créer l'œuf, il faut itérer récursivement sur les références pour tro
 Ensuite, il faut créer des connexions avec chaque object direct.
 C'est un système viral : un object connecté connecte ses dépendances et ses références.
 
-Ci-dessous, un exemple d'une personne qui est connectée via 2 objets directs, la page des personnes et la page des organisations. Quand on crée un bloc, on crée 2 connexions pour ce bloc, l'un par la page personnes et l'autre par la page organisations.
+Ci-dessous, deux exemples :
+- Objet direct : Un bloc créé dans un objet direct, cela crée une connexion via cet objet direct.
+- Object indirect : Un bloc créé dans un objet indirect, cela crée une connexion pour chaque objet direct ayant une connexion avec cet objet indirect. Ici, une personne connectée via la page des personnes et via la page des organisations.
 
 ![Connexions Osuny](https://user-images.githubusercontent.com/7761386/230399347-c43811a2-11b5-4aef-9535-ca250ca4dc5f.png)
 
