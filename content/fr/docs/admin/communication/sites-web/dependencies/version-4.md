@@ -149,11 +149,17 @@ Cela permet de répondre aux questions, au sujet d'un objet indirect (personne, 
 - dans quel objet direct de ce site l'objet est-il utilisé (quelle page ? quelle actu ?)
 - quels objets indirects sont connectés à un site ?
 
-Quand on sauve un objet indirect, il faut faire 2 actions :
+Quand on sauve un objet indirect, il faut faire 3 actions :
+- lister les sources et s'y connecter
 - connecter toutes les dépendances à toutes les sources
 - réenregistrer toutes les sources (donc de tous les websites)
 
-Les connexions sont établies peu importe si l'object indirect doit être envoyé sur Git ou non. Par exemple, un Communication::Block d'une page peut être connecté à un site par cette page mais il sera envoyé sur Git selon si l'état de publication du bloc (`block.published?`)
+Pour lister les sources, on passe par les connexions, ce qui pose un problème d'œuf et de poule.
+Pour créer l'œuf, il faut trouver dans les références toutes les connexions, puis créer des connexions avec la même source directe.
+C'est un système viral : un object connecté connecte ses dépendances et ses références.
+
+Les connexions sont établies peu importe si l'object indirect doit être envoyé sur Git ou non. 
+Par exemple, un Communication::Block d'une page peut être connecté à un site par cette page mais il sera envoyé sur Git selon l'état de publication du bloc (`block.published?`).
 
 ### Implementation
 
