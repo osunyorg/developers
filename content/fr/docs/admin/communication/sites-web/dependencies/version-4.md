@@ -160,6 +160,10 @@ Pour créer l'œuf, il faut itérer récursivement sur les références pour tro
 Ensuite, il faut créer des connexions avec chaque object direct.
 C'est un système viral : un object connecté connecte ses dépendances et ses références.
 
+Ci-dessous, un exemple d'une personne qui est connectée via 2 objets directs, la page des personnes et la page des organisations. Quand on crée un bloc, on crée 2 connexions pour ce bloc, l'un par la page personnes et l'autre par la page organisations.
+
+![Connexions Osuny](https://user-images.githubusercontent.com/7761386/230399347-c43811a2-11b5-4aef-9535-ca250ca4dc5f.png)
+
 Les connexions sont établies peu importe si l'object indirect doit être envoyé sur Git ou non. 
 Par exemple, un Communication::Block d'une page peut être connecté à un site par cette page mais il sera envoyé sur Git selon l'état de publication du bloc (`block.published?`).
 
