@@ -155,7 +155,9 @@ Quand on sauve un objet indirect, il faut faire 3 actions :
 - réenregistrer toutes les sources (donc de tous les websites)
 
 Pour lister les sources, on passe par les connexions, ce qui pose un problème d'œuf et de poule.
-Pour créer l'œuf, il faut trouver dans les références toutes les connexions, puis créer des connexions avec la même source directe.
+Les sources obtenues par les connexions sont les poules, la création d'une connexion est un œuf.
+Pour créer l'œuf, il faut itérer récursivement sur les références pour trouver tous les objets directs.
+Ensuite, il faut créer des connexions avec chaque object direct.
 C'est un système viral : un object connecté connecte ses dépendances et ses références.
 
 Les connexions sont établies peu importe si l'object indirect doit être envoyé sur Git ou non. 
