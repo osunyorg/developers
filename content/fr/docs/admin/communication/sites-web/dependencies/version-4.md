@@ -153,6 +153,8 @@ Quand on sauve un objet indirect, il faut faire 2 actions :
 - connecter toutes les dépendances à toutes les sources
 - réenregistrer toutes les sources (donc de tous les websites)
 
+Les connexions sont établies peu importe si l'object indirect doit être envoyé sur Git ou non. Par exemple, un Communication::Block d'une page peut être connecté à un site par cette page mais il sera envoyé sur Git selon si l'état de publication du bloc (`block.published?`)
+
 ### Implementation
 
 ```
