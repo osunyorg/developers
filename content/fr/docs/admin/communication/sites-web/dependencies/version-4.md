@@ -237,12 +237,141 @@ Communication::Website
 
 ## Suppressions
 
-Quand on supprime un objet direct, il faut supprimer toutes les connexions dont il est la source.
+### Principe
+
+Il s'agit de nettoyer les connexions et le référentiel Git.
+
+Plusieurs cas très différents :
+1. la suppression d'un objet direct
+2. la dépublication d'un objet direct
+3. la suppression d'un objet indirect
+4. la dépublication d'un objet indirect
+5. la déconnexion d'un objet indirect
+
+### 1. Suppression d'objet direct
+Exemple: post, page
+
+Il faut simplement supprimer l'objet de la base de données et de git.
+Pour autant, on ne peut pas supprimer automatiquement ses dépendances, parce qu'un objet indirect peut rester connecté par le biais d'un autre objet direct.
+
+Difficulté : il s'agit de ne pas en faire trop, d'éviter les suppressions excessives.
+
+Exemple :
+Soit une personne connectée 1 fois en explicite et 1 fois par un bloc dans une page. 
+Si on supprime la page, la personne ne doit pas être supprimée parce qu'elle reste connectée explicitement.
+
+#### Algorithme
+1. Marquer l'objet direct comme à supprimer du référentiel git
+2. Pour chaque connexion avec un indirect dont l'objet direct est la source :
+  - a. regarder si l'indirect dispose d'une autre connexion
+  - b1. si oui, on ne lui fait rien
+  - b2. si non, le marquer comme à supprimer du référentiel git
+  - c. supprimer la connexion
+3. Supprimer du référentiel git tous les objets marqués comme à supprimer
+4. Supprimer l'objet de la base de données
+
+### 2. Dépublication d'objet direct
+Exemple: post
+
+Il faut "juste" supprimer l'objet de git, en le laissant dans la base de données.
+La difficulté est la même que pour le cas 1.
+
+#### Algorithme
+1. Marquer l'objet direct comme à supprimer du référentiel git
+2. Pour chaque connexion avec un indirect dont l'objet direct est la source :
+  - a. regarder si l'indirect dispose d'une autre connexion
+  - b1. si oui, on ne lui fait rien
+  - b2. si non, le marquer comme à supprimer du référentiel git
+3. Supprimer du référentiel git tous les objets marqués comme à supprimer
+
+Les différences par rapport au cas 1 sont :
+- on ne supprime pas les connexions (parce que les objets sont toujours connectés au site, même s'il ne faut pas les publier sur git)
+- on ne supprimer pas de la base de données (parce que c'est juste un brouillon)
+
+### 3. Suppression d'objet indirect
+Exemple: person, program, blob
+
+L'idée simple est de supprimer l'objet concerné.
+La subtilité est liée aux dépendances de l'objet : certaines connexions doivent être supprimées, et d'autres pas, comme pour le cas 1.
+
+L'objet indirect peut être connecté à plusieurs sites.
+Dans chaque site, les connexions liées à l'objet supprimé doivent être nettoyées.
+Comme les connexions peuvent être croisées et récursives, on ne trace pas le détail des connexions parentes.
+On sait juste qu'un objet indirect est connecté à un site par un objet direct.
+Pour nettoyer, il faut donc reconstruire les connexions de chaque objet direct connecté, en passant par les dépendances, et en supprimant les connexions obsolètes.
+
+#### Olivia de Schrödinger et le saumon
+Olivia via PA via une formation
+Olivia via noesya via une formation
+PA dépublié
+noesya publié
+Olivia est à la fois publiée et dépubliée (Schrödinger)
+Remonter d'Olivia au website en cherchant un bras de rivière non asséché
+
+#### Algorithme
+1. Marquer l'objet indirect comme à supprimer du référentiel git de chacun de ses websites
+2. Pour chaque connexion avec un objet direct dont l'objet indirect est le sujet :
+  - a. reconstruire les connexions de l'objet direct
+  - b. pour toutes les connexions obsolètes (objets indirects précédemments connectés mais qui ne doivent plus l'être)
+    - I. regarder si l'indirect dispose d'une autre connexion dans le même site
+    - II1. si oui, on ne lui fait rien
+    - II2. si non, le marquer comme à supprimer du référentiel git du website de la connexion
+    - III. supprimer la connexion
+3. Supprimer de chaque référentiel git tous les objets marqués comme à supprimer
+4. Supprimer l'objet de la base de données
+
+
+
+
+### 4. Dépublication d'objet indirect
+Exemple: block, program
+
+Comme pour le cas 2, on supprime "juste" l'objet de git, en le laissant dans la bas de données.
+
+#### Algorithme
+1. Marquer l'objet indirect comme à supprimer du référentiel git de chacun de ses websites
+2. Pour chaque connexion avec un objet direct dont l'objet indirect est le sujet :
+  - b. 
+    - I. regarder si l'indirect dispose d'une autre connexion dans le même site
+    - II1. si oui, on ne lui fait rien
+    - II2. si non, le marquer comme à supprimer du référentiel git du website de la connexion
+3. Supprimer de chaque référentiel git tous les objets marqués comme à supprimer
+
+Les différences par rapport au cas 3 sont :
+- on ne supprime pas les connexions (parce que les objets sont toujours connectés au site, même s'il ne faut pas les publier sur git)
+- on ne supprimer pas de la base de données (parce que c'est juste un brouillon)
+
+### 5. Déconnexion d'objet indirect
+Exemple: 
+- dans un bloc "personnes", suppression d'une personne listée
+- déconnexion explicite d'une personne depuis la page "Equipe" dans l'arborescence
+
 En revanche, quand on déconnecte un objet indirect, il faut reconstruire les connexions des sources.
 
 En fonction de la rapidité d'exécution, cela se fera soit : 
 - en synchrone (peu probable)
 - en asynchrone immédiat
 - en asynchrone nocturne
+
+
+
+
+
+
+dependencies :
+
+- page equipe
+  - pierre-andre
+    - noesya
+      - pierre-andre (ignoré car déjà dans la liste des ancètres)
+      - olivia
+        - noesya (ignoré car déjà dans la liste des ancètres)
+    - olivia
+      - noesya
+      
+- page test
+  - olivia
+    - noesya
+    
 
 
