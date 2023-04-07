@@ -330,7 +330,7 @@ Dans l'état d'Osuny avant cette version 4 :
 
 Avec les connexions, on simplifie grandement ce calcul.
 
-#### Olivia de Schrödinger
+#### Olivia et le saumon de Schrödinger
 
 Exemple :
 - Olivia est connectée via Pierre-André (person.blocks) qui est connecté via une formation (program.blocks)
@@ -339,7 +339,16 @@ Exemple :
 
 Par ce principe, en redescendant dans les connexions, Olivia est à la fois dépubliée (par Pierre-André) et publiée (par Noesya), Schrödinger effect.
 
+Pour savoir si Olivia est publiée ou pas, il faut remonter toutes les voies possibles vers la source, comme un saumon qui remonte le courant.
+Si toutes les voies sont asséchées (non publiées), Olivia est non publiée.
+Si au moins une voie est utilisable (toute la chaîne d'objets est publiée), Olivia est publiée.
+
 L'objectif est de remonter depuis Olivia jusqu'au site en cherchant une séquence de connexions actives, c'est à dire des objets synchronisables.
+
+Après exploration (dans la version 5) nous ne trouvons pas de solutions pour remonter la rivière.
+Il faut partir de la source (le site Web) et explorer toutes les voies (par les recursive_dependencies avec syncable true).
+Cela nous la liste de tous les objets publiés.
+Pour obtenir la liste des objets qui ne le sont plus, il faut soustraire.
 
 #### Algorithme
 
