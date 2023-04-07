@@ -185,6 +185,13 @@ HP, BP, AL, OS, B, BP2, PA, BP3
 
 AL
 
+Cette approche revient à trouver ce qui n'est plus dans la liste, à faire une soustraction entre 2 listes.
+Si on peut le faire au niveau du site, cela permet de déclencher la suppression du git des objets qui ne sont plus là.
+Cette même approche au niveau d'un objet, direct ou indirect, permet de vérifier s'il y a eu suppression.
+S'il n'y en a pas (rien à enlever), alors on peut gérer les dépendances locales. 
+S'il y en a (des choses à enlever), alors il faut lancer le nettoyage du site.
+Le même algorithme devrait servir pour les 2 cas, et doit être particulièrement optimisé en mémoire vive.
+
 ## Approche 4
 
 Dépublication Block Person BP
@@ -197,4 +204,5 @@ Dépublication Block Person BP
       - On aura : BP2, PA, BP3, OS, B
     - On soustrait pour récupérer les dépendances qui ne sont plus synchronisables
       - On aura : BP, AL
-    - 
+    - ?
+
