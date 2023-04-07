@@ -334,17 +334,18 @@ Avec les connexions, on simplifie grandement ce calcul.
 
 Exemple :
 - Olivia est connectée via Pierre-André (person.blocks) qui est connecté via une formation (program.blocks)
-- Olivia est aussi connectée via Noesya (organization.blocks) qui est connectée via une formation (program.blocks)
-- Pierre-André est dépublié, tandis que Noesya est publiée
+- Olivia est aussi connectée via noesya (organization.blocks) qui est connectée via une formation (program.blocks)
+- Pierre-André est dépublié, tandis que noesya est publiée
 
 Par ce principe, en redescendant dans les connexions, Olivia est à la fois dépubliée (par Pierre-André) et publiée (par Noesya), Schrödinger effect.
 
 L'objectif est de remonter depuis Olivia jusqu'au site en cherchant une séquence de connexions actives, c'est à dire des objets synchronisables.
 
 #### Algorithme
-1. Marquer l'objet indirect comme à supprimer du référentiel git de chacun de ses websites
-2. Pour chaque connexion avec un objet direct dont l'objet indirect est le sujet :
-  - b. 
+
+Pour chaque website de l'objet indirect (via ses connexions) :
+1. Marquer l'objet indirect comme à supprimer du référentiel git du website
+2. Pour chaque connexion du website avec un objet direct dont l'objet indirect est le sujet :
     - I. regarder si l'indirect dispose d'une autre connexion dans le même site
     - II1. si oui, on ne lui fait rien
     - II2. si non, le marquer comme à supprimer du référentiel git du website de la connexion
@@ -365,26 +366,3 @@ En fonction de la rapidité d'exécution, cela se fera soit :
 - en synchrone (peu probable)
 - en asynchrone immédiat
 - en asynchrone nocturne
-
-
-
-
-
-
-dependencies :
-
-- page equipe
-  - pierre-andre
-    - noesya
-      - pierre-andre (ignoré car déjà dans la liste des ancètres)
-      - olivia
-        - noesya (ignoré car déjà dans la liste des ancètres)
-    - olivia
-      - noesya
-      
-- page test
-  - olivia
-    - noesya
-    
-
-
