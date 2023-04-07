@@ -306,14 +306,6 @@ Comme les connexions peuvent être croisées et récursives, on ne trace pas le 
 On sait juste qu'un objet indirect est connecté à un site par un objet direct.
 Pour nettoyer, il faut donc reconstruire les connexions de chaque objet direct connecté, en passant par les dépendances, et en supprimant les connexions obsolètes.
 
-#### Olivia de Schrödinger et le saumon
-Olivia via PA via une formation
-Olivia via noesya via une formation
-PA dépublié
-noesya publié
-Olivia est à la fois publiée et dépubliée (Schrödinger)
-Remonter d'Olivia au website en cherchant un bras de rivière non asséché
-
 #### Algorithme
 1. Marquer l'objet indirect comme à supprimer du référentiel git de chacun de ses websites
 2. Pour chaque connexion avec un objet direct dont l'objet indirect est le sujet :
@@ -326,13 +318,28 @@ Remonter d'Olivia au website en cherchant un bras de rivière non asséché
 3. Supprimer de chaque référentiel git tous les objets marqués comme à supprimer
 4. Supprimer l'objet de la base de données
 
-
-
-
 ### 4. Dépublication d'objet indirect
-Exemple: block, program
+Exemple: block, person, program
 
 Comme pour le cas 2, on supprime "juste" l'objet de git, en le laissant dans la bas de données.
+
+Dans l'état d'Osuny avant cette version 4 :
+- Quand on dépublie un bloc qui liste une personne, on avait besoin de regarder dans tous les objets des websites pour vérifier que la personne est encore utilisée via une parentèle d'objets synchronisables.
+  - Si c'était le cas, on ne faisait rien.
+  - Si ce n'était pas le cas, on supprimait la personne du référentiel Git.
+
+Avec les connexions, on simplifie grandement ce calcul.
+
+#### Olivia de Schrödinger
+
+Exemple :
+- Olivia est connectée via Pierre-André (person.blocks) qui est connecté via une formation (program.blocks)
+- Olivia est aussi connectée via Noesya (organization.blocks) qui est connectée via une formation (program.blocks)
+- Pierre-André est dépublié, tandis que Noesya est publiée
+
+Par ce principe, en redescendant dans les connexions, Olivia est à la fois dépubliée (par Pierre-André) et publiée (par Noesya), Schrödinger effect.
+
+L'objectif est de remonter depuis Olivia jusqu'au site en cherchant une séquence de connexions actives, c'est à dire des objets synchronisables.
 
 #### Algorithme
 1. Marquer l'objet indirect comme à supprimer du référentiel git de chacun de ses websites
