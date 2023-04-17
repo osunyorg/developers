@@ -3,7 +3,6 @@ title: Itération 5
 description: Sur les suppressions
 ---
 
-
 ## Approche 1
 
 Dépublication objet indirect

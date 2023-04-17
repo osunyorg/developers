@@ -330,7 +330,23 @@ Dans l'état d'Osuny avant cette version 4 :
 
 Avec les connexions, on simplifie grandement ce calcul.
 
-#### Olivia et le saumon de Schrödinger
+#### Algorithme (faux)
+
+Pour chaque website de l'objet indirect (via ses connexions) :
+1. Marquer l'objet indirect comme à supprimer du référentiel git du website
+2. Pour chaque connexion du website avec un objet direct dont l'objet indirect est le sujet :
+    - I. regarder si l'indirect dispose d'une autre connexion dans le même site
+    - II1. si oui, on ne lui fait rien
+    - II2. si non, le marquer comme à supprimer du référentiel git du website de la connexion
+3. Supprimer de chaque référentiel git tous les objets marqués comme à supprimer
+
+Les différences par rapport au cas 3 sont :
+- on ne supprime pas les connexions (parce que les objets sont toujours connectés au site, même s'il ne faut pas les publier sur git)
+- on ne supprimer pas de la base de données (parce que c'est juste un brouillon)
+
+Cet algo est faux parce qu'il ne prend pas en compte les états de publication.
+
+#### Olivia de Schrödinger et le saumon
 
 Exemple :
 - Olivia est connectée via Pierre-André (person.blocks) qui est connecté via une formation (program.blocks)
@@ -345,24 +361,13 @@ Si au moins une voie est utilisable (toute la chaîne d'objets est publiée), Ol
 
 L'objectif est de remonter depuis Olivia jusqu'au site en cherchant une séquence de connexions actives, c'est à dire des objets synchronisables.
 
+#### Logique (bonne)
+
 Après exploration (dans la version 5) nous ne trouvons pas de solutions pour remonter la rivière.
 Il faut partir de la source (le site Web) et explorer toutes les voies (par les recursive_dependencies avec syncable true).
 Cela nous la liste de tous les objets publiés.
 Pour obtenir la liste des objets qui ne le sont plus, il faut soustraire.
 
-#### Algorithme
-
-Pour chaque website de l'objet indirect (via ses connexions) :
-1. Marquer l'objet indirect comme à supprimer du référentiel git du website
-2. Pour chaque connexion du website avec un objet direct dont l'objet indirect est le sujet :
-    - I. regarder si l'indirect dispose d'une autre connexion dans le même site
-    - II1. si oui, on ne lui fait rien
-    - II2. si non, le marquer comme à supprimer du référentiel git du website de la connexion
-3. Supprimer de chaque référentiel git tous les objets marqués comme à supprimer
-
-Les différences par rapport au cas 3 sont :
-- on ne supprime pas les connexions (parce que les objets sont toujours connectés au site, même s'il ne faut pas les publier sur git)
-- on ne supprimer pas de la base de données (parce que c'est juste un brouillon)
 
 ### 5. Déconnexion d'objet indirect
 Exemple: 
