@@ -323,10 +323,10 @@ Exemple: block, person, program
 
 Comme pour le cas 2, on supprime "juste" l'objet de git, en le laissant dans la bas de données.
 
-Dans l'état d'Osuny avant cette version 4 :
-- Quand on dépublie un bloc qui liste une personne, on avait besoin de regarder dans tous les objets des websites pour vérifier que la personne est encore utilisée via une parentèle d'objets synchronisables.
-  - Si c'était le cas, on ne faisait rien.
-  - Si ce n'était pas le cas, on supprimait la personne du référentiel Git.
+Dans l'état d'Osuny avant cette version 4, l'algo était :
+- Quand on dépublie un bloc qui liste une personne, on regarde dans tous les objets des websites pour vérifier que la personne est encore utilisée via une parentèle d'objets synchronisables
+  - Si c'était le cas, on ne faisait rien
+  - Si ce n'était pas le cas, on supprimait la personne du référentiel Git
 
 Avec les connexions, on simplifie grandement ce calcul.
 
