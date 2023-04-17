@@ -1,5 +1,5 @@
 ---
-title: Version 1
+title: Itération 1
 description: Implémentée en 2022
 ---
 
