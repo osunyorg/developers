@@ -27,6 +27,7 @@ Un objet indirect peut être connecté à plusieurs objets directs, au sein du m
 
 ### Dépendances
 L'ensemble des objets liés à un autre et nécessaires à son affichage dans le site.
+
 Par exemple, sont des dépendances d'une actualité :
 - son image à la une
 - son auteur
@@ -34,6 +35,7 @@ Par exemple, sont des dépendances d'une actualité :
 
 ### Références
 L'ensemble des objets qui font référence à l'objet courant, en utilisant son `path` ou son `slug`.
+
 Par exemple :
 - une actualité est référencée par l'ensemble des blocs actualité (même si la réalité est un peu plus subtile)
 - une page est référencée par son parent (dans les children)
