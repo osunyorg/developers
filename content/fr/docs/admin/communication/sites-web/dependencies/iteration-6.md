@@ -16,3 +16,14 @@ Il reste à :
 - vérifier les ajouts / suppressions sur Git
 - améliorer l'algo de nettoyage (async ?)
 
+## Workflow Git
+
+Les objets indirects déclenchent `save_and_sync` des objets directs par lesquels ils sont connectés.
+
+Les objets directs déclenchent les méthodes `save_and_sync`, `update_and_sync`, `destroy_and_sync` dans les controllers.
+
+La synchronisation vers git se fait dans le concern `WithGit`, utilisé par les objets directs, qui définit ces 3 méthodes.
+
+2 méthodes clés : 
+- `sync_with_git`, qui ne gère pas les suppressions
+- `destroy_from_git`, qui gère uniquement la suppression de l'objet direct 
