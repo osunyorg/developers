@@ -47,6 +47,7 @@ La connexion est toujours une jointure entre un objet direct `direct_source` et 
 On distingue connexions et dépendances pour clarifier la réflexion.
 Les dépendances mêlent indistinctement objets directs et indirects.
 Les connexions sont exclusivement des objets indirects.
+Le concept de connexion sert uniquement à savoir à quel(s) objet(s) direct(s) est connecté un objet indirect.
 
 À noter, la plupart des connexions concernent des objets ActiveRecord persistés en base de données, mais pas tous.
 Les composants et templates de blocs, par exemple, ne sont pas des objets persistés en BDD.
