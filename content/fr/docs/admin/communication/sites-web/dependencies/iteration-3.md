@@ -1,6 +1,6 @@
 ---
 title: Itération 3
-description: Réflexion en cours
+description: Sur la traçabilité des objets indirects
 ---
 
 ## La traçabilité

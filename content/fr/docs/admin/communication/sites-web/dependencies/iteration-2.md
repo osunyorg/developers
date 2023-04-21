@@ -1,6 +1,6 @@
 ---
 title: Itération 2
-description: Réflexion en cours
+description: Intuitions initiales
 ---
 
 Le point de départ de cette version est multiple :
