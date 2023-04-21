@@ -42,51 +42,6 @@ Si l'on code un algorithme récursif qui suit la chaîne de dépendances, cette 
 Il peut arriver qu'une personne ou une organisation doive être ajoutée à un site Web, alors qu'elle n'apparaît dans aucun bloc ni aucune formation.
 Il faut dans ce cas pouvoir l'ajouter explicitement, en utilisant une interface sur la page des personnes.
 
-## Cas d'usage
-
-### Pages
-
-1. Je crée une page, je la publie, il faut qu'elle soit exportée
-2. J'ajoute une image à une page, il faut que l'image soit exportée
-3. Je change l'image, il faut supprimer la précédente et exporter la nouvelle
-4. Je crée une page enfant, il faut qu'elle soit exportée
-5. Je change le chemin de la page parent, il faut que le parent et l'enfant soient exportés
-6. J'ajoute un bloc "Personnes", je lie une personne, il faut que la page soit exportée, ainsi que la personne et sa photo
-7. Je change le chemin d'une page utilisée dans un élément de menu, il faut exporter la page et le menu
-
-### Actualités
-
-Les scenarii 1 à 3 ne sont pas repris, bien qu'ils soient pertinents pour les actualités et toutes les dépendances natives des sites.
-
-1. Je crée une actualité, je la publie avec une date dans le futur. Il faut qu'elle ne soit pas publiée, jusqu'à la dite date
-2. Je crée une actualité, il faut exporter toutes les pages dotées d'un bloc "actualités" afin de mettre à jour les listes
-
-Ce cas "2." peut être traité de 2 façons :
-- en listant explicitement les articles concernés (c'est la situation actuelle), ce qui donne au CMS la charge des calculs et qui permet à Hugo de simplement récupérer ce qu'on lui demande
-- en indiquant les règles à Hugo (la catégorie et le nombre d'articles), ce qui donne à Hugo la charge des calculs et permet de ne pas mettre à jour les pages présentant ces blocs.
-
-### Catégories
-
-1. Je renomme une catégorie. Il faut l'exporter, exporter sa catégorie parente (qui liste les enfants), exporter ses catégories enfants, et exporter tous les articles liés à la catégorie et à sa descendance pour faire correspondre le chemin.
-2. Je déplace une catégorie. Il faut l'exporter, exporter l'ancien parent, le nouveau parent, toute la descendance, et exporter tous les articles liés à la catégorie et à la descendance.
-3. Je change le chemin d'une catégorie utilisée dans un élément de menu, il faut exporter la catégorie et le menu.
-
-### Personnes
-
-1. J'ajoute un bloc "chapitre" à une personne, avec une image. Il faut que cette image soit exportée pour tous les sites liés
-2. J'ajoute un bloc "organisations" à une personne, avec une organisation liée. Il faut que l'organisation et son logo soient exportés pour tous les sites liés
-
-### Formations
-
-1. Je définis un site comme site d'école. Il faut que les formations de l'école soient exportés dans le site
-2. J'ajoute un bloc "formations" dans un site. Il faut restreindre les formations proposées aux formations liées au site
-3. J'ajoute un enseignant à une formation. Il faut que l'enseignant et la personne soient exportés dans tous les sites liés
-4. J'ajoute un bloc "organisations" pour lister des partenaires. Il faut que les partenaires et leurs logos soient exportés vers tous les sites liés.
-
-Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui.
-Dans le site de l'IUT Bordeaux Montaigne, un bloc "Formations" ne doit permettre de lister que des formations de l'IUT.
-Sinon, l'ajout d'une formation que l'école n'assure pas ajouterait cette formation à l'offre de formation présentée sur le site.
-
 
 ## Réflexions sur les dépendances de référence et les événements déclencheurs
 
