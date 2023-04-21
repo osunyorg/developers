@@ -35,7 +35,7 @@ Par exemple, sont des dépendances d'une actualité :
 - la photo de l'auteur (si elle est affichée sur la page de l'actualité)
 
 ### Références
-L'ensemble des objets qui font référence à l'objet courant, en utilisant son `path` ou son `slug`.
+L'ensemble des objets qui font référence à l'objet courant, en utilisant son `path`, son `slug`.
 
 Par exemple :
 - une actualité est référencée par l'ensemble des blocs actualité (même si la réalité est un peu plus subtile)
@@ -43,6 +43,7 @@ Par exemple :
 
 ### Connexions d'un site Web
 On appelle "connexions" l'ensemble des liens entre un site Web et des objets indirects qui apparaissent sur ce site.
+La connexion est toujours une jointure entre un objet direct `direct_source` et un objet indirect `indirect_object`.
 On distingue connexions et dépendances pour clarifier la réflexion.
 Les dépendances mêlent indistinctement objets directs et indirects.
 Les connexions sont exclusivement des objets indirects.
