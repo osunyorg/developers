@@ -1,6 +1,6 @@
 ---
 title: Itération 0
-description: Début de la réflexion
+description: Les éléments du problème
 ---
 
 ## Connexions
