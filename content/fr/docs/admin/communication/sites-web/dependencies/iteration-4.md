@@ -1,6 +1,6 @@
 ---
 title: Itération 4
-description: Clarifications, Olivia de Schrödinger et le saumon
+description: Clarifications, problème du saumon de Schrödinger
 ---
 
 Le point de départ de cette version reste identique à la version 2:
