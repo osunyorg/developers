@@ -18,10 +18,11 @@ La question traitée ici est celle de la liste des objets, et de la mise à jour
 
 ### Objet direct
 Un objet connecté directement à un site Web, comme une page ou une actualité.
-Le site Web lui-même n'est pas strictement un objet direct, mais peut servir de source à un objet indirect, par sa propriété `about`.
+
+À noter, le site Web lui-même n'est pas strictement un objet direct, mais peut néanmoins servir de source à un objet indirect, par sa propriété `about`.
 
 ### Objet indirect
-Un objet connecté à un site Web par le biais d'un objet direct. 
+Un objet connecté à un site Web par le biais d'un objet direct.
 Les objets indirects peuvent se connecter entre eux, et ils héritent de la connexion à l'objet direct.
 Un objet indirect peut être connecté à plusieurs objets directs, au sein du même site ou de plusieurs sites.
 
@@ -97,5 +98,3 @@ Ce cas "2." peut être traité de 2 façons :
 Le cas "2." est important, et n'est pas implémenté tel quel aujourd'hui.
 Dans le site de l'IUT Bordeaux Montaigne, un bloc "Formations" ne doit permettre de lister que des formations de l'IUT.
 Sinon, l'ajout d'une formation que l'école n'assure pas ajouterait cette formation à l'offre de formation présentée sur le site.
-
-
