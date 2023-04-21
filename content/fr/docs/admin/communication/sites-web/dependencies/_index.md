@@ -41,7 +41,7 @@ Par exemple :
 - une actualité est référencée par l'ensemble des blocs actualité (même si la réalité est un peu plus subtile)
 - une page est référencée par son parent (dans les children)
 
-### Connexions d'un site Web
+### Connexions
 On appelle "connexions" l'ensemble des liens entre un site Web et des objets indirects qui apparaissent sur ce site.
 La connexion est toujours une jointure entre un objet direct `direct_source` et un objet indirect `indirect_object`.
 On distingue connexions et dépendances pour clarifier la réflexion.

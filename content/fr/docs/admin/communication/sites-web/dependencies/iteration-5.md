@@ -193,8 +193,6 @@ Le même algorithme devrait servir pour les 2 cas, et doit être particulièreme
 
 ## Approche 4
 
-*Work in progress*
-
 Dépublication Block Person BP
 - Pour chaque website de l'objet indirect (uniquement W)
   - On liste les objets directs auxquels l'objet indirect est connecté (uniquement HP)
