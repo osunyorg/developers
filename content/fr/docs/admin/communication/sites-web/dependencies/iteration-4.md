@@ -1,6 +1,6 @@
 ---
 title: Itération 4
-description: Réflexion en cours
+description: Clarifications, Olivia de Schrödinger et le saumon
 ---
 
 Le point de départ de cette version reste identique à la version 2:
