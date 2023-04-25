@@ -16,6 +16,11 @@ theme = ["docsy"]
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
+
+[deployment]
+[[deployment.targets]]
+URL = "s3://0aee1314c8e7a8e8afb407a7d7a4a33e2e45593c94b98d8b229a3fc8abb582f8?endpoint=garage.deuxfleurs.fr&s3ForcePathStyle=true&region=garage"
+
 # Comment out to enable taxonomies in Docsy
 # disableKinds = ["taxonomy", "taxonomyTerm"]
 
