@@ -1,5 +1,6 @@
 ---
-title: Blocs de contenu
+title: Blocs
+weight: 2
 ---
 
 Les blocs sont des éléments narratifs qui s'ajoutent à un objet pour le raconter :
