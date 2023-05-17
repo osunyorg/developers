@@ -98,7 +98,7 @@ weight = 1
 section = ["HTML", "print", "RSS"]
 
 [params]
-privacy_policy = "https://www.osuny.org/mentions-legales"
+privacy_policy = "https://www.osuny.org/mentions-legales/"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
