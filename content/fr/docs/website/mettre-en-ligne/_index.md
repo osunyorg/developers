@@ -18,11 +18,11 @@ Lors d'un test nous avons constaté que le même site est mis à jour en 20 seco
 ## Publier selon l'hébergeur
 
 La méthode de déploiement va différer selon l'hébergeur choisi. Vous avez des exemples pour les hébergeurs suivants :
+- [OVH](/docs/website/mettre-en-ligne/hebergeurs/ovh/)
 - [Infomaniak](/docs/website/mettre-en-ligne/hebergeurs/infomaniak/)
 - [Netlify](/docs/website/mettre-en-ligne/hebergeurs/netlify/)
-- [OVH](/docs/website/mettre-en-ligne/hebergeurs/ovh/)
-- [FTP générique](/docs/website/mettre-en-ligne/hebergeurs/ftp/)
 - [SSH générique](/docs/website/mettre-en-ligne/hebergeurs/ssh/)
+- [FTP générique](/docs/website/mettre-en-ligne/hebergeurs/ftp/)
 
 ## Configuration serveur web
 
