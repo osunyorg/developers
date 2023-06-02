@@ -21,6 +21,8 @@ La méthode de déploiement va différer selon l'hébergeur choisi. Vous avez de
 - [Infomaniak](/docs/website/mettre-en-ligne/hebergeurs/infomaniak/)
 - [Netlify](/docs/website/mettre-en-ligne/hebergeurs/netlify/)
 - [OVH](/docs/website/mettre-en-ligne/hebergeurs/ovh/)
+- [FTP générique](/docs/website/mettre-en-ligne/hebergeurs/ftp/)
+- [SSH générique](/docs/website/mettre-en-ligne/hebergeurs/ssh/)
 
 ## Configuration serveur web
 
