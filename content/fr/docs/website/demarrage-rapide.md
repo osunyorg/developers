@@ -112,7 +112,7 @@ yarn server-example
 TODO traiter le passage en module Hugo
 
 ```bash
-git submodule add git@github.com:noesya/osuny-hugo-theme-aaa.git themes/osuny-hugo-theme-aaa
+git submodule add https://github.com/noesya/osuny-hugo-theme-aaa.git themes/osuny-hugo-theme-aaa
 yarn
 ```
 
