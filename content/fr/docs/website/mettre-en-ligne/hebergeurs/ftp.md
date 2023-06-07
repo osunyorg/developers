@@ -17,7 +17,7 @@ Assurez-vous d'avoir toutes l'informations nécessaires :
 
 ## Configuration du déploiement
 
-Aller sur GitHub, dans Settings, Secrets puis Actions, et définissez les variables ci-dessus.
+Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* ci-dessus.
 
 Créer l'action automatisée dans le fichier `.github/workflows/deploy.yml`
 

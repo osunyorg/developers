@@ -23,7 +23,7 @@ Une fois validé, vous verrez le serveur hôte, il s'agira de la valeur pour la 
 
 ![Serveur FTP hôte sur Infomaniak](/images/infomaniak/ftp3.png)
 
-Aller ensuite sur GitHub, dans Settings, Secrets puis Actions, et définissez les variables suivantes :
+Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 - `FTP_HOSTNAME` : `[serveur hôte ci-dessus]`
 - `FTP_USERNAME` : `[nom de l'utilisateur ci-dessus]`
 - `FTP_PASSWORD` : `[mot de passe ci-dessus]`
@@ -94,7 +94,7 @@ Enfin, ajoutez votre clé SSH aux clés autorisées avec : `ssh-copy-id -i [NOM 
 
 Une fois cela fait, vérifiez que la connexion via SSH fonctionne avec : `ssh -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]`. Exemple : `ssh -i ~/.ssh/id_ed25519 user@mon-domaine.fr`.
 
-Aller ensuite sur GitHub, dans Settings, Secrets puis Actions, et définissez les variables suivantes :
+Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 - `SSH_HOST` : `[serveur hôte ci-dessus]`
 - `SSH_PORT` : `22`
 - `SSH_PRIVATE_KEY` : `[la clé privée SSH]`

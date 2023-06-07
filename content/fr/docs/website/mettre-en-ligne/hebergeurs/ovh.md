@@ -11,7 +11,7 @@ A partir de l'hébergement Pro, on peut utiliser le SSH. Mais sinon, il faut pas
 
 ## Méthode FTP
 
-Intégrer ces informations dans Github (cliquer sur Settings, Secrets, Actions), et définir les variables suivantes.
+Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 
 Les valeurs entre crochets sont indicatives, à remplacer par les vraies valeurs.
 
@@ -84,7 +84,7 @@ Enfin, ajoutez votre clé SSH aux clés autorisées avec : `ssh-copy-id -i [NOM 
 
 Une fois cela fait, vérifiez que la connexion via SSH fonctionne avec : `ssh -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]`. Exemple : `ssh -i ~/.ssh/id_ed25519 user@ssh.cluster042.hosting.ovh.net`.
 
-Aller ensuite sur GitHub, dans Settings, Secrets puis Actions, et définissez les variables suivantes :
+Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 - `SSH_HOST` : `ssh.[adresse du cluster].hosting.ovh.net`
 - `SSH_PORT` : `22`
 - `SSH_PRIVATE_KEY` : `[la clé privée SSH]`
