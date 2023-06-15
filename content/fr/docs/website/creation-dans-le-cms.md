@@ -1,8 +1,8 @@
 ---
-title: Création du site dans le CMS
+title: Créer le site dans le CMS
 weight: 100
 description: >-
-  Créer le site sur Osuny
+  Ce qu'il faut faire sur le back-office Osuny
 ---
 
 ## Étape 1
