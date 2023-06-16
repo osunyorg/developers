@@ -1,6 +1,5 @@
 ---
 title: Créer le site dans le back-office
-weight: 100
 description: >-
   Ce qu'il faut faire sur l'espace d'administration Osuny
 ---
