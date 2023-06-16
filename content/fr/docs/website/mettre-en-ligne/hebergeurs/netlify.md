@@ -1,6 +1,5 @@
 ---
 title: Netlify
-weight: 3
 ---
 
 En connectant Netlify au référentiel GitHub, tout est pris en charge automatiquement.

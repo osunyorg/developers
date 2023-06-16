@@ -2,7 +2,7 @@
 title: Configurer le site
 weight: 2
 description: >
-  De nombreuses possibilités de personnalisation sont offertes avec des fichier de configuration YAML et des variables SASS
+  De nombreuses possibilités de personnalisation sont offertes avec les fichiers de configurations
 ---
 
 ## Logos et favicons
@@ -41,7 +41,14 @@ cookie_banner:
   enable: true
   blank: true
   page: https://gdpr.eu/cookies/
+params:
+  ...
 ```
+
+Les variables disponibles sont ici :
+https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
+
+C'est le meilleur endroit pour démarrer le site.
 
 ## Variables SASS
 

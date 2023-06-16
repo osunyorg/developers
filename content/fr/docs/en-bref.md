@@ -18,7 +18,7 @@ Chaque site est construit :
 **Glossaire**
 
 Admin Osuny
-: L'application permettant de gérer les contenus. On utilise aussi le synonyme CMS Osuny.
+: L'application permettant de gérer les contenus. On utilise aussi les synonyme *CMS Osuny* ou *back-office Osuny*.
 
 Template Osuny 
 : Le template qui sert de base pour créer des sites avec Osuny.

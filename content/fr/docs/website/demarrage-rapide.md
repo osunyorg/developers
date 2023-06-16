@@ -91,9 +91,9 @@ On peut aussi utiliser la commande :
 yarn dev
 ```
 
-## Travailler avec des données d'exemple
+## Utiliser des données d'exemple
 
-Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas possibles avec Osuny, ce qui vous permet de travailler sur l'apparence du site avant même d'avoir publié du contenu.
+Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas possibles avec Osuny, ce qui vous permet de travailler sur l'apparence du site avant même d'avoir publié du contenu. Bien entendu, vous pouvez repasser très simplement sur vos données réelles dès qu'elles sont disponibles, et alterner en fonction de vos besoins.
 
 Pour installer le contenu d'exemple, on utilise la commande :
 
@@ -107,17 +107,32 @@ Pour travailler sur le site avec le contenu d'exemple, on utilise la commande :
 yarn server-example
 ```
 
-## Autre option : ajouter le thème à un site Hugo existant
+## Et maintenant ?
 
-TODO traiter le passage en module Hugo
+L'idée générale pour développer votre site sur la base d'Osuny est de procéder en suivant les étapes suivantes.
 
-```bash
-git submodule add https://github.com/noesya/osuny-hugo-theme-aaa.git themes/osuny-hugo-theme-aaa
-yarn
-```
+### 1. config.yaml
 
-Dans la configuration Hugo, définir le thème `osuny-hugo-theme-aaa`.
+Configurer tout ce qui peut l'être dans le fichier `/config/_default/config.yaml`.
+Cela permet par exemple de définir la position du fil d'ariane, du résumé, la longueur des troncatures ou le choix d'une mise en page en liste ou en grille des actualités.
+Quand quelque chose n'est pas personnalisable dans le fichier config.yaml, on passe à l'étape 2.
 
-```bash
-hugo server
-```
+### 2. configuration.sass
+
+Le fichier `/assets/sass/_configuration.sass` est destiné à recevoir des définitions de variables qui vont être utilisées par le thème.
+Les variables disponibles sont disponibles ici :
+https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
+
+### 3. style.sass
+
+Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`. 
+Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller regarder dans les fichiers du thème.
+Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
+Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
+
+### 4. layouts
+
+Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`. 
+Attention, cela doit être fait en dernier recours, parce qu'en faisant cela vous ne bénéficiez plus des mises à jour du thème.
+Lorsque le thème évoluera, il faut mettre à jour vos propres fichiers HTML pour rester compatibles.
+Évidemment, vos modifications HTML doivent prendre en compte les problématiques d'accessibilité et de sobriété de la même manière que le thème.
