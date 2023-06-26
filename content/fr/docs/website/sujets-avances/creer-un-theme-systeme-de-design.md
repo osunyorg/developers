@@ -47,11 +47,11 @@ Le dernier fichier `_theme.sass` sera celui dans lequel vous importerez vos autr
 
 Pour faire le lien entre votre theme ainsi que le theme Osuny, dans votre fichier `theme.sass`, il faudra que vous importiez le theme Osuny, ainsi que les utils, tel que :
 
-```@import "_theme/utils"
+`@import "_theme/utils"
 @import "_fonts"
 @import "_configuration"
 @import "_theme/hugo-osuny"
-@import "_style"```
+@import "_style"`
 
 Ensuite, dans votre referentiel, vous allez devoir indiquer que vous voulez utiliser votre thème.
 
