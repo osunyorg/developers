@@ -6,7 +6,7 @@ description: >-
 
 [Schéma](https://www.osuny.org/fonctionnalites/theme-osuny/schema-1/)
 
-## Configurer son référenciel
+## Configurer son référentiel
 ### Créer un référentiel vide
 
 Dans ce tutoriel, nous utiliserons le nom montheme. Commencez par créer un référenciel vide pour votre thème puis ajoutez le à votre référentiel Osuny déjà existant avec cette commande. 
