@@ -34,7 +34,7 @@ Vous pouvez aussi y ajouter tout les paramètres dont vous avez besoin pour l'en
 
 ## Créer vos dossiers
 
-Vous pouvez à présent créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui se trouve directement dans votre dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Vous pouvez ensuite créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire. 
+Vous pouvez à présent créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui se doit directement être dans votre dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Vous pouvez ensuite créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire. 
 
 ### Configurer les assets
 
@@ -49,7 +49,7 @@ Le dernier fichier `_theme.sass` sera celui dans lequel vous importerez vos autr
 
 ### Liaison des thèmes
 
-Pour faire le lien entre votre theme ainsi que le theme Osuny, dans votre fichier `theme.sass`, il faudra que vous importiez le theme Osuny, ainsi que les utils, tel que :
+Pour faire le lien entre votre thème ainsi que le theme Osuny, dans votre fichier `theme.sass`, il faudra que vous importiez le thème Osuny, ainsi que les utils, tel que :
 
 ```bash
 @import "_theme/utils"
@@ -58,8 +58,6 @@ Pour faire le lien entre votre theme ainsi que le theme Osuny, dans votre fichie
 @import "_theme/hugo-osuny"
 @import "_style"
 ```
-
-Ensuite, dans votre referentiel, vous allez devoir indiquer que vous voulez utiliser votre thème.
 
 ## Dans votre referentiel Osuny
 
