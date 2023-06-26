@@ -11,7 +11,9 @@ description: >-
 
 Dans ce tutoriel, nous utiliserons le nom montheme. Commencez par créer un référenciel vide pour votre thème puis ajoutez le à votre référentiel Osuny déjà existant avec cette commande. 
 
-```git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hugo-theme```
+```bash
+git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hugo-theme
+```
 
 ### Créer un fichier config
 
