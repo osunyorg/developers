@@ -17,14 +17,14 @@ Dans ce tutoriel, nous utiliserons le nom montheme. Commencez par créer un réf
 
 Dans votre thème créez un fichier `config.yaml`. Vous pouvez déjà y mettre ces informations :
 
-```theme: osuny-hugo-theme-aaa
+`theme: osuny-hugo-theme-aaa
 params:
   logo:
     header: "/assets/images/votrelogo.svg"
     footer: "/assets/images/votrelogo.svg"
   seo:
     title:
-      separator: « • »```
+      separator: « • »`
 
 Vous pouvez aussi y ajouter tout les paramètres dont vous avez besoin pour l'entiereté de vos sites.
 
