@@ -19,14 +19,16 @@ git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hu
 
 Dans votre thème créez un fichier `config.yaml`. Vous pouvez déjà y mettre ces informations :
 
-`theme: osuny-hugo-theme-aaa
+```bash
+theme: osuny-hugo-theme-aaa
 params:
   logo:
     header: "/assets/images/votrelogo.svg"
     footer: "/assets/images/votrelogo.svg"
   seo:
     title:
-      separator: « • »`
+      separator: « • »
+```
 
 Vous pouvez aussi y ajouter tout les paramètres dont vous avez besoin pour l'entiereté de vos sites.
 
@@ -49,11 +51,13 @@ Le dernier fichier `_theme.sass` sera celui dans lequel vous importerez vos autr
 
 Pour faire le lien entre votre theme ainsi que le theme Osuny, dans votre fichier `theme.sass`, il faudra que vous importiez le theme Osuny, ainsi que les utils, tel que :
 
-`@import "_theme/utils"
+```bash
+@import "_theme/utils"
 @import "_fonts"
 @import "_configuration"
 @import "_theme/hugo-osuny"
-@import "_style"`
+@import "_style"
+```
 
 Ensuite, dans votre referentiel, vous allez devoir indiquer que vous voulez utiliser votre thème.
 
@@ -61,11 +65,15 @@ Ensuite, dans votre referentiel, vous allez devoir indiquer que vous voulez util
 
 Dans le dossier `config/_default` allez dans votre fichier `config.yaml` et remplacez le theme par le votre. La commande devrait se présenter ainsi :
 
-```theme: montheme-hugo-theme```
+```bash
+theme: montheme-hugo-theme
+```
 
 Ensuite, dans le dossier `/assets/sass` allez dans votre fichier `main.sass`et changez le thème par le votre en indiquant le chemin de votre dossier, d'où l'importance d'associer le dossier assets de votre theme avec un nom tel que `montheme-hugo`, ainsi que de différencier le nom de votre fichier de celui du main. La commande devrait se présenter ainsi :
 
-```@import "montheme-hugo/theme"```
+```bash
+@import "montheme-hugo/theme"
+```
 
 ## Vos logos et typos
 
