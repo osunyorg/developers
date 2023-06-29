@@ -18,11 +18,15 @@ Pour déployer votre site, vous aurez besoin de vos identifiants S3 présents da
 
 Gardez sous la main votre **Identifiant de clé** et votre **Clé secrète**.
 
+![image](https://github.com/noesya/osuny-developers/assets/7761386/a3e71c70-3ba5-46a4-b6b2-856efaf1169d)
+
 ## Ajout du site au Guichet
 
 Dans Guichet, aller dans la partie "Garage", "Mes sites webs" puis ajouter votre site web avec le nom de domaine que vous avez acheté au préalable.
 
 Notez l'**ID** qui vous est retourné, vous en aurez besoin.
+
+![image](https://github.com/noesya/osuny-developers/assets/7761386/33abdf14-7a59-4fbd-8aac-64422d55ece5)
 
 ## Configuration DNS
 
