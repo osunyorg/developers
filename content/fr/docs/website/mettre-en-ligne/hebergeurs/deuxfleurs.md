@@ -2,7 +2,7 @@
 title: Deuxfleurs
 ---
 
-<3
+❤️
 
 Pour publier chez Deuxfleurs, il faut utiliser une action GitHub, c’est à dire une tâche qui va s’exécuter à chaque modification du site.
 
