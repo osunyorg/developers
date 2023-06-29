@@ -2,5 +2,5 @@
 title: Hébergeurs
 weight: 1
 description: >
-  Publier le site selon l'hébergeur (Infomaniak, Netlify, OVH, Deuxfleurs)
+  Publier le site selon l'hébergeur (Deuxfleurs, Infomaniak, Netlify, OVH)
 ---
