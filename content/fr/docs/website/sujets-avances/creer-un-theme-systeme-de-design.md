@@ -9,7 +9,7 @@ description: >-
 ## Configurer son référentiel
 ### Créer un référentiel vide
 
-Dans ce tutoriel, nous utiliserons le nom montheme. Commencez par créer un référenciel vide pour votre thème puis ajoutez le à votre référentiel Osuny déjà existant avec cette commande. 
+Dans ce tutoriel, nous utiliserons le nom montheme. Il faut commencer par créer un référenciel vide pour le thème puis l'ajouter au référentiel Osuny déjà existant avec cette commande. 
 
 ```bash
 git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hugo-theme
@@ -17,7 +17,7 @@ git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hu
 
 ### Créer un fichier config
 
-Dans votre thème créez un fichier `config.yaml`. Vous pouvez déjà y mettre ces informations :
+Dansl le thème, il faut créer un fichier `config.yaml`. Les paramètres principaux :
 
 ```bash
 theme: osuny-hugo-theme-aaa
@@ -34,40 +34,38 @@ Vous pouvez aussi y ajouter tout les paramètres dont vous avez besoin pour l'en
 
 ## Créer vos dossiers
 
-Vous pouvez à présent créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui se doit directement être dans votre dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Vous pouvez ensuite créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire. 
+À présent il est possible de créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui doit directement être dans le dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Il ensuite possible de créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire. 
 
 ### Configurer les assets
 
-Dans votre dossier `sass`, vous pouvez à présent créer les fichiers dont vous avez besoin, afin de définir les typographies, les styles et les configurations dont vous avez besoin pour tout vos sites.
+Dans le dossier `sass`, il est à présent possible de créer les fichiers nécessaires, afin de définir les typographies, les styles et les configurations qui répondent aux besoins de l'entiereté des sites.
 
 `_fonts.sass`
 `_configuration.sass`
 `_style.sass`
 `theme.sass`
 
-Le dernier fichier `_theme.sass` sera celui dans lequel vous importerez vos autres fichiers, et il est nécessaire qu'il ait un autre nom que le fichier `main.sass` dans votre referentiel Osuny. 
+Le dernier fichier `_theme.sass` sera celui dans lequel les fichiers seront appelé. Il est nécessaire qu'il ait un autre nom que le fichier `main.sass` dans le referentiel Osuny. 
 
 ### Liaison des thèmes
 
-Pour faire le lien entre votre thème ainsi que le theme Osuny, dans votre fichier `theme.sass`, il faudra que vous importiez le thème Osuny, ainsi que les utils, tel que :
+Pour faire le lien entre le nouveau thème ainsi que le thème Osuny, dans le fichier `theme.sass`, il faudra que appeler le thème Osuny, ainsi que les utils, tel que :
 
 ```bash
 @import "_theme/utils"
-@import "_fonts"
-@import "_configuration"
 @import "_theme/hugo-osuny"
-@import "_style"
 ```
+Puis appeler les fichiers nécessaires.
 
 ## Dans votre referentiel Osuny
 
-Dans le dossier `config/_default` allez dans votre fichier `config.yaml` et remplacez le theme par le votre. La commande devrait se présenter ainsi :
+Dans le dossier `config/_default` il faut aller dans le fichier `config.yaml` et remplacer le thème Osuny par le nouveau. La commande devrait se présenter ainsi :
 
 ```bash
 theme: montheme-hugo-theme
 ```
 
-Ensuite, dans le dossier `/assets/sass` allez dans votre fichier `main.sass`et changez le thème par le votre en indiquant le chemin de votre dossier, d'où l'importance d'associer le dossier assets de votre theme avec un nom tel que `montheme-hugo`, ainsi que de différencier le nom de votre fichier de celui du main. La commande devrait se présenter ainsi :
+Ensuite, dans le dossier `/assets/sass` il faut aller dans le fichier `main.sass` et changer le thème Osuny par le nouveau en indiquant le chemin de votre dossier, d'où l'importance d'associer le dossier assets de votre theme avec un nom tel que `montheme-hugo`, ainsi que de différencier le nom de votre fichier de celui du main. La commande devrait se présenter ainsi :
 
 ```bash
 @import "montheme-hugo/theme"
@@ -75,4 +73,4 @@ Ensuite, dans le dossier `/assets/sass` allez dans votre fichier `main.sass`et c
 
 ## Vos logos et typos
 
-Vous pouvez maintenant créer un dossier `static/assets` dans lequel vous aurez les dossiers `fonts` et `images`. Vous pourrez y mettre vos fichiers fonts ainsi que vos images et logos dont vous aurez besoin pour tout vos sites.
+Pour stocker vos fichiers typographiques, vos logos ainsi que vos images, il faut créer un dossier `static/assets` dans lequel il y aura les dossiers `fonts` et `images`. 
