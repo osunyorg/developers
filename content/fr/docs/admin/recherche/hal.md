@@ -49,7 +49,7 @@ education_schools_research_publications
 
 ### Le problème des chercheuses ou chercheurs en doublon
 
-Si une personne existe dans 2 universités différentes, avec le même identifiant HAL, cela va créer des jointures avec 2 personnes qui sont en fait la même. Une solution pourrait être d'unifier les personnes, mais cela interdit d'avoir des contenus différents (textes, images, blocs) en fonction des contextes, ce n'est donc pas pertinent. Une autre solution consiste à dédoublonner à l'affichage, c'est à dire à ne pas mentionner les auteurs dans d'autres universités, s'ils sont déjà listés dans l'actuelle. 
+Si une personne existe dans 2 universités différentes, avec le même identifiant HAL, cela va créer des jointures avec 2 personnes qui sont en fait la même. Une solution pourrait être d'unifier les personnes, mais cela interdit d'avoir des contenus différents (textes, images, blocs) en fonction des contextes, ce n'est donc pas pertinent. Une autre solution consiste à dédoublonner à l'affichage, c'est à dire à ne pas mentionner les auteurs dans d'autres universités, s'ils sont déjà listés dans l'actuelle.
 
 *Ex: Une publication est écrite par Stéphanie, qui existe à l'Université Bordeaux Montaigne et à l'Université Clermont-Auvergne. Dans le back-office de Bordeaux Montaigne, il faut ignorer le profil de Stéphanie à Clermont, et inversement.*
 
@@ -73,6 +73,74 @@ L'idée est de charger uniquement la version dans la tâche quotidienne, de faç
 Processus :
 - dans la tâche, récupération des versions et marquage des mises à jour nécessaires
 - après l'ensemble des récupérations, chargement des infos marquées pour la mise à jour
+
+## Citations
+
+Pour générer des citations correctement, on part du format BibTeX qui est utilisable par la librairie Citeproc.
+
+En analysant le BibTeX fourni par HAL sur plusieurs publications, on peut en déduire des champs.
+
+Exemple de BibTeX ([source](https://hal.science/hal-03655311v1/bibtex)) :
+
+```
+@inproceedings{dulaurans:hal-03655311,
+  TITLE = {{Cyberharc{\`e}lement et communaut{\'e}s en ligne : les r{\'e}siliences organisationnelles en jeu !}},
+  AUTHOR = {Dulaurans, Marl{\`e}ne and Fedherbe, Jean Christophe},
+  URL = {https://hal.science/hal-03655311},
+  BOOKTITLE = {{Un monde de crises au prisme des communications organisationnelles}},
+  ADDRESS = {Mons, Belgium},
+  ORGANIZATION = {{Universit{\'e} Catholique de Louvain = Catholic University of Louvain [UCL]}},
+  YEAR = {2022},
+  MONTH = May,
+  KEYWORDS = {cyberharc{\`e}lement ; recherche action ; flaming ; communaut{\'e}},
+  PDF = {https://hal.science/hal-03655311/file/404615.pdf},
+  HAL_ID = {hal-03655311},
+  HAL_VERSION = {v1},
+}
+```
+
+Liste des champs
+- TITLE : Titre de la publication
+  - actuellement `Research::Hal::Publication#title`
+- AUTHOR : Auteurs de la publication, au format `NOM1, PRENOM1 and NOM2, PRENOM2`
+  - à implémenter à partir de `HalOpenscience::Document#authLastName_s` et `HalOpenscience::Document#authFirstName_s`
+- URL : URL HAL de la publication
+  - actuellement `Research::Hal::Publication#hal_url`
+- BOOKTITLE : Nom de la conférence ou de la revue
+  - actuellement `HalOpenscience::Document#bookTitle_s` ou `HalOpenscience::Document#conferenceTitle_s`
+- ADDRESS : Lieu de la conférence ou de la revue, au format `VILLE, PAYS`
+  - actuellement `HalOpenscience::Document#city_s` et `HalOpenscience::Document#country_s` à convertir du format ISO au nom du pays
+- ORGANIZATION : Organisateur de la conférence
+  - actuellement `HalOpenscience::Document#conferenceOrganizer_s`
+- YEAR : Année de la publication
+  - actuellement `Research::Hal::Publication#publication_date.year`
+- MONTH : Mois de la publication
+  - actuellement `Research::Hal::Publication#publication_date.month.strftime('%b')`
+- KEYWORDS : Mots-clés de la publication, séparés de `;`
+  - actuellement `HalOpenscience::Document#keyword_s.join(' ; ')`
+- PDF : PDF de la publication
+  - actuellement `Research::Hal::Publication#file`
+- NOTE : Commentaire de la publication
+  - actuellement `HalOpenscience::Document#comment_s` ou `{Poster}` quand le document est un poster
+- PUBLISHER : Editeur de la revue
+  - actuellement `HalOpenscience::Document#publisher_s` ou `HalOpenscience::Document#journalPublisher_s`
+- PAGES : Pages de la publication
+  - actuellement `HalOpenscience::Document#page_s`
+- JOURNAL : Journal de la publication
+  - actuellement `HalOpenscience::Document#journalTitle_s`
+- HOWPUBLISHED : Contexte d'un poster
+  - actuellement `HalOpenscience::Document#conferenceTitle_s`
+- NUMBER : Numéro de la revue
+  - actuellement : `HalOpenscience::Document#issue_s`
+- EDITOR : Éditeur scientifique
+  - actuellement : `HalOpenscience::Document#scientificEditor_s`
+
+D'autres sources de BibTeX :
+- https://hal.science/hal-03881942v1/bibtex
+- https://hal.science/hal-02796816v1/bibtex
+- https://shs.hal.science/hal-02148990v1/bibtex
+- https://shs.hal.science/hal-03537615v1/bibtex
+- https://shs.hal.science/hal-03044620v1/bibtex
 
 ## API
 
@@ -531,4 +599,4 @@ https://api.archives-ouvertes.fr/search/?q=authIdHal_s:arnaudlevy
     ]
   }
 }
-``` 
+```
