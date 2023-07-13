@@ -10,3 +10,7 @@ Depuis l'ajout des publications HAL, la durée des synchronisations est anormale
 Actuellement on fait le rendu du statique à chaque fois pour en obtenir un SHA à comparer avec celui du référentiel Git pour définir si oui ou non, la mise à jour est nécessaire.
 
 Il faudrait pouvoir définir, en fonction de la modification d'un objet ou de ses dépendances, qu'un GitFile est invalidé et qu'il aura besoin d'être regénéré à la prochaine synchronisation.
+
+## Problème d'empilement des tâches identiques
+
+Actuellement, on ne vérifie pas qu'un objet est déjà en cours de synchronisation avant de le mettre dans la pile. Pour éviter de se retrouver avec 20 tâches pour le même objet, on peut vérifier la présence d'une tâche en cours en amont.
