@@ -24,6 +24,11 @@ Une conférence peut parler de "Dispositifs médiatiques" ou de "Culture(s), cr�
 
 Un lieu, physique ou virtuel, par exemple l'IUT Bordeaux Montaigne, une chaîne Twitch ou une url de webinaire. Le lieu peuvent avoir des enfants, par exemple des salles à l'IUT, qui sont au sein d'un bâtiment. Un événement peut être connecté à plusieurs lieux, comme c'est le cas pour les événements hybrides. 
 
+## Exemples
+
+- https://www.college-de-france.fr/fr/agenda
+- https://www.college-de-france.fr/fr/agenda/colloque/origines-des-planetes-la-vie
+- https://www.college-de-france.fr/fr/agenda/colloque/origines-des-planetes-la-vie/interventions-institutionnelles-mesr-cnrs
 
 ## Modèles
 
