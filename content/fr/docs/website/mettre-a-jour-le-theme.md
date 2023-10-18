@@ -16,7 +16,7 @@ Votre site en production fonctionnera toujours, mais les mises à jour de conten
 ## Comment mettre à jour le thème ?
 Pour récupérer la dernière version du thème :
 ```bash
-yarn update-theme
+yarn osuny update-theme
 ```
 
 Lancer ensuite le site en local, pour vérifier que tout se passe bien.

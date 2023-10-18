@@ -82,13 +82,7 @@ yarn install
 Pour lancer le serveur, on utilise la commande :
 
 ```bash
-hugo server
-```
-
-On peut aussi utiliser la commande :
-
-```bash
-yarn dev
+yarn osuny dev
 ```
 
 ## Utiliser des données d'exemple
@@ -98,14 +92,16 @@ Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas poss
 Pour installer le contenu d'exemple, on utilise la commande :
 
 ```bash
-yarn setup-example
+yarn osuny setup-example
 ```
 
 Pour travailler sur le site avec le contenu d'exemple, on utilise la commande :
 
 ```bash
-yarn server-example
+yarn osuny server-example
 ```
+
+WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la réparer.
 
 ## Et maintenant ?
 
