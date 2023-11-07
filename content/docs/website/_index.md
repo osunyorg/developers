@@ -108,28 +108,33 @@ WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la répar
 
 L'idée générale pour développer votre site sur la base d'Osuny est de procéder en suivant les étapes suivantes.
 
-### 1. config.yaml
+
+{{% steps %}}
+
+### config.yaml
 
 Configurer tout ce qui peut l'être dans le fichier `/config/_default/config.yaml`.
 Cela permet par exemple de définir la position du fil d'ariane, du résumé, la longueur des troncatures ou le choix d'une mise en page en liste ou en grille des actualités.
 Quand quelque chose n'est pas personnalisable dans le fichier config.yaml, on passe à l'étape 2.
 
-### 2. configuration.sass
+### configuration.sass
 
 Le fichier `/assets/sass/_configuration.sass` est destiné à recevoir des définitions de variables qui vont être utilisées par le thème.
 Les variables disponibles sont disponibles ici :
 https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
 
-### 3. style.sass
+### style.sass
 
 Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`. 
 Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller regarder dans les fichiers du thème.
 Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
 Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
 
-### 4. layouts
+### layouts
 
 Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`. 
 Attention, cela doit être fait en dernier recours, parce qu'en faisant cela vous ne bénéficiez plus des mises à jour du thème.
 Lorsque le thème évoluera, il faut mettre à jour vos propres fichiers HTML pour rester compatibles.
 Évidemment, vos modifications HTML doivent prendre en compte les problématiques d'accessibilité et de sobriété de la même manière que le thème.
+
+{{% /steps %}}
