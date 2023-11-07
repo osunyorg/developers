@@ -1,8 +1,8 @@
 ---
-title: Démarrage rapide
-weight: 1
+title: "Contribuer à l'admin"
+weight: 5
 description: >
-  Travailler en local sur le projet Ruby on Rails
+  Améliorer le cœur d'Osuny, le CMS Ruby on Rails
 ---
 
 ## Prérequis

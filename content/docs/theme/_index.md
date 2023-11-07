@@ -1,8 +1,8 @@
 ---
-title: Démarrage rapide
+title: "Contribuer au thème"
+weight: 4
 description: >
-  Travailler rapidement sur le Thème Osuny Hugo AAA
-weight: 1
+  Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté
 ---
 
 La méthode de travail pour intervenir sur le thème en dehors de l'équipe noesya n'est pas encore bien calée et documentée. 

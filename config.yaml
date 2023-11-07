@@ -1,0 +1,46 @@
+theme: hextra
+baseURL: /
+title: Osuny
+
+defaultContentLanguage: fr
+enableInlineShortcodes: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+menu:
+  main:
+    - name: Documentation
+      pageRef: /docs
+      weight: 1
+    - name: Rechercher
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/noesya/osuny"
+      params:
+        icon: github
+  
+params:
+  navbar:
+    displayTitle: false
+    displayLogo: true
+    logo:
+      path: images/osuny-black.svg
+      dark: images/osuny-white.svg
+      link: /
+      width: 100
+      height: 20
+  editURL:
+    enable: true
+    base: "https://github.com/noesya/osuny-developers/edit/main/content"
+
+deployment:
+  targets:
+    - URL: "s3://0aee1314c8e7a8e8afb407a7d7a4a33e2e45593c94b98d8b229a3fc8abb582f8?endpoint=garage.deuxfleurs.fr&s3ForcePathStyle=true&region=garage"
