@@ -1,9 +1,11 @@
 ---
 title: "Contribuer à l'admin"
 weight: 5
-description: >
-  Améliorer le cœur d'Osuny, le CMS Ruby on Rails
 ---
+
+*Améliorer l'accessibilité, la sécurité ou développez de nouvelles fonctionnalités dans le système de gestion du contenu (CMS)*
+
+![](/images/home/admin.jpg)
 
 ## Prérequis
 

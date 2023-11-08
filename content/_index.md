@@ -11,14 +11,15 @@ layout: hextra-home
 
 <div class="mt-6 mb-6">
 {{< hextra/hero-headline >}}
-  Osuny
+  Espace développement
 {{< /hextra/hero-headline >}}
 </div>
 
 <div class="mb-12">
 {{< hextra/hero-subtitle >}}
-  Un commun numérique libre, sobre et accessible<br class="sm:block hidden" />
-  pour l'Enseignement Supérieur et la Recherche
+  Toutes les ressources pour permettre <br class="sm:block hidden" />
+  aux développeuses et développeurs<br class="sm:block hidden" />
+  de coder sereinement avec Osuny
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -28,15 +29,15 @@ layout: hextra-home
 
 {{< cards >}}
   {{< card  link="/docs/website/" 
-            image="/images/home/daria-nepriakhina-LsgZo1sUPKc-unsplash.jpg"
+            image="/images/home/website.jpg"
             title="Développer un site" 
-            subtitle="Utilisez le thème Osuny pour produire votre propre site pour une école, une université, une formation, un laboratoire ou un projet pédagogique." >}}
+            subtitle="Intégrer un site Web accessible et sobre avec Osuny, pour produire votre propre site Web" >}}
   {{< card  link="/docs/theme/" 
-            image="/images/home/keith-hardy-PP8Escz15d8-unsplash.jpg"
+            image="/images/home/theme.jpg"
             title="Contribuer au thème Osuny" 
-            subtitle="Améliorez l'accessibilité, la performance écologique ou les fonctionnalités du thème Osuny, développé avec Hugo, et faites profiter toute la communauté de ces améliorations." >}}
+            subtitle="Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté" >}}
   {{< card  link="/docs/admin/" 
-            image="/images/home/pawel-czerwinski-LDi9F6oGojQ-unsplash.jpg"
+            image="/images/home/admin.jpg"
             title="Contribuer au CMS Osuny" 
-            subtitle="Améliorez l'accessibilité, la sécurité ou développez de nouvelles fonctionnalités dans le système de gestion du contenu (Content Management System, CMS) développé avec Ruby on Rails." >}}
+            subtitle="Améliorer l'accessibilité, la sécurité ou développez de nouvelles fonctionnalités dans le système de gestion du contenu (CMS)" >}}
 {{< /cards >}}

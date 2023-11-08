@@ -14,9 +14,15 @@ markup:
 
 menu:
   main:
-    - name: Documentation
-      pageRef: /docs
-      weight: 1
+    - name: Développer un site
+      pageRef: /docs/website
+      weight: 2
+    - name: Contribuer au thème
+      pageRef: /docs/theme
+      weight: 3
+    - name: Contribuer à l'admin
+      pageRef: /docs/admin
+      weight: 4
     - name: Rechercher
       weight: 4
       params:

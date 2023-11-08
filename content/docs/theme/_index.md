@@ -1,9 +1,11 @@
 ---
 title: "Contribuer au thème"
 weight: 4
-description: >
-  Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté
 ---
+
+*Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté*
+
+![](/images/home/theme.jpg)
 
 La méthode de travail pour intervenir sur le thème en dehors de l'équipe noesya n'est pas encore bien calée et documentée. 
 Contributions bienvenues !

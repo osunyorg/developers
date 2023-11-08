@@ -1,10 +1,11 @@
 ---
 title: "Développer un site"
 weight: 3
-description: >
-  Intégrer un site Web accessible et sobre avec Osuny
 ---
 
+*Intégrer un site Web accessible et sobre avec Osuny, pour produire votre propre site Web*
+
+![](/images/home/website.jpg)
 
 Pour faire un site avec Osuny, la solution la plus simple est de partir du template Github [osuny-hugo-template-AAA](https://github.com/noesya/osuny-hugo-template-AAA).
 Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/noesya/osuny-hugo-theme-AAA).
