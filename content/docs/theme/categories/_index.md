@@ -150,6 +150,13 @@ url: /fr/actualites/categories
 ---
 ```
 
+{{< callout type="warning" >}}
+  Les index de catégories `/fr/actualites/categories` et `/fr/agenda/categories` ne sont pas développés (8 décembre 2023), parce que personne ne semble en avoir besoin. 
+  Les pages sont disponibles aux URLs par défaut de Hugo, `/fr/posts_categories` et `/fr/events_categories`.
+{{< /callout >}}
+
+
+
 On obtient les urls `/actualites/jazz` et `/agenda/jazz`.
 
 ### Dans le thème
