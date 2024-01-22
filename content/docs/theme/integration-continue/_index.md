@@ -35,3 +35,7 @@ Côté Netlify, on peut paramétrer une alerte mail lorsqu'un déploiement (comp
 TODO : à tester lorsqu'un déploiement est annulé.
 
 Côté GitHub Action, on peut ajoute une étape au workflow, qui se déclenche à la complétion d'un job (quel que soit le statut). On filtre sur le résultat, et s'il s'agit d'un échec ("failure") on notifie une URL de webhook. En l'occurence, on a préparé dans Slack une application qui s'appelle par webhook, branché au canal dans lequel on souhaite faire le reporting. Du coup en cas d'échec, on est bien notifiés dans le canal Slack.
+
+## Surveillance des sites webs avec des thèmes changés en profondeur.
+Il faudrait que dans le workflow de mise à jour du site Percy permette de détecter des changements avant / après.  
+On a besoin d'un jeu de données de test, et que sur ces données on puisse déterminer qu'un site n'a pas "sauté" avec la mise à jour du thème.
