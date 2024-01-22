@@ -26,9 +26,9 @@ Dans l'admin d'Osuny il y a deux grands types d'objets :
 Actuellement une université hérite de la totalité des langues disponibles sur Osuny (mdeol `Language`). En réalité il faudrait permettre de choisir les langues disponibles pour une université, au niveau du setup des university, dans la partie `Server`.  
 Par la suite tous les objets indirects pourront être traduits dans toutes les langues disponibles pour l'université (donc actuellement toutes les langues disponibles pour Osuny globalement). Tous les objects indirects créés utilisent la langue par défaut de l'université comme langue "master".
 
-### Choix des langues disponibles pour une université
+### Choix des langues disponibles pour un site Web
 
-A la création d'un site web on choisit une liste de langues disponibles pour le website en fonction des langues disponibles pour l'université (donc actuellement toutes les langues disponibles pour Osuny globalement). Et on choisit la langue par défaut du site parmi les langues sélectionnées (on force le choix d'au moins une langue pour pouvoir avoir cette langue par défaut). Tous les objets directs créés utilisent la langue par défaut du site web comme langue "master".
+A la création d'un site web on choisit une liste de langues disponibles pour le site Web en fonction des langues disponibles pour l'université (donc actuellement toutes les langues disponibles pour Osuny globalement). Et on choisit la langue par défaut du site parmi les langues sélectionnées (on force le choix d'au moins une langue pour pouvoir avoir cette langue par défaut). Tous les objets directs créés utilisent la langue par défaut du site web comme langue "master".
 
 ## Rendre un objet direct traduisible
 
