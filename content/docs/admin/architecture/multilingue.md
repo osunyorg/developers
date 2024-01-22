@@ -1,9 +1,11 @@
 ---
-title: Multilingue
+title: Le multilingue
 weight: 3
 description: >
   Parti-pris sur la gestion des langues
 ---
+
+## Principes 
 
 D'une façon générale, les langues se gèrent en 2 phases :
 - l'internationalisation (i18n) qui vise à rendre possible les langues multiples
@@ -19,23 +21,38 @@ Dans l'admin d'Osuny il y a deux grands types d'objets :
 - les objets directs (qui ont une dépendance directe à un site web), comme les pages, les actualités...
 - les objets indirects (ceux qui sont "neutres", non connectés à un site), comme une personne, une organisation...
 
-## Cas des objets indirects
+### Objets indirects
 
-### Setup des langues disponibles globalement
+#### Setup des langues disponibles globalement
 Osuny dispose d'un certain nombre de langues inclues (modèle `Language`). Le choix et l'ajout de langues se fait dans la partie `Server` d'Osuny. Il sera par la suite possible de traduire tous les objets indirects dans ces différentes langues. A la création d'un site web on pourra également choisir d'activer une ou plusieurs de ces langues.  
 Lorsqu'on crée une université depuis la partie Server on doit choisir laquelle (parmi ces langues) doit être la langue par défaut de l'université. Chaque nouvel objet indirect créé par la suite sera considéré comme créé dans cette langue. Par exemple si on choisit le français comme langue par défaut de l'université X, toutes les fiches d'organisations créées seront par défaut en français.
 
-### Création / traduction d'un nouvel objet
-Les objects indirects peuvent (toujours) être traduits dans toutes les langues disponibles sur la plateforme Osuny.  
-Quand un objet indirect est créé il prend comme langue la langue par défaut de l'université, et on peut ensuite le traduire dans toutes les autres langues disponibles globalement dans Osuny.
+#### Création / traduction d'un nouvel objet
+Les objects indirects peuvent (toujours) être traduits dans toutes les langues disponibles sur la plateforme Osuny. Quand un objet indirect est créé il prend comme langue la langue par défaut de l'université, et on peut ensuite le traduire dans toutes les autres langues disponibles globalement dans Osuny.
 
-## Cas des objets directs
+### Objets directs
 
-### Setup des langues disponibles pour un site web
+#### Setup des langues disponibles pour un site web
 À la création d'un site web on force le choix d'au moins une langue. On peut en activer plus d'une, parmi les différentes langues disponibles. Si on en active plusieurs les contenus vont alors devenir traduisibles. On doit également choisir la langue par défaut su site web.
 
-### Création / traduction d'un nouvel objet
+#### Création / traduction d'un nouvel objet
 Si un site web dispose de plusieurs langues actives alors chaque nouvel object créé sera créé dans la langue par défaut du site web, et ensuite on pourra le traduire dans les autres langues disponibles pour le site web.
+
+## Rendre un objet direct traduisible
+
+{{% steps %}}
+
+### Ajouter les propriétés au modèle
+
+Pour qu'un objet devienne traduisible il faut lui rajouter plusieurs propriétés :
+- language_id (référence vers sa langue)
+- original_id (référence vers son "master", l'objet lié créé dans la langue par défaut)
+
+### Ajouter les méthodes nécessaires au modèle
+
+Ensuite il faut lui inclure le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
+
+{{% /steps %}}
 
 ## Rendre un objet traduisible
 1. Ajouter les propriétés au modèle  
