@@ -38,29 +38,29 @@ Quand un objet indirect est créé il prend comme langue la langue par défaut d
 Si un site web dispose de plusieurs langues actives alors chaque nouvel object créé sera créé dans la langue par défaut du site web, et ensuite on pourra le traduire dans les autres langues disponibles pour le site web.
 
 ## Rendre un objet traduisible
-1. Ajouter les propriétés au modèle
+1. Ajouter les propriétés au modèle  
 Pour qu'un objet devienne traduisible il faut lui rajouter plusieurs propriétés :
 - language_id (référence vers sa langue)
 - original_id (référence vers son "master", l'objet lié créé dans la langue par défaut)
 
-2. Ajouter les méthodes nécessaires au modèle
+2. Ajouter les méthodes nécessaires au modèle  
 Ensuite il faut lui inclure le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
 
 La suite dépend du type d'objet.
 
 ### Object directs
 
-3. Ajouter un swith de langue dans la vue de l'objet
+3. Ajouter un swith de langue dans la vue de l'objet  
 On est au niveau d'un objet direct, et donc scopé dans un website. On bénéficie du menu global du site web à gauche, qui inclut un switch de langue. En gros ce switch de langue affiche toutes les langues disponibles pour le site web et créé des liens vers l'url courantes en injectant un paramètre lang=iso_code. 
 La langue en cours est déterminée grâce au helper `current_website_language`.
 
-4. Ajouter le concern au niveau du controller
+4. Ajouter le concern au niveau du controller  
 Il faut inclure le concern `include Admin::Translatable` au niveau du controller de l'objet visé. A chaque fois qu'on a besoin de charger un objet (show, edit, update, destroy), ce concern va automatiquement vérifier si on est bien sur la bonne traduction de l'objet, ou la créé à la volée si elle n'existe pas encore.  
 Il ne faut pas oublier, lorsqu'on charge une liste d'objets ou un objet, de scoper à la langue en cours (`Page.for_language(current_website_language)`).
 
 ### Objects indirects
 
-3. Ajouter la route
+3. Ajouter la route  
 Il faut ajouter une route à l'objet :
 
 ```
@@ -72,7 +72,7 @@ resources **object** do
 ```
 (le nommage de la route en `show_in_language` est important).
 
-4. Ajouter un switch de langue dans la vue de l'objet
+4. Ajouter un switch de langue dans la vue de l'objet  
 Dans chaque vue (a priori dans le show) d'objet multilingue on a besoin d'avoir un switch de langue. On va donc forcer le render d'un partial commun :
 ```
 render 'admin/application/i18n/widget', about: **object**
@@ -80,8 +80,7 @@ render 'admin/application/i18n/widget', about: **object**
 Ca va ajouter un choix de langue qui renvoie sur la route `show_in_language` de l'objet.  
 La langue en cours est déterminée en comparant avec la langue de l'objet affichée.
 
-5. Gestion du controller
-
+5. Gestion du controller  
 Il faut créer dans le controller une méthode correspondant à la route créée en step 3.
 
 ```
