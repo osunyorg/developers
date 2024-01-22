@@ -21,22 +21,14 @@ Dans l'admin d'Osuny il y a deux grands types d'objets :
 - les objets directs (qui ont une dépendance directe à un site web), comme les pages, les actualités...
 - les objets indirects (ceux qui sont "neutres", non connectés à un site), comme une personne, une organisation...
 
-### Objets indirects
+### Choix des langues disponibles pour une université
 
-#### Setup des langues disponibles globalement
-Osuny dispose d'un certain nombre de langues inclues (modèle `Language`). Le choix et l'ajout de langues se fait dans la partie `Server` d'Osuny. Il sera par la suite possible de traduire tous les objets indirects dans ces différentes langues. A la création d'un site web on pourra également choisir d'activer une ou plusieurs de ces langues.  
-Lorsqu'on crée une université depuis la partie Server on doit choisir laquelle (parmi ces langues) doit être la langue par défaut de l'université. Chaque nouvel objet indirect créé par la suite sera considéré comme créé dans cette langue. Par exemple si on choisit le français comme langue par défaut de l'université X, toutes les fiches d'organisations créées seront par défaut en français.
+Actuellement une université hérite de la totalité des langues disponibles sur Osuny (mdeol `Language`). En réalité il faudrait permettre de choisir les langues disponibles pour une université, au niveau du setup des university, dans la partie `Server`.  
+Par la suite tous les objets indirects pourront être traduits dans toutes les langues disponibles pour l'université (donc actuellement toutes les langues disponibles pour Osuny globalement). Tous les objects indirects créés utilisent la langue par défaut de l'université comme langue "master".
 
-#### Création / traduction d'un nouvel objet
-Les objects indirects peuvent (toujours) être traduits dans toutes les langues disponibles sur la plateforme Osuny. Quand un objet indirect est créé il prend comme langue la langue par défaut de l'université, et on peut ensuite le traduire dans toutes les autres langues disponibles globalement dans Osuny.
+### Choix des langues disponibles pour une université
 
-### Objets directs
-
-#### Setup des langues disponibles pour un site web
-À la création d'un site web on force le choix d'au moins une langue. On peut en activer plus d'une, parmi les différentes langues disponibles. Si on en active plusieurs les contenus vont alors devenir traduisibles. On doit également choisir la langue par défaut su site web.
-
-#### Création / traduction d'un nouvel objet
-Si un site web dispose de plusieurs langues actives alors chaque nouvel object créé sera créé dans la langue par défaut du site web, et ensuite on pourra le traduire dans les autres langues disponibles pour le site web.
+A la création d'un site web on choisit une liste de langues disponibles pour le website en fonction des langues disponibles pour l'université (donc actuellement toutes les langues disponibles pour Osuny globalement). Et on choisit la langue par défaut du site parmi les langues sélectionnées (on force le choix d'au moins une langue pour pouvoir avoir cette langue par défaut). Tous les objets directs créés utilisent la langue par défaut du site web comme langue "master".
 
 ## Rendre un objet direct traduisible
 
@@ -44,40 +36,53 @@ Si un site web dispose de plusieurs langues actives alors chaque nouvel object c
 
 ### Ajouter les propriétés au modèle
 
-Pour qu'un objet devienne traduisible il faut lui rajouter plusieurs propriétés :
+Créer une migration pour ajouter ces propriétés à un objet :
 - language_id (référence vers sa langue)
 - original_id (référence vers son "master", l'objet lié créé dans la langue par défaut)
+```
+def change
+  add_reference :**object**, :language, foreign_key: true, type: :uuid
+  add_reference :**object**, :original, foreign_key: {to_table: :**object**}, type: :uuid
+end
+```
 
 ### Ajouter les méthodes nécessaires au modèle
 
-Ensuite il faut lui inclure le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
+Inclure dans le modèle le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
 
-{{% /steps %}}
+### Ajouter un swith de langue dans la vue de l'objet  
 
-## Rendre un objet traduisible
-1. Ajouter les propriétés au modèle  
-Pour qu'un objet devienne traduisible il faut lui rajouter plusieurs propriétés :
-- language_id (référence vers sa langue)
-- original_id (référence vers son "master", l'objet lié créé dans la langue par défaut)
-
-2. Ajouter les méthodes nécessaires au modèle  
-Ensuite il faut lui inclure le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
-
-La suite dépend du type d'objet.
-
-### Object directs
-
-3. Ajouter un swith de langue dans la vue de l'objet  
 On est au niveau d'un objet direct, et donc scopé dans un website. On bénéficie du menu global du site web à gauche, qui inclut un switch de langue. En gros ce switch de langue affiche toutes les langues disponibles pour le site web et créé des liens vers l'url courantes en injectant un paramètre lang=iso_code. 
 La langue en cours est déterminée grâce au helper `current_website_language`.
 
-4. Ajouter le concern au niveau du controller  
+### Ajouter le concern au niveau du controller  
+
 Il faut inclure le concern `include Admin::Translatable` au niveau du controller de l'objet visé. A chaque fois qu'on a besoin de charger un objet (show, edit, update, destroy), ce concern va automatiquement vérifier si on est bien sur la bonne traduction de l'objet, ou la créé à la volée si elle n'existe pas encore.  
 Il ne faut pas oublier, lorsqu'on charge une liste d'objets ou un objet, de scoper à la langue en cours (`Page.for_language(current_website_language)`).
 
-### Objects indirects
+{{% /steps %}}
 
-3. Ajouter la route  
+## Rendre un objet indirect traduisible
+
+{{% steps %}}
+
+### Ajouter les propriétés au modèle
+
+Créer une migration pour ajouter ces propriétés à un objet :
+- language_id (référence vers sa langue)
+- original_id (référence vers son "master", l'objet lié créé dans la langue par défaut)
+```
+def change
+  add_reference :**object**, :language, foreign_key: true, type: :uuid
+  add_reference :**object**, :original, foreign_key: {to_table: :**object**}, type: :uuid
+end
+```
+
+### Ajouter les méthodes nécessaires au modèle
+
+Inclure dans le modèle le concern `WithTranslations` qui va s'occuper d'établir les relations (belongs_to :language, ...). Il ajoute également des scopes sur l'objet : `for_language` et `for_language_id`. Il y a aussi tout un tas de méthodes, notamment des fonctions pour créer les translations.
+
+### Ajouter la route  
 Il faut ajouter une route à l'objet :
 
 ```
@@ -89,7 +94,7 @@ resources **object** do
 ```
 (le nommage de la route en `show_in_language` est important).
 
-4. Ajouter un switch de langue dans la vue de l'objet  
+### Ajouter un switch de langue dans la vue de l'objet  
 Dans chaque vue (a priori dans le show) d'objet multilingue on a besoin d'avoir un switch de langue. On va donc forcer le render d'un partial commun :
 ```
 render 'admin/application/i18n/widget', about: **object**
@@ -97,7 +102,7 @@ render 'admin/application/i18n/widget', about: **object**
 Ca va ajouter un choix de langue qui renvoie sur la route `show_in_language` de l'objet.  
 La langue en cours est déterminée en comparant avec la langue de l'objet affichée.
 
-5. Gestion du controller  
+### Gestion du controller  
 Il faut créer dans le controller une méthode correspondant à la route créée en step 3.
 
 ```
