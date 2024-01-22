@@ -28,10 +28,10 @@ Situation initiale : GitHub envoie une notifiaction aussi bien lorsque le workfl
 
 On voudrait rétablir les notifications en cas d'échec du job tout en continuant à ignorer les jobs annulés.
 
-### Solution (1 ?)
+### Solution
 
 Côté Netlify, on peut paramétrer une alerte mail lorsqu'un déploiement (compilation incluse) échoue.
 
 TODO : à tester lorsqu'un déploiement est annulé.
 
-Côté GitHub Action, on peut créer un nouveau workflow qui se déclenche à la complétion d'un job de compilation/déploiement. Par la valeur de `github.event.workflow_run.conclusion`, on peut différencier un job annulé d'un job échoué, et envoyer une notification Slack lors du dernier cas.
+Côté GitHub Action, on peut ajoute une étape au workflow, qui se déclenche à la complétion d'un job (quel que soit le statut). On filtre sur le résultat, et s'il s'agit d'une "failure" on notifie une url de webhook. EN l'occurence on a préparé dans Slck une application qui s'appelle par webhook, branché au chan où on souhaite faire le reporting. Du coup en cas de failure on est bien notifié dans le chan Slack.
