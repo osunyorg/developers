@@ -119,6 +119,8 @@ def in_language
   end
 ```
 
+{{% /steps %}}
+
 ## L'export statique
 
 En cas de site monolingue les `url` des fichiers statiques ne doivent PAS être préfixées de la langue.  
