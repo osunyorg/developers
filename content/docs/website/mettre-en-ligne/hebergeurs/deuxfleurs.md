@@ -100,4 +100,14 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Notification Slack en cas d'échec
+      uses: ravsamhq/notify-slack-action@2.3.0
+      if: always()
+      with:
+        status: ${{ job.status }}
+        notify_when: "failure"
+        notification_title: ""
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```

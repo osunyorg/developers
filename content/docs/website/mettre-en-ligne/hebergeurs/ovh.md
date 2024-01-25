@@ -69,6 +69,16 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           local-dir: ${{ secrets.FTP_LOCAL_DIR }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
+
+      - name: Notification Slack en cas d'échec
+        uses: ravsamhq/notify-slack-action@2.3.0
+        if: always()
+        with:
+          status: ${{ job.status }}
+          notify_when: "failure"
+          notification_title: ""
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
 ## Méthode SSH
@@ -140,4 +150,14 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz --delete -e "ssh -p ${{ secrets.SSH_PORT }}" ./public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_WORKDIR }}/
+
+      - name: Notification Slack en cas d'échecs
+        uses: ravsamhq/notify-slack-action@2.3.0
+        if: always()
+        with:
+          status: ${{ job.status }}
+          notify_when: "failure"
+          notification_title: ""
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
