@@ -174,3 +174,103 @@ En partant d'une copie d'un autre dossier de vues.
 ```
 
 Cela permet de construire le menu et les pages d'accueil de royaumes.
+
+## Créer la page spéciale
+
+C'est la page qui va apparaître dans l'arborescence du site Web pour lister les objets.
+
+```Ruby { filename="app/models/communication/website/page/administration_location.rb" }
+class Communication::Website::Page::AdministrationLocation < Communication::Website::Page
+
+  def is_necessary_for_website?
+    website.about && website.about&.respond_to?(:administration_locations)
+  end
+
+  def editable_width?
+    false
+  end
+
+  def full_width_by_default?
+    true
+  end
+
+  def full_width
+    true
+  end
+
+  def dependencies
+    super +
+    [website.config_default_languages] +
+    website.administration_locations
+  end
+
+  protected
+
+  def current_git_path
+    @current_git_path ||= "#{git_path_prefix}locations/_index.html"
+  end
+
+end
+```
+
+Il faut aussi la déclarer dans le fichier qui les liste (le fichier est écourté pour la lisibilité).
+
+```Ruby { filename="app/models/communication/website/page/with_type.rb" }
+module Communication::Website::Page::WithType
+  extend ActiveSupport::Concern
+  included do
+    TYPES = [
+      ...
+      # Administration
+      Communication::Website::Page::AdministrationLocation,
+      ...
+    ]
+  end
+end
+```
+
+## Définir la structure des permaliens
+
+```Ruby { filename="app/models/communication/website/permalink/location.rb" }
+class Communication::Website::Permalink::Location < Communication::Website::Permalink
+  def self.required_in_config?(website)
+    website.has_administration_locations?
+  end
+
+  def self.static_config_key
+    :locations
+  end
+
+  # /campus/:slug/
+  def self.pattern_in_website(website, language)
+    "/#{website.special_page(Communication::Website::Page::AdministrationLocation, language: language).slug_with_ancestors}/:slug/"
+  end
+end
+```
+
+## Associer l'objet au site Web
+
+```Ruby { filename="app/models/communication/website/with_associated_objects.rb" }
+  ...
+  def administration_locations
+    has_administration_locations? ? about.administration_locations : Administration::Location.none
+  end
+  ...
+  def has_administration_locations?
+    about && about.has_administration_locations?
+  end
+  ...
+```
+
+Il faut aussi le déclarer dans les méthodes à implémenter pours les objets qui peuvent être liés à un site Web.
+
+```Ruby { filename="app/models/concerns/websites_linkable.rb" }
+  ...
+  def has_administration_locations?
+    raise NotImplementedError
+  end
+  ...
+```
+
+Tous les objets qui intègrent le concern `WebsitesLinkable` doivent intégrer la méthode, même si c'est pour renvoyer false.
+
