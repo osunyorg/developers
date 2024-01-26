@@ -161,6 +161,142 @@ end
 
 En partant d'une copie d'un autre dossier de vues.
 
+```Ruby { filename="app/views/admin/administration/locations/_form.html.erb" }
+<%= simple_form_for [:admin, location] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="row mb-5">
+    <div class="col-lg-4">
+      <%= f.input :name %>
+      <%= render 'admin/application/summary/form', f: f, about: location %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :address %>
+      <div class="row pure__row--small">
+        <div class="col-md-4">
+          <%= f.input :zipcode %>
+        </div>
+        <div class="col-md-8">
+          <%= f.input :city %>
+        </div>
+      </div>
+      <%= f.input :country, input_html: { class: 'form-select' } %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.input :phone %>
+      <%= f.input :url %>
+    </div>
+  </div>
+  <% content_for :action_bar_right do %>
+    <%= submit f %>
+  <% end %>
+<% end %>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/_list.html.erb" }
+<div class="table-responsive">
+  <table class="<%= table_classes %>">
+    <thead>
+      <tr>
+        <th><%= Administration::Location.human_attribute_name('name') %></th>
+        <th><%= Administration::Location.human_attribute_name('address') %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% locations.ordered.each do |location| %>
+        <tr>
+          <td><%= link_to location, [:admin, location] %></td>
+          <td><%= location.full_street_address %></td>
+          <td class="text-end">
+            <div class="btn-group" role="group">
+              <%= edit_link location %>
+              <%= destroy_link location %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/edit.html.erb" }
+<% content_for :title, @location %>
+<%= render 'form', location: @location %>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/index.html.erb" }
+<% content_for :title, Administration::Location.model_name.human(count: 2) %>
+<%= render 'admin/administration/locations/list', locations: @locations %>
+<% content_for :action_bar_right do %>
+  <%= create_link Administration::Location %>
+<% end %>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/new.html.erb" }
+<% content_for :title, Administration::Location.model_name.human %>
+<%= render 'form', location: @location %>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/show.html.erb" }
+<% content_for :title, @location %>
+<div class="row">
+  <div class="col-lg-4">
+    <%= osuny_panel t('metadata') do %>
+      <%= osuny_label Education::School.human_attribute_name('address') %>
+      <p>
+        <%= @location.address %><br>
+        <%= @location.zipcode %> <%= @location.city %><br>
+        <%= @location.country %>
+      </p>
+      <% if @location.phone.present? %>
+        <%= osuny_label Education::School.human_attribute_name('phone') %>
+        <p><%= @location.phone %></p>
+      <% end %>
+      <% if @location.url.present? %>
+        <%= osuny_label Administration::Location.human_attribute_name('url') %>
+        <p><%= link_to @location.url, @location.url, target: :_blank %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @location.websites.any? %>
+    <div class="col-lg-4">
+      <%= osuny_panel Administration::Location.human_attribute_name('websites') do %>
+        <ul class="list-unstyled">
+          <% @location.websites.each do |website| %>
+            <li><%= link_to website, [:admin, website] %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= render 'admin/communication/blocks/content/editor', about: @location %>
+<%= render 'admin/application/connections/list', about: @location %>
+<% content_for :action_bar_left do %>
+  <%= destroy_link @location %>
+  <%= static_link static_admin_administration_location_path(@location) %>
+<% end %>
+<% content_for :action_bar_right do %>
+  <%= edit_link @location %>
+<% end %>
+```
+
+```Ruby { filename="app/views/admin/administration/locations/show.html.erb" }
+---
+title: >
+  <%= prepare_text_for_static @about.name %>
+<%= render 'admin/application/static/permalink' if @website %>
+<%= render 'admin/application/static/design', full_width: true, toc_offcanvas: true %>
+<% if @website %>
+<%= render 'admin/application/static/breadcrumbs', 
+            pages: @website.special_page(Communication::Website::Page::AdministrationLocation).ancestors_and_self,
+            current: @about %>
+<% end %>
+<%= render 'admin/communication/blocks/content/static', about: @about %>
+---
+```
 
 ## Déclarer la nouvelle partie
 
@@ -274,3 +410,25 @@ Il faut aussi le déclarer dans les méthodes à implémenter pours les objets q
 
 Tous les objets qui intègrent le concern `WebsitesLinkable` doivent intégrer la méthode, même si c'est pour renvoyer false.
 
+## Ajouter les locales
+
+```YAML { filename="config/locales/administration/fr.yml" }
+  activerecord:
+    models:
+      administration/location:
+        one: Site
+        other: Campus
+    ...
+    attributes:
+      administration/location:
+        address: Adresse
+        city: Ville
+        country: Pays
+        name: Nom
+        phone: Téléphone
+        programs: Formations dispensées
+        schools: Écoles
+        url: Site Web
+        websites: Sites Web associés
+        zipcode: Code postal
+```
