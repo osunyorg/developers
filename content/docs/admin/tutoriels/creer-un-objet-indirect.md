@@ -384,6 +384,16 @@ class Communication::Website::Permalink::Location < Communication::Website::Perm
 end
 ```
 
+```Ruby { filename="app/models/communication/website/permalink.rb" }
+class Communication::Website::Permalink < ApplicationRecord
+  MAPPING = {
+    ...
+    "Administration::Location" => Communication::Website::Permalink::Location,
+    ...
+  }
+end
+```
+
 ## Associer l'objet au site Web
 
 ```Ruby { filename="app/models/communication/website/with_associated_objects.rb" }
