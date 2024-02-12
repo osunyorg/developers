@@ -17,8 +17,11 @@ Quand on parle de 4 colonnes, cela peut signifier 2 choses :
 2. que l'on utilise 4 des 12 colonnes, ce qui fait 3 objets côte à côte
 
 Il faut 2 mots différents, sinon c'est très confus :
-1. une grille (`grid`) horizontale (`grid-h`) de 4, ça veut dire 4 objets
-2. 4 colonnes (`col(4)`) pour un objet, ça veut dire 3 objets
+1. une grille `grid` de 4, ça veut dire 4 objets
+2. 4 colonnes `col(4)` pour un objet, ça veut dire 3 objets
+
+
+Pour être précis, il faudrait parler d'une grille horizontale `grid-h` mais on n'utilise pas de grille verticale, donc la précision n'est pas nécessaire.
 
 ### Les grilles dans des grilles
 
