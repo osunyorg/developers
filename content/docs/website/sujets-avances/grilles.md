@@ -4,6 +4,24 @@ description: >-
   Comment créer et utiliser des grilles dans le thème
 ---
 
+## Introduction
+
+https://designlab.com/blog/grid-systems-history-ux-ui-layout
+https://www.uxpin.com/studio/blog/ui-grids-how-to-guide/
+https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/
+https://www.nngroup.com/articles/using-grids-in-interface-designs/
+https://getbootstrap.com/docs/5.3/layout/grid/
+
+Les grilles verticales sont composées de 2 entités, la colonne et la gouttière.
+Les colonnes sont les objets sur lesquels on aligne les contenus, et les gouttières sont les marges entre les colonnes.
+La grille sur laquelle nous nous appuyons est constituée de 12 colonnes, comme Bootstrap. 
+
+Quand on parle de 4 colonnes, cela peut signifier 2 choses :
+1. que l'on met 4 objets côte à côte, ce qui fait 4 colonnes
+2. que l'on utilise 4 des 12 colonnes, ce qui fait 3 objets côte à côte
+
+
+
 ## Les différents outils
 
 ### Mixin grid
