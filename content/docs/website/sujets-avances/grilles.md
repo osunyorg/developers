@@ -24,7 +24,9 @@ description: >-
         grid-gap: $grid-gutter-sm
 ```
 
-## Correctif navigateur
+## Correctifs navigateurs
+
+Certains navigateurs fonctionnent mal, et imposent des correctifs spécifiques.
 
 ### Safari : Mixin flexbox-grid
 
