@@ -1,5 +1,6 @@
 ---
 title: Utiliser les grilles
+weight: 2
 ---
 
 ## En bref
