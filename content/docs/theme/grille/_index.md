@@ -1,45 +1,6 @@
 ---
-title: Les grilles
-description: >-
-  Comment créer et utiliser des grilles dans le thème
+title: Gérer les grilles
 ---
-
-## Introduction
-
-Les grilles verticales sont composées de 2 entités, la colonne et la gouttière.
-Les colonnes sont les objets sur lesquels on aligne les contenus, et les gouttières sont les marges entre les colonnes.
-La grille sur laquelle nous nous appuyons est constituée de 12 colonnes, comme Bootstrap. 
-
-### La question sémantique
-
-Quand on parle de 4 colonnes, cela peut signifier 2 choses :
-1. que l'on met 4 objets côte à côte, ce qui fait 4 colonnes
-2. que l'on utilise 4 des 12 colonnes, ce qui fait 3 objets côte à côte
-
-Il faut 2 mots différents, sinon c'est très confus :
-1. une grille `grid` de 4, ça veut dire 4 objets
-2. 4 colonnes `col(4)` pour un objet, ça veut dire 3 objets
-
-
-Pour être précis, il faudrait parler d'une grille horizontale `grid-h` mais on n'utilise pas de grille verticale, donc la précision n'est pas nécessaire.
-
-### Les grilles dans des grilles
-
-Imaginons que l'on coupe la page en 1/3, 2/3.
-En termes Bootstrap, ça fait 4/12, 8/12.
-Imaginons que l'on veuille refaire un découpage dans la partie de droite en 8/12.
-Imaginons que l'on veuille de nouveau la couper en 2, par exemple pour afficher 2 vignettes.
-Graphiquement, on souhaite s'aligner sur les 12 colonnes, ce qui fait que chaque vignette mesure 4 colonnes de large (4+4 = 8).
-Mais du point de vue du code, aujourd'hui, il faut dire que l'on veut 6 colonnes. 
-
-### Références
-
-https://designlab.com/blog/grid-systems-history-ux-ui-layout
-https://www.uxpin.com/studio/blog/ui-grids-how-to-guide/
-https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/
-https://www.nngroup.com/articles/using-grids-in-interface-designs/
-https://getbootstrap.com/docs/5.3/layout/grid/
-
 
 ## Les différents outils
 
@@ -103,6 +64,5 @@ Les blocs galerie sur Safari en grid avec un align-items: baseline.
 <img width="939" alt="Capture d’écran 2024-02-12 à 12 10 36" src="https://github.com/noesya/osuny-developers/assets/4630530/2de1c8b2-3767-4e6c-8f06-d597fcf99db5">
 
 <img width="1440" alt="Capture d’écran 2024-02-12 à 12 10 50" src="https://github.com/noesya/osuny-developers/assets/4630530/2867a249-e730-4b64-b5d6-0d9abebc8ba2">
-
 
 
