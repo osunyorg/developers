@@ -16,53 +16,58 @@ Comme les sites sont développés avec Hugo, il faut l'installer pour coder en l
 
 ## Installer Hugo
 
-### Mac
+{{< tabs items="MAC,PC" >}}
+  {{< tab >}}
+    Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 
-Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
+    ```bash
+    brew install hugo
+    ```
 
-```bash
-brew install hugo
-```
+    C'est la méthode que nous utilisons dans l'équipe [noesya](https://www.noesya.coop).
+    Pour d'autres méthodes, la [documentation officielle d'installation](https://gohugo.io/getting-started/installing/) est disponible sur le site [gohugo.io](https://gohugo.io).
+  {{< /tab >}}
+  {{< tab >}}
+    La méthode la plus simple pour installer Hugo sur Windows est d'utiliser un package manager, comme [Scoop](https://scoop.sh) ou [Chocolatey](https://chocolatey.org).
 
-C'est la méthode que nous utilisons dans l'équipe [noesya](https://www.noesya.coop).
-Pour d'autres méthodes, la [documentation officielle d'installation](https://gohugo.io/getting-started/installing/) est disponible sur le site [gohugo.io](https://gohugo.io).
+    ```bash
+    choco install hugo-extended
+    ```
 
-### Windows
+    Voir la [documentation officielle d'installation](https://gohugo.io/installation/windows/) pour plus d'informations sur l'installation avec Windows.
+  {{< /tab >}}
+{{< /tabs >}}
 
-La méthode la plus simple pour installer Hugo sur Windows est d'utiliser un package manager, comme [Scoop](https://scoop.sh) ou [Chocolatey](https://chocolatey.org).
-
-```bash
-choco install hugo-extended
-```
-
-Voir la [documentation officielle d'installation](https://gohugo.io/installation/windows/) pour plus d'informations sur l'installation avec Windows.
 
 ## Installer Yarn
 
-### Mac
+{{< tabs items="MAC,PC" >}}
+  {{< tab >}}
+    Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 
-Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
+    ```bash
+    brew install yarn
+    ```
 
-```bash
-brew install yarn
-```
+    [Documentation officielle d'installation](https://yarnpkg.com/getting-started/install).
+  {{< /tab >}}
+  {{< tab >}}
+    Pour installer Yarn sur Windows, la méthode recommandé est d'utiliser NPM inclu avec l'installation de Node.js.
 
-[Documentation officielle d'installation](https://yarnpkg.com/getting-started/install).
+    ```bash
+    npm install --global yarn
+    ```
 
-### Windows
+    Pour plus d'informations sur l'installation de Yarn sur Windows, voir la [documentation officielle d'installation](https://classic.yarnpkg.com/en/docs/install).
+  {{< /tab >}}
+{{< /tabs >}}
 
-Pour installer Yarn sur Windows, la méthode recommandé est d'utiliser NPM inclu avec l'installation de Node.js.
+## Cloner le référentiel Git
 
-```bash
-npm install --global yarn
-```
-
-Pour plus d'informations sur l'installation de Yarn sur Windows, voir la [documentation officielle d'installation](https://classic.yarnpkg.com/en/docs/install).
-
-## Créer le référentiel
-
-Sur [la page du template](https://github.com/noesya/osuny-hugo-template-AAA), il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
-Dans ce tutoriel, nous utiliserons le nom monreferentiel.
+Les référentiels Git sont créés par Osuny, il n'y a plus de nécessité de les créer à la main.
+S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA). 
+Il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
+Dans ce tutoriel, nous utiliserons le nom `monreferentiel`.
 
 Une fois le référentiel créé, il faut le cloner en local.
 Le thème est un sous-module git.
@@ -109,33 +114,70 @@ WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la répar
 
 L'idée générale pour développer votre site sur la base d'Osuny est de procéder en suivant les étapes suivantes.
 
+{{< callout type="warning" >}}
+  On ne touche pas au thème `osuny-hugo-theme-aaa` !
 
-{{% steps %}}
+  Toutes les modifications pour créer un site se font dans le repo du site, il n'y a jamais besoin de modifier le thème lui-même (`themes/osuny-hugo-theme-aaa`).
+{{< /callout >}}
 
-### config.yaml
+### 1. Configuration Hugo
+
+{{< filetree/container >}}
+  {{< filetree/folder name="config" >}}
+    {{< filetree/folder name="_default" >}}
+      {{< filetree/file name="config.yaml" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
 
 Configurer tout ce qui peut l'être dans le fichier `/config/_default/config.yaml`.
+
 Cela permet par exemple de définir la position du fil d'ariane, du résumé, la longueur des troncatures ou le choix d'une mise en page en liste ou en grille des actualités.
 Quand quelque chose n'est pas personnalisable dans le fichier config.yaml, on passe à l'étape 2.
+Le fichier est vide, il faut aller chercher dans la documentation ou dans le thème lui-même les variables, et les coller dans le fichier.
 
-### configuration.sass
-
-Le fichier `/assets/sass/_configuration.sass` est destiné à recevoir des définitions de variables qui vont être utilisées par le thème.
 Les variables disponibles sont disponibles ici :
 https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
 
-### style.sass
+
+### 2. Configuration SASS
+
+{{< filetree/container >}}
+  {{< filetree/folder name="assets" >}}
+    {{< filetree/folder name="sass" >}}
+      {{< filetree/file name="_configuration.sass" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
+
+Le fichier `/assets/sass/_configuration.sass` est destiné à recevoir des définitions de variables qui vont être utilisées par le thème.
+Les variables disponibles sont disponibles ici :
+https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/assets/sass/_theme/_configuration.sass
+
+### 3. Style SASS personnalisé
+
+{{< filetree/container >}}
+  {{< filetree/folder name="assets" >}}
+    {{< filetree/folder name="sass" >}}
+      {{< filetree/file name="_style.sass" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
 
 Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`. 
 Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller regarder dans les fichiers du thème.
 Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
 Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
 
-### layouts
+### Surcouche HTML
+
+{{< filetree/container >}}
+  {{< filetree/folder name="layouts" >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
 
 Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`. 
 Attention, cela doit être fait en dernier recours, parce qu'en faisant cela vous ne bénéficiez plus des mises à jour du thème.
 Lorsque le thème évoluera, il faut mettre à jour vos propres fichiers HTML pour rester compatibles.
 Évidemment, vos modifications HTML doivent prendre en compte les problématiques d'accessibilité et de sobriété de la même manière que le thème.
 
-{{% /steps %}}
