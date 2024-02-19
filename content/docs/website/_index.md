@@ -65,7 +65,7 @@ Comme les sites sont développés avec Hugo, il faut l'installer pour coder en l
 ## Cloner le référentiel Git
 
 Les référentiels Git sont créés par Osuny, il n'y a plus de nécessité de les créer à la main.
-S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA). 
+S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA).
 Il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
 Dans ce tutoriel, nous utiliserons le nom `monreferentiel`.
 
@@ -109,6 +109,8 @@ yarn osuny server-example
 ```
 
 WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la réparer.
+
+Plus d'informations sur la page [Données d'exemple](/docs/theme/example-data)
 
 ## Et maintenant ?
 
@@ -164,7 +166,7 @@ https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/assets/sass/_theme/_con
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`. 
+Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`.
 Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller regarder dans les fichiers du thème.
 Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
 Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
@@ -176,8 +178,7 @@ Cela permet de maintenir la cohérence et d'éviter les effets de bord, particul
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`. 
+Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`.
 Attention, cela doit être fait en dernier recours, parce qu'en faisant cela vous ne bénéficiez plus des mises à jour du thème.
 Lorsque le thème évoluera, il faut mettre à jour vos propres fichiers HTML pour rester compatibles.
 Évidemment, vos modifications HTML doivent prendre en compte les problématiques d'accessibilité et de sobriété de la même manière que le thème.
-

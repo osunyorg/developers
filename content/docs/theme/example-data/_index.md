@@ -11,6 +11,15 @@ Une solution commune à deux tâches est proposée :
 - la création d'un nouveau site (comment travailler sans données ?)
 - la mise à jour d'un site existant (comment être sûr de couvrir les cas qui ne sont pas dans les données ?)
 
+On veut pouvoir lancer un site avec un jeu de données de test (les données du site [`osuny-example`](https://example.osuny.org)).
+
+Cela signifie qu'il faut pouvoir lancer le serveur avec :
+- les contenus d'osuny-example (`osuny-example/content` et `osuny-example/data`)
+- Les configurations des permalinks d'osuny-example (`osuny-example/config/_default/languages.yaml`)
+- Les partials du site à tester (`layouts`)
+- Les assets CSS/JS du site à tester (`assets`)
+- La configuration spécifique du site à tester (`config/_default/config.yaml`)
+
 ## Solution
 
 Ajouter en submodule git un site d'exemples : https://github.com/noesya/osuny-example
@@ -44,7 +53,4 @@ Commande chaînée :
 }
 ```
 
-
-
-
-
+Or, suite à de nombreuses mises à jour du thème, cette tâche ne fonctionne plus, de part le découpage des configurations et la mise en place du multilingue.
