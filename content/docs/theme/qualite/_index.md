@@ -45,3 +45,6 @@ snapshots:
   1. Chaque URL doit être précédée d'un `/` et suivie d'un `/index.html`
   2. Dans le cadre d'un site multilingue, bien ajouter `/fr/` avant l'URL.
 {{< /callout >}}
+
+### Utiliser Percy
+Dans un premier temps, Percy va examiner les pages de la branche modèle. Pour qu'il compare cette branche avec une autre, il faut créer une pull request (**pas en draft**), le build de la comparaison se fera automatiquement à chaque push sur la branche.
