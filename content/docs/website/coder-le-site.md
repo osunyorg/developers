@@ -20,3 +20,7 @@ TODO expliquer comment configurer le css au-delà de la configuration :
 `ctrl+g` pour afficher la grille.
 
 `ctrl+w` passer d'une page pleine largeur à une page avec barre latérale, et inversement.
+
+`ctrl+i` permet de contrôler les dimensions des images chargées.
+
+`ctrl+p` si dans config.yaml ```debug.productionUrl``` est spécifié, permet d'ouvrir la page courante en production.
