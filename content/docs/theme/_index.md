@@ -16,7 +16,7 @@ TODO préparer les choses pour pouvoir travailler sur les données "example" dir
 ## Installer le thème
 
 ```bash
-git clone git@github.com:noesya/osuny-hugo-theme-aaa.git --recurse-submodules
+git clone git@github.com:osunyorg/theme.git --recurse-submodules
 cd osuny-hugo-theme-aaa
 yarn
 hugo server

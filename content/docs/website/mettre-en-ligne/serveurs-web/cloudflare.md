@@ -6,7 +6,7 @@ title: Cloudflare
 
 Cloudflare n'est pas un serveur, mais il cause le problème suivant, lié à l'hébergement.
 
-Cloudflare minifie les fichiers, ce qui invalide le sha256, et bloque le chargement [Issue 36](https://github.com/noesya/osuny-hugo-theme-aaa/issues/36).
+Cloudflare minifie les fichiers, ce qui invalide le sha256, et bloque le chargement [Issue 36](https://github.com/osunyorg/theme/issues/36).
 
 Si l'on ne peut pas couper ce fonctionnement, on peut ajouter .min.js à la fin du fichier.
 Si quelqu'un arrive à faire faire cela à Hugo, super !

@@ -17,8 +17,8 @@ Dans ce cas-là, vous avez 2 solutions :
 ### Changer l'URL du submodule en HTTPS
 
 Pour cela, modifiez le fichier `.gitmodules` et modifier l'URL du submodule en question. Par exemple :
-- avant : `git@github.com:noesya/osuny-hugo-theme-aaa.git`
-- après : `https://github.com/noesya/osuny-hugo-theme-aaa.git`
+- avant : `git@github.com:osunyorg/theme.git`
+- après : `https://github.com/osunyorg/theme.git`
 
 Puis lancer la commande `git submodule sync --recursive` et commit les changements.
 

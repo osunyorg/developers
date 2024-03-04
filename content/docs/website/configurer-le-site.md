@@ -46,14 +46,14 @@ params:
 ```
 
 Les variables disponibles sont ici :
-https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
+https://github.com/osunyorg/theme/blob/main/config.yaml
 
 C'est le meilleur endroit pour démarrer le site.
 
 ## Variables SASS
 
 Le thème `osuny-hugo-theme-aaa` inclus dans le dossier `/themes/osuny-hugo-theme-aaa` est un thème hugo, de nombreuses variables SASS sont définis dans celui-ci. Il est donc possible d'utiliser ces variables pour personnaliser le site de différentes manières.
-L'intégralité des variables SASS disponible à la modification ce trouve dans le fichier [assets/sass/\_theme/\_configuration.sass](https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/assets/sass/_theme/_configuration.sass) du theme.
+L'intégralité des variables SASS disponible à la modification ce trouve dans le fichier [assets/sass/\_theme/\_configuration.sass](https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sass) du theme.
 
 ### Couleurs
 

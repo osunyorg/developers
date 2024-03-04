@@ -8,7 +8,7 @@ weight: 3
 ![](/images/home/website.jpg)
 
 Pour faire un site avec Osuny, la solution la plus simple est de partir du template Github [osuny-hugo-template-AAA](https://github.com/noesya/osuny-hugo-template-AAA).
-Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/noesya/osuny-hugo-theme-AAA).
+Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/osunyorg/theme).
 Le template propose une configuration de site à jour, avec Hugo, le thème et les scripts facilitant les mises à jour.
 Comme les sites sont développés avec Hugo, il faut l'installer pour coder en local.
 
@@ -137,7 +137,7 @@ Quand quelque chose n'est pas personnalisable dans le fichier config.yaml, on pa
 Le fichier est vide, il faut aller chercher dans la documentation ou dans le thème lui-même les variables, et les coller dans le fichier.
 
 Les variables disponibles sont disponibles ici :
-https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
+https://github.com/osunyorg/theme/blob/main/config.yaml
 
 
 ### 2. Configuration SASS
@@ -152,7 +152,7 @@ https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/config.yaml
 
 Le fichier `/assets/sass/_configuration.sass` est destiné à recevoir des définitions de variables qui vont être utilisées par le thème.
 Les variables disponibles sont disponibles ici :
-https://github.com/noesya/osuny-hugo-theme-aaa/blob/main/assets/sass/_theme/_configuration.sass
+https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sass
 
 ### 3. Style SASS personnalisé
 
