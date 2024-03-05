@@ -9,13 +9,13 @@ layout: hextra-home
   <span>Licence MIT</span>
 {{< /hextra/hero-badge >}}
 
-<div class="mt-6 mb-6">
+<div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
   Espace développement
 {{< /hextra/hero-headline >}}
 </div>
 
-<div class="mb-12">
+<div class="hx-mb-12">
 {{< hextra/hero-subtitle >}}
   Toutes les ressources pour permettre <br class="sm:block hidden" />
   aux développeuses et développeurs<br class="sm:block hidden" />
@@ -23,7 +23,7 @@ layout: hextra-home
 {{< /hextra/hero-subtitle >}}
 </div>
 
-<div class="mb-6">
+<div class="hx-mb-6">
 {{< hextra/hero-button text="Démarrage rapide" link="docs/website/" >}}
 </div>
 
