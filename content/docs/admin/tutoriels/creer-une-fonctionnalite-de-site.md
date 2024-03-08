@@ -3,6 +3,7 @@ title: Créer une fonctionnalité de site Web
 ---
 
 Cet exemple s'appuie sur les portfolios.
+https://github.com/noesya/osuny/pull/1696/files
 
 ## Ajouter la fonctionnalité au site
 
