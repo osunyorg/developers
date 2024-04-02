@@ -2,13 +2,37 @@
 title: OVH
 ---
 
+
+## Registrar ou hébergeur ?
+
+On peut soit utiliser OVH comme registrar, pour faire pointer son nom de domaine vers Deuxfleurs ou ailleurs, soit l'utiliser pour héberger.
+
+## OVH comme registrar
+
+Il faut faire un pointage CNAME 
+
+```
+www IN CNAME garage.deuxfleurs.fr
+```
+
+Comme OVH ne permet pas les ALIAS à l'apex, il faut faire une redirection. Malheureusement, OVH ne sait pas non plus faire des redirections en HTTPS à l'apex, donc il faut activer l'hébergement gratuit, et poser un fichier .htaccess avec un redirect
+
+Ici, pour l'OPCD.
+
+```htaccess
+RedirectPermanent / https://www.opcd.co
+```
+
+
+## OVH comme hébergeur 
+
 Trouver les informations de connexion dans l'interface OVH
 
 ![Interface OVH](/images/ovh.png)
 
 A partir de l'hébergement Pro, on peut utiliser le SSH. Mais sinon, il faut passer par la méthode FTP.
 
-## Méthode FTP
+### Méthode FTP
 
 Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 
@@ -81,7 +105,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
-## Méthode SSH
+### Méthode SSH
 
 A partir de l'hébergement Pro, on peut utiliser le SSH qui est la méthode recommandée. Cependant, cela demande un pré-requis technique pour le mettre en place donc si vous ne savez pas utiliser un terminal de lignes de commande, restez sur la méthode FTP.
 
