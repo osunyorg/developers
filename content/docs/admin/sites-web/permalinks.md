@@ -1,9 +1,9 @@
 ---
 title: Permaliens
 weight: 4
-description: >
-  Gérer les urls dans les sites générés avec Hugo
 ---
+
+Gérer les urls dans les sites générés avec Hugo
 
 ## Contexte
 
@@ -35,7 +35,7 @@ Pour parvenir à ce résultat, il faut conserver la trace des anciens permaliens
 
 ## Architecture
 
-Une classe qui gère globalement les permalinks :
+Une classe gère globalement les permalinks :
 ```
 class Communication::Website::Permalink
 end
@@ -64,8 +64,19 @@ Responsabilité :
 - calcul du permalink
 - fonctionnements spécifiques par type d'objet
 
-## Objets
+## Objets directs
 
 ### Page
 
-### Actualité (Post)
+### Post
+
+## Objets indirects
+
+### Program
+
+Le cas de l'arbre des formations et de l'arbre de la page Offre de formation
+
+## Fil d'ariane 
+
+En anglais, breadcrumbs.
+

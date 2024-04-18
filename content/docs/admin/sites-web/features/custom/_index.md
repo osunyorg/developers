@@ -1,6 +1,6 @@
 ---
 title: Objets personnalisés
-weight: 6
+weight: 4
 description: Étendre les fonctionnalités de base
 ---
 

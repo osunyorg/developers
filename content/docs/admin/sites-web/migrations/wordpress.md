@@ -1,11 +1,6 @@
 ---
-title: Import de données
-description: Migrer un site existant vers Osuny
+title: WordPress
 ---
-
-## Contexte
-
-L'objectif est de fluidifier la transition depuis un site déjà en place, notamment WordPress. Deux approches sont possibles : interne, avec un accès BDD, et externe, en passant par le site lui-même. Nous privilégierons l'approche externe dans un premier temps, pour permettre l'approche avant-vente (présenter un site pré-migré).
 
 ## Problématiques
 
@@ -46,13 +41,13 @@ Etapes :
 4. Import du contenu brut des pages importées
 5. Analyse du contenu des pages importées et création / mise à jour des pages
 
-## Import depuis WordPress
 
-### Media
+## Media
 1. On importe les media depuis l'API
 2. On crée des objets en DB (Communication::Website::Imported::Medium)
 
-### Pages
+## Pages
+```
 1. On importe les pages depuis l'API
 2. On crée des objets en DB (Communication::Website::Imported::Page)
 3. Les objets importés créent ou mettent à jour les objets réels (Communication::Website::Page)
@@ -71,8 +66,8 @@ Etapes :
         3.6.3 s'il n'existe pas, le créer (le cas se produit il ?)
         3.6.4 crée l'attachment
         3.6.5 on remplace le code du media par l'action text attachement
-
-### Posts
+```
+## Posts
 Idem pages
 
 ## Exemples

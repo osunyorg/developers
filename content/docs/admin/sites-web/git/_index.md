@@ -1,8 +1,9 @@
 ---
-title: Export Hugo
-weight: 2
-description: Envoyer les fichiers sur Git pour déclencher la compilation Hugo
+title: Export vers Git
+weight: 10
 ---
+
+*Envoyer les fichiers sur Git pour déclencher la compilation Hugo*
 
 ## Contexte
 
