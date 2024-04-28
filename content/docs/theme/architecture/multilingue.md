@@ -1,9 +1,10 @@
 ---
 title: Multilingue
 weight: 3
-description: >
-  Parti-pris sur la gestion des langues
 ---
+
+*Parti-pris sur la gestion des langues*
+
 
 L'aspect back-office du multilingue est [documenté dans la partie admin](/docs/admin/architecture/multilingue/).
 
