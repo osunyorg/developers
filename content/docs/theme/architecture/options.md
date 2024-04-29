@@ -284,14 +284,14 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
   organizations:
     index:
       options:
-        diploma: true
-        image: false
+        link: true
+        logo: true
         summary: false
     single:
       backlinks: true
       options:
-        diploma: true
-        image: true
+        link: true
+        logo: true
         summary: true
 ```
 L'affichage des backlinks est il une option ? 
