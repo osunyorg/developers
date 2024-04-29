@@ -247,7 +247,7 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
     index:
       options:
         categories: false
-        dates: false
+        dates: true
         image: true
         subtitle: true
         summary: true
