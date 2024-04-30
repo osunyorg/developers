@@ -391,6 +391,20 @@ Les personnes pourraient avoir beaucoup plus d'options, pour permettre de faire 
         authors: true
 ```
 
+### Sites (campus)
+
+```YAML
+  locations:
+    index:
+      options:
+        image: true
+        summary: true
+    single:
+      options:
+        image: true
+        summary: true
+```
+
 ### Volumes
 
 ```YAML
