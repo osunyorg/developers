@@ -251,6 +251,7 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
         image: true
         subtitle: true
         summary: true
+        status: false
     single:
       options:
         categories: true
@@ -258,6 +259,7 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
         image: true
         subtitle: true
         summary: true
+        status: true
 ```
 
 ### Formations
