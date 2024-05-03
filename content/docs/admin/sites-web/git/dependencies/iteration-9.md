@@ -146,8 +146,16 @@ Piste possible avec l'analyse précédente, la génération des connexions au ni
 La seule différence restante entre les derniers cas ont pour source directe `Communication::Website::Page`.
 
 Voici les types d'objets indirects pour les 727 connexions :
-- 4 avec `University::Organization`
-- 7 avec `ActiveStorage::Blob`
-- 29 avec `University::Person`
 - 687 avec `Research::Publication`
+- 4 avec `University::Organization`
+- 29 avec `University::Person`
+- 7 avec `ActiveStorage::Blob`
 
+Sur les 61 pages du site, 55 ont des connexions. Voici les pages ayant un nombre de connexions différentes entre le cas 2 et le cas 3.
+
+- Page « Publications HAL » (`11ca8717-20e7-40bc-b771-fdc661a6977b`) : on passe de 690 à 3 connexions (-687).
+  - à savoir les 687 `Research::Publication`
+- Page « Organisations » (`936313ef-e28a-4911-b788-40810e8737d3`) : on passe de 10 à aucune connexion (-10).
+  - à savoir 6 `ActiveStorage::Blob` et 4 `University::Organization`
+- Page « Équipe » (`9c2be9f0-88fc-4e1b-9fd6-2c89fbf1e183`) : on passe de 133 à 103 connexions (-30).
+  - à savoir 1 `ActiveStorage::Blob` et 29 `University::Person`
