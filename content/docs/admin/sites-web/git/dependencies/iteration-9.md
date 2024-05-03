@@ -114,3 +114,40 @@ end
 Avec ça, en vidant les connexions de l'IUT Bordeaux Montaigne et en les régénérant, on obtient 6420 connexions (contre 7147 avant). À noter qu'après passage de la suppression des connexions obsolètes, on reste à 6420 connexions.
 
 Il faut désormais analyser si les 727 connexions perdues sont pertinentes ou non.
+
+### Analyse des différences
+
+Statistiques :
+- Après la génération des connexions dans le `clean_and_rebuild` : 12507 connexions
+  - dont 1148 avec pour source directe `Communication::Website`
+  - dont 5455 avec pour source directe `Communication::Website::Page`
+  - dont 5165 avec pour source directe `Communication::Website::Post`
+  - dont 674 avec pour source directe `Communication::Website::Post::Category`
+  - dont 65 avec pour source directe `Communication::Website::Agenda::Event`
+- Après la suppression des connexions obsolètes : 7147 connexions
+  - dont 1148 avec pour source directe `Communication::Website`
+  - dont 2689 avec pour source directe `Communication::Website::Page`
+  - dont 2881 avec pour source directe `Communication::Website::Post`
+  - dont 364 avec pour source directe `Communication::Website::Post::Category`
+  - dont 65 avec pour source directe `Communication::Website::Agenda::Event`
+- Après vérification des objets directs : 6420 connexions
+  - dont 1148 avec pour source directe `Communication::Website`
+  - dont 1962 avec pour source directe `Communication::Website::Page`
+  - dont 2881 avec pour source directe `Communication::Website::Post`
+  - dont 364 avec pour source directe `Communication::Website::Post::Category`
+  - dont 65 avec pour source directe `Communication::Website::Agenda::Event`
+ 
+Entre les 3 cas, le nombre de connexions est le même pour `Communication::Website` et `Communication::Website::Agenda::Event`.
+
+Enfin, entre les 2 derniers cas, le nombre de connexions est le même pour `Communication::Website::Post` et `Communication::Website::Post::Category`.
+
+Piste possible avec l'analyse précédente, la génération des connexions au niveau d'un post A pouvait suivre les dépendances récursives d'un post B (dépendance directe du post A) et donc le post A héritait des dépendances du le post B.
+
+La seule différence restante entre les derniers cas ont pour source directe `Communication::Website::Page`.
+
+Voici les types d'objets indirects pour les 727 connexions :
+- 4 avec `University::Organization`
+- 7 avec `ActiveStorage::Blob`
+- 29 avec `University::Person`
+- 687 avec `Research::Publication`
+
