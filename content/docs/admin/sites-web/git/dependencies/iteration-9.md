@@ -163,3 +163,7 @@ Sur les 61 pages du site, 55 ont des connexions. Voici les pages ayant un nombre
 Après avoir constaté cette différence, on découvre que relancer une seconde fois la génération des connexions avec les 6420 connexions initiales remonte ce nombre à 7147, soit le cas 2. On a un problème où dans les dépendances des ces pages, on récupère les objets par les connexions.
 
 Par exemple, la page Équipe a pour dépendance les connected_people qui sont les objets `University::Person` ayant une connexion sur ce site. On se retrouve à générer des connexions à partir de données venant des connexions.
+
+Idée de piste : Mettre en dépendance uniquement les objets explicitement connectés à la page (pour les personnes et les organisations) et mettre les autres personnes/organisations et les publications en références, pour gérer le cas du changement de slug de la page.
+
+Cependant, si la page spéciale est à l'intérieur d'une autre page, si on change son slug, on change en cascade la page spéciale, et il faudrait également re-synchroniser les objets correspondants.
