@@ -160,7 +160,7 @@ Sur les 61 pages du site, 55 ont des connexions. Voici les pages ayant un nombre
 - Page « Équipe » (`9c2be9f0-88fc-4e1b-9fd6-2c89fbf1e183`) : on passe de 133 à 103 connexions (-30).
   - à savoir 1 `ActiveStorage::Blob` et 29 `University::Person`
 
-Après avoir constaté cette différence, on découvre que relancer une seconde fois la génération des connexions avec les 6420 connexions initiales remonte ce nombre à 7147, soit le cas 2. On a un problème où dans les dépendances des ces pages, on récupère les objets par les connexions.
+Après avoir constaté cette différence, on découvre que relancer une seconde fois la génération des connexions avec les 6420 connexions initiales remonte ce nombre à 7147, soit le cas 2. On a un problème où, dans les dépendances de ces pages, on récupère les objets par les connexions.
 
 Par exemple, la page Équipe a pour dépendance les connected_people qui sont les objets `University::Person` ayant une connexion sur ce site. On se retrouve à générer des connexions à partir de données venant des connexions.
 
