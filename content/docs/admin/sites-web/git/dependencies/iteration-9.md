@@ -23,7 +23,7 @@ On peut en déduire une incohérence dans les algorithmes de chaque côté.
 
 Après analyse, la suppression des connexions se base sur la présence de l'objet indirect dans les dépendances récursives de l'objet direct.
 
-```ruby
+```ruby {filename="app/models/communication/website/connection.rb"}
 class Communication::Website::Connection < ApplicationRecord
   # [...]
 
@@ -37,7 +37,7 @@ end
 
 Côté génération des connexions, il y a une dissonance. Tout d'abord, on boucle sur les objets directs du website, et à chacun d'eux, on appelle la méthode `connect_dependencies`.
 
-```ruby
+```ruby {filename="app/models/communication/website/with_connected_objects.rb"}
 module Communication::Website::WithConnectedObjects
   extend ActiveSupport::Concern
 
@@ -59,7 +59,7 @@ end
 
 Cette méthode va récupérer les dépendances de 1er niveau de chaque objet direct et la connecter au website avec pour source l'objet direct en question.
 
-```ruby
+```ruby {filename="app/models/concerns/as_direct_object.rb"}
 module AsDirectObject
   extend ActiveSupport::Concern
 
@@ -75,7 +75,7 @@ end
 
 La méthode `connect` va tout d'abord connecter la dépendance si c'est connectable, puis si elle a des dépendances récursives, on va les connecter également. Cependant, on va parcourir ces mêmes dépendances dans la cas où on traite un objet direct alors qu'on ne les suit pas dans `Communication::Website::Connection#obsolete?`.
 
-```ruby
+```ruby {filename="app/models/communication/website/with_connected_objects.rb"}
 module Communication::Website::WithConnectedObjects
   extend ActiveSupport::Concern
 
@@ -93,7 +93,7 @@ end
 
 On rajoute alors un early return dans le cas où l'objet est un objet direct.
 
-```ruby
+```ruby {filename="app/models/communication/website/with_connected_objects.rb"}
 module Communication::Website::WithConnectedObjects
   extend ActiveSupport::Concern
 
