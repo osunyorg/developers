@@ -136,7 +136,7 @@ Statistiques :
   - dont 2881 avec pour source directe `Communication::Website::Post`
   - dont 364 avec pour source directe `Communication::Website::Post::Category`
   - dont 65 avec pour source directe `Communication::Website::Agenda::Event`
- 
+
 Entre les 3 cas, le nombre de connexions est le même pour `Communication::Website` et `Communication::Website::Agenda::Event`.
 
 Enfin, entre les 2 derniers cas, le nombre de connexions est le même pour `Communication::Website::Post` et `Communication::Website::Post::Category`.
@@ -167,3 +167,11 @@ Par exemple, la page Équipe a pour dépendance les connected_people qui sont le
 Idée de piste : Mettre en dépendance uniquement les objets explicitement connectés à la page (pour les personnes et les organisations) et mettre les autres personnes/organisations et les publications en références, pour gérer le cas du changement de slug de la page.
 
 Cependant, si la page spéciale est à l'intérieur d'une autre page, si on change son slug, on change en cascade la page spéciale, et il faudrait également re-synchroniser les objets correspondants.
+
+En passant les personnes connectées en références, de même pour les organisations connectées et les publications de recherche, puis en mettant en dépendance les personnes et organisations directement connectées (`direct_source_type == "Communication::Website::Page::[Organization|Person]"`), on arrive à 6342 connexions.
+
+Sur ces 6342 connexions, 1884 ont pour source directe `Communication::Website::Page`.
+
+En comparant aux connexions du cas 3, on a une différence de 78 (1962-1884) connexions, dont :
+- `University::Person` : 67 (556-489) connexions
+- `ActiveStorage::Blob` : 11 (214-203) connexions
