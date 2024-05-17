@@ -16,8 +16,8 @@ Mettre les contenus et les SHA dans Redis.
 
 ### Clés 
 ```
-[university_id]-[object-identifier]-static
-[university_id]-[object-identifier]-sha
+[website_id]-[object-identifier]-static
+[website_id]-[object-identifier]-sha
 ```
 
 ### Fonctionnement
