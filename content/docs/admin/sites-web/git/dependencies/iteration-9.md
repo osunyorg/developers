@@ -12,7 +12,7 @@ Chaque vérification de connexion se fait dans une tâche de fond séparément, 
 
 Pour optimiser cette partie, on peut créer une méthode qui s'occupe de s'arrêter dès que l'objet est trouvé pendant le chargement des dépendances récursives pour éviter de charger l'ensemble dans le cas où l'objet est le 3e trouvé par exemple.
 
-Or, une nouvelle piste d'optimisation beaucoup + macro consiste à non pas traiter les connexions une à une mais gérer les objets directs un par un. Voir [Itération 10](/docs/admin/sites-web/git/dependencies/iteration-10/).
+Or, une nouvelle piste d'optimisation beaucoup + macro consiste à non pas traiter les connexions une à une mais gérer les objets directs un par un. Voir [Itération 10](/docs/admin/sites-web/git/dependencies/iteration-10/##améliorer-la-vérification-des-connexions).
 
 ## Quantité de connexions
 
