@@ -12,15 +12,19 @@ Le processus global de synchronisation Git est lent, et il y a des trous à la s
 
 ## Cacher les statics
 
-Mettre les contenus et les SHA dans Redis.
+Une vérif de mise en cache a été tentée par PA et Seb (sans gérer les règles fines), et on obtient un gain de facteur 4.
 
-### Clés 
+### Clés
+
 ```
 [website_id]-[object-identifier]-static
 [website_id]-[object-identifier]-sha
 ```
 
 ### Fonctionnement
+
+Il faudrait mettre les contenus et les SHA dans Redis.
+
 Création des clés à l'appel (lazy).
 
 Le pb est de buster le cache des bonnes clés.
