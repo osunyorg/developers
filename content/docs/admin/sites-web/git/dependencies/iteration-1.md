@@ -1,6 +1,7 @@
 ---
 title: Itération 1
 description: Version problématique implémentée en 2022
+weight: 1
 ---
 
 Nous avons procédé à un traitement à la volée des dépendances dans tous les objets. 

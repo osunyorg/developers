@@ -1,6 +1,7 @@
 ---
 title: Itération 3
 description: Sur la traçabilité des objets indirects
+weight: 3
 ---
 
 ## La traçabilité

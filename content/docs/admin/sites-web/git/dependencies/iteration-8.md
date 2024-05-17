@@ -1,6 +1,7 @@
 ---
 title: Itération 8
 description: Réflexion 13 juillet 2023
+weight: 8
 ---
 
 ## Durée de synchronisation

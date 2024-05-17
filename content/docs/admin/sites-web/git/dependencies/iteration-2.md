@@ -1,6 +1,7 @@
 ---
 title: Itération 2
 description: Intuitions initiales
+weight: 2
 ---
 
 Le point de départ de cette version est multiple :

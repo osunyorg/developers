@@ -1,6 +1,7 @@
 ---
 title: Itération 5
 description: Sur les suppressions
+weight: 5
 ---
 
 ## Approche 1

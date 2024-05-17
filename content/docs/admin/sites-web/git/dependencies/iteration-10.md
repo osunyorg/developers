@@ -1,6 +1,7 @@
 ---
 title: Itération 10
 description: Réflexion 17 mai 2024
+weight: 10
 ---
 
 Le processus global de synchronisation Git est lent, et il y a des trous à la suppression.

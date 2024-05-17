@@ -1,6 +1,7 @@
 ---
 title: Itération 4
 description: Clarifications, problème du saumon de Schrödinger
+weight: 5
 ---
 
 Le point de départ de cette version reste identique à la version 2:

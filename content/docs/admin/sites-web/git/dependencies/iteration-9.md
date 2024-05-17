@@ -1,6 +1,7 @@
 ---
 title: Itération 9
 description: Réflexion 3 mai 2024
+weight: 9
 ---
 
 ## Durée de vérification d'obsolescence d'une connexion

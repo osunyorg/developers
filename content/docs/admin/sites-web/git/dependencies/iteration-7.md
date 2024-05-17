@@ -1,6 +1,7 @@
 ---
 title: Itération 7
 description: Travail semaine du 24 avril 2023
+weight: 7
 ---
 
 ## La gestion de l'about du website

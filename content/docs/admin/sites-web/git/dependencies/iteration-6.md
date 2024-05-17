@@ -1,6 +1,7 @@
 ---
 title: Itération 6
 description: Synthèse au 21 avril 2023
+weight: 6
 ---
 
 Les dépendances fonctionnent, sont (légèrement) testées, et permettent de lister tous les objets nécessaires à l'affiche sur un site Web.
