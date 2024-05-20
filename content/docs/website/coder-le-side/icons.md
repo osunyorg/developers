@@ -1,5 +1,5 @@
 ---
-title: "Icônes"
+title: "Afficher des icônes"
 weight: 10
 description: >
   Comment utiliser les icônes dans son site.
