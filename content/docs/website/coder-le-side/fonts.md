@@ -24,7 +24,7 @@ Dans le fichier `assets/sass/_fonts.sass` (voir ["Organiser ses fichiers"](/docs
 @mixin font-face($name, $path, $weight: 400, $style: normal, $exts: (eot woff2 woff ttf svg))
 ```
 
-| Variable | @font-face CSS | Détail | Exemple |
+| Paramètres | @font-face CSS | Détail | Exemple |
 | -------- | -------------- | ------ | ------- |
 | $name    | `font-family`  | Nom de la famille de police     | 'Times New Roman' |
 | $path    | `src`          | Nom des fichiers sans extension | 'times-new-roman-bold' |
