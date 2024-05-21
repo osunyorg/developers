@@ -6,7 +6,7 @@ description: >
 
 ---
 
-## Modifier le style
+## CSS
 
 ### Organiser ses fichiers
 
@@ -79,7 +79,7 @@ Si votre ficher _style.sass dépasse les 200 lignes, séparez les trois fichiers
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-## Ajouter du JavaScript
+## JavaScript
 
 Vous pouvez ajouter du javascript en ajoutant vos fichiers dans `assets/js`. 
 Ensuite créer un fichier `assets/js/main.js` de façon à remplacer/overrider celui du thème : n'oubliez pas d'importer les fichiers javascript du thème à l'intérieur en plus des votres de façon à maintenir le bon fonctionnement du site : 
@@ -94,7 +94,7 @@ import './custom-js-1.js';
 import './custom-js-2.js';
 ```
 
-## Modifier l'HTML
+## HTML
 
 Vous pouvez remplacer n'importe quel fichiers du thème grace à Hugo. 
 Quand le site compile, Hugo va cherche le fichier à la racine avant celui du thème. 
@@ -113,7 +113,6 @@ themes/osuny-hugo-theme-aaa/layouts/partials/posts/hero-single.html
 {{< callout type="warning" >}}
   Attention, en décidant d'écraser un fichier HTML, vous ne bénéficierez plus des mises à jour de ce fichier. Il faudra alors mettre à jour manuellement le fichier si le fichier original du thème subit des modifications.
 {{< /callout >}}
-
 
 ## Outils
 
