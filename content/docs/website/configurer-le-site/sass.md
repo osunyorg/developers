@@ -188,7 +188,7 @@ $zindex-nav-accessibility: 1010 !default
 $zindex-stretched-link: 2 !default
 ```
 
-## Éléments du design-system
+## Éléments du design system
 
 ### Breadcrumb
 
@@ -290,7 +290,7 @@ $hero-color: $color-text !default
 $hero-background-color: $color-background-alt !default
 ```
 
-## Icons
+### Icons
 
 ```sass
 $icons: ()
@@ -368,7 +368,7 @@ $table-body-size-desktop: $body-size-desktop !default
 
 ## Blocks
 
-### Block call to action
+### Call to action
 
 ```sass
 $block-call-to-action-background: $color-accent !default
@@ -379,7 +379,7 @@ $block-call-to-action-button-background: $color-background !default
 $block-call-to-action-button-color: $color-text !default
 ```
 
-### Block definitions
+### Definitions
 
 ```sass
 /* Bordure inférieure de la définition */
@@ -392,7 +392,7 @@ $block-definition-font-size: $body-size !default
 $block-definition-font-size-desktop: $body-size-desktop !default
 ```
 
-### Block key figures
+### Key figures
 
 La taille de la police de ce bloc est personnalisable pour plusieurs breakpoints, pour les chiffres (`block-key_figures-number-font-size`) et leur légende (`block-key_figures-font-size`) :
 
@@ -413,7 +413,7 @@ $block-key_figures-font-size-xxl: $block-key_figures-font-size-xl !default
 $block-key_figures-number-font-size-xxl: px2rem(80) !default
 ```
 
-### Block gallery
+### Gallery
 
 La couleur de fond de la galerie est personnalisable :
 
@@ -421,7 +421,7 @@ La couleur de fond de la galerie est personnalisable :
 $block-gallery-carousel-background: $color-background-alt
 ```
 
-### Block image
+### Image
 
 Pour personnaliser la largeur maximale d'une image, dans le cas des pages avec ou sans sidebar :
 
@@ -430,7 +430,7 @@ $block-image-max-height-with-sidebar: calc(100vh - var(--header-height)) !defaul
 $block-image-max-height-without-sidebar: none !default
 ```
 
-### Block pages
+### Pages
 
 Seul le layout cards est personnalisable :
 
@@ -445,7 +445,7 @@ $block-pages-card-page-color: $color-text !default
 $block-pages-card-page-color-hover: $color-background !default
 ```
 
-### Block testimonials
+### Testimonials
 
 Paramètres par défaut :
 
@@ -471,7 +471,7 @@ $block-testimonials-xl-font-size-long-text: $quote-size-desktop-long !default
 $block-testimonials-xl-line-height-long-text: $quote-line-height !default
 ```
 
-### Block timeline
+### Timeline
 
 ```sass
 $block-timeline-horizontal-background: $color-background-alt !default
