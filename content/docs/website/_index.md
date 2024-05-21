@@ -12,6 +12,8 @@ Ce template utilise le [thème osuny-hugo-theme-AAA](https://github.com/osunyorg
 Le template propose une configuration de site à jour, avec Hugo, le thème et les scripts facilitant les mises à jour.
 Comme les sites sont développés avec Hugo, il faut l'installer pour coder en local.
 
+Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de cloner le référentiel.
+
 > Avant le template AAA, il y a eu un autre template, nommé [osuny-hugo-template](https://github.com/noesya/osuny-hugo-template), qui utilisait le thème [osuny-hugo-theme](https://github.com/noesya/osuny-hugo-theme). Ce template et ce thème sont obsolètes. Il a fait l'objet de plusieurs refontes, et a lui-même succédé au thème Jekyll, au début d'Osuny. La mention AAA se réfère à l'article [Qualité frontend : à la recherche du AAA](https://lab.noesya.coop/2022/qualite-front), publié sur le [Lab noesya](https://lab.noesya.coop).
 
 ## Installer Hugo
