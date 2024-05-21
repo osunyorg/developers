@@ -5,7 +5,6 @@ weight: 3
 
 Quand les paramètres ne suffisent plus, on peut facilement coder ce que l'on veut.
 
-
 {{< cards >}}
   {{< card  link="css" 
             title="CSS" 
