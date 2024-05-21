@@ -7,7 +7,7 @@ description: >
 
 {{< cards >}}
   {{< card  link="logo" 
-            title="Logos et favicon" 
+            title="Logo et favicon" 
             subtitle="Utiliser un logo" >}}
   {{< card  link="hugo" 
             title="Configuration Hugo" 
