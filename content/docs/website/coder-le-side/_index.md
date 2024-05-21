@@ -10,9 +10,11 @@ description: >
 
 ### Organiser ses fichiers
 
-Nous recommandons deux arborescences pour ranger les styles.
+Nous recommandons deux arborescences pour ranger les styles : 
+- architecture simple
+- architecture complète
 
-#### Ranger simplement
+### Architecture simple
 
 Si votre style n'excède pas les 200 lignes, vous pouvez adopter une version simple :
 
@@ -43,9 +45,9 @@ Si votre style n'excède pas les 200 lignes, vous pouvez adopter une version sim
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-#### Organiser de façon lisible
+### Architecture complète
 
-Si votre ficher _style.sass dépasse les 200 lignes, séparez le trois fichiers reprenant l'architecture du thème.
+Si votre ficher _style.sass dépasse les 200 lignes, séparez les trois fichiers reprenant l'architecture du thème.
 
 `_design-system.sass` : Premier niveau, concerne les éléments du design system.
 
@@ -77,9 +79,10 @@ Si votre ficher _style.sass dépasse les 200 lignes, séparez le trois fichiers 
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-## Modifier le javascript
+## Ajouter du JavaScript
 
-Vous pouvez ajouter du javascript en ajoutant vos fichiers dans `assets/js`. Ensuite créer un fichier `assets/js/main.js` de façon à remplacer/overrider celui du thème : n'oubliez pas d'importer les fichiers javascript du thème à l'intérieur en plus des votres de façon à maintenir le bon fonctionnement du site : 
+Vous pouvez ajouter du javascript en ajoutant vos fichiers dans `assets/js`. 
+Ensuite créer un fichier `assets/js/main.js` de façon à remplacer/overrider celui du thème : n'oubliez pas d'importer les fichiers javascript du thème à l'intérieur en plus des votres de façon à maintenir le bon fonctionnement du site : 
 
 ```{filename="/assets/js/main.js"}
 // Librairies
@@ -91,9 +94,11 @@ import './custom-js-1.js';
 import './custom-js-2.js';
 ```
 
-## Modifier les partiels HTML
+## Modifier l'HTML
 
-Vous pouvez remplacer n'importe quels fichiers du thème grace à Hugo. Quand le site compile, Hugo va cherche le fichier à la racine avant celui du thème. Pas exemple si vous souhaitez modifier l'en-tête (`hero`) des actualités, vous pouvez créer le fichier
+Vous pouvez remplacer n'importe quel fichiers du thème grace à Hugo. 
+Quand le site compile, Hugo va cherche le fichier à la racine avant celui du thème. 
+Par exemple si vous souhaitez modifier l'en-tête (`hero`) des actualités, vous pouvez créer le fichier
 
 ```
 /layouts/partials/posts/hero-single.html
