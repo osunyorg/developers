@@ -1,9 +1,9 @@
 ---
-title: "Afficher des icônes"
+title: Icônes
 weight: 10
-description: >
-  Comment utiliser les icônes dans son site.
 ---
+
+*Comment utiliser des icônes dans son site ?*
 
 ## Police d'icônes
 

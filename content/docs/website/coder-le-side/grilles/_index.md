@@ -1,5 +1,5 @@
 ---
-title: Utiliser les grilles
+title: Grilles
 weight: 20
 ---
 
