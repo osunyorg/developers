@@ -91,7 +91,7 @@ Pour lancer le serveur, on utilise la commande :
 ```bash
 yarn osuny dev
 ```
-
+<!-- 
 ## Utiliser des données d'exemple
 
 Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas possibles avec Osuny, ce qui vous permet de travailler sur l'apparence du site avant même d'avoir publié du contenu. Bien entendu, vous pouvez repasser très simplement sur vos données réelles dès qu'elles sont disponibles, et alterner en fonction de vos besoins.
@@ -108,7 +108,7 @@ Pour travailler sur le site avec le contenu d'exemple, on utilise la commande :
 yarn osuny server-example
 ```
 
-WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la réparer.
+WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la réparer. -->
 
 ## Et maintenant ?
 
