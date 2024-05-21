@@ -43,7 +43,7 @@ Si votre style n'excède pas les 200 lignes, vous pouvez adopter une version sim
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-#### Ranger simplement
+#### Organiser de façon lisible
 
 Si votre ficher _style.sass dépasse les 200 lignes, séparez le trois fichiers reprenant l'architecture du thème.
 
