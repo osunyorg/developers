@@ -32,7 +32,11 @@ Si on bust trop, on recalcule pour rien (pb d'optimisation).
 Si on bust pas assez, on ne met pas à jour (pb d'intégrité).
 Il vaut mieux buster trop que pas assez.
 
-L'idée est de buster les clés de toutes les dépendances d'un objet qu'on enregistre.
+L'idée simple est de buster les clés de toutes les dépendances d'un objet qu'on enregistre, mais le risque est de ne jamais bénéficier du cache. 
+En réalité, quand on modifie un bloc, il faut buster le cache du about, mais on n'a pas besoin de toucher à autre chose. 
+Quand on modifie une personne, il faut buster le cache de la personne et celui de tous les objets directs connectés (parce que noms, slugs et photos ont pu changer).
+Conceptuellement, cela correspond non pas aux dépendances mais aux références.
+
 
 ## Améliorer la vérification des connexions
 
