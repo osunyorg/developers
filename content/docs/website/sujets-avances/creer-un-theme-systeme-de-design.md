@@ -9,7 +9,7 @@ description: >-
 ## Configurer son référentiel
 ### Créer un référentiel vide
 
-Dans ce tutoriel, nous utiliserons le nom montheme. Il faut commencer par créer un référenciel vide pour le thème puis l'ajouter au référentiel Osuny déjà existant avec cette commande. 
+Dans ce tutoriel, nous utiliserons le nom montheme. Il faut commencer par créer un référenciel vide pour le thème puis l'ajouter au référentiel Osuny déjà existant avec cette commande.
 
 ```bash
 git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hugo-theme
@@ -20,7 +20,7 @@ git submodule add git@github.com:monorganisation/montheme.git themes/montheme-hu
 Dansl le thème, il faut créer un fichier `config.yaml`. Les paramètres principaux :
 
 ```bash
-theme: osuny-hugo-theme-aaa
+theme: osuny
 params:
   logo:
     header: "/assets/images/votrelogo.svg"
@@ -34,7 +34,7 @@ Vous pouvez aussi y ajouter tout les paramètres dont vous avez besoin pour l'en
 
 ## Créer vos dossiers
 
-À présent il est possible de créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui doit directement être dans le dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Il ensuite possible de créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire. 
+À présent il est possible de créer un dossier `assets`, ainsi qu'un dossier `montheme-hugo` qui doit directement être dans le dossier assets, et doit s'afficher ainsi à l'écran : `assets/montheme-hugo` . Il ensuite possible de créer un dossier `sass`, ainsi qu'un dossier `js` si nécessaire.
 
 ### Configurer les assets
 
@@ -45,7 +45,7 @@ Dans le dossier `sass`, il est à présent possible de créer les fichiers néce
 `_style.sass`
 `theme.sass`
 
-Le dernier fichier `_theme.sass` sera celui dans lequel les fichiers seront appelé. Il est nécessaire qu'il ait un autre nom que le fichier `main.sass` dans le referentiel Osuny. 
+Le dernier fichier `_theme.sass` sera celui dans lequel les fichiers seront appelé. Il est nécessaire qu'il ait un autre nom que le fichier `main.sass` dans le referentiel Osuny.
 
 ### Liaison des thèmes
 
@@ -73,4 +73,4 @@ Ensuite, dans le dossier `/assets/sass` il faut aller dans le fichier `main.sass
 
 ## Vos logos et typos
 
-Pour stocker vos fichiers typographiques, vos logos ainsi que vos images, il faut créer un dossier `static/assets` dans lequel il y aura les dossiers `fonts` et `images`. 
+Pour stocker vos fichiers typographiques, vos logos ainsi que vos images, il faut créer un dossier `static/assets` dans lequel il y aura les dossiers `fonts` et `images`.
