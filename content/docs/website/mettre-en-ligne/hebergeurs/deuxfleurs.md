@@ -11,6 +11,10 @@ Il vous faudra paramétrer la zone DNS de votre nom de domaine pour qu'il rediri
 
 Le pointage se fait toujours vers `production.osuny.site.` (avec le point à la fin)
 
+{{< callout type="info" >}}
+  Le domaine de Deuxfleurs est `garage.deuxfleurs.fr`, mais nous ne l'utilisons pas pour des raisons de robustesse.
+  Si une attaque en déni de service (DoS) bloquait tous les sites, nous pourrions déployer une solution de repli en changeant le pointage DNS, à la fois au niveau de Deuxfleurs et au niveau de noesya.
+{{< /callout >}}
 
 ### Sans www 
 
@@ -21,11 +25,6 @@ Si le domaine que vous avez choisi est un domaine racine (ex: monsite.fr), vous 
 ```DNS
 www IN ALIAS osuny.production.site.
 ```
-
-{{< callout type="info" >}}
-  Le domaine de Deuxfleurs est `garage.deuxfleurs.fr`, mais nous ne l'utilisons pas pour des raisons de robustesse.
-  Si une attaque en déni de service (DoS) bloquait tous les sites, nous pourrions déployer une solution de repli en changeant le pointage DNS, à la fois au niveau de Deuxfleurs et au niveau de noesya.
-{{< /callout >}}
 
 ### Avec www
   
