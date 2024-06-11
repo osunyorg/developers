@@ -2,17 +2,55 @@
 title: Deuxfleurs
 ---
 
-❤️
 
-Pour publier chez Deuxfleurs, il faut utiliser une action GitHub, c’est à dire une tâche qui va s’exécuter à chaque modification du site.
+[Deuxfleurs](https://www.deuxfleurs.fr) ❤️ est la solution d'hébergement intégrée par défaut dans Osuny.
 
-## Accès au Guichet
+## Configuration DNS
+
+Il vous faudra paramétrer la zone DNS de votre nom de domaine pour qu'il redirige vers Deuxfleurs.
+
+Le pointage se fait toujours vers `production.osuny.site.` (avec le point à la fin)
+
+
+### Sans www 
+
+Cela concerne le domaine nu, appelé aussi apex.
+
+Si le domaine que vous avez choisi est un domaine racine (ex: monsite.fr), vous devrez créer un `ALIAS` vers `production.osuny.site.`. Si votre registrar (Gandi, OVH...) ne permet pas l'alias à l'APEX, il faudra faire une redirection vers www en http et https.
+
+```DNS
+www IN ALIAS osuny.production.site.
+```
+
+{{< callout type="info" >}}
+  Le domaine de Deuxfleurs est `garage.deuxfleurs.fr`, mais nous ne l'utilisons pas pour des raisons de robustesse.
+  Si une attaque en déni de service (DoS) bloquait tous les sites, nous pourrions déployer une solution de repli en changeant le pointage DNS, à la fois au niveau de Deuxfleurs et au niveau de noesya.
+{{< /callout >}}
+
+### Avec www
+  
+Cela concerne aussi tout autre sous-domaine que www.
+
+Si le domaine que vous avez choisi est un sous-domaine (ex: www.monsite.fr), vous devrez créer un `CNAME` vers `production.osuny.site.`.
+
+```DNS
+www IN CNAME osuny.production.site.
+```
+
+## Mise en ligne manuelle (obsolète)
+
+Cette partie de la documentation est obsolète parce que tout se fait automatiquement dans Osuny avec l'API Deuxfleurs.
+
+### Gestion avec Guichet
+
+
+#### Accès au Guichet
 
 Tout d'abord, si la première fois que vous souhaitez héberger votre site avec Deuxfleurs, il vous faudra les contacter en envoyant un message à coucou[@]deuxfleurs.fr
 
 Une fois cela fait, vous pourrez accéder à votre espace sur https://guichet.deuxfleurs.fr
 
-## Récupération des identifiants S3
+#### Récupération des identifiants S3
 
 Pour déployer votre site, vous aurez besoin de vos identifiants S3 présents dans Guichet, dans la partie "Garage", "Vos identifiants", "S3". C'est à dire ici : https://guichet.deuxfleurs.fr/garage/key
 
@@ -20,7 +58,7 @@ Gardez sous la main votre **Identifiant de clé** et votre **Clé secrète**.
 
 ![image](https://github.com/noesya/osuny-developers/assets/7761386/a3e71c70-3ba5-46a4-b6b2-856efaf1169d)
 
-## Ajout du site au Guichet
+#### Ajout du site au Guichet
 
 Dans Guichet, aller dans la partie "Garage", "Mes sites webs" puis ajouter votre site web avec le nom de domaine que vous avez acheté au préalable.
 
@@ -28,15 +66,14 @@ Notez l'**ID** qui vous est retourné, vous en aurez besoin.
 
 ![image](https://github.com/noesya/osuny-developers/assets/7761386/33abdf14-7a59-4fbd-8aac-64422d55ece5)
 
-## Configuration DNS
 
-Il vous faudra paramétrer la zone DNS de votre nom de domaine pour qu'il redirige vers Deuxfleurs.
-- Si le domaine que vous avez choisi est un domaine racine (ex: monsite.fr), vous devrez créer un `ALIAS` vers `garage.deuxfleurs.fr`.
-- Si le domaine que vous avez choisi est un sous-domaine (ex: www.monsite.fr), vous devrez créer un `CNAME` vers `garage.deuxfleurs.fr`.
+### Configuration du déploiement
+ 
+Cette partie de la documentation est obsolète parce que tout est généré automatiquement par Osuny.
 
-## Configuration du déploiement
+Pour publier chez Deuxfleurs, il faut utiliser une action GitHub, c’est à dire une tâche qui va s’exécuter à chaque modification du site.
 
-### URL cible
+#### URL cible
 
 Aller dans votre repository GitHub contenant votre site web. Naviguez jusqu'au fichier `config/_default/config.yaml` puis modifiez-le pour rajouter la section dédiée au déploiement.
 
@@ -49,13 +86,13 @@ deployment:
 
 *Pensez bien à modifier `<votre ID de site web>` par l'ID noté précédemment dans l'ajout du site au Guichet*
 
-### Identifiants
+#### Identifiants
 
 Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
 - `AWS_ACCESS_KEY_ID` : `[votre identifiant de clé]`
 - `AWS_SECRET_ACCESS_KEY` : `[votre clé secrète]`
 
-### Action GitHub
+#### Action GitHub
 
 Créer l'action automatisée dans le fichier `.github/workflows/deploy.yml`
 
