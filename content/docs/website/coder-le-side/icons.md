@@ -11,7 +11,7 @@ Le thème s'appuie sur une police d'icônes (font icons). Vous trouverez les ic�
 
 ## Utilitaire d'icônes
 
-Vous trouverez les codes des icônes du thème dans `themes/osuny-hugo-theme-aaa/assets/sass/_theme/configuration/icons.sass`
+Vous trouverez les codes des icônes du thème dans `themes/osuny/assets/sass/_theme/configuration/icons.sass`
 
 Pour insérer une icône en `sass`, utilisez le mixin `icon`.
 
@@ -23,7 +23,7 @@ Pour insérer une icône en `sass`, utilisez le mixin `icon`.
 | $pseudo-element | Ajoute l'icône en `::before` ou `::after` cela permet de choisir si l'icône vient avant ou après l'élément visé | `before` ou `after` | `before` |
 | $non-breaking  | Ajoute un espace insécable avant le caractère d'icône | `true` ou `false` | `false` |
 
-```{filename="themes/osuny-hugo-theme-aaa/assets/sass/_theme/utils/icons.sass"}
+```{filename="themes/osuny/assets/sass/_theme/utils/icons.sass"}
 @mixin icon($icon-name: '', $pseudo-element: before, $non-breaking: false)
 ```
 
@@ -35,6 +35,3 @@ block-agenda
         a
             @include icon(arrow-right, after, true)
 ```
-
-
-

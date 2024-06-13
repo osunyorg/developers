@@ -67,7 +67,7 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 ## Cloner le référentiel Git
 
 Les référentiels Git sont créés par Osuny, il n'y a plus de nécessité de les créer à la main.
-S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA). 
+S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA).
 Il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
 Dans ce tutoriel, nous utiliserons le nom `monreferentiel`.
 
@@ -93,7 +93,7 @@ Pour lancer le serveur, on utilise la commande :
 ```bash
 yarn osuny dev
 ```
-<!-- 
+<!--
 ## Utiliser des données d'exemple
 
 Vous pouvez utiliser des données d'exemple, présentant l'ensemble des cas possibles avec Osuny, ce qui vous permet de travailler sur l'apparence du site avant même d'avoir publié du contenu. Bien entendu, vous pouvez repasser très simplement sur vos données réelles dès qu'elles sont disponibles, et alterner en fonction de vos besoins.
@@ -117,9 +117,9 @@ WARNING : quelque chose ne fonctionne pas avec cette commande, il faut la répar
 L'idée générale pour développer votre site sur la base d'Osuny est de procéder en suivant les étapes suivantes.
 
 {{< callout type="warning" >}}
-  On ne touche pas au thème `osuny-hugo-theme-aaa` !
+  On ne touche pas au thème `osuny` !
 
-  Toutes les modifications pour créer un site se font dans le repo du site, il n'y a jamais besoin de modifier le thème lui-même (`themes/osuny-hugo-theme-aaa`).
+  Toutes les modifications pour créer un site se font dans le repo du site, il n'y a jamais besoin de modifier le thème lui-même (`themes/osuny`).
 {{< /callout >}}
 
 ### 1. Configuration Hugo
@@ -166,7 +166,7 @@ https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sa
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`. 
+Quand une modification n'est pas faisable avec les variables, il faut écrire du code Sass dans le fichier `/assets/sass/_style.sass`.
 Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller regarder dans les fichiers du thème.
 Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
 Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
@@ -178,8 +178,7 @@ Cela permet de maintenir la cohérence et d'éviter les effets de bord, particul
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`. 
+Enfin, quand le style ne suffit pas, tout le balisage HTML peut être modifié en dupliquant les fichiers du thème dans le dossier `/layouts`.
 Attention, cela doit être fait en dernier recours, parce qu'en faisant cela vous ne bénéficiez plus des mises à jour du thème.
 Lorsque le thème évoluera, il faut mettre à jour vos propres fichiers HTML pour rester compatibles.
 Évidemment, vos modifications HTML doivent prendre en compte les problématiques d'accessibilité et de sobriété de la même manière que le thème.
-

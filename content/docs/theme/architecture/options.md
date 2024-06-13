@@ -10,7 +10,7 @@ Par ailleurs, les paramètres globaux dépendent des contextes : on peut vouloir
 
 Une partie se situe dans le fichier de configuration :
 
-```YAML {filename="themes/osuny-hugo-theme-aaa/config.yaml"}
+```YAML {filename="themes/osuny/config.yaml"}
   events:
     default_image: false
     date_format: ":date_long"
@@ -24,7 +24,7 @@ Une partie se situe dans le fichier de configuration :
 
 Un ajout récent (post) est groupé dans un nœud `options`, avec un doublon (`show`/`hide`).
 
-```YAML {filename="themes/osuny-hugo-theme-aaa/config.yaml"}
+```YAML {filename="themes/osuny/config.yaml"}
   posts:
     default_image: false
     date_format: ":date_long"
@@ -69,7 +69,7 @@ Avec [l'ajout récent au bloc actualités](https://github.com/osunyorg/admin/pul
       layout: large
 ```
 
-Au niveau de l'admin, la question des `show` vs `hide` est mal traitée, il s'agit en fait d'une question de configuration par défaut. 
+Au niveau de l'admin, la question des `show` vs `hide` est mal traitée, il s'agit en fait d'une question de configuration par défaut.
 Au début du développement d'Osuny, l'idée était de ne rien afficher, et de laisser les personnes ajouter des informations, d'où l'idée du `show`.
 Ensuite, pour les options d'affichage des actualités, nous avons travaillé à l'envers : on affiche toutes les informations, et on choisit quoi masquer.
 La réalité est que ça dépend des critères, et qu'il faut traiter ça avec des valeurs par défaut pertinentes.
@@ -97,25 +97,25 @@ Dans cet exemple, il faut tout afficher.
 
 Le fichier de configuration doit utiliser les options par contexte, c'est à dire au moins une fois dans `index` et une fois dans `single`.
 
-```YAML {filename="themes/osuny-hugo-theme-aaa/config.yaml"}
+```YAML {filename="themes/osuny/config.yaml"}
   events:
     default_image: false
     date_format: ":date_long"
     truncate_description: 200 # Set to 0 to disable truncate
     index:
-      options: 
+      options:
         categories: false
         author: false
         description: true
       layout: list # grid | list
     single:
-      options: 
+      options:
         categories: true
         author: true
         description: true
 ```
 
-Il y a des incohérences à résoudre : 
+Il y a des incohérences à résoudre :
 - `category` ou `categories` ? `categories` est plus juste
 - `description` ou `summary` ? `summary` est plus cohérent
 
@@ -159,11 +159,11 @@ Il faut remettre les valeurs au singulier, parce qu'on va la passer au partial.
 
 Il faut ajouter la possibilité d'établir des valeurs par défaut, sous la forme de cases à cocher précochées à la création d'un bloc.
 
-On passerait ainsi de 
+On passerait ainsi de
 ```ruby{filename="app/models/communication/block/template/post.rb"}
   has_component :hide_image, :boolean
 ```
-à 
+à
 ```ruby{filename="app/models/communication/block/template/post.rb"}
   has_component :option_image, :boolean, default: true
 ```
@@ -171,14 +171,14 @@ Le préfixe option paraît une solution simple, mais peut-être faut-il structur
 
 Cela pose un problème de migration des blocs existants, qu'il faut réaliser en conservant les choix des personnes.
 
-### Le thème 
+### Le thème
 
-```hugo{filename="themes/osuny-hugo-theme-aaa/layouts/partials/posts/posts.html"}
+```hugo{filename="themes/osuny/layouts/partials/posts/posts.html"}
   {{ range .Paginator.Pages }}
-    {{  partial "posts/post.html" 
-        (dict 
+    {{  partial "posts/post.html"
+        (dict
           "post" .
-          "options" site.Params.posts.index.options 
+          "options" site.Params.posts.index.options
         )}}
   {{ end }}
 ```
@@ -186,15 +186,15 @@ Cela pose un problème de migration des blocs existants, qu'il faut réaliser en
 ## Objets
 
 La liste suivante tente de fixer la situation projetée parfaite :
-- en réparant les incohérences de nommage 
+- en réparant les incohérences de nommage
 - en prévoyant tous les cas
 - en définissant de bonnes valeurs par défaut
 
-Les options sont toutes dans `themes/osuny-hugo-theme-aaa/config.yaml`, et les blocs doivent réutiliser la même structure.
+Les options sont toutes dans `themes/osuny/config.yaml`, et les blocs doivent réutiliser la même structure.
 Les valeurs par défaut des blocs sont les mêmes que celles des index.
-Si une valeur manque, il faudrait la considérer `false`. 
+Si une valeur manque, il faudrait la considérer `false`.
 
-### Actualités 
+### Actualités
 
 ```YAML
   posts:
@@ -217,9 +217,9 @@ Si une valeur manque, il faudrait la considérer `false`.
 ```
 
 ![](options/lemonde.png)
-L'image et le résumé (ou chapô) sont présents, mais pas les dates, les catégories ou les auteurs. 
+L'image et le résumé (ou chapô) sont présents, mais pas les dates, les catégories ou les auteurs.
 Ce n'est évidemment pas un cas général, mais c'est un bon cas par défaut.
-On remarque aussi qu'il manquait le `reading_time`. 
+On remarque aussi qu'il manquait le `reading_time`.
 La question du partage social est plus compliquée, ça doit être géré au niveau du site.
 Si l'on ne veut pas de partage sur X, ça doit être global.
 
@@ -240,7 +240,7 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
 ```
 ![](options/diplomas.png)
 
-### Événements 
+### Événements
 
 ```YAML
   events:
@@ -296,7 +296,7 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
         logo: true
         summary: true
 ```
-L'affichage des backlinks est il une option ? 
+L'affichage des backlinks est il une option ?
 Si on dit oui, qu'est-ce que ça donne dans une liste des organisations ?
 Concrètement, rien : on ne va pas afficher dans la liste des organisations, lié à chaque organisation, la liste des références à cette organisation.
 On peut peut-être déduire que ce n'est pas une option, et le laisser à côté du nœud.
