@@ -24,7 +24,7 @@ Il faut veiller à limiter le nombre de commits et à éviter les commits vides.
 
 ### GitHub
 
-- Créer un repository à partir du template suivant : https://github.com/noesya/osuny-hugo-template
+- Créer un repository à partir du template suivant : https://github.com/osunyorg/template
 - Une fois le repository créé, générer un personal access token ici : https://github.com/settings/tokens
   - Permission à accorder : `repo` et `workflow`
   - Durée : pour une bonne sécurité, il n'est pas recommandé de créer un token permanent, notez simplement qu'il faut le régénérer régulièrement.
