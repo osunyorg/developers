@@ -16,6 +16,7 @@ Pour travailler sur le projet, il faut :
 1. Imagemagick
 1. Node (nous utilisons NVM pour les versions avec .nvmrc)
 1. Yarn
+1. LibSodium (pour utiliser [`rbnacl`](https://github.com/RubyCrypto/rbnacl))
 
 ## Installation
 
