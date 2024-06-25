@@ -26,7 +26,7 @@ Il faut veiller à limiter le nombre de commits et à éviter les commits vides.
 
 - Créer un repository à partir du template suivant : https://github.com/noesya/osuny-hugo-template
 - Une fois le repository créé, générer un personal access token ici : https://github.com/settings/tokens
-  - Permission à accorder : `repo`
+  - Permission à accorder : `repo` et `workflow`
   - Durée : pour une bonne sécurité, il n'est pas recommandé de créer un token permanent, notez simplement qu'il faut le régénérer régulièrement.
 - Copier le personnal access token
 - Dans le back-office d'Osuny, créer ou modifier un website et renseignez les 2 champs relatifs à Git :
