@@ -43,7 +43,7 @@ La récupération du thème se fait via SSH par défaut. Pour que le déploiemen
 - Changer le remote du submodule pour qu'il utilise HTTPS.
 - Garder le SSH, cependant il faut :
   - Générer et copier la deploy key du site sur Netlify (dans "Site settings", "Build & deploy" puis "Deploy key").
-  - L'ajouter dans la section "Deploy keys" du repository contenant le thème (ici : https://github.com/noesya/osuny-hugo-theme/settings/keys).
+  - L'ajouter dans la section "Deploy keys" du repository contenant le thème (ici : https://github.com/osunyorg/theme/settings/keys).
 
 ## Architecture
 
