@@ -14,7 +14,6 @@ Comment relire une grosse PR ?
 - Vérifier les états (full-width / ou pas full-width)
 
 
-
 ## Percy
 [Percy](https://percy.io/) est un outil de suivi créant des snapshots permettant des analyses visuelles.
 
@@ -32,14 +31,14 @@ Ajouter le token percy dans les secrets du repo (cf. [documentation de Percy](ht
 2. À la racine du projet, ajouter un fichier `percy.yml` basé sur ce modèle : [template](https://github.com/noesya/osuny-hugo-template/blob/main/.percy.yml)
 3. À la racide du projet, configurez un `snapshots.yml` qui indexe toutes les pages que Percy examinera, de cette façon : 
 
-```` yml {filename="snapshots.yml"}
+``` yml {filename="snapshots.yml"}
 serve: ./public
 snapshots:
   - name: Home
     url: index.html
   - name: Titre d'une page
     url: ...
-````
+```
 
 {{< callout type="info" >}}
   1. Chaque URL doit être précédée d'un `/` et suivie d'un `/index.html`
