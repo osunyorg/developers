@@ -3,7 +3,7 @@ title: Configuration SASS
 weight: 3
 ---
 
-Le thème `osuny-hugo-theme-aaa` inclus dans le dossier `/themes/osuny-hugo-theme-aaa` est un thème hugo, de nombreuses variables SASS sont définis dans celui-ci. Il est donc possible d'utiliser ces variables pour personnaliser le site de différentes manières.
+Le thème `osuny-hugo-theme-aaa` inclus dans le dossier `/themes/osuny` est un thème Hugo, de nombreuses variables SASS sont définis dans celui-ci. Il est donc possible d'utiliser ces variables pour personnaliser le site de différentes manières.
 L'intégralité des variables SASS disponible à la modification ce trouve dans le fichier [assets/sass/\_theme/\_configuration.sass](https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sass) du theme.
 
 ## Couleurs
