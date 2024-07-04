@@ -44,3 +44,27 @@ hugo server
 Mise à part un contexte de hotfix très maîtrisé et sans possibilité d'effets de bord, il faut faire une PR pour modifier le thème. Avant de soumettre la PR en review, il faut s'assurer d'avoir bien testé son code sur le site d'exemple en local et en staging sur example.osuny.org.
 
 Si une modification majeure est apportée (modification du DOM, de la structure, suppression d'une classe ou d'un partiel...) il faut bien vérifier dans tous les sites que l'élément supprimé ou modifié n'est pas overridé dans un autre site. Si c'est le cas, il faut bien s'assurer de gérer la modification des cas particuliers avant de faire une release et déployer le thème sur tous les sites.
+
+## Liste des sites à vérifier manuellement lors de grosses releases
+
+
+Sites importants
+ https://www.bonnesnotes.org
+ https://www.cepir.info
+ https://comnum.rennes.fr
+ https://www.la-criee.org/fr/
+ https://www.degrowthjournal.org
+ https://www.fondation-jacques-rougerie.com/fr/
+ https://ran-coper.fr
+ https://www.re-akt.ch
+ https://www.sinonvirgule.fr
+ https://www.vincentgambardella.com
+ https://africanfutures.mit.edu
+ https://www.communication-democratie.org/fr/
+ https://www.iut.u-bordeaux-montaigne.fr/
+ https://dico.unric.org/fr/
+Sites touchy à migrer
+ https://osuny.org (et son thème)
+ https://www.aliceetlescryptotrolls.org
+ https://www.cmjnrvb.net
+ https://works.noesya.coop/ (et son thème)
