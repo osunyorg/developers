@@ -49,22 +49,22 @@ Si une modification majeure est apportée (modification du DOM, de la structure,
 
 
 Sites importants
- https://www.bonnesnotes.org
- https://www.cepir.info
- https://comnum.rennes.fr
- https://www.la-criee.org/fr/
- https://www.degrowthjournal.org
- https://www.fondation-jacques-rougerie.com/fr/
- https://ran-coper.fr
- https://www.re-akt.ch
- https://www.sinonvirgule.fr
- https://www.vincentgambardella.com
- https://africanfutures.mit.edu
- https://www.communication-democratie.org/fr/
- https://www.iut.u-bordeaux-montaigne.fr/
- https://dico.unric.org/fr/
+- https://www.bonnesnotes.org
+- https://www.cepir.info
+- https://comnum.rennes.fr
+- https://www.la-criee.org/fr/
+- https://www.degrowthjournal.org
+- https://www.fondation-jacques-rougerie.com/fr/
+- https://ran-coper.fr
+- https://www.re-akt.ch
+- https://www.sinonvirgule.fr
+- https://www.vincentgambardella.com
+- https://africanfutures.mit.edu
+- https://www.communication-democratie.org/fr/
+- https://www.iut.u-bordeaux-montaigne.fr/
+- https://dico.unric.org/fr/
 Sites touchy à migrer
- https://osuny.org (et son thème)
- https://www.aliceetlescryptotrolls.org
- https://www.cmjnrvb.net
- https://works.noesya.coop/ (et son thème)
+- https://osuny.org (et son thème)
+- https://www.aliceetlescryptotrolls.org
+- https://www.cmjnrvb.net
+- https://works.noesya.coop/ (et son thème)
