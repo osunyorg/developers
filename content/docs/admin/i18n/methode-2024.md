@@ -118,12 +118,15 @@ Les params distinguent propriétés localisées et non localisées :
   end
 ```
 
+TODO suppression des objets et/ou des localisations.
+Faut-il supprimer l'objet et toutes ses locas, ou juste la loca en cours ?
+
 ### Views
 
-Dans les listes, on doit récupérer la bonne localisation.
+Dans les listes (index), on doit récupérer la bonne localisation.
 Ce code doit être factorisé.
 
-```erb {filename="app/views/admin/university/organizations/_list.html.erb"}
+``` erb {filename="app/views/admin/university/organizations/_list.html.erb"}
   <% organizations.each do |organization| 
     l10n = organization.localization_for(current_language)
     if l10n.present?
@@ -143,8 +146,25 @@ Ce code doit être factorisé.
     %>
 ```
 
+Dans les pages d'affichage (show), il faut choisir ce qui vient de l'objet et ce qui vient de la localisation.
+
+``` erb {filename="app/views/admin/university/organizations/show.html.erb"}
+<% content_for :title, @l10n %>
+<%= render 'admin/application/summary/show', about: @l10n %>
+<%= osuny_property_show_text @l10n, :address_name, hide_blank: true %>
+<%= osuny_property_show_text @organization, :address, hide_blank: true %>
+<%= osuny_property_show_text @l10n, :address_additional, hide_blank: true %>
+<%= osuny_property_show_text @organization, :zipcode, hide_blank: true %>
+<%= osuny_property_show_text @organization, :city, hide_blank: true %>
+<% if @l10n.logo.attached? %>
+  <div>
+    <%= osuny_label University::Organization::Localization.human_attribute_name('logo') %><br>
+    <%= kamifusen_tag @l10n.logo, class: 'img-fluid img-fill bg-light img-thumbnail p-5 mb-3' %>
+  </div>
+<% end %>
+```
+
 TODO :
-- Show
 - Form (new, edit)
 - Static
 
