@@ -164,9 +164,71 @@ Dans les pages d'affichage (show), il faut choisir ce qui vient de l'objet et ce
 <% end %>
 ```
 
-TODO :
-- Form (new, edit)
-- Static
+Dans les formulaires, on doit traiter 2 objets en même temps, l'`about` et sa localisation.
+
+``` erb {filename="app/views/admin/university/organizations/new.html.erb"}
+<% content_for :title, University::Organization.model_name.human %>
+<%= render 'form', 
+            organization: @organization, 
+            l10n: @l10n %>
+```
+
+``` erb {filename="app/views/admin/university/organizations/edit.html.erb"}
+<% content_for :title, @l10n %>
+<%= render 'form', 
+            organization: @organization, 
+            l10n: @l10n %>
+```
+
+Le formulaire utilise un système d'imbrication avec `simple_fields_for`, 
+qui fournit `f` comme formulaire de l'objet et `lf` comme formulaire de la localisation.
+
+``` erb {filename="app/views/admin/university/organizations/_form.html.erb"}
+<%= simple_form_for [:admin, organization] do |f| %>
+  <%= f.simple_fields_for :localizations, l10n do |lf| %>
+    <%= lf.hidden_field :language_id, value: current_language.id %>
+    <%= lf.input :name %>
+    <%= render 'admin/application/summary/form', f: lf, about: l10n %>
+    <%= lf.input :address_name %>
+    <%= f.input :address %>
+    <%= lf.input :address_additional %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%= lf.input :logo,
+                as: :single_deletable_file,
+                input_html: { accept: default_images_formats_accepted },
+                preview: 200,
+                resize: false,
+                direct_upload: true %>
+    <%= submit f %>
+  <% end %>
+<% end %>
+```
+
+Le static fait le même travail de picking entre objet et localisation.
+Attention, `@about` représente la localisation et non pas l'organisation.
+
+``` erb {filename="app/views/admin/university/organization/localizations/static.html.erb"}
+<%
+version = 2
+organization = @about.about
+cache [@about, organization, @website.id, version] do
+%>---
+<%= render 'admin/application/static/title' %>
+<%= render 'admin/application/static/contact_detail', variable: :address_name, data: @about.address_name, kind: ContactDetails::Base %>
+<%= render 'admin/application/static/contact_detail', variable: :address, data: organization.address, kind: ContactDetails::Base %>
+<%= render 'admin/application/static/contact_detail', variable: :address_additional, data: @about.address_additional, kind: ContactDetails::Base %>
+<%= render 'admin/application/static/contact_detail', variable: :zipcode, data: organization.zipcode, kind: ContactDetails::Base %>
+<%= render 'admin/application/static/contact_detail', variable: :city, data: organization.city, kind: ContactDetails::Base %>
+<% if @about.logo.attached? %>
+logo: "<%= @about.logo.blob.id %>"
+<% end %>
+<%= render 'admin/communication/blocks/content/static', about: @about %>
+---
+```
+
+Les blocs sont attachés à la localisation, donc à l'`@about`.
+
 
 ## Migration
 
@@ -271,3 +333,24 @@ Propriétés non localisées
 | zipcode | La traduction ne change rien au code postal |
 
 ### Post
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+| featured_image_alt
+| featured_image_credit
+| meta_description
+| migration_identifier
+| pinned
+| published
+| published_at
+| slug
+| summary
+| text
+| title
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
