@@ -123,7 +123,7 @@ Les params distinguent propriétés localisées et non localisées :
 Dans les listes, on doit récupérer la bonne localisation.
 Ce code doit être factorisé.
 
-```ruby {filename="app/views/admin/university/organizations/_list.html.erb"}
+```erb {filename="app/views/admin/university/organizations/_list.html.erb"}
   <% organizations.each do |organization| 
     l10n = organization.localization_for(current_language)
     if l10n.present?
@@ -142,6 +142,11 @@ Ce code doit être factorisé.
     end
     %>
 ```
+
+TODO :
+- Show
+- Form (new, edit)
+- Static
 
 ## Migration
 
