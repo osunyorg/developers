@@ -120,6 +120,29 @@ Les params distinguent propriétés localisées et non localisées :
 
 ### Views
 
+Dans les listes, on doit récupérer la bonne localisation.
+Ce code doit être factorisé.
+
+```ruby {filename="app/views/admin/university/organizations/_list.html.erb"}
+  <% organizations.each do |organization| 
+    l10n = organization.localization_for(current_language)
+    if l10n.present?
+      # On a la loca dans la bonne langue
+      published = true
+      name = l10n.to_s
+      classes = ''
+      alert = ''
+    else
+      # On n'a pas la loca, on se rabat sur l'original
+      published = false
+      l10n = organization.original_localization
+      name = l10n.to_s
+      classes = 'fst-italic'
+      alert = t('localization.creation_alert')
+    end
+    %>
+```
+
 ## Migration
 
 Toutes les informations localisées sont supprimées de l'organisation elle-même, et déplacées dans la localisation.
