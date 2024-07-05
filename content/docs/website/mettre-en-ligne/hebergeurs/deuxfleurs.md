@@ -23,7 +23,7 @@ Cela concerne le domaine nu, appelé aussi apex.
 Si le domaine que vous avez choisi est un domaine racine (ex: monsite.fr), vous devrez créer un `ALIAS` vers `production.osuny.site.`. Si votre registrar (Gandi, OVH...) ne permet pas l'alias à l'APEX, il faudra faire une redirection vers www en http et https.
 
 ```DNS
-www IN ALIAS osuny.production.site.
+www IN ALIAS production.osuny.site.
 ```
 
 ### Avec www
@@ -33,7 +33,7 @@ Cela concerne aussi tout autre sous-domaine que www.
 Si le domaine que vous avez choisi est un sous-domaine (ex: www.monsite.fr), vous devrez créer un `CNAME` vers `production.osuny.site.`.
 
 ```DNS
-www IN CNAME osuny.production.site.
+www IN CNAME production.osuny.site.
 ```
 
 ## Mise en ligne manuelle (obsolète)

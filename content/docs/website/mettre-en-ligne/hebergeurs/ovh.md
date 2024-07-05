@@ -12,7 +12,7 @@ On peut soit utiliser OVH comme registrar, pour faire pointer son nom de domaine
 Il faut faire un pointage CNAME 
 
 ```DNS
-www IN CNAME osuny.production.site.
+www IN CNAME production.osuny.site.
 ```
 
 Comme OVH ne permet pas les ALIAS à l'apex, il faut faire une redirection. Malheureusement, OVH ne sait pas non plus faire des redirections en HTTPS à l'apex, donc il faut activer l'hébergement gratuit, et poser un fichier .htaccess avec un redirect
