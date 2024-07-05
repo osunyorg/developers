@@ -338,19 +338,21 @@ Propriétés localisées
 
 | Propriété | Explication |
 |-|-|
-| featured_image_alt
-| featured_image_credit
-| meta_description
-| migration_identifier
-| pinned
-| published
-| published_at
-| slug
-| summary
-| text
-| title
+| featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
+| featured_image_alt | Il faut donc traduire les textes en question |
+| featured_image_credit | Le crédit peut être traduit ("Photo par...", "Photo by...")
+| meta_description | La description de l'actualité est dans la langue |
+| migration_identifier | Il faut des identifiants de migration pour tout |
+| pinned | La gestion éditoriale peut être différente dans chaque langue |
+| published | Il faut pouvoir choisir quand une version est prête. |
+| published_at | Pas forcément de cas d'usage au published_at par language, mais l'algo s'appuie sur une combinaison de `published` et `published_at` donc ça paraît une très mauvaise idée de les séparer |
+| slug | Le slug dépend du title |
+| summary | Le résumé est traduit |
+| text | Le texte est traduit |
+| title | Le titre est traduit |
 
 Propriétés non localisées 
 
 | Propriété | Explication |
 |-|-|
+| migration_identifier | Un identifiant dans le `Post`, un autre dans la `Localization` |
