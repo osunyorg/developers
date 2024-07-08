@@ -373,3 +373,27 @@ Propriétés non localisées
 | Propriété | Explication |
 |-|-|
 | migration_identifier | Un identifiant dans le `Post`, un autre dans la `Localization` |
+
+### Post Category
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+| featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
+| featured_image_alt | Il faut donc traduire les textes en question |
+| featured_image_credit | Le crédit peut être traduit ("Photo par...", "Photo by...")
+| meta_description | La description de la catégorie est dans la langue |
+| name | Le nom est traduit |
+| path | Le chemin est lié au slug |
+| slug | Le slug dépend du name |
+| summary | Le résumé est traduit |
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
+| is_programs_root | Lié à l'arbre de catégories des formations |
+| parent_id | L'arbre de catégories est indépendant des localisations |
+| position | La position est lié à l'arbre de catégories |
+| program_id | Lié à l'arbre de catégories des formations |
