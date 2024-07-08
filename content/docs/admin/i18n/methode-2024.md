@@ -229,6 +229,23 @@ logo: "<%= @about.logo.blob.id %>"
 
 Les blocs sont attachés à la localisation, donc à l'`@about`.
 
+## Synchronisation
+
+Il faut rajouter une entrée dans le mapping des permalinks pour la localisation, en reprennant le mapping de l'objet initial, qui lui, ne sera plus envoyé sur Git.
+
+``` ruby {filename="app/models/communication/website/permalink/with_mapping.rb"}
+module Communication::Website::Permalink::WithMapping
+  extend ActiveSupport::Concern
+
+  included do
+    MAPPING = {
+      # ...
+      "University::Organization::Localization" => Communication::Website::Permalink::Organization,
+      # ...
+    }
+  # ...
+end
+```
 
 ## Migration
 
@@ -292,25 +309,6 @@ Pour gérer la migration, cela se fait en 2 passes, d'abord le déplacement, pui
 
     l10n.save
   end
-```
-
-## Synchronisation
-
-Il faut rajouter une entrée dans le mapping des permalinks pour la localisation, en reprennant le mapping de l'objet initial, qui lui, ne sera plus envoyé sur Git.
-
-``` ruby {filename="app/models/communication/website/permalink/with_mapping.rb,hl_lines=8,linenos=table,linenostart=1"}
-module Communication::Website::Permalink::WithMapping
-  extend ActiveSupport::Concern
-
-  included do
-    MAPPING = {
-      # ...
-      "University::Organization" => Communication::Website::Permalink::Organization, # TODO L10N : To remove
-      "University::Organization::Localization" => Communication::Website::Permalink::Organization,
-      # ...
-    }
-  # ...
-end
 ```
 
 ### Organization
