@@ -18,8 +18,8 @@ Et on choisit la langue par défaut du site parmi les langues sélectionnées (o
 
 Un choix de langue dans le menu permet de naviguer entre les langues de l'Université, ou entre les langues du site Web (qui peut être un ensemble plus réduit).
 
-### Exemple
 
+Exemple :
 - Université en 3 langues (anglais, français, italien)
 - Site en 2 langues (anglais, français)
 
@@ -30,3 +30,6 @@ Si l'on navigue en italien et qu'on va sur le site, il pourrait y avoir 2 logiqu
 - proposer de créer le site en italien
 - rediriger vers l'anglais ou le français
 
+## Doctrine
+
+Aucune traduction automatique ne doit être publiée sans validation humaine.
