@@ -118,7 +118,7 @@ jobs:
     - name: Installation de Node
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: 'lts/*'
         cache: 'yarn'
 
     - name: Installation des dépendances JavaScript
