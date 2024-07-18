@@ -66,9 +66,11 @@ Notez l'**ID** qui vous est retourné, vous en aurez besoin.
 ![image](https://github.com/noesya/osuny-developers/assets/7761386/33abdf14-7a59-4fbd-8aac-64422d55ece5)
 
 
-### Configuration du déploiement
- 
+### Configuration du déploiement (dépréciée)
+
+{{< callout type="warning" >}}
 Cette partie de la documentation est obsolète parce que tout est généré automatiquement par Osuny.
+{{< /callout >}}
 
 Pour publier chez Deuxfleurs, il faut utiliser une action GitHub, c’est à dire une tâche qui va s’exécuter à chaque modification du site.
 
