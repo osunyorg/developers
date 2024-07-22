@@ -73,6 +73,111 @@ class University::Organization::Localization < ApplicationRecord
   include AsLocalization
 ```
 
+Il faut rajouter une entrée dans le mapping des permalinks pour la localisation, en reprenant le mapping de l'objet initial, qui lui, ne sera plus envoyé sur Git.
+
+``` ruby {filename="app/models/communication/website/permalink/with_mapping.rb"}
+module Communication::Website::Permalink::WithMapping
+  extend ActiveSupport::Concern
+
+  included do
+    MAPPING = {
+      # ...
+      "University::Organization::Localization" => Communication::Website::Permalink::Organization,
+      # ...
+    }
+  # ...
+end
+```
+
+#### Objet indirect
+
+L'exemple suivant est la `Person`, mais cela fonctionne à l'identique pour les autres objets indirects (`Organization`, `Program`...).
+
+``` ruby {filename="app/models/university/person.rb"}
+class University::Person < ApplicationRecord
+  include AsIndirectObject
+  include Localizable
+```
+
+Le module `AsIndirectObject` gère les dépendances, les références et les connexions.
+
+Le module `Localizable` gère le lien aux localisations (dans ce cas, c'est le modèle `University::Person::Localization`).
+
+{{< callout type="warning" >}}
+Il n'y a plus les modules...
+- `WithGitFiles` parce que l'objet lui-même n'est pas envoyé sur Git, ce sont ses localisations qui sont envoyées.  
+- `Permalinkable` parce que le path et le slug dépendent de la langue.
+- `Contentful` parce que l'objet lui-même n'a plus de blocs, ce sont ses localisations qui en ont.
+- `Backlinkable` parce que ce sont les localisations, plus précisément les blocks liés aux localisations, qui créent les backlinks.
+{{</ callout >}}
+
+``` ruby {filename="app/models/university/person/localization.rb"}
+class University::Person::Localization < ApplicationRecord
+  include AsLocalization
+  include Backlinkable
+  include Contentful
+  include Permalinkable
+  include WithGitFiles
+```
+
+Le module `AsLocalization` gère le lien à la langue, à l'objet et à l'université concernés.  Il fournit aussi les dépendances.
+Le module `Backlinkable` fournit les liens inverses, cf paragraphe ci-dessous.
+Le module `Contentful` ajoute les blocs.
+Le module `Permalinkable` permet le calcul des chemins.
+Le module `Sluggable` est maintenant intégré dans `Permalinkable`.
+Le module `WithGitFiles` permet l'export vers Git.
+
+{{< callout type="warning" >}}
+Une localisation n'a aucune référence directe. Toutes les références (par les blocs par exemple) sont liées à l'objet (`Person` ici).
+{{</ callout >}}
+
+Les localisations n'incluent PAS le module `AsIndirectObject`, même si des comportements sont communs. 
+Ils n'ont pas de connexions, pas de références, ne sont pas sauvegardés directement (on les sauve via les formulaires des objets eux-même)
+Et c'est assez compliqué comme ça conceptuellement, on n'en rajoute pas, merci.
+
+#### Objet direct
+
+L'exemple suivant est le `Post`, mais cela fonctionne à l'identique pour les autres objets directs (`Event`, `Project`...).
+
+La question est de savoir si le module `AsDirectObject` continue d'inclure en cascade les modules `WithGit` et `WithGitFiles`. 
+Il parait évident qu'il n'y a plus de `WithGitFiles` car ce sont les localisations qui vont prendre la main. 
+Par contre c'est toujours l'objet lui-même qui est sauvé, et qui déclenche l'envoi sur Git.
+
+``` ruby {filename="app/models/communication/website/post.rb"}
+class Communication::Website::Post < ApplicationRecord
+  include AsDirectObject
+  include Localizable
+```
+
+Le module `AsDirectObject` gère les dépendances, les références et les connexions, et les fonctionnalités de synchronisation.
+
+Le module `Localizable` gère le lien aux localisations (dans ce cas, c'est le modèle `University::Person::Localization`).
+
+{{< callout type="warning" >}}
+Il n'y a plus les modules...
+- `WithGitFiles` parce que l'objet lui-même n'est pas envoyé sur Git, ce sont ses localisations qui sont envoyées.  
+- `Permalinkable` parce que le path et le slug dépendent de la langue.
+- `Contentful` parce que l'objet lui-même n'a plus de blocs, ce sont ses localisations qui en ont.
+- `Backlinkable` parce que ce sont les localisations, plus précisément les blocks liés aux localisations, qui créent les backlinks.
+{{</ callout >}}
+
+``` ruby {filename="app/models/communication/website/post/localization.rb"}
+class Communication::Website::Post::Localization < ApplicationRecord
+  include AsLocalization
+  include Contentful
+  include Permalinkable
+  include WithGitFiles
+```
+Identique à `University::Person::Localization`.
+La plupart des localisations partagent ces modules, mais pour autant ce ne sont pas des caractéristiques intrinsèques. 
+C'est pourquoi on ne les ajoute pas au module `AsLocalization`.
+
+#### Backlinks
+
+Les backlinks lient maintenant une localisation (de `Post` par exemple) à une localisation de `Person`. 
+On fait cette jointure sur les localisations parce qu'un bloc d'une actualité en italien peut pointer vers une personne sans que son équivalent français pointe vers la même personne. 
+Du coup les backlinks sont dépendants du contexte linguistique.
+
 ### Controllers
 
 Les contrôleurs utilisent le concern `Admin::Localizable`
@@ -106,7 +211,8 @@ Les params distinguent propriétés localisées et non localisées :
           .permit(
             :active, :siren, :kind, :address, :zipcode, :city, :country, :phone, :email, category_ids: [],
             localizations_attributes: [
-              :id, :name, :long_name, :slug, :meta_description, :summary, :text,
+              :id, # Cet identifiant sert à définir quelle localisation est éditée (donc quelle langue) 
+              :name, :long_name, :slug, :meta_description, :summary, :text,
               :address_name, :address_additional,
               :url, :linkedin, :twitter, :mastodon,
               :logo, :logo_delete, :logo_infos,
@@ -229,23 +335,6 @@ logo: "<%= @about.logo.blob.id %>"
 
 Les blocs sont attachés à la localisation, donc à l'`@about`.
 
-## Synchronisation
-
-Il faut rajouter une entrée dans le mapping des permalinks pour la localisation, en reprennant le mapping de l'objet initial, qui lui, ne sera plus envoyé sur Git.
-
-``` ruby {filename="app/models/communication/website/permalink/with_mapping.rb"}
-module Communication::Website::Permalink::WithMapping
-  extend ActiveSupport::Concern
-
-  included do
-    MAPPING = {
-      # ...
-      "University::Organization::Localization" => Communication::Website::Permalink::Organization,
-      # ...
-    }
-  # ...
-end
-```
 
 ## Migration
 
@@ -349,6 +438,9 @@ Propriétés non localisées
 | siren | Siren et NIC sont trop français, il faudrait un nom de propriété international. Quoi qu'il en soit, ça ne change pas en fonction de la langue. |
 | zipcode | La traduction ne change rien au code postal |
 
+### Organization::Category
+
+
 ### Post
 
 Propriétés localisées 
@@ -374,7 +466,7 @@ Propriétés non localisées
 |-|-|
 | migration_identifier | Un identifiant dans le `Post`, un autre dans la `Localization` |
 
-### Post Category
+### Post::Category
 
 Propriétés localisées 
 
