@@ -142,6 +142,7 @@ L'exemple suivant est le `Post`, mais cela fonctionne à l'identique pour les au
 La question est de savoir si le module `AsDirectObject` continue d'inclure en cascade les modules `WithGit` et `WithGitFiles`. 
 Il parait évident qu'il n'y a plus de `WithGitFiles` car ce sont les localisations qui vont prendre la main. 
 Par contre c'est toujours l'objet lui-même qui est sauvé, et qui déclenche l'envoi sur Git.
+Il faut donc renlever le `WithGitFiles` mais laisser le `WithGit`.
 
 ``` ruby {filename="app/models/communication/website/post.rb"}
 class Communication::Website::Post < ApplicationRecord
