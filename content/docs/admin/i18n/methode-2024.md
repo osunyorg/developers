@@ -572,6 +572,19 @@ Propriétés non localisées
 
 #### Page
 
+Une grande question concerne les pages spéciales.
+Ce sont les pages comme l'accueil, ou l'index des actualités, qui ont un fonctionnement et/ou un rôle particulier dans le site.
+Ces objets sont implémentés en utilisant la Single-Table Inheritance (STI) native de Ruby on Rails.
+Conceptuellement, rien ne change, ce sont bien les pages qui ont des types spéciaux.
+
+- https://www.martinfowler.com/eaaCatalog/singleTableInheritance.html
+- https://api.rubyonrails.org/classes/ActiveRecord/Inheritance.html
+
+Toutefois cela impacte l'implémentation :
+- les dépendances partagées avec les localisations
+- le `git_path`
+
+
 Propriétés localisées 
 
 | Propriété | Explication |
