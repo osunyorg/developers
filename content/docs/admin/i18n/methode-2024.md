@@ -343,6 +343,7 @@ Toutes les informations localisées sont supprimées de l'organisation elle-mêm
 Pour gérer la migration, cela se fait en 2 passes, d'abord le déplacement, puis la suppression.
 
 ``` ruby {filename="migration"}
+  # Etape 1 : créer la localisation
   create_table :university_organization_localizations, id: :uuid do |t|
     t.string  :address_additional
     t.string  :address_name
@@ -364,6 +365,7 @@ Pour gérer la migration, cela se fait en 2 passes, d'abord le déplacement, pui
     t.timestamps
   end
 
+  # Etape 2 migrer les données
   University::Organization.find_each do |orga|
     # If "old way" translation, we set the about to the original, else if "old way" master, we take its ID.
     about_id = orga.original_id || orga.id
@@ -401,7 +403,9 @@ Pour gérer la migration, cela se fait en 2 passes, d'abord le déplacement, pui
   end
 ```
 
-### Organization
+### Objets indirects
+
+#### Organization
 
 Propriétés localisées 
 
@@ -439,10 +443,86 @@ Propriétés non localisées
 | siren | Siren et NIC sont trop français, il faudrait un nom de propriété international. Quoi qu'il en soit, ça ne change pas en fonction de la langue. |
 | zipcode | La traduction ne change rien au code postal |
 
-### Organization::Category
+#### Organization::Category
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+| name | Le nom est traduit |
+| slug | Le slug dépend du name |
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
+| parent_id | L'arbre de catégories est indépendant des localisations |
+| position | La position est lié à l'arbre de catégories |
+
+#### Person
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+| biography | La biographie doit être traduite |
+| first_name | Le prénom semble être non traduisible, mais... Sacha en russe, c'est Саша |
+| last_name | Idem prénom |
+| linkedin | Les urls sont différentes par langue |
+| mastodon | Il peut y avoir un compte différent par langue |
+| meta_description | La description doit être traduite |
+| name | Dénormalisation de first name + last name |
+| picture_credit | Crédit traduit (par, by...) |
+| slug | dépend du name |
+| summary | Résumé traduit |
+| twitter | Il peut y avoir un compte par langue|
+| url | Les urls sont différentes par langue, soit /fr /en, soit des sous-domaines, soit des extensions .fr ou .co.uk |
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
+| address | L'adresse est identique quelle que soit la langue |
+| address_visibility | |
+| birthdate | La date de naissance ne dépend pas de la langue |
+| city | La ville est identique quelle que soit la langue |
+| country | Le pays est un code (FR, IT), donc neutre linguistiquement |
+| email | Pas évident du tout : pourquoi un mail unique ? |
+| email_visibility | |
+| gender | |
+| habilitation | |
+| is_administration | |
+| is_alumnus | |
+| is_author | |
+| is_researcher | |
+| is_teacher | |
+| last_name | |
+| linkedin_visibility | |
+| mastodon_visibility | |
+| tenure | |
+| twitter_visibility | |
+| zipcode | |
+
+#### Person::Category
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+| name | Le nom est traduit |
+| slug | Le slug dépend du name |
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
+| parent_id | L'arbre de catégories est indépendant des localisations |
+| position | La position est lié à l'arbre de catégories |
 
 
-### Post
+### Objets directs
+
+#### Post
 
 Propriétés localisées 
 
@@ -467,7 +547,7 @@ Propriétés non localisées
 |-|-|
 | migration_identifier | Un identifiant dans le `Post`, un autre dans la `Localization` |
 
-### Post::Category
+#### Post::Category
 
 Propriétés localisées 
 
@@ -490,3 +570,15 @@ Propriétés non localisées
 | parent_id | L'arbre de catégories est indépendant des localisations |
 | position | La position est lié à l'arbre de catégories |
 | program_id | Lié à l'arbre de catégories des formations |
+
+#### Page
+
+Propriétés localisées 
+
+| Propriété | Explication |
+|-|-|
+
+Propriétés non localisées 
+
+| Propriété | Explication |
+|-|-|
