@@ -461,6 +461,26 @@ Propriétés non localisées
 
 #### Person
 
+Les personnes ont des facettes : `Administrator`, `Author`, `Researcher`, `Teacher`.
+Les facettes sont activées par des booléens, comme `is_author` (attention il y a des subtilités).
+Ces 4 facettes permettent de gérer les 5 pages différentes possibles pour une même personne dans Hugo.
+Les facettes sont donc devenues des classes qui héritent de la localisation et plus de la personne elle-même.
+Dans les dépendances des pages spéciales, comme la page qui liste les administrateurs, il faut lister les administrateurs.
+Attention, prendre toutes les personnes qui ont un rôle d'administration amènerait à une situation fausse : 
+une personne pourrait être administratrice dans un site d'une formation, alors qu'elle n'a pas de rôle administratif dans la formation, mais dans l'école. 
+Il faut donc se limiter au contexte du site.
+
+``` ruby {filename="app/models/communication/website/page/administrator.rb"}
+def dependencies_administrators
+  University::Person::Localization::Administrator.where(
+    about_id: website.administrators.pluck(:id),
+    language_id: website.active_language_ids
+  )
+end
+```
+On récupère les facettes de localisations `Administrator` des personnes qui ont un rôle administratif pour ce site.
+La limite aux langues actives évite d'envoyer des langues non utilisées dans le site.
+
 Propriétés localisées 
 
 | Propriété | Explication |
@@ -501,26 +521,6 @@ Propriétés non localisées
 | tenure | Les états de la personne ne dépendent pas des langues |
 | twitter_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
 | zipcode | Les états de la personne ne dépendent pas des langues |
-
-Les personnes ont des facettes : `Administrator`, `Author`, `Researcher`, `Teacher`.
-Les facettes sont activées par des booléens, comme `is_author` (attention il y a des subtilités).
-Ces 4 facettes permettent de gérer les 5 pages différentes possibles pour une même personne dans Hugo.
-Les facettes sont donc devenues des classes qui héritent de la localisation et plus de la personne elle-même.
-Dans les dépendances des pages spéciales, comme la page qui liste les administrateurs, il faut lister les administrateurs.
-Attention, prendre toutes les personnes qui ont un rôle d'administration amènerait à une situation fausse : 
-une personne pourrait être administratrice dans un site d'une formation, alors qu'elle n'a pas de rôle administratif dans la formation, mais dans l'école. 
-Il faut donc se limiter au contexte du site.
-
-``` ruby {filename="app/models/communication/website/page/administrator.rb"}
-def dependencies_administrators
-  University::Person::Localization::Administrator.where(
-    about_id: website.administrators.pluck(:id),
-    language_id: website.active_language_ids
-  )
-end
-```
-On récupère les facettes de localisations `Administrator` des personnes qui ont un rôle administratif pour ce site.
-La limite aux langues actives évite d'envoyer des langues non utilisées dans le site.
 
 #### Person::Category
 
