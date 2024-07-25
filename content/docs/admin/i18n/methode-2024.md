@@ -487,21 +487,20 @@ Propriétés non localisées
 | birthdate | La date de naissance ne dépend pas de la langue |
 | city | La ville est identique quelle que soit la langue |
 | country | Le pays est un code (FR, IT), donc neutre linguistiquement |
-| email | Pas évident du tout : pourquoi un mail unique ? |
-| email_visibility | |
-| gender | |
-| habilitation | |
-| is_administration | |
-| is_alumnus | |
-| is_author | |
-| is_researcher | |
-| is_teacher | |
-| last_name | |
-| linkedin_visibility | |
-| mastodon_visibility | |
-| tenure | |
-| twitter_visibility | |
-| zipcode | |
+| email | Pas évident du tout : pourquoi un mail unique ? C'est probablement le cas le plus commun |
+| email_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
+| gender | Le genre ne dépend pas des langues |
+| habilitation | Les états de la personne ne dépendent pas des langues |
+| is_administration | Les états de la personne ne dépendent pas des langues |
+| is_alumnus | Les états de la personne ne dépendent pas des langues |
+| is_author | Les états de la personne ne dépendent pas des langues |
+| is_researcher | Les états de la personne ne dépendent pas des langues |
+| is_teacher | Les états de la personne ne dépendent pas des langues |
+| linkedin_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
+| mastodon_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
+| tenure | Les états de la personne ne dépendent pas des langues |
+| twitter_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
+| zipcode | Les états de la personne ne dépendent pas des langues |
 
 #### Person::Category
 
