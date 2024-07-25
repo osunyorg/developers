@@ -633,4 +633,5 @@ Propriétés non localisées
 | full_width | Gestion centralisée |
 | position | Gestion centralisée |
 | migration_identifier | Identifiant utilisé par l'API, présent des 2 côtés |
+| parent_id | L'arbre des pages est indépendant des localisations |
 | type | Propriété utilisée pour la STI |
