@@ -583,14 +583,34 @@ Conceptuellement, rien ne change, ce sont bien les pages qui ont des types spéc
 Toutefois cela impacte l'implémentation :
 - les dépendances partagées avec les localisations
 - le `git_path`
-
+- une petite partie du fichier statique
 
 Propriétés localisées 
 
 | Propriété | Explication |
 |-|-|
+| breadcrumb_title | Titre traduit |
+| featured_image_alt | Description alternative traduite |
+| featured_image_credit | Crédit traduit |
+| header_cta  | Une langue peut avoir un CTA et l'autre pas |
+| header_cta_label | Texte traduit |
+| header_cta_url | URL traduite |
+| header_text | Texte traduit |
+| meta_description | Texte traduit |
+| migration_identifier | Identifiant utilisé par l'API, présent des 2 côtés |
+| published | Publication différenciée |
+| published_at | Date différenciée |
+| slug | Le slug dépend du name |
+| summary | Texte traduit |
+| text | Texte traduit |
+| title | Texte traduit |
 
 Propriétés non localisées 
 
 | Propriété | Explication |
 |-|-|
+| bodyclass | Gestion centralisée |
+| full_width | Gestion centralisée |
+| position | Gestion centralisée |
+| migration_identifier | Identifiant utilisé par l'API, présent des 2 côtés |
+| type | Propriété utilisée pour la STI |
