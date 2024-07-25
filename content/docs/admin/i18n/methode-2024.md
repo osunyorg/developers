@@ -464,7 +464,8 @@ Propriétés non localisées
 Les personnes ont des facettes : `Administrator`, `Author`, `Researcher`, `Teacher`.
 Les facettes sont activées par des booléens, comme `is_author` (attention il y a des subtilités).
 Ces 4 facettes permettent de gérer les 5 pages différentes possibles pour une même personne dans Hugo.
-Les facettes sont donc devenues des classes qui héritent de la localisation et plus de la personne elle-même.
+Les facettes sont devenues des classes qui héritent de la localisation et plus de la personne elle-même, 
+parce qu'elles ont un slug qui dépend du nom (traduit).
 Dans les dépendances des pages spéciales, comme la page qui liste les administrateurs, il faut lister les administrateurs.
 Attention, prendre toutes les personnes qui ont un rôle d'administration amènerait à une situation fausse : 
 une personne pourrait être administratrice dans un site d'une formation, alors qu'elle n'a pas de rôle administratif dans la formation, mais dans l'école. 
@@ -610,6 +611,7 @@ Propriétés localisées
 | Propriété | Explication |
 |-|-|
 | breadcrumb_title | Titre traduit |
+| featured_image | L'image peut être différente, notamment si elle contient des textes (une affiche par ex.) |
 | featured_image_alt | Description alternative traduite |
 | featured_image_credit | Crédit traduit |
 | header_cta  | Une langue peut avoir un CTA et l'autre pas |
@@ -620,6 +622,7 @@ Propriétés localisées
 | migration_identifier | Identifiant utilisé par l'API, présent des 2 côtés |
 | published | Publication différenciée |
 | published_at | Date différenciée |
+| shared_image | L'image de partage contient souvent des textes |
 | slug | Le slug dépend du name |
 | summary | Texte traduit |
 | text | Texte traduit |
