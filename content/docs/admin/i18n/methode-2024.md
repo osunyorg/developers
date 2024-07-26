@@ -407,9 +407,7 @@ Pour gérer la migration, cela se fait en 2 passes, d'abord le déplacement, pui
 
 #### Organization
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | address_additional | Cette propriété est très versatile, mais on peut imaginer traduire "Bureau 508" |
 | address_name | "Head office", "Siège social"... |
@@ -426,9 +424,7 @@ Propriétés localisées
 | logo | Le logo peut être complètement différent (si le nom l'est) ou juste avoir des variantes locales |
 | logo_on_dark_background | Idem logo |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | active | Pas évident du tout : faut-il pouvoir désactiver l'orga entière ? Ou bien les locas ? |
 | address | L'adresse est identique quelle que soit la langue |
@@ -445,16 +441,12 @@ Propriétés non localisées
 
 #### Organization::Category
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | name | Le nom est traduit |
 | slug | Le slug dépend du name |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | parent_id | L'arbre de catégories est indépendant des localisations |
 | position | La position est lié à l'arbre de catégories |
@@ -482,9 +474,7 @@ end
 On récupère les facettes de localisations `Administrator` des personnes qui ont un rôle administratif pour ce site.
 La limite aux langues actives évite d'envoyer des langues non utilisées dans le site.
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | biography | La biographie doit être traduite |
 | first_name | Le prénom semble être non traduisible, mais... Sacha en russe, c'est Саша |
@@ -499,9 +489,7 @@ Propriétés localisées
 | twitter | Il peut y avoir un compte par langue|
 | url | Les urls sont différentes par langue, soit /fr /en, soit des sous-domaines, soit des extensions .fr ou .co.uk |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | address | L'adresse est identique quelle que soit la langue |
 | address_visibility | |
@@ -525,16 +513,12 @@ Propriétés non localisées
 
 #### Person::Category
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | name | Le nom est traduit |
 | slug | Le slug dépend du name |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | parent_id | L'arbre de catégories est indépendant des localisations |
 | position | La position est lié à l'arbre de catégories |
@@ -544,9 +528,7 @@ Propriétés non localisées
 
 #### Post
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
 | featured_image_alt | Il faut donc traduire les textes en question |
@@ -561,17 +543,13 @@ Propriétés localisées
 | text | Le texte est traduit |
 | title | Le titre est traduit |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | migration_identifier | Un identifiant dans le `Post`, un autre dans la `Localization` |
 
 #### Post::Category
 
-Propriétés localisées 
-
-| Propriété | Explication |
+| Propriété localisée | Explication |
 |-|-|
 | featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
 | featured_image_alt | Il faut donc traduire les textes en question |
@@ -582,9 +560,7 @@ Propriétés localisées
 | slug | Le slug dépend du name |
 | summary | Le résumé est traduit |
 
-Propriétés non localisées 
-
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | is_programs_root | Lié à l'arbre de catégories des formations |
 | parent_id | L'arbre de catégories est indépendant des localisations |
@@ -606,9 +582,18 @@ Toutefois cela impacte l'implémentation :
 - le `git_path`
 - une petite partie du fichier statique
 
-Propriétés localisées 
 
-| Propriété | Explication |
+Un cas particulier se produit quand un objet, qu'il s'agisse d'une actualité ou d'une personne, est localisé dans une langue alors que sa page spéciale ne l'est pas.
+
+
+2 possibilités :
+1. soit on considère qu'on ne peut pas afficher l'objet du tout, ce qui ne paraît pas très pertinent
+2. soit on considère qu'il faut afficher l'objet, avec un chemin pas trop faux
+Concrètement, ça peut donner `/en/equipe/pierre-andre-boissinot`.
+Quand la page spéciale Équipe sera traduite, l'url deviendra `/en/team/pierre-andre-boissinot`, et le système de permalinks gèrera la redirection.
+
+
+| Propriété localisée | Explication |
 |-|-|
 | breadcrumb_title | Titre traduit |
 | featured_image | L'image peut être différente, notamment si elle contient des textes (une affiche par ex.) |
@@ -628,9 +613,8 @@ Propriétés localisées
 | text | Texte traduit |
 | title | Texte traduit |
 
-Propriétés non localisées 
 
-| Propriété | Explication |
+| Propriété non localisée | Explication |
 |-|-|
 | bodyclass | Gestion centralisée |
 | full_width | Gestion centralisée |
