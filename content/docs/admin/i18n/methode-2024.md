@@ -622,3 +622,14 @@ Quand la page spéciale Équipe sera traduite, l'url deviendra `/en/team/pierre-
 | migration_identifier | Identifiant utilisé par l'API, présent des 2 côtés |
 | parent_id | L'arbre des pages est indépendant des localisations |
 | type | Propriété utilisée pour la STI |
+
+#### Menu 
+
+Les menus sont différents dans chaque langue, il ne s'agit pas de localisation. On garde la logique de `language_id`, mais on supprime la notion d'`original_id`.
+
+Comme les menus dans différentes langues partagent un identifiant (par exemple `primary`), on s'appuie sur cet identifiant pour passer d'une langue à l'autre dans un menu. 
+
+Les identifiants ne peuvent être définis qu'à la création du menu.
+
+#### Menu::Item
+
