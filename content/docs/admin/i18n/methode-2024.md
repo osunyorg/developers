@@ -511,6 +511,14 @@ La limite aux langues actives évite d'envoyer des langues non utilisées dans l
 | twitter_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
 | zipcode | Les états de la personne ne dépendent pas des langues |
 
+Les personnes ont 3 tables liées : 
+- `university_person_experiences`
+- `university_person_involvements`
+- `university_roles`
+
+Ces 3 tables n'avaient pas de gestion des langues avant l'énorme [PR 2025](https://github.com/osunyorg/admin/pull/2025).
+Il n'y a donc rien à migrer.
+
 #### Person::Category
 
 | Propriété localisée | Explication |
