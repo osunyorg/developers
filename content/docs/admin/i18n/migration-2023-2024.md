@@ -272,6 +272,42 @@ Enfin, les méthodes protégées :
 
 #### Modifier l'objet principal
 
+``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
+class Communication::Website::Agenda::Event < ApplicationRecord
+  ...
+  include Contentful # TODO L10N : To remove
+  ...
+  include Shareable # TODO L10N : To remove
+  ...
+  include WithBlobs # TODO L10N : To remove
+  ...
+  include WithFeaturedImage # TODO L10N : To remove
+  ...
+  # TODO L10N : remove after migrations
+  has_many  :permalinks,
+            class_name: "Communication::Website::Permalink",
+            as: :about,
+            dependent: :destroy
+  ...
+end
+```
+On supprime les traits inutiles :
+- `Permalinkable` (et on ajoute un has_many permalinks pour permettre la migration)
+- `WithCal` parce que les liens d'ajouts calendrier contiennent le titre, et sont donc localisés
+
+
+On marque les traits à supprimer en phase 2, après migration (`TODO L10N : To remove`).
+
+
+On supprime les méthodes qui passent dans la localisation : 
+- `def git_path(website)`
+- `def git_path_relative`
+- `def template_static`
+- `def to_s`
+- `def check_accessibility`
+- `def explicit_blob_ids`
+
+On enlève les `active_storage_blobs` des `dependencies`
 
 #### Mapper le permalink
 
@@ -283,11 +319,213 @@ Il faut ajouter la localisation au tableau MAPPING pour faire le lien avec la cl
 ...
 ```
 
+### 3. Contrôleur
 
-### 3. Controleur
+Il n'y a pas de contrôleur dédié aux localisations, on utilise celui des événements.
+Il faut ajouter le trait `Admin::HasStaticAction` et supprimer la méthode static.
+Dans l'action index, il faut remplacer `for_language(current_language)` par `tmp_original # TODO L10N : To remove`.
+Dans les notices, il faut remplacer les `to_s` par des `to_s_in(current_language)`.
+
+Enfin, il faut autoriser les attributs des localisations.
+Cela veut dire :
+- couper les propriétés localisées de l'événement
+- créer une propriété `localizations_attributes`
+- dedans, intégrer `id` et `language_id`
+- coller les propriétés localisées
+
+``` ruby {filename="app/controllers/admin/communication/websites/agenda/events_controller.rb"}
+  def event_params
+    params.require(:communication_website_agenda_event)
+    .permit(
+      :from_day, :from_hour, :to_day, :to_hour, :time_zone,
+      category_ids: [],
+      localizations_attributes: [
+        :id, :title, :subtitle, :meta_description, :summary, :text,
+        :published, :published_at, :slug, 
+        :featured_image, :featured_image_delete, :featured_image_infos, :featured_image_alt, :featured_image_credit,
+        :shared_image, :shared_image_delete, :shared_image_infos,
+        :language_id
+      ]
+    )
+    .merge(
+      university_id: current_university.id,
+      language_id: current_language.id
+    )
+  end
+```
+
 ### 4. Vues
+
+#### Formulaire
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/_form.html.erb"}
+<%= simple_form_for [:admin, event] do |f| %>
+  <%= f.simple_fields_for :localizations, l10n do |lf| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= lf.hidden_field :language_id, value: current_language.id %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <%= osuny_panel t('content') do %>
+          <%= lf.input :title, input_html: { data: { translatable: true } } %>
+          <%= lf.input :subtitle, input_html: { data: { translatable: true } } %>
+          <%= render 'admin/application/summary/form', f: lf, about: l10n %>
+        <% end %>
+        <%= osuny_panel Communication::Website::Agenda::Event.human_attribute_name('dates') do %>
+          <div class="row pure__row--small">
+            <div class="col-md-6">
+              <%= f.input :from_day, html5: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :from_hour, html5: true %>
+            </div>
+...
+```
+On ajoute un formulaire niché pour la localisation (lf, pour localisation_form), et on fait pointer les propriétés vers `f` ou `lf`.
+On ajoute également un champ caché pour la langue.
+Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
+
+#### Liste
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/_list.html.erb"}
+...
+    <% 
+    events.each do |event| 
+      event_l10n = event.best_localization_for(current_language)
+      %>
+      <div>
+        <div class="card card--horizontal">
+          <%= osuny_thumbnail_localized event %>
+          <div class="card-body">
+            <%= osuny_published_localized event unless small %>
+            <%= osuny_link_localized  event,
+                                      admin_communication_website_agenda_event_path(
+                                        website_id: event.website.id, 
+                                        id: event.id
+                                      ),
+                                      classes: "stretched-link" %>
+            <% if event_l10n.subtitle.present? %>
+              <br>
+              <span class="text-muted">
+                <%= event_l10n.subtitle %>
+              </span>
+            <% end %>
+          </div>
+          <div class="card-footer text-end text-muted">
+            <%= render 'admin/communication/websites/agenda/events/dates', event: event %>
+          </div>
+        </div>
+        </div>
+      </div>
+...
+```
+
+#### Édition
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/edit.html.erb"}
+<% content_for :title, @l10n %>
+<%= render 'form', event: @event, l10n: @l10n %>
+```
+On prend le titre localisé, et on passe  les 2 objets au formulaire.
+
+#### Création
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/new.html.erb"}
+<% content_for :title, Communication::Website::Agenda::Event.model_name.human %>
+<%= render 'form', event: @event, l10n: @l10n %>
+```
+
+#### Lecture
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/show.html.erb"}
+<% content_for :title, @l10n %>
+
+<div class="row">
+  <div class="col-lg-7">
+    <%= osuny_panel Communication::Website::Agenda::Event::Localization.human_attribute_name(:title), small: true do %>
+      <p class="lead"><%= @l10n.title %></p>
+      <% if @l10n.subtitle.present? %>
+        <p class="mt-n3 text-muted"><%= @l10n.subtitle %></p>
+      <% end %>
+      <p><%= render 'admin/communication/websites/agenda/events/dates', event: @event, detailed: true %></p>
+    <% end %>
+  </div>
+...
+```
+
+Même logique que dans le formulaire, il faut aller chercher les valeurs localisées dans `@l10n` et les valeurs non localisées dans `@event`.
+Cela concerne aussi le partiel metadata.
+
+#### Statique
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/static.html.erb"}
+<%
+event = @l10n.about
+language = @l10n.language
+%>---
+<%= render 'admin/application/static/title', about: @l10n %>
+subtitle: >-
+  <%= prepare_text_for_static @l10n.subtitle %>
+<% 
+# https://github.com/osunyorg/admin/issues/1880
+if event.archive? %>
+date: "<%= event.from_day&.iso8601 %>"
+<% elsif event.current? %>
+weight: -1
+date: "<%= event.from_day&.iso8601 %>"
+<% else %>
+weight: <%= event.distance_in_days %>
+<% end %>
+<%= render 'admin/application/static/permalink', about: @l10n %>
+<%= render 'admin/application/static/breadcrumbs', about: @l10n %>
+<%= render 'admin/application/static/design', 
+            about: event, 
+            full_width: false, 
+            toc_offcanvas: false %>
+<%= render 'admin/communication/websites/agenda/events/static/dates', 
+            event: event, 
+            l10n: @l10n,
+            locale: language.iso_code %>
+<%= render 'admin/application/l10n/static', about: @l10n %>
+<%= render 'admin/application/featured_image/static', about: @l10n %>
+<%= render 'admin/application/shared_image/static', about: @l10n %>
+<%= render 'admin/application/meta_description/static', about: @l10n %>
+<%= render 'admin/application/summary/static', about: @l10n %>
+<% if @l10n.categories.any? %>
+events_categories:
+<% @l10n.categories.ordered.each do |category| %>
+  - "<%= category.slug %>"
+<% end %>
+<% end %>
+<%= render 'admin/communication/blocks/content/static', about: @l10n %>
+---
+```
+Là encore, même logique, on prend au bon endroit.
+Petite particularité sur `@l10n.categories`, qui renvoie des catégories localisées directement.
+
 ### 5. Locales
 
+``` yaml {filename="config/locales/communication/fr.yml"}
+      communication/website/agenda/event:
+        categories: Catégories
+        dates: Dates
+        from_day: Jour de début
+        from_hour: Heure de début
+        status: Statut
+        status_archive: Archive
+        status_current: En cours
+        status_future: À venir
+        time_zone: Fuseau horaire
+        to_day: Jour de fin
+        to_hour: Heure de fin
+      communication/website/agenda/event/localization:
+        featured_image: Image à la une
+        published: Publié
+        subtitle: Sous-titre
+        title: Titre
+```
+On déplace comme précédemment, en français et en anglais.
 
 ## Objets indirects
 
