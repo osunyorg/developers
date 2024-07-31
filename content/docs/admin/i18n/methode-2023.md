@@ -1,6 +1,6 @@
 ---
 title: Méthode 2023
-weight: 2
+weight: 3
 ---
 
 {{< callout type="info" >}}
