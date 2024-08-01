@@ -7,21 +7,21 @@ Gérer les urls dans les sites générés avec Hugo
 
 ## Contexte
 
-Les objets composant les sites (pages, posts, persons...) ont une URL, qui est supposée être permanente : le permalien. 
+Les objets composant les sites (pages, posts, persons...) ont une URL, qui est supposée être permanente : le permalien.
 
 Ce permalien, dans Osuny, ne contient pas le domaine ni le protocole, mais juste le path, la partie après le nom de domaine. Il est composé de plusieurs parties, par exemple :
 
 ```
 /fr/actualites/2022-10-22-un-article
 ```
-soit 
+soit
 ```
 /:localisation/:section/:slug
 ```
 
 Ce motif de permalien est l'un des motifs possibles, parmi de nombreux autres.
 
-Malheureusement, ces permaliens pouvent bouger pour plusieurs raisons : 
+Malheureusement, ces permaliens pouvent bouger pour plusieurs raisons :
 - activation ou désactivation d'une langue
 - changement de slug (suite à changement de date ou de titre)
 - changement de slug de section
@@ -40,14 +40,16 @@ Une classe gère globalement les permalinks :
 class Communication::Website::Permalink
 end
 ```
+
 Responsabilité :
+- Configuration Hugo des permalinks
 - current (bool et scope)
 - historique
 - contexte (website)
 
-Un concern WithPermalink qui encapsule le lien (.permalinks, .permalink_in_website)
+Un concern Permalinkable qui encapsule le lien (.permalinks, .permalink_in_website)
 ```
-  include WithPermalink
+include Permalinkable
 ```
 Responsabilité :
 - fournir le permalink actuel
@@ -60,7 +62,7 @@ Des objets par type :
 class Communication::Website::Permalink::Page
 end
 ```
-Responsabilité : 
+Responsabilité :
 - calcul du permalink
 - fonctionnements spécifiques par type d'objet
 
@@ -76,7 +78,6 @@ Responsabilité :
 
 Le cas de l'arbre des formations et de l'arbre de la page Offre de formation
 
-## Fil d'ariane 
+## Fil d'ariane
 
 En anglais, breadcrumbs.
-
