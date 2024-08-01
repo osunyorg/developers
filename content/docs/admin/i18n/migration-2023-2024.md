@@ -3,14 +3,14 @@ title: Migration 2023-2024
 weight: 2
 ---
 
-## Méthodologie 
+## Méthodologie
 
 
 Une pull request synthétise la migration d'un objet direct :
 https://github.com/osunyorg/admin/pull/2123
 
 
-La méthode est la suivante : 
+La méthode est la suivante :
 1. Modifier la base de données
 2. Modifier les modèles
 3. Modifier le controleur
@@ -221,14 +221,14 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
 
   alias :event :about
 
-  delegate  :archive?, 
+  delegate  :archive?,
             :from_day, :from_hour,
             :to_day, :to_hour,
             :time_zone,
             to: :event
 
   has_summernote :text
-  
+
   validates :title, presence: true
 
   before_validation :set_communication_website_id
@@ -241,7 +241,7 @@ Ensuite on ajoute les relations, les délégations et les validations :
 - délégations liées aux méthodes laissées dans le modèle `Event`
 - champ de texte pour le futur (Agenda Gaîté Lyrique)
 - validation du titre dans la l10n
-- récupération de l'id du site Web 
+- récupération de l'id du site Web
 
 
 ``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
@@ -362,7 +362,7 @@ On supprime les traits inutiles :
 On marque les traits à supprimer en phase 2, après migration (`TODO L10N : To remove`).
 
 
-On supprime les méthodes qui passent dans la localisation : 
+On supprime les méthodes qui passent dans la localisation :
 - `def git_path(website)`
 - `def git_path_relative`
 - `def template_static`
@@ -408,7 +408,7 @@ Cela veut dire :
       category_ids: [],
       localizations_attributes: [
         :id, :title, :subtitle, :meta_description, :summary, :text,
-        :published, :published_at, :slug, 
+        :published, :published_at, :slug,
         :featured_image, :featured_image_delete, :featured_image_infos, :featured_image_alt, :featured_image_credit,
         :shared_image, :shared_image_delete, :shared_image_infos,
         :language_id
@@ -457,8 +457,8 @@ Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
 
 ``` ruby {filename="app/views/admin/communication/websites/agenda/events/_list.html.erb"}
 ...
-    <% 
-    events.each do |event| 
+    <%
+    events.each do |event|
       event_l10n = event.best_localization_for(current_language)
       %>
       <div>
@@ -468,7 +468,7 @@ Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
             <%= osuny_published_localized event unless small %>
             <%= osuny_link_localized  event,
                                       admin_communication_website_agenda_event_path(
-                                        website_id: event.website.id, 
+                                        website_id: event.website.id,
                                         id: event.id
                                       ),
                                       classes: "stretched-link" %>
@@ -534,7 +534,7 @@ language = @l10n.language
 <%= render 'admin/application/static/title', about: @l10n %>
 subtitle: >-
   <%= prepare_text_for_static @l10n.subtitle %>
-<% 
+<%
 # https://github.com/osunyorg/admin/issues/1880
 if event.archive? %>
 date: "<%= event.from_day&.iso8601 %>"
@@ -546,12 +546,12 @@ weight: <%= event.distance_in_days %>
 <% end %>
 <%= render 'admin/application/static/permalink', about: @l10n %>
 <%= render 'admin/application/static/breadcrumbs', about: @l10n %>
-<%= render 'admin/application/static/design', 
-            about: event, 
-            full_width: false, 
+<%= render 'admin/application/static/design',
+            about: event,
+            full_width: false,
             toc_offcanvas: false %>
-<%= render 'admin/communication/websites/agenda/events/static/dates', 
-            event: event, 
+<%= render 'admin/communication/websites/agenda/events/static/dates',
+            event: event,
             l10n: @l10n,
             locale: language.iso_code %>
 <%= render 'admin/application/l10n/static', about: @l10n %>
@@ -649,11 +649,11 @@ On déplace comme précédemment, en français et en anglais.
 Les personnes ont des facettes : `Administrator`, `Author`, `Researcher`, `Teacher`.
 Les facettes sont activées par des booléens, comme `is_author` (attention il y a des subtilités).
 Ces 4 facettes permettent de gérer les 5 pages différentes possibles pour une même personne dans Hugo.
-Les facettes sont devenues des classes qui héritent de la localisation et plus de la personne elle-même, 
+Les facettes sont devenues des classes qui héritent de la localisation et plus de la personne elle-même,
 parce qu'elles ont un slug qui dépend du nom (traduit).
 Dans les dépendances des pages spéciales, comme la page qui liste les administrateurs, il faut lister les administrateurs.
-Attention, prendre toutes les personnes qui ont un rôle d'administration amènerait à une situation fausse : 
-une personne pourrait être administratrice dans un site d'une formation, alors qu'elle n'a pas de rôle administratif dans la formation, mais dans l'école. 
+Attention, prendre toutes les personnes qui ont un rôle d'administration amènerait à une situation fausse :
+une personne pourrait être administratrice dans un site d'une formation, alors qu'elle n'a pas de rôle administratif dans la formation, mais dans l'école.
 Il faut donc se limiter au contexte du site.
 
 ``` ruby {filename="app/models/communication/website/page/administrator.rb"}
@@ -704,7 +704,7 @@ La limite aux langues actives évite d'envoyer des langues non utilisées dans l
 | twitter_visibility | Les réglages de visibilité ne changent pas en fonction des langues |
 | zipcode | Les états de la personne ne dépendent pas des langues |
 
-Les personnes ont 3 tables liées : 
+Les personnes ont 3 tables liées :
 - `university_person_experiences`
 - `university_person_involvements`
 - `university_roles`
@@ -831,13 +831,13 @@ Concrètement, ça peut donner `/en/equipe/pierre-andre-boissinot`.
 Quand la page spéciale Équipe sera traduite, l'url deviendra `/en/team/pierre-andre-boissinot`, et le système de permalinks gèrera la redirection.
 
 
-### Menu 
+### Menu
 
 `Communication::Website::Menu::Item`
 
 Les menus sont différents dans chaque langue, il ne s'agit pas de localisation. On garde la logique de `language_id`, mais on supprime la notion d'`original_id`.
 
-Comme les menus dans différentes langues partagent un identifiant (par exemple `primary`), on s'appuie sur cet identifiant pour passer d'une langue à l'autre dans un menu. 
+Comme les menus dans différentes langues partagent un identifiant (par exemple `primary`), on s'appuie sur cet identifiant pour passer d'une langue à l'autre dans un menu.
 
 Les identifiants ne peuvent être définis qu'à la création du menu.
 
@@ -845,6 +845,98 @@ Les identifiants ne peuvent être définis qu'à la création du menu.
 
 `Communication::Website::Menu::Item`
 
-TODO @seb
+Les items n'ont pas besoin d'un `language_id` car ils existent dans un menu qui a déjà cette langue définie.
+
+De même, les items de type `blank` et `url` ne sont pas impactés car ne sont liés à aucun objet.
+
+Pour les autres types d'items de menu, ils ont un `about` qui a besoin d'évoluer pour être sur l'objet parent, et non pas une localisation. Il faut effectuer une migration pour bien être connecté à l'original des objets existants.
+
+``` ruby {filename="db/migrate/20240801152544_migrate_communication_website_menu_items_about.rb"}
+class MigrateCommunicationWebsiteMenuItemsAbout < ActiveRecord::Migration[7.1]
+  def up
+    Communication::Website::Menu::Item.where.not(kind: [:blank, :url]).find_each do |menu_item|
+      about = menu_item.about
+      next if about.nil?
+      # Kind like paper can't respond to original_id
+      about_id = about.try(:original_id) || about.id
+      menu_item.update_column :about_id, about_id
+    end
+  end
+
+  def down
+  end
+end
+```
+
+Ensuite dans les formulaires, on rajoute le scope `tmp_original` en attendant la fin de la migration.
+
+On centralise la récupération des collections dans le modèle :
+``` ruby {filename="app/models/communication/website/menu/item.rb"}
+class Communication::Website::Menu::Item < ApplicationRecord
+  def self.collection_for(kind, website)
+    # TODO L10N : remove every tmp_orginal below
+    case kind
+    when 'page'
+      website.pages.tmp_original
+    when 'diploma'
+      website.education_diplomas.tmp_original
+    when 'program'
+      website.education_programs.tmp_original
+    when 'category'
+      website.post_categories.tmp_original
+    when 'post'
+      website.posts.tmp_original
+    when 'volume'
+      website.research_volumes.tmp_original
+    when 'paper'
+      website.research_papers.tmp_original
+    when 'location'
+      website.administration_locations.tmp_original
+    end
+  end
+end
+```
+
+Dans le fichier statique, on tente de récupérer la localisation de l'objet associé. Si elle n'existe pas, on ne renvoie pas de chemin, l'item de menu ne sera donc pas affiché.
+
+Avant :
+``` ruby {filename="app/models/communication/website/menu/item.rb"}
+class Communication::Website::Menu::Item < ApplicationRecord
+  def static_target
+    # ...
+    case kind
+    when "blank"
+      ''
+    when "url"
+      url
+    else
+      about.new_permalink_in_website(website).computed_path
+    end
+  end
+end
+```
+
+Après :
+``` ruby {filename="app/models/communication/website/menu/item.rb"}
+class Communication::Website::Menu::Item < ApplicationRecord
+  def static_target
+    # ...
+    case kind
+    when "blank"
+      ''
+    when "url"
+      url
+    else
+      about_l10n = about.localization_for(language)
+      if about_l10n.present?
+        about_l10n_permalink = about_l10n.new_permalink_in_website(website)
+        about_l10n_permalink.computed_path
+      else
+        nil
+      end
+    end
+  end
+end
+```
 
 ### Événements
