@@ -44,11 +44,11 @@ Elle est en charge des événements et agit comme un chef d'orchestre.
   Les objets suivants sont par ordre alphabétique.
 {{< /callout >}}
 
-## Arrows
+### Arrows
 
 Gestion des flèches et du numéro 1/4.
 
-## Autoplayer
+### Autoplayer
 
 L'autoplayer se charge de passer automatiquement le carousel au prochain slide, à un intervalle donné.
 
@@ -58,38 +58,38 @@ Il est contrôlé par 4 fonctions qui permettent de :
 
 Il met également à jour la progression de l'UI dans la pagination dans le cas où celle-ci est active.
 
-## Classes
+### Classes
 
 Liste des classes HTML utilisées dans le DOM.
 
-## Config
+### Config
 
 Configuration d'une instance de carousel.
 
-## Events
+### Events
 
 Liste des événements Javascript émis.
 
-## Pagination
+### Pagination
 
 Système de contrôle du carousel.
 Gère l'état de l'autoplayer (démarré ou arrêté) avec le bouton play/pause.
 
-## PaginationButton
+### PaginationButton
 
 Représente un bouton de pagination, avec sa progression dans le cas de l'autoplay. 
 Au click le bouton amène vers le slide correspondant.
 
-## Slide
+### Slide
 
 La classe qui gère 1 slide, avec son état (previous, current, next...).
 
-## Slider
+### Slider
 
 Slider est l'ensemble des slides qui se déplacent horizontalement. 
 Il est chargé du calcul de translations en fonction de l'index de slide visé.
 Il est composé d'un tableau de `Slide`.
 
-## Utils
+### Utils
 
 Quelques fonctions d'utilité, pour rester DRY.
