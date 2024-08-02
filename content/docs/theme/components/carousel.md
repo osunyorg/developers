@@ -29,6 +29,10 @@ Avec des flèches et des numéros.
 
 ## Implémentation
 
+{{< callout type="info" >}}
+  Les 2 premiers objets sont par ordre logique.
+{{< /callout >}}
+
 ### Manager
 
 Manager est chargé de l'instanciation de tous les carousels d'une page. 
