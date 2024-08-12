@@ -991,3 +991,50 @@ end
 | parent_id | L'arbre de catégories est indépendant des localisations |
 | position | La position est lié à l'arbre de catégories |
 | program_id | Lié à l'arbre de catégories des formations |
+
+### Projets
+
+`Portfolio::Project`
+
+| Propriété localisée | Explication |
+|-|-|
+| featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
+| featured_image_alt | Il faut donc traduire les textes en question |
+| featured_image_credit | Le crédit peut être traduit ("Photo par...", "Photo by...")
+| meta_description | La description de l'actualité est dans la langue |
+| migration_identifier | Il faut des identifiants de migration pour tout |
+| published | Il faut pouvoir choisir quand une version est prête. |
+| published_at | Pas forcément de cas d'usage au published_at par language, mais l'algo s'appuie sur une combinaison de `published` et `published_at` donc ça paraît une très mauvaise idée de les séparer |
+| shared_image | L'image de partage peut être une image avec des textes, comme une affiche par exemple |
+| slug | Le slug dépend du title |
+| summary | Le résumé est traduit |
+| title | Le titre est traduit |
+
+| Propriété non localisée | Explication |
+|-|-|
+| year | L'année du projet est indépendant des localisations |
+
+#### + Category
+
+`Portfolio::Category`
+
+| Propriété localisée | Explication |
+|-|-|
+| featured_image | L'image d'illustration peut être une image avec des textes, comme une affiche par exemple |
+| featured_image_alt | Il faut donc traduire les textes en question |
+| featured_image_credit | Le crédit peut être traduit ("Photo par...", "Photo by...")
+| meta_description | La description de la catégorie est dans la langue |
+| name | Le nom est traduit |
+| path | Le chemin est lié au slug |
+| published | Il faut pouvoir choisir quand une version est prête. |
+| published_at | Pas forcément de cas d'usage au published_at par language, mais l'algo s'appuie sur une combinaison de `published` et `published_at` donc ça paraît une très mauvaise idée de les séparer |
+| slug | Le slug dépend du name |
+| summary | Le résumé est traduit |
+
+| Propriété non localisée | Explication |
+|-|-|
+| is_programs_root | Lié à l'arbre de catégories des formations |
+| is_taxonomy | Le système de facettes est indépendant des localisations |
+| parent_id | L'arbre de catégories est indépendant des localisations |
+| position | La position est lié à l'arbre de catégories |
+| program_id | Lié à l'arbre de catégories des formations |
