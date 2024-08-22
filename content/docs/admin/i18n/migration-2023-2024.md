@@ -1026,8 +1026,6 @@ end
 | meta_description | La description de la catégorie est dans la langue |
 | name | Le nom est traduit |
 | path | Le chemin est lié au slug |
-| published | Il faut pouvoir choisir quand une version est prête. |
-| published_at | Pas forcément de cas d'usage au published_at par language, mais l'algo s'appuie sur une combinaison de `published` et `published_at` donc ça paraît une très mauvaise idée de les séparer |
 | slug | Le slug dépend du name |
 | summary | Le résumé est traduit |
 
