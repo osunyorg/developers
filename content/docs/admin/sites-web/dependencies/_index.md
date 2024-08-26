@@ -1,6 +1,6 @@
 ---
 title: Connexions et dépendances
-weight: 3
+weight: 5
 description: Envoyer tous les fichiers nécessaires
 ---
 
