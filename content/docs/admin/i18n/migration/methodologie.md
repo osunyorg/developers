@@ -440,36 +440,6 @@ Cela veut dire :
 
 ## 4. Vues
 
-### Formulaire
-
-``` ruby {filename="app/views/admin/communication/websites/agenda/events/_form.html.erb"}
-<%= simple_form_for [:admin, event] do |f| %>
-  <%= f.simple_fields_for :localizations, l10n do |lf| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= lf.hidden_field :language_id, value: current_language.id %>
-
-    <div class="row">
-      <div class="col-md-8">
-        <%= osuny_panel t('content') do %>
-          <%= lf.input :title, input_html: { data: { translatable: true } } %>
-          <%= lf.input :subtitle, input_html: { data: { translatable: true } } %>
-          <%= render 'admin/application/summary/form', f: lf, about: l10n %>
-        <% end %>
-        <%= osuny_panel Communication::Website::Agenda::Event.human_attribute_name('dates') do %>
-          <div class="row pure__row--small">
-            <div class="col-md-6">
-              <%= f.input :from_day, html5: true %>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :from_hour, html5: true %>
-            </div>
-...
-```
-On ajoute un formulaire niché pour la localisation (lf, pour localisation_form), et on fait pointer les propriétés vers `f` ou `lf`.
-On ajoute également un champ caché pour la langue.
-Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
-
 ### Liste
 
 ``` ruby {filename="app/views/admin/communication/websites/agenda/events/_list.html.erb"}
@@ -505,21 +475,6 @@ Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
 ...
 ```
 
-### Édition
-
-``` ruby {filename="app/views/admin/communication/websites/agenda/events/edit.html.erb"}
-<% content_for :title, @l10n %>
-<%= render 'form', event: @event, l10n: @l10n %>
-```
-On prend le titre localisé, et on passe  les 2 objets au formulaire.
-
-### Création
-
-``` ruby {filename="app/views/admin/communication/websites/agenda/events/new.html.erb"}
-<% content_for :title, Communication::Website::Agenda::Event.model_name.human %>
-<%= render 'form', event: @event, l10n: @l10n %>
-```
-
 ### Lecture
 
 ``` ruby {filename="app/views/admin/communication/websites/agenda/events/show.html.erb"}
@@ -540,6 +495,51 @@ On prend le titre localisé, et on passe  les 2 objets au formulaire.
 
 Même logique que dans le formulaire, il faut aller chercher les valeurs localisées dans `@l10n` et les valeurs non localisées dans `@event`.
 Cela concerne aussi le partiel metadata.
+
+### Création
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/new.html.erb"}
+<% content_for :title, Communication::Website::Agenda::Event.model_name.human %>
+<%= render 'form', event: @event, l10n: @l10n %>
+```
+
+### Édition
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/edit.html.erb"}
+<% content_for :title, @l10n %>
+<%= render 'form', event: @event, l10n: @l10n %>
+```
+On prend le titre localisé, et on passe  les 2 objets au formulaire.
+
+### Formulaire
+
+``` ruby {filename="app/views/admin/communication/websites/agenda/events/_form.html.erb"}
+<%= simple_form_for [:admin, event] do |f| %>
+  <%= f.simple_fields_for :localizations, l10n do |lf| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= lf.hidden_field :language_id, value: current_language.id %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <%= osuny_panel t('content') do %>
+          <%= lf.input :title, input_html: { data: { translatable: true } } %>
+          <%= lf.input :subtitle, input_html: { data: { translatable: true } } %>
+          <%= render 'admin/application/summary/form', f: lf, about: l10n %>
+        <% end %>
+        <%= osuny_panel Communication::Website::Agenda::Event.human_attribute_name('dates') do %>
+          <div class="row pure__row--small">
+            <div class="col-md-6">
+              <%= f.input :from_day, html5: true %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :from_hour, html5: true %>
+            </div>
+...
+```
+On ajoute un formulaire niché pour la localisation (lf, pour localisation_form), et on fait pointer les propriétés vers `f` ou `lf`.
+On ajoute également un champ caché pour la langue.
+Dans cet exemple, le titre est localisé, la date de début ne l'est pas.
 
 ### Statique
 
