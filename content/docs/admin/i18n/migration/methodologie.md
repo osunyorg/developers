@@ -94,89 +94,75 @@ end
 
 ### Créer le modèle de localisation
 
+D'abord on crée le fichier du modèle :
+
 ``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
 class Communication::Website::Agenda::Event::Localization < ApplicationRecord
   ...
 end
 ```
 
-D'abord on crée le fichier du modèle.
-
-``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
-class Communication::Website::Agenda::Event::Localization < ApplicationRecord
-  include AsLocalization
-  include Contentful
-  include Initials
-  include Permalinkable
-  include Sanitizable
-  include Shareable
-  include WithAccessibility
-  include WithBlobs
-  include WithCal
-  include WithFeaturedImage
-  include WithGitFiles
-  include WithPublication
-  include WithUniversity
-  ...
-end
-```
 Puis on ajoute les traits nécessaires :
-- comportements communs des localisations
-- blocks
-- initiales pour l'affichage dans les listes si pas de visuel
-- permaliens et alias
-- sécurité par contrôle des entrées
-- visuel de partage
-- contrôle d'accessibilité
-- gestion des blobs attachés
-- trait spécifique pour la création des liens d'ajout au calendrier
-- visuel principal
-- fichiers Git
-- système de publication
-- multitenant
+
+``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
+class Communication::Website::Agenda::Event::Localization < ApplicationRecord
+  include AsLocalization # comportements communs des localisations
+  include Contentful # blocks
+  include Initials # initiales pour l'affichage dans les listes si pas de visuel
+  include Permalinkable # permaliens et alias
+  include Sanitizable # sécurité par contrôle des entrées
+  include Shareable # visuel de partage
+  include WithAccessibility # contrôle d'accessibilité
+  include WithBlobs # gestion des blobs attachés
+  include WithCal # trait spécifique aux événements pour la création des liens d'ajout au calendrier
+  include WithFeaturedImage # visuel principal
+  include WithGitFiles # fichiers Git
+  include WithPublication # système de publication
+  include WithUniversity # multitenant
+  ...
+end
+```
+Ensuite on ajoute les relations, les délégations et les validations :
 
 ``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
 class Communication::Website::Agenda::Event::Localization < ApplicationRecord
   ...
 
+  # lien au site Web
   belongs_to :website,
               class_name: 'Communication::Website',
               foreign_key: :communication_website_id
-
+  # alias pour clarifier
   alias :event :about
 
+  # délégations liées aux méthodes laissées dans le modèle `Event`
   delegate  :archive?,
             :from_day, :from_hour,
             :to_day, :to_hour,
             :time_zone,
             to: :event
 
-  has_summernote :text
-
+  # validation du titre dans la l10n
   validates :title, presence: true
 
+  # récupération de l'id du site Web
   before_validation :set_communication_website_id
-
 end
 ```
-Ensuite on ajoute les relations, les délégations et les validations :
-- lien au site Web
-- alias pour clarifier
-- délégations liées aux méthodes laissées dans le modèle `Event`
-- champ de texte pour le futur (Agenda Gaîté Lyrique)
-- validation du titre dans la l10n
-- récupération de l'id du site Web
 
+On définit les méthodes publiques :
 
 ``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
 class Communication::Website::Agenda::Event::Localization < ApplicationRecord
   ...
 
+  # le chemin absolu du fichier git dans un site Web
   def git_path(website)
     return unless website.id == communication_website_id && published && published_at
     git_path_content_prefix(website) + git_path_relative
   end
 
+  # le chemin relatif du fichier git (pas toujours nécessaire)
   def git_path_relative
     path = "events/"
     path += "archives/#{from_day.year}/" if archive?
@@ -184,19 +170,20 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
     path
   end
 
+  # le chemin du template static
   def template_static
     "admin/communication/websites/agenda/events/static"
   end
 
-  def static_path
-    "#{published_at.year}/#{published_at.strftime "%Y-%m-%d"}-#{slug}"
-  end
-
+  # les dépendances
   def dependencies
     active_storage_blobs +
     contents_dependencies
   end
 
+  # les références (là il n'y en a pas, parce qu'elles sont gérées dans l'événement)
+
+  # une méthode d'utilité pour récupérer les catégories localisées (si elles existent)
   def categories
     about.categories.ordered.map { |category| category.localization_for(language) }.compact
   end
@@ -208,14 +195,8 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
   ...
 end
 ```
-On définit les méthodes publiques :
-- le chemin absolu du fichier git dans un site Web
-- le chemin relatif du fichier git
-- le chemin du template static
-- le chemin static (ça pose encore question, ça ne devrait pas être là mais dans le permalink)
-- les dépendances
-- les références (là il n'y en a pas, parce qu'elles sont gérées dans l'événement)
-- une méthode d'utilité pour récupérer les catégories localisées (si elles existent)
+
+Enfin, les méthodes protégées : 
 
 ``` ruby {filename="app/models/communication/website/agenda/event/localization.rb"}
 class Communication::Website::Agenda::Event::Localization < ApplicationRecord
@@ -223,10 +204,12 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
 
   protected
 
+  # la vérification d'accessibilité
   def check_accessibility
     accessibility_merge_array blocks
   end
 
+  # la restriction du slug
   def slug_unavailable?(slug)
     self.class.unscoped
               .where(communication_website_id: self.communication_website_id, language_id: language_id, slug: slug)
@@ -234,10 +217,12 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
               .exists?
   end
 
+  # la définition du website_id
   def set_communication_website_id
     self.communication_website_id ||= about.communication_website_id
   end
 
+  # la liste des blobs
   def explicit_blob_ids
     super.concat [
       featured_image&.blob_id,
@@ -245,17 +230,12 @@ class Communication::Website::Agenda::Event::Localization < ApplicationRecord
     ]
   end
 
+  # la localisation d'éléments supplémentaires (mais on peut se demander pourquoi l'image de partage n'est pas standard)
   def localize_other_attachments(localization)
     localize_attachment(localization, :shared_image) if shared_image.attached?
   end
 end
 ```
-Enfin, les méthodes protégées :
-- la vérification d'accessibilité
-- la restriction du slug
-- la définition du website_id
-- la liste des blobs
-- la localisation d'éléments supplémentaires (mais on peut se demander pourquoi l'image de partage n'est pas standard)
 
 ### Modifier l'objet principal
 
