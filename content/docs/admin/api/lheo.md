@@ -3,6 +3,8 @@ title: LHÉO
 description: Langage Harmonisé d'Échange d'informations sur l'Offre de formation
 ---
 
+Lhéo est un langage de référence de description de l'information sur l'offre de formation. Ce langage permet d'exprimer de façon cohérente et structurée une action de formation qui peut ensuite être lue, diffusée, classée et décrite par le plus grand nombre. Ce référentiel national a été élaboré conjointement par les ministères de l'emploi et de l'éducation nationale et différents opérateurs de l'emploi, de la formation et de l'information à l'orientation : Afpa, Centre Inffo, Ffp, Pôle emploi, Onisep, réseau des Carif-Oref et Unédic.
+
 ## Documentation
 
 - http://lheo.gouv.fr/langage
