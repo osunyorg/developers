@@ -115,7 +115,6 @@ class Admin::Administration::LocationsController < Admin::Administration::Applic
   end
 
   def create
-    @location.university = current_university
     if @location.save
       redirect_to [:admin, @location],
                   notice: t('admin.successfully_created_html', model: @location.to_s)
@@ -153,6 +152,9 @@ class Admin::Administration::LocationsController < Admin::Administration::Applic
   def location_params
     params.require(:administration_location)
           .permit(:name, :address, :zipcode, :city, :country, :url, :phone, school_ids: [], program_ids: [])
+          .merge(
+            university_id: current_university.id
+          )
   end
 end
 ```
