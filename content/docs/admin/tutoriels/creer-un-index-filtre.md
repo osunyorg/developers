@@ -2,6 +2,10 @@
 title: Créer un index filtré
 ---
 
+Ce document présente comment réaliser une implémentation d'index filtré dans l'admin d'Osuny.  
+Pour avoir une vue plus globale et théorique de la mécanique, se référer à la page [d'architecture](/docs/admin/architecture/filters/).
+
+
 ## Controllers :
 Dans l'action d'index ajouter un scope `.filter_by(params[:filters], current_language)`.
 
