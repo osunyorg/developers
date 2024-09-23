@@ -22,7 +22,7 @@ Pour des questions de sécurité il s'assure aussi qu'on ne passe QUE des param�
 C'est le template qui défini qu'on a un bouton affiché quelque part sur l'écran et ensuite un panel de filtres affichés en offcanvas. 
 Ce layout prend un yield et est donc utilisable après dans les vues avec un appel du type :
 
-```erb {filename="app/views/admin/education/teachers/_filters.html.erb"}
+```erb {filename="app/views/admin/education/teachers/_filters.html.erb (par exemple)"}
 <%= simple_form_for :filters, url: current_path, method: :get do |f| %>
   <%= filters_panel current_path: current_path, active_filters_count: active_filters_count do |form| %>
 
@@ -45,6 +45,7 @@ Ce layout prend un yield et est donc utilisable après dans les vues avec un app
 Il définit un helper `filters_panel` qui va injecter le template dont on parle juste au dessus.  
 Il définit aussi un helper `active_filters_count` qui permet de compter le nombre de filtres actifs actuellement (utilisé dans le bouton de filtres du template par exemple).  
 Enfin il définit un helper `render_filter` qui fait passe plat avec tous les filtres typés, donc :
+
 ```erb
 <%= render_filter f,
                  :string,
@@ -52,7 +53,9 @@ Enfin il définit un helper `render_filter` qui fait passe plat avec tous les fi
                  label: t('search')
                  %>
 ```
+
 est équivalent à 
+
 ```erb
 <%= render_string_filter f,
                          :for_search_term,
