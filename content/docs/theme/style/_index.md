@@ -2,9 +2,11 @@
 title: Style
 ---
 
-Comment le thème est-il intégré.
+Comment le thème est-il intégré ?
 
-## Où placer les styles conditionnelles dans le code (@media et layout de page) ?
+## Où placer les styles conditionnels ? 
+
+Comment intégrer dans le code les conditions en fonction de la taille d'écran (@media) et de l'option plein écran (layout de page) ?
 
 ### Approche global / local 
 
