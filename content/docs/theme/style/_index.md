@@ -14,7 +14,7 @@ Comment le thème est-il intégré.
 4. Le desktop
 5. Le layout de la page (avec ou sans sidebar)
 
-```
+```sass
 .block-chapter
     p:last-child
         margin-bottom: 0
@@ -64,7 +64,7 @@ Si les modificateurs comme les layouts de bloc, on descend d'un niveau pour plus
   d. Le layout de la page (avec ou sans sidebar)
 
 
-```
+```sass
 .block-posts
     .top
         margin-bottom: $spacing-4
@@ -124,7 +124,7 @@ Si les modificateurs comme les layouts de bloc, on descend d'un niveau pour plus
 
 On insère les medias dans les sélecteurs profonds pour limiter de dupliquer des sélecteurs longs : 
 
-```
+```sass
 .block-key_figures
     dl
         dt
@@ -154,7 +154,7 @@ On insère les medias dans les sélecteurs profonds pour limiter de dupliquer de
 
 Ça factorise un code qui pourrait s'écrire comme : 
 
-```
+```sass
 .block-key_figures
     @include media-breakpoint-up(desktop)
         dl 
@@ -189,7 +189,7 @@ On insère les medias dans les sélecteurs profonds pour limiter de dupliquer de
 On essai de suivre au mieux l'ordre du markup HTML. L'ordre HTML étant proche de l'ordre visuel des éléments (mais pas toujours : souvent on place l'image avant le texte via du CSS pour l'accessibilité), ça permet de s'appuyer aussi sur le rendu graphique pour s'y retrouver.
 
 
-```
+```html
 <div class="chapter">
    <div class="text">
       <div class="rich-text">
@@ -208,7 +208,7 @@ On essai de suivre au mieux l'ordre du markup HTML. L'ordre HTML étant proche d
 </div>
 ```
 
-```
+```sass
 .block-chapter
     p:last-child
         [...]
