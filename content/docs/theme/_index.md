@@ -72,3 +72,11 @@ Sites touchy à migrer
 - https://www.aliceetlescryptotrolls.org
 - https://www.cmjnrvb.net
 - https://works.noesya.coop/ (et son thème)
+
+Sous-thèmes :
+- https://github.com/osunyorg/epv-theme
+- https://github.com/osunyorg/cids-theme
+- https://github.com/osunyorg/encommuns-theme
+- https://github.com/osunyorg/sufficiency-theme
+- https://github.com/osunyorg/bordeaux-theme
+- https://github.com/osunyorg/rennes-theme
