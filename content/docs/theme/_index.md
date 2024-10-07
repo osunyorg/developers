@@ -63,6 +63,9 @@ Sites importants
 - https://www.communication-democratie.org/fr/
 - https://www.iut.u-bordeaux-montaigne.fr/
 - https://dico.unric.org/fr/
+- https://association.encommuns.net/
+- https://www.encommuns.net/
+- https://www.reseauexcellence.fr/fr/
   
 Sites touchy à migrer
 - https://osuny.org (et son thème)
