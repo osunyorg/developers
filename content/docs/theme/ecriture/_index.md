@@ -43,13 +43,16 @@ if (true) {
 
 # Nommages et convention Git
 ## Pull Request
-- Un nom court mais clair en français
+- En français
+- Un nom court mais clair
 - Les commits sont squash dans les PR
 
 ## Branche
+- En anglais
 - En kebab-case: block-truc-fix-bug
 
 ## Commit
-- À minima deux trois mots décrivant la modification en anglais
+- En anglais
+- À minima deux trois mots décrivant la modification 
 
 
