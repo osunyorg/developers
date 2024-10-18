@@ -3,8 +3,7 @@ title: Composants Javascript
 weight: 6
 ---
 
-Le thème Osuny intègre quelques composants essentiels, développés en ES5 vanille afin d'être légers, aussi simples que possible et parfaitement accessibles.
-
+Le thème Osuny intègre quelques composants essentiels, développés en ES5 vanille afin de maximiser la rétrocompatibilité avec les anciens navigateurs, d'être légers, aussi simples que possible et parfaitement accessibles.
 
 {{< cards >}}
   {{< card link="carousel" title="Carousel" >}}
