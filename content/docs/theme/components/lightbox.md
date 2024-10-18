@@ -15,7 +15,7 @@ title: Visionneuse
 ## Implémentation
 
 {{< callout type="info" >}}
-  Les 2 premiers objets sont par ordre logique.
+  Les 3 premiers objets sont par ordre logique.
 {{< /callout >}}
 
 ### Manager
