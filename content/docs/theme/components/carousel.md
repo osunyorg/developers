@@ -37,7 +37,9 @@ Avec des flèches et des numéros.
 
 Manager est chargé de l'instanciation de tous les carousels d'une page. 
 
-Il est responsable de transmettre les événements de redimension de la fenêtre à tous les carousels, et détecte quels sont les carousels visibles, et qui ont le focus.s
+Il est responsable de transmettre les événements de redimension de la fenêtre à tous les carousels, et détecte quels sont les carousels visibles, et qui ont le focus.s.
+
+Il se charge aussi des attributions de nom de classe, d'id et d'attributs aria nécessaires à la navigation pour les personnes mal-voyantes ou naviguant au clavier.
 
 ### Carousel
 
@@ -58,6 +60,7 @@ L'autoplayer se charge de passer automatiquement le carousel au prochain slide, 
 
 Il est contrôlé par 4 fonctions qui permettent de : 
 - mettre en pause `pause()`, reprendre `unpause()` l'autoplay,
+- mettre en pause sans remettre le compteur de temps à zero `softPause()`, reprendre `softUnpause()` l'autoplay,
 - arrêter `stop()`, Démarrer `start()` l'autoplay.
 
 Il met également à jour la progression de l'UI dans la pagination dans le cas où celle-ci est active.
@@ -93,7 +96,3 @@ La classe qui gère 1 slide, avec son état (previous, current, next...).
 Slider est l'ensemble des slides qui se déplacent horizontalement. 
 Il est chargé du calcul de translations en fonction de l'index de slide visé.
 Il est composé d'un tableau de `Slide`.
-
-### Utils
-
-Quelques fonctions d'utilité, pour rester DRY.
