@@ -12,11 +12,11 @@ Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flè
 
 Affiche un indicateur du nombre de slides et du numéro de slide courant.
 
-## Pleine largeur
+#### Pleine largeur
 ![](gallery-fullwidth.png)
-## Barre latérale
+#### Barre latérale
 ![](gallery-sidebar.png)
-## Mobile
+#### Mobile
 ![](gallery-mobile.png)
 
 
@@ -26,11 +26,11 @@ En mise en page carousel.
 
 Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
 
-## Pleine largeur
+#### Pleine largeur
 ![](posts-fullwidth.png)
-## Barre latérale
+#### Barre latérale
 ![](posts-sidebar.png)
-## Mobile
+#### Mobile
 ![](posts-mobile.png)
 
 ### Bloc témoignages
@@ -41,11 +41,11 @@ Fonctionne comme des reels Instagram, tourne tout seul avec des barres de progre
 
 Le contrôle se fait grâce à une pagination et au clavier (flèche gauche / flèche droite).
 
-## Pleine largeur
+#### Pleine largeur
 ![](testimonials-fullwidth.png)
-## Barre latérale
+#### Barre latérale
 ![](testimonials-sidebar.png)
-## Mobile
+#### Mobile
 ![](testimonials-mobile.png)
 
 ### Bloc frise chronologique
@@ -56,11 +56,11 @@ Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flè
 
 Affiche un indicateur du nombre de slides et du numéro de slide courant.
 
-## Pleine largeur
+#### Pleine largeur
 ![](timeline-fullwidth.png)
-## Barre latérale
+#### Barre latérale
 ![](timeline-sidebar.png)
-## Mobile
+#### Mobile
 ![](timeline-mobile.png)
 
 ## Implémentation
