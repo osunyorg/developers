@@ -100,3 +100,118 @@ La classe qui gère 1 slide, avec son état (previous, current, next...).
 Slider est l'ensemble des slides qui se déplacent horizontalement. 
 Il est chargé du calcul de translations en fonction de l'index de slide visé.
 Il est composé d'un tableau de `Slide`.
+
+## Balisage et comportements spécifiques à l'accessibilité
+
+### Attributs des contrôles (flèches et pagination)
+Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la description, caché visuellement grâce à la classe css `sr- only`. 
+
+`<span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>`
+
+Tous les boutons de contrôles sont dotés d'un attribut `aria-describedby` correspondant au titre du carousel. 
+Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et tabulations) correspondent. 
+
+*manager.js* 
+```
+    _setCarouselAriaDescribedBy (carousel) {
+        var parent = carousel.element.parentElement,
+            blockTitle = parent ? parent.querySelector('.block-title') : null;
+        if (blockTitle) {
+            blockTitle.setAttribute('id', 'title-'+carousel.id);
+            carousel.element.querySelectorAll('button').forEach(function (child) {
+                child.setAttribute('aria-describedby', String(blockTitle.getAttribute('id')));
+            }.bind(this));
+        }
+    },
+```
+
+Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "témoignages", le bouton correspondant au slide actif prend un attribut : `aria-current="true"`.
+
+*paginationButton.js*
+```
+    setAriaCurrent (current) {
+        this.element.setAttribute('aria-current', String(current));
+    }
+```
+
+### Comportement à la navigation : 
+Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est fait pour déterminer parmi tous les carousels, lequel d'entre obtiendra le focus et les actions du clavier. De cette manière, le carousel focusable est celui qui est visible, et verticalement le plus au centre de la fenêtre. 
+
+*manager.js*
+`_findBestCarouselFocusCandidate()` renvoie le carousel verticalement le plus au centre de la fenêtre.
+
+```
+    _findBestCarouselFocusCandidate: function () {
+        // On démarre avec la plus grande distance possible
+        var distance = window.innerHeight,
+            bestCandidate = null,
+            i = 0,
+            carousel,
+            currentDistanceToCenter;
+        for (i = 0; i < this.carousels.length; i += 1) {
+            carousel = this.carousels[i];
+            carousel.state.hasFocus = false;
+            currentDistanceToCenter = Math.abs(carousel.getCenterPositionY() - this.windowCenterY);
+            if (currentDistanceToCenter < distance) {
+                distance = currentDistanceToCenter;
+                bestCandidate = carousel;
+            }
+        }
+        if (bestCandidate) {
+            bestCandidate.state.hasFocus = true;
+        }
+        return bestCandidate;
+    }
+```
+
+À l'activation d'un nouveau slide du carousel (au clavier, ou bien au click sur un bouton de navigation), le focus vient se positionner sur l'élément complètement visible qui vient d'apparaître à l'écran.
+
+Ainsi, à chaque changement de position horizontale, un calcul est fait pour déterminer si le slide est complètement visible ou non.
+
+La fonction `_slideIsVisible(index)` retourne `true` si le slide à l'index `index` est complètement visible, `false` sinon.
+```
+    _slideIsVisible: function (index) {
+        var slidePos = {
+            min: null,
+            max: null
+        };
+        slidePos.min = this._slidePosition(index) - this.element.scrollLeft;
+        slidePos.max = slidePos.min + this.slides[index].width;
+        return slidePos.min >= -2 && slidePos.max <= Math.min(window.screen.width - this.element.getBoundingClientRect().left, this.containerWidth) + 2;
+    }
+```
+`_slidePosition(index)` retourne la position du slide à l'index `index` dans le tableau de slides qui composent le slider.
+```
+    _slidePosition: function (index) {
+        var position = 0,
+            i;
+        for (i = 0; i < index; i += 1) {
+            position += this.slides[i].width;
+        }
+        return position;
+    }
+```
+
+Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour les lecteurs d'écran avec un `aria-hidden="true"` et rendus non-focusables avec un `tabindex=-1`, de même que tous les éléments interactifs contenu dans ce slide (`<a>`, `<button>`, `<iframe>`).
+
+*slide.js*
+```
+    setInteractivityState (slideVisible) {
+        var focusableSubElements = ['a', 'button', 'iframe'];
+        this.visible = slideVisible;
+        this.setFocusable(this.container);
+        focusableSubElements.forEach(function (element) {
+            this.container.querySelectorAll(element).forEach(function (e) {
+                this.setFocusable(e);
+            }.bind(this));
+        }.bind(this));
+    },
+    setFocusable (element) {
+        element.setAttribute('aria-hidden', String(!this.visible));
+        if (this.visible) {
+            element.setAttribute('tabindex', String(0));
+        } else {
+            element.setAttribute('tabindex', String(-1));
+        }
+    },
+```
