@@ -6,30 +6,62 @@ title: Carousel
 
 ### Bloc galerie
 
-En mise en page carousel
+En mise en page carousel.
 
-![](gallery.png)
+Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
 
-Avec des flèches et des numéros.
+Affiche un indicateur du nombre de slides et du numéro de slide courant.
+
+## Pleine largeur
+![](gallery-fullwidth.png)
+## Barre latérale
+![](gallery-sidebar.png)
+## Mobile
+![](gallery-mobile.png)
+
 
 ### Bloc actualités 
 
-En mise en page carousel
+En mise en page carousel.
 
-![](posts.png)
+Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
+
+## Pleine largeur
+![](posts-fullwidth.png)
+## Barre latérale
+![](posts-sidebar.png)
+## Mobile
+![](posts-mobile.png)
 
 ### Bloc témoignages
 
-![](testimonials.png)
-
 Uniquement quand il y a plusieurs témoignages.
+
 Fonctionne comme des reels Instagram, tourne tout seul avec des barres de progression et un bouton play/pause.
+
+Le contrôle se fait grâce à une pagination et au clavier (flèche gauche / flèche droite).
+
+## Pleine largeur
+![](testimonials-fullwidth.png)
+## Barre latérale
+![](testimonials-sidebar.png)
+## Mobile
+![](testimonials-mobile.png)
 
 ### Bloc frise chronologique
 
-![](timeline.png)
+En affichage horizontal. 
 
-Avec des flèches et des numéros.
+Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
+
+Affiche un indicateur du nombre de slides et du numéro de slide courant.
+
+## Pleine largeur
+![](timeline-fullwidth.png)
+## Barre latérale
+![](timeline-sidebar.png)
+## Mobile
+![](timeline-mobile.png)
 
 ## Implémentation
 
@@ -41,7 +73,7 @@ Avec des flèches et des numéros.
 
 Manager est chargé de l'instanciation de tous les carousels d'une page. 
 
-Il est responsable de transmettre les événements de redimension de la fenêtre à tous les carousels, et détecte quels sont les carousels visibles, et qui ont le focus.s.
+Il est responsable de transmettre les événements de redimension de la fenêtre à tous les carousels, et détecte quels sont les carousels visibles, et qui ont le focus.
 
 Il se charge aussi des attributions de nom de classe, d'id et d'attributs aria nécessaires à la navigation pour les personnes mal-voyantes ou naviguant au clavier.
 
@@ -104,12 +136,12 @@ Il est composé d'un tableau de `Slide`.
 ## Balisage et comportements spécifiques à l'accessibilité
 
 ### Attributs des contrôles (flèches et pagination)
-Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la description, caché visuellement grâce à la classe css `sr- only`. 
+Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la déscription, caché visuellement grâce à la classe css `sr- only`. 
 
 `<span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>`
 
 Tous les boutons de contrôles sont dotés d'un attribut `aria-describedby` correspondant au titre du carousel. 
-Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et tabulations) correspondent. 
+Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et boutons de pagination) correspondent. 
 
 *manager.js* 
 ```
@@ -135,7 +167,7 @@ Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "t�
 ```
 
 ### Comportement à la navigation : 
-Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est fait pour déterminer parmi tous les carousels, lequel d'entre obtiendra le focus et les actions du clavier. De cette manière, le carousel focusable est celui qui est visible, et verticalement le plus au centre de la fenêtre. 
+Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est fait pour déterminer parmi tous les carousels, lequel d'entre eux obtiendra le focus et les actions du clavier. De cette manière, le carousel focusable est celui qui est visible, et verticalement le plus au centre de la fenêtre. 
 
 *manager.js*
 `_findBestCarouselFocusCandidate()` renvoie le carousel verticalement le plus au centre de la fenêtre.
