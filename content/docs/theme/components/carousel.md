@@ -4,13 +4,17 @@ title: Carousel
 
 ## Fonctionnalités
 
-### Bloc galerie en mise en page carousel
+### Bloc galerie
+
+En mise en page carousel
 
 ![](gallery.png)
 
 Avec des flèches et des numéros.
 
-### Bloc actualités en mise en page carousel
+### Bloc actualités 
+
+En mise en page carousel
 
 ![](posts.png)
 
