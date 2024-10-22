@@ -3,61 +3,65 @@ title: Carousel
 ---
 
 ## Fonctionnalités
+Le composant carousel est utilisé dans plusieurs blocs natifs de Osuny.
+Ils sont tous construits avec un enchainement de slides, et une interface de controle.
 
-### Bloc galerie
+Tous les carousels utilisés disposent des options suivantes:
+- **autoplay (booléen)** : active l'autoplayer si true
+- **autoplayinterval (entier en millisecondes)** : durée d'affichage d'un slide en mode autoplay
+- **pagination (booléen)** : active l'affichage des boutons de pagination si true
+- **arrows (booléen)** : active l'affichage des boutons flèches de navigation si true
+
+### Blocs utilisant le composant carousel
+#### Bloc galerie
 
 En mise en page carousel.
 
-La navigation se fait:
-- au scroll horizontal, 
-- à l'activation des boutons en forme de flèches,
-- au clavier (flèche gauche / flèche droite).
-> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
+Options par défaut:
+- flèches de navigation
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
 Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
 ![](gallery-fullwidth.png "Pleine largeur")
 ![](gallery-sidebar.png "Barre latérale")
 ![](gallery-mobile.png "Mobile")
 
-### Bloc actualités 
+#### Bloc actualités 
 
 En mise en page carousel.
 
-La navigation se fait:
-- au scroll horizontal, 
-- à l'activation des boutons en forme de flèches,
-- au clavier (flèche gauche / flèche droite).
-> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
+Options par défaut:
+- flèches de navigation
+
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
 ![](posts-fullwidth.png "Pleine largeur")
 ![](posts-sidebar.png "Barre latérale")
 ![](posts-mobile.png "Mobile")
 
-### Bloc témoignages
+#### Bloc témoignages
 
 Uniquement quand il y a plusieurs témoignages.
 
 Fonctionne comme des reels Instagram, tourne tout seul avec des barres de progression et un bouton play/pause.
 
-La navigation se fait:
-- au scroll horizontal, 
-- à l'activation des boutons de pagination,
-- au clavier (flèche gauche / flèche droite).
-> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
+Options par défaut: 
+- pagination
+- autoplay
+
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
 ![](testimonials-fullwidth.png "Pleine largeur")
 ![](testimonials-sidebar.png "Barre latérale")
 ![](testimonials-mobile.png "Mobile")
 
-### Bloc frise chronologique
+#### Bloc frise chronologique
 
 En affichage horizontal. 
 
-La navigation se fait:
-- au scroll horizontal, 
-- à l'activation des boutons en forme de flèches,
-- au clavier (flèche gauche / flèche droite).
-> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
+Options par défaut:
+- flèches de navigation
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
 Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
 
@@ -65,7 +69,7 @@ Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide 
 ![](timeline-sidebar.png "Barre latérale")
 ![](timeline-mobile.png "Mobile")
 
-## Contrôle du carousel
+### Contrôles du carousel
 Chaque carousel permet de naviguer entre les slides par un scroll horizontal (sur écran tactile un swipe horizontal).
 Par ailleurs, et conformément aux recommendations WCAG 2.1, la navigation (slide suivant, slide précédent) se fait également au clavier en appuyant sur la touche "arrowLeft" et "arrowRight".
 
@@ -78,17 +82,11 @@ Dans le cas de l'option d'autoplayer, un bouton permettant l'arrêt du défileme
 Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôlable par l’utilisateur ? 
 
 ## Implémentation
-Tous les carousels disposent des options suivantes: 
-- **autoplay (booléen)** : active l'autoplay si true
-- **autoplayinterval (entier en millisecondes)** : durée d'affichage d'un slide en mode autoplay
-- **pagination (booléen)** : active l'affichage des boutons de pagination si true
-- **arrows (booléen)** : active l'affichage des boutons flèches de navigation si true
 
 ### HTML
-L'extrait de code suivant montre la structure d'un carousel (ici dans le cas du block témoignage).
 
+#### Carousel
 Les carousels sont composés d'un conteneur `js-carousel` disposant d'un conteneur slider et d'un conteneur pour la navigation (pagination ou flèches).
-
 ``` HTML 
 <div class="testimonials">
   <div class="carousel js-carousel" data-carousel="{'autoplay':true,'autoplayinterval':5000,'pagination':true}"
@@ -108,19 +106,19 @@ Les carousels sont composés d'un conteneur `js-carousel` disposant d'un contene
 </div>
 ```
 
+#### Slider
 Le slider est composé d'un conteneur dans lequel les slides (figures) défilent au scroll.
 ``` HTML
     <div class="carousel__slider">
       <div class="carousel__container" id="js-carousel-5-items">
         <figure aria-hidden="false" tabindex="0" id="js-carousel-5-item-0"> ... </figure>
-        <figure aria-hidden="true" tabindex="-1"
-          id="js-carousel-5-item-1">...</figure>
-        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-2">...
-        </figure>
+        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-1"> ... </figure>
+        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-2"> ... </figure>
       </div>
     </div>
 ```
 
+#### Pagination
 Dans le cas de la pagination, une liste de boutons activant le slide correspondant est affiché: 
 ``` HTML
     <div class="carousel__pagination">
@@ -157,6 +155,20 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
           <span class="sr-only">Carousel en cours de lecture. Mettre en pause le carousel</span>
         </span>
       </button>
+    </div>
+```
+
+#### Flèches
+Dans le cas des flèches de navigation, deux boutons de flèches ainsi qu'on compteur de slides sont affichés
+``` HTML
+    <div class="carousel__arrows">
+    <button class="arrow-prev" type="button" disabled="">
+        <span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
+    </button>
+    <p class="counter">1/4</p>
+    <button class="arrow-next" type="button">
+        <span class="sr-only" aria-hidden="false">Aller à l'élément suivant</span>
+    </button>
     </div>
 ```
 
@@ -211,7 +223,7 @@ Liste des événements Javascript émis.
 
 #### Pagination
 
-Système de contrôle du carousel.
+Système de contrôles du carousel.
 Gère l'état de l'autoplayer (démarré ou arrêté) avec le bouton play/pause.
 
 #### PaginationButton
@@ -229,9 +241,9 @@ Slider est l'ensemble des slides qui se déplacent horizontalement.
 Il est chargé du calcul de translations en fonction de l'index de slide visé.
 Il est composé d'un tableau de `Slide`.
 
-## Balisage et comportements spécifiques à l'accessibilité
+### Attributs et comportements spécifiques à l'accessibilité
 
-### Attributs des contrôles (flèches et pagination)
+#### Attributs des contrôles (flèches et pagination)
 Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la déscription, caché visuellement grâce à la classe css `sr- only`. 
 
 `<span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>`
@@ -254,13 +266,28 @@ Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecte
 
 Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "témoignages", le bouton correspondant au slide actif prend un attribut : `aria-current="true"`.
 
+``` HTML
+<li>
+  <button aria-current="true" aria-selected="true" aria-describedby="title-js-carousel-5" type="button" aria-controls="js-carousel-5-item-0" >
+    <span class="sr-only">Aller au slide 0</span>
+    <i style="width: 58.36%;"> </i>
+  </button>
+</li>
+<li>
+  <button aria-current="false" aria-selected="false" aria-describedby="title-js-carousel-5" type="button" aria-controls="js-carousel-5-item-1" >
+    <span class="sr-only">Aller au slide 1</span>
+    <i style="width: 0%;"></i>
+  </button>
+</li>
+```
+
 ``` javaScript {filename="paginationButton.js"}
     setAriaCurrent (current) {
         this.element.setAttribute('aria-current', String(current));
     }
 ```
 
-### Comportement à la navigation : 
+#### Comportement à la navigation
 Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est fait pour déterminer parmi tous les carousels, lequel d'entre eux obtiendra le focus et les actions du clavier. De cette manière, le carousel focusable est celui qui est visible, et verticalement le plus au centre de la fenêtre. 
 
 `_findBestCarouselFocusCandidate()` renvoie le carousel verticalement le plus au centre de la fenêtre.
@@ -323,6 +350,15 @@ Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour 
 
 > [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
 
+``` HTML
+<figure class="testimonial with-picture is-current" aria-hidden="false" tabindex="0" id="js-carousel-5-item-0">
+    ...
+</figure>
+<figure class="testimonial with-picture is-next" aria-hidden="true" tabindex="-1" id="js-carousel-5-item-1">
+    ...
+</figure>    
+...
+```
 ``` javaScript {filename="slide.js"}
     setInteractivityState (slideVisible) {
         var focusableSubElements = ['a', 'button', 'iframe'];
