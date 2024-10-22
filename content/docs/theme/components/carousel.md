@@ -8,30 +8,30 @@ title: Carousel
 
 En mise en page carousel.
 
-Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
+La navigation se fait:
+- au scroll horizontal, 
+- à l'activation des boutons en forme de flèches,
+- au clavier (flèche gauche / flèche droite).
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
 
-Affiche un indicateur du nombre de slides et du numéro de slide courant.
-
-#### Pleine largeur
-![](gallery-fullwidth.png)
-#### Barre latérale
-![](gallery-sidebar.png)
-#### Mobile
-![](gallery-mobile.png)
-
+Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
+![](gallery-fullwidth.png "Pleine largeur")
+![](gallery-sidebar.png "Barre latérale")
+![](gallery-mobile.png "Mobile")
 
 ### Bloc actualités 
 
 En mise en page carousel.
 
-Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
+La navigation se fait:
+- au scroll horizontal, 
+- à l'activation des boutons en forme de flèches,
+- au clavier (flèche gauche / flèche droite).
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
 
-#### Pleine largeur
-![](posts-fullwidth.png)
-#### Barre latérale
-![](posts-sidebar.png)
-#### Mobile
-![](posts-mobile.png)
+![](posts-fullwidth.png "Pleine largeur")
+![](posts-sidebar.png "Barre latérale")
+![](posts-mobile.png "Mobile")
 
 ### Bloc témoignages
 
@@ -39,37 +39,133 @@ Uniquement quand il y a plusieurs témoignages.
 
 Fonctionne comme des reels Instagram, tourne tout seul avec des barres de progression et un bouton play/pause.
 
-Le contrôle se fait grâce à une pagination et au clavier (flèche gauche / flèche droite).
+La navigation se fait:
+- au scroll horizontal, 
+- à l'activation des boutons de pagination,
+- au clavier (flèche gauche / flèche droite).
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
 
-#### Pleine largeur
-![](testimonials-fullwidth.png)
-#### Barre latérale
-![](testimonials-sidebar.png)
-#### Mobile
-![](testimonials-mobile.png)
+![](testimonials-fullwidth.png "Pleine largeur")
+![](testimonials-sidebar.png "Barre latérale")
+![](testimonials-mobile.png "Mobile")
 
 ### Bloc frise chronologique
 
 En affichage horizontal. 
 
-Le contrôle se fait grâce aux boutons en forme de flèches et au clavier (flèche gauche / flèche droite).
+La navigation se fait:
+- au scroll horizontal, 
+- à l'activation des boutons en forme de flèches,
+- au clavier (flèche gauche / flèche droite).
+> Plus d'informations sur les options de navigation des carousels dans la partie [Contrôle du carousel](#contrôle-du-carousel).
 
-Affiche un indicateur du nombre de slides et du numéro de slide courant.
+Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
 
-#### Pleine largeur
-![](timeline-fullwidth.png)
-#### Barre latérale
-![](timeline-sidebar.png)
-#### Mobile
-![](timeline-mobile.png)
+![](timeline-fullwidth.png "Pleine largeur")
+![](timeline-sidebar.png "Barre latérale")
+![](timeline-mobile.png "Mobile")
+
+## Contrôle du carousel
+Chaque carousel permet de naviguer entre les slides par un scroll horizontal (sur écran tactile un swipe horizontal).
+Par ailleurs, et conformément aux recommendations WCAG 2.1, la navigation (slide suivant, slide précédent) se fait également au clavier en appuyant sur la touche "arrowLeft" et "arrowRight".
+
+> [**Critère d'accessibilité 7.3**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#7.3): Chaque script est-il contrôlable par le clavier et par tout dispositif de pointage (hors cas particuliers) ? 
+
+Ensuite, deux modes de navigation sont possible selon les options: une pagination avec un bouton pour chaque slide, ou bien deux boutons flèches (gauche/droite). 
+
+Dans le cas de l'option d'autoplayer, un bouton permettant l'arrêt du défilement est affiché.
+> [**Critère d'accessibilité 13.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#13.8):
+Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôlable par l’utilisateur ? 
 
 ## Implémentation
+Tous les carousels disposent des options suivantes: 
+- **autoplay (booléen)** : active l'autoplay si true
+- **autoplayinterval (entier en millisecondes)** : durée d'affichage d'un slide en mode autoplay
+- **pagination (booléen)** : active l'affichage des boutons de pagination si true
+- **arrows (booléen)** : active l'affichage des boutons flèches de navigation si true
 
+### HTML
+L'extrait de code suivant montre la structure d'un carousel (ici dans le cas du block témoignage).
+
+Les carousels sont composés d'un conteneur `js-carousel` disposant d'un conteneur slider et d'un conteneur pour la navigation (pagination ou flèches).
+
+``` HTML 
+<div class="testimonials">
+  <div class="carousel js-carousel" data-carousel="{'autoplay':true,'autoplayinterval':5000,'pagination':true}"
+    id="js-carousel-5">
+    <div class="carousel__slider">
+        ... 
+    </div>
+
+    <div class="carousel__pagination">
+        ...
+    </div>
+    ou (dans le cas de l'option arrows)
+    <div class="carousel__arrows">
+        ...
+    </div>    
+  </div>
+</div>
+```
+
+Le slider est composé d'un conteneur dans lequel les slides (figures) défilent au scroll.
+``` HTML
+    <div class="carousel__slider">
+      <div class="carousel__container" id="js-carousel-5-items">
+        <figure aria-hidden="false" tabindex="0" id="js-carousel-5-item-0"> ... </figure>
+        <figure aria-hidden="true" tabindex="-1"
+          id="js-carousel-5-item-1">...</figure>
+        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-2">...
+        </figure>
+      </div>
+    </div>
+```
+
+Dans le cas de la pagination, une liste de boutons activant le slide correspondant est affiché: 
+``` HTML
+    <div class="carousel__pagination">
+      <ul class="carousel__pagination__tabcontainer has_toggle">
+        <li>
+          <button aria-selected="true" type="button"
+            aria-controls="js-carousel-5-item-0" aria-current="true">
+            <span class="sr-only">Aller au slide 0</span>
+            <i style="width: 58.36%;"> </i>
+          </button>
+        </li>
+        <li>
+          <button aria-selected="false" type="button"
+            aria-controls="js-carousel-5-item-1" aria-current="false">
+            <span class="sr-only">Aller au slide 1</span>
+            <i style="width: 0%;"></i>
+          </button>
+        </li>
+        <li>
+          <button aria-selected="false" type="button"
+            aria-controls="js-carousel-5-item-2" aria-current="false">
+            <span class="sr-only">Aller au slide 2</span>
+            <i style="width: 0%;"></i>
+          </button>
+        </li>
+      </ul>
+    
+    Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché
+      <button class="toggle toggle__playing">
+        <span class="play" aria-hidden="true">
+          <span class="sr-only">Carousel actuellement en pause. Démarrer le carousel</span>
+        </span>
+        <span class="pause" aria-hidden="false">
+          <span class="sr-only">Carousel en cours de lecture. Mettre en pause le carousel</span>
+        </span>
+      </button>
+    </div>
+```
+
+### Javascript
 {{< callout type="info" >}}
   Les 2 premiers objets sont par ordre logique.
 {{< /callout >}}
 
-### Manager
+#### Manager
 
 Manager est chargé de l'instanciation de tous les carousels d'une page. 
 
@@ -77,7 +173,7 @@ Il est responsable de transmettre les événements de redimension de la fenêtre
 
 Il se charge aussi des attributions de nom de classe, d'id et d'attributs aria nécessaires à la navigation pour les personnes mal-voyantes ou naviguant au clavier.
 
-### Carousel
+#### Carousel
 
 L'instance de carousel représente 1 carousel dans la page.
 Elle est en charge des événements et agit comme un chef d'orchestre.
@@ -86,11 +182,11 @@ Elle est en charge des événements et agit comme un chef d'orchestre.
   Les objets suivants sont par ordre alphabétique.
 {{< /callout >}}
 
-### Arrows
+#### Arrows
 
 Gestion des flèches et du numéro 1/4.
 
-### Autoplayer
+#### Autoplayer
 
 L'autoplayer se charge de passer automatiquement le carousel au prochain slide, à un intervalle donné.
 
@@ -101,33 +197,33 @@ Il est contrôlé par 4 fonctions qui permettent de :
 
 Il met également à jour la progression de l'UI dans la pagination dans le cas où celle-ci est active.
 
-### Classes
+#### Classes
 
 Liste des classes HTML utilisées dans le DOM.
 
-### Config
+#### Config
 
 Configuration d'une instance de carousel.
 
-### Events
+#### Events
 
 Liste des événements Javascript émis.
 
-### Pagination
+#### Pagination
 
 Système de contrôle du carousel.
 Gère l'état de l'autoplayer (démarré ou arrêté) avec le bouton play/pause.
 
-### PaginationButton
+#### PaginationButton
 
 Représente un bouton de pagination, avec sa progression dans le cas de l'autoplay. 
 Au click le bouton amène vers le slide correspondant.
 
-### Slide
+#### Slide
 
 La classe qui gère 1 slide, avec son état (previous, current, next...).
 
-### Slider
+#### Slider
 
 Slider est l'ensemble des slides qui se déplacent horizontalement. 
 Il est chargé du calcul de translations en fonction de l'index de slide visé.
@@ -143,8 +239,7 @@ Les intitulés des flèches de navigation et des boutons de pagination sont retr
 Tous les boutons de contrôles sont dotés d'un attribut `aria-describedby` correspondant au titre du carousel. 
 Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et boutons de pagination) correspondent. 
 
-*manager.js* 
-```
+``` javaScript {filename="manager.js"}
     _setCarouselAriaDescribedBy (carousel) {
         var parent = carousel.element.parentElement,
             blockTitle = parent ? parent.querySelector('.block-title') : null;
@@ -159,8 +254,7 @@ Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecte
 
 Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "témoignages", le bouton correspondant au slide actif prend un attribut : `aria-current="true"`.
 
-*paginationButton.js*
-```
+``` javaScript {filename="paginationButton.js"}
     setAriaCurrent (current) {
         this.element.setAttribute('aria-current', String(current));
     }
@@ -169,10 +263,9 @@ Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "t�
 ### Comportement à la navigation : 
 Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est fait pour déterminer parmi tous les carousels, lequel d'entre eux obtiendra le focus et les actions du clavier. De cette manière, le carousel focusable est celui qui est visible, et verticalement le plus au centre de la fenêtre. 
 
-*manager.js*
 `_findBestCarouselFocusCandidate()` renvoie le carousel verticalement le plus au centre de la fenêtre.
 
-```
+``` javaScript {filename="manager.js"}
     _findBestCarouselFocusCandidate: function () {
         // On démarre avec la plus grande distance possible
         var distance = window.innerHeight,
@@ -200,8 +293,10 @@ Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est
 
 Ainsi, à chaque changement de position horizontale, un calcul est fait pour déterminer si le slide est complètement visible ou non.
 
+> [**Critère d'accessibilité 10.7**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.7): Dans chaque page web, pour chaque élément recevant le focus, la prise de focus est-elle visible ?  
+
 La fonction `_slideIsVisible(index)` retourne `true` si le slide à l'index `index` est complètement visible, `false` sinon.
-```
+``` javaScript {filename="slider.js"}
     _slideIsVisible: function (index) {
         var slidePos = {
             min: null,
@@ -211,9 +306,9 @@ La fonction `_slideIsVisible(index)` retourne `true` si le slide à l'index `ind
         slidePos.max = slidePos.min + this.slides[index].width;
         return slidePos.min >= -2 && slidePos.max <= Math.min(window.screen.width - this.element.getBoundingClientRect().left, this.containerWidth) + 2;
     }
-```
+``` 
 `_slidePosition(index)` retourne la position du slide à l'index `index` dans le tableau de slides qui composent le slider.
-```
+``` javaScript {filename="slider.js"}
     _slidePosition: function (index) {
         var position = 0,
             i;
@@ -226,8 +321,9 @@ La fonction `_slideIsVisible(index)` retourne `true` si le slide à l'index `ind
 
 Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour les lecteurs d'écran avec un `aria-hidden="true"` et rendus non-focusables avec un `tabindex=-1`, de même que tous les éléments interactifs contenu dans ce slide (`<a>`, `<button>`, `<iframe>`).
 
-*slide.js*
-```
+> [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
+
+``` javaScript {filename="slide.js"}
     setInteractivityState (slideVisible) {
         var focusableSubElements = ['a', 'button', 'iframe'];
         this.visible = slideVisible;
