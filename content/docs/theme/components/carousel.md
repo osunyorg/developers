@@ -22,9 +22,9 @@ Options par défaut:
 > Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
 Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
-![](gallery-fullwidth.png "Pleine largeur")
-![](gallery-sidebar.png "Barre latérale")
-![](gallery-mobile.png "Mobile")
+![](images/gallery-fullwidth.png "Pleine largeur")
+![](images/gallery-sidebar.png "Barre latérale")
+![](images/gallery-mobile.png "Mobile")
 
 #### Bloc actualités 
 
@@ -35,9 +35,9 @@ Options par défaut:
 
 > Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
-![](posts-fullwidth.png "Pleine largeur")
-![](posts-sidebar.png "Barre latérale")
-![](posts-mobile.png "Mobile")
+![](images/posts-fullwidth.png "Pleine largeur")
+![](images/posts-sidebar.png "Barre latérale")
+![](images/posts-mobile.png "Mobile")
 
 #### Bloc témoignages
 
@@ -51,9 +51,9 @@ Options par défaut:
 
 > Plus d'informations sur les options de navigation des carousels dans la partie [Contrôles du carousel](#contrôle-du-carousel).
 
-![](testimonials-fullwidth.png "Pleine largeur")
-![](testimonials-sidebar.png "Barre latérale")
-![](testimonials-mobile.png "Mobile")
+![](images/testimonials-fullwidth.png "Pleine largeur")
+![](images/testimonials-sidebar.png "Barre latérale")
+![](images/testimonials-mobile.png "Mobile")
 
 #### Bloc frise chronologique
 
@@ -65,9 +65,9 @@ Options par défaut:
 
 Ce block affiche aussi un indicateur du nombre de slides et du numéro de slide courant.
 
-![](timeline-fullwidth.png "Pleine largeur")
-![](timeline-sidebar.png "Barre latérale")
-![](timeline-mobile.png "Mobile")
+![](images/timeline-fullwidth.png "Pleine largeur")
+![](images/timeline-sidebar.png "Barre latérale")
+![](images/timeline-mobile.png "Mobile")
 
 ### Contrôles du carousel
 Chaque carousel permet de naviguer entre les slides par un scroll horizontal (sur écran tactile un swipe horizontal).
