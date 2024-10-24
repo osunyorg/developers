@@ -142,6 +142,7 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
       <button aria-controls="js-carousel-5-item-0"
               aria-current="true"
               aria-selected="true"
+              aria-describedby="title-js-carousel-5"
               type="button">
         <span class="sr-only">Aller au slide 0</span>
         <i></i>
@@ -151,6 +152,7 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
       <button aria-controls="js-carousel-5-item-1"
               aria-current="false"
               aria-selected="false"
+              aria-describedby="title-js-carousel-5" 
               type="button">
         <span class="sr-only">Aller au slide 1</span>
         <i></i>
@@ -160,6 +162,7 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
       <button aria-controls="js-carousel-5-item-2"
               aria-current="false"
               aria-selected="false"
+              aria-describedby="title-js-carousel-5" 
               type="button">
         <span class="sr-only">Aller au slide 2</span>
         <i></i>
@@ -170,7 +173,8 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
 ```
 
 ``` HTML {filename="Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché"}
-<button class="toggle toggle__playing">
+<button aria-describedby="title-js-carousel-5"
+        class="toggle toggle__playing">
   <span class="play" aria-hidden="true">
     <span class="sr-only">Carousel actuellement en pause. Démarrer le carousel</span>
   </span>
@@ -184,7 +188,10 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
 Dans le cas des flèches de navigation, deux boutons de flèches ainsi qu'on compteur de slides sont affichés.
 ``` HTML {filename="Conteneur de navigation par les flèches"}
 <div class="carousel__arrows">
-  <button class="arrow-prev" type="button" disabled="">
+  <button aria-describedby="title-js-carousel-5"
+          class="arrow-prev" 
+          disabled=""
+          type="button">
       <span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
   </button>
   <p class="counter">1/4</p>

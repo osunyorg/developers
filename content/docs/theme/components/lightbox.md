@@ -49,7 +49,7 @@ Si l'une, l'autre, ou les deux de ces informations sont disponibles, le ou les b
 Au click sur un de ces boutons, le contenu de l'information est ouvert dans une fenêtre de type pop-in.
 Une fois ouverte, cette pop-in peut être fermée en cliquant sur le bouton "fermer", ou bien en cliquant sur le bouton "©" ou "i" activé.
 
-![](images/lightbox-gallery-popup.png "Visionneuse avec la fenêtre de description ouverte.")
+![](images/lightbox-gallery-popup.png "Visionneuse avec la fenêtre de description ouverte")
 
 ## Implémentation
 {{< callout type="info" >}}
@@ -57,75 +57,91 @@ Une fois ouverte, cette pop-in peut être fermée en cliquant sur le bouton "fer
 {{< /callout >}}
 
 ### Manager
-Manager est chargé de gérer les différentes visionneuses d'une page. 
+`Manager` est chargé de gérer les différentes visionneuses d'une page. 
 Si il existe au moins une image avec l'option visionneuse présente dans la page, le manager instancie un objet de la classe `Container`.
 Ensuite il gère les évènements sur la page.
 
 Lorsqu'une image peut s'ouvrir en visionneuse, elle est entourée d'un lien qui au click déclenche l'évènement d'ouverture de la visionneuse par le `Manager`.
 Ce lien est dissimulé pour les technologies d'assistance avec un `aria-hidden= "true"` et non focusable par son `tabindex=-1`.
-``` HTML
-<figure role="figure" class="image-landscape lightbox-figure">
-  <a class="lightbox-launcher" role="button" aria-hidden="true" tabindex="-1" data-lightbox="{}" href="[imgurl]" value="0">
+``` HTML {filename="Example d'image invoquant une visionneuse"}
+<figure class="image-landscape lightbox-figure" role="figure">
+  <a  aria-hidden="true"
+      class="lightbox-launcher"
+      data-lightbox="{ // données passées en json au javascript
+            credit: '...',
+            credithtml: '...',
+            description: '...',
+            descriptionhtml: '..',
+            gallery_values: {
+              index: ...,
+              total: ...
+            }
+          }"
+      href="[imgurl]"
+      role="button"
+      tabindex="-1"
+      value="0">
     <span class="sr-only">Agrandir l'image</span>
     <picture> ... </picture>
   </a>
 </figure>
 ```
-Au click sur une image, le `manager` déclenche l'ouverture du container dont il va charger le contenu en fonction de l'image activée.
+Au click sur une image, le `Manager` déclenche l'ouverture du container dont il va charger le contenu en fonction de l'image activée.
 Ce contenu est encapsulé dans un objet de classe `Lightbox`.
 
 ``` javaScript {filename="manager.js"}
-    _onLauncherClick (event) { 
-        var index = event.currentTarget.getAttribute('value');
-        this._setLightboxContent(index); 
-        this._open();
-    },
-    _setLightboxContent (index) {
-        this.currentLightbox = this.lightboxes[index];
-        this.container.show(this.currentLightbox);
-    },
-    _open () {
-        if (!this.container.opened) {
-            this.container.open(); 
-        }
-    },
+_onLauncherClick (event) { 
+    var index = event.currentTarget.getAttribute('value');
+    this._setLightboxContent(index); 
+    this._open();
+},
+_setLightboxContent (index) {
+    this.currentLightbox = this.lightboxes[index];
+    this.container.show(this.currentLightbox);
+},
+_open () {
+    if (!this.container.opened) {
+        this.container.open(); 
+    }
+}
 ```
 
 Le manager intercepte également les évènements `previous`, `next`, `close`, qu'il restransmet au `Container`.
 
 ``` javaScript {filename="manager.js"}
-    next () {
-        // si l'instance de Lightbox a une image suivante
-        if (this.currentLightbox.next) { 
-            // le contenu est mis à jour avec le contenu de l'image suivante
-            this._setLightboxContent(this.currentLightbox.next);
-        }
-    },
-    previous () {
-        if (this.currentLightbox.previous) {
-            this._setLightboxContent(this.currentLightbox.previous);
-        }
-    },
+next () {
+    // si l'instance de Lightbox a une image suivante
+    if (this.currentLightbox.next) { 
+        // le contenu est mis à jour avec le contenu de l'image suivante
+        this._setLightboxContent(this.currentLightbox.next);
+    }
+},
+previous () {
+    if (this.currentLightbox.previous) {
+        this._setLightboxContent(this.currentLightbox.previous);
+    }
+}
 ```
 
 À la fermeture de la visionneuse, le focus est remis sur le lien de l'image.
 ``` javaScript {filename="manager.js"}
-    close () {
-        this.container.close();
-        this.currentLightbox.launcher.focus();
-    },
+close () {
+    this.container.close();
+    this.currentLightbox.launcher.focus();
+}
 ```
-
-
 
 ### Container
 `Container` est l'élément qui s'affiche en modale ou non.
 Son code HTML est composé d'une `<figure>` dont le contenu est l'image ou vide si il est fermé. Et d'un `<div>` contenant les différents boutons de contrôle, ainsi que la fenêtre pop-in, mis à jours en fonction du contenu.
 
 Lorsqu'il est fermé, le container est caché en CSS.
-``` HTML
+``` HTML {filename="Exemple de container fermé"}
 <div class="lightbox-container">
-  <figure role="figure" class="lightbox-content" tabindex="0"></figure>
+  <figure class="lightbox-content"
+          role="figure"
+          tabindex="0">
+  </figure>
   <div class="lightbox-controls">
     ...
   </div>
@@ -133,9 +149,12 @@ Lorsqu'il est fermé, le container est caché en CSS.
 ```
 
 Lors qu'il est ouvert, le container est affiché en CSS et la figure est chargée de l'`<img>` correspondant.
-```HTML 
+``` HTML {filename="Exemple de container ouvert"}
 <div class="lightbox-container" style="display: block;">
-  <figure role="figure" class="lightbox-content" tabindex="0" aria-label="Magazine">
+  <figure aria-label="Magazine"
+          class="lightbox-content"
+          role="figure"
+          tabindex="0">
     <img src="..." alt="Magazine">
   </figure>
   <div class="lightbox-controls">
@@ -153,42 +172,42 @@ Les évènements souris et clavier sont écoutés pour déclencher la fermeture.
 
 > [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
 ``` javaScript {filename="container.js"}
-    open () {
-        this._setPageElementsEnabled(false); 
-        this.bodyElement.style.overflow = 'hidden';
-        this.element.style.display = 'block';
-        this.element.addEventListener('click', this.eventsCallback.click); 
-        document.addEventListener('keydown', this.eventsCallback.keyDown);
-        this.opened = true;
-    },
-    _setPageElementsEnabled (enabled) {
-        this.pageFocusableElements.forEach(function (elem) {
-            this._setPageElementEnabled(elem, enabled);
-        }.bind(this));
-    },
-    _setPageElementEnabled (elem, enabled) {
-      var element = document.querySelector(elem);
-      element.querySelectorAll('a, button, iframe').forEach(function (e) {
-          e.setAttribute('tabindex', enabled ? '0' : '-1');
-      });
-      element.setAttribute('tabindex', enabled ? '0' : '-1');
-      element.setAttribute('aria-hidden', String(!enabled));
-    },
+open () {
+    this._setPageElementsEnabled(false); 
+    this.bodyElement.style.overflow = 'hidden';
+    this.element.style.display = 'block';
+    this.element.addEventListener('click', this.eventsCallback.click); 
+    document.addEventListener('keydown', this.eventsCallback.keyDown);
+    this.opened = true;
+},
+_setPageElementsEnabled (enabled) {
+    this.pageFocusableElements.forEach(function (elem) {
+        this._setPageElementEnabled(elem, enabled);
+    }.bind(this));
+},
+_setPageElementEnabled (elem, enabled) {
+  var element = document.querySelector(elem);
+  element.querySelectorAll('a, button, iframe').forEach(function (e) {
+      e.setAttribute('tabindex', enabled ? '0' : '-1');
+  });
+  element.setAttribute('tabindex', enabled ? '0' : '-1');
+  element.setAttribute('aria-hidden', String(!enabled));
+}
 ```
 
 À la fermeture de la visionneuse, le contenu est supprimé, les prises de focus des éléments interactifs sont réactivés et les listeners sont supprimés. 
 
 ``` javaScript {filename="container.js"}
-    close () {
-        this._removeImageContent();
-        this._setPageElementsEnabled(true);
-        this.bodyElement.style.overflow = 'visible';
-        this.element.style.display = 'none';
-        this._closePopup();
-        this.element.removeEventListener('click', this.eventsCallback.click);
-        document.removeEventListener('keydown', this.eventsCallback.keyDown);
-        this.opened = false;
-    },
+close () {
+    this._removeImageContent();
+    this._setPageElementsEnabled(true);
+    this.bodyElement.style.overflow = 'visible';
+    this.element.style.display = 'none';
+    this._closePopup();
+    this.element.removeEventListener('click', this.eventsCallback.click);
+    document.removeEventListener('keydown', this.eventsCallback.keyDown);
+    this.opened = false;
+}
 ```
 
 La fonction `show(lightbox)` invoquée par le manager met le contenu à jour.
@@ -199,23 +218,23 @@ Puis le focus est forcé sur la nouvelle image venant d'apparaître à l'écran.
 > [**Critère d'accessibilité 1.1**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#1.1): Chaque image porteuse d’information a-t-elle une alternative textuelle ? 
 
 ``` javaScript {filename="container.js"}
-    show (lightbox) {
-        this.popupDetails.close();
-        this._removeImageContent();
-        this._setImageContent(lightbox);
-        this.controlRack.load(lightbox);
-        this.popupDetails.load(lightbox);
-    },
-    _setImageContent (lightbox) {
-      var image = document.createElement('img'),
-          imageDescription = lightbox.descriptionPlain || lightbox.creditPlain || '';
-      this._closePopup();
-      image.setAttribute('src', lightbox.url);
-      image.setAttribute('alt', imageDescription); 
-      this.content.setAttribute('aria-label', imageDescription);
-      this.content.append(image);
-      this.content.focus(); 
-    },
+show (lightbox) {
+    this.popupDetails.close();
+    this._removeImageContent();
+    this._setImageContent(lightbox);
+    this.controlRack.load(lightbox);
+    this.popupDetails.load(lightbox);
+},
+_setImageContent (lightbox) {
+  var image = document.createElement('img'),
+      imageDescription = lightbox.descriptionPlain || lightbox.creditPlain || '';
+  this._closePopup();
+  image.setAttribute('src', lightbox.url);
+  image.setAttribute('alt', imageDescription); 
+  this.content.setAttribute('aria-label', imageDescription);
+  this.content.append(image);
+  this.content.focus(); 
+}
 ```
 
 ### Lightbox
@@ -240,22 +259,22 @@ Elle dispose, des boutons suivants :
 
 Lors d'un clic sur un bouton, il déclenche un événement correspondant.
 
-``` HTML
-    <button class="info">
-      <span class="sr-only">Afficher les informations de l'image</span>
-    </button>
-    <button class="credit">
-      <span class="sr-only">Afficher les crédits de l'image</span>
-    </button>
-    <button class="prev">
-      <span class="sr-only">Aller à l'image précédente</span>
-    </button>
-    <button class="next">
-      <span class="sr-only">Aller à l'image suivante</span>
-    </button>
-    <button class="close">
-      <span class="sr-only">Fermer la lightbox</span>
-    </button>
+``` HTML {filename="Boutons de l'interface de contrôle"}
+<button class="info">
+  <span class="sr-only">Afficher les informations de l'image</span>
+</button>
+<button class="credit">
+  <span class="sr-only">Afficher les crédits de l'image</span>
+</button>
+<button class="prev">
+  <span class="sr-only">Aller à l'image précédente</span>
+</button>
+<button class="next">
+  <span class="sr-only">Aller à l'image suivante</span>
+</button>
+<button class="close">
+  <span class="sr-only">Fermer la lightbox</span>
+</button>
 ```
 
 Au chargement les flèches sont affichées au non selon si la visionneuse est en mode galerie ou non. 
@@ -263,28 +282,28 @@ Les boutons suivant et précédents sont activées en fonction de si il existe u
 Puis les boutons credit et description sont affichés en fonction de si le contenu correspondant existe. 
 
 ``` javaScript {filename="controls.js"}
-    load (lightbox) {
-        this._displayArrows(lightbox.isGallery);
-        this.buttons.next.disabled = lightbox.next === null;
-        this.buttons.previous.disabled = lightbox.previous === null;
+load (lightbox) {
+    this._displayArrows(lightbox.isGallery);
+    this.buttons.next.disabled = lightbox.next === null;
+    this.buttons.previous.disabled = lightbox.previous === null;
 
-        this._loadButton(lightbox, 'credit');
-        this._loadButton(lightbox, 'description');
-    },
+    this._loadButton(lightbox, 'credit');
+    this._loadButton(lightbox, 'description');
+}
 ```
 
 À l'ouverture de la pop-in d'information (description ou crédit), il met à jour l'état de ses boutons avec l'attribut `aria-expanded` à `true` ou `false` en fonction de si le contenu de la pop-in correspondant est affiché ou non.
 
 ``` javaScript {filename="controls.js"}
-    show (popupContent = null) {
-        this.buttons.description.setAttribute('aria-expanded', false);
-        this.buttons.credit.setAttribute('aria-expanded', false);
-        if (popupContent === 'description') {
-            this.buttons.description.setAttribute('aria-expanded', true);
-        } else if (popupContent === 'credit') {
-            this.buttons.credit.setAttribute('aria-expanded', true);
-        }
-    },
+show (popupContent = null) {
+    this.buttons.description.setAttribute('aria-expanded', false);
+    this.buttons.credit.setAttribute('aria-expanded', false);
+    if (popupContent === 'description') {
+        this.buttons.description.setAttribute('aria-expanded', true);
+    } else if (popupContent === 'credit') {
+        this.buttons.credit.setAttribute('aria-expanded', true);
+    }
+}
 ```
 
 ### Events
@@ -295,36 +314,36 @@ Fenêtre d'affichage des informations ou des crédits.
 La popup (pop-in) est mise à jour à chaque changement d'image.
 Elle peut montrer les crédits ou description, et se fermer.
 
-``` HTML
-    <div class="details-window" tabindex="0" style="display: none;">
-      <div>
-        <p class="details-window-title-information">Information</p>
-        <p class="details-window-title-credit">Crédit</p>
-        <a class="details-window-close" href="">Fermer</a>
-      </div>
-      <p class="details-window-content"></p>
-    </div>
+``` HTML {filename="Container de la fenêtre pop-in"}
+<div class="details-window" tabindex="0" style="display: none;">
+  <div>
+    <p class="details-window-title-information">Information</p>
+    <p class="details-window-title-credit">Crédit</p>
+    <a class="details-window-close" href="">Fermer</a>
+  </div>
+  <p class="details-window-content"></p>
+</div>
 ```
 
 Le `container` charge le contenu dans la pop-in par la fonction `load(lightbox)`, puis au click sur un bouton Crédit ou Information, affiche le contenu correspondant.
 Lorsqu'un changement de contenu a lieu, le focus est forcé sur le nouveau contenu affiché.
 
 ``` javaScript {filename="popupDetail.js"}
-    load (lightbox) {
-        this.currentContent.description = lightbox.description;
-        this.currentContent.credit = lightbox.credit;
-    },
-    show (content) {
-      if (Object.keys(this.currentContent).includes(content)) {
-          this._resetTitle();
-          this.current = content;
-          this.title = this.titles[content];
-          this.content.innerHTML = this.currentContent[content];
-      }
-      this.title.style.display = 'block';
-      if (!this.opened) {
-          this.open();
-      }
-      this.element.focus();
-    },
+load (lightbox) {
+    this.currentContent.description = lightbox.description;
+    this.currentContent.credit = lightbox.credit;
+},
+show (content) {
+  if (Object.keys(this.currentContent).includes(content)) {
+      this._resetTitle();
+      this.current = content;
+      this.title = this.titles[content];
+      this.content.innerHTML = this.currentContent[content];
+  }
+  this.title.style.display = 'block';
+  if (!this.opened) {
+      this.open();
+  }
+  this.element.focus();
+}
 ```
