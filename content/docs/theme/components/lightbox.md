@@ -33,8 +33,8 @@ params:
 ![](images/lightbox-gallery-mobile.png "Visionneuse ouverte contenant plusieurs images (galerie) en affichage mobile")
 
 ### Comportement
-L'ouverture de la visionneuse se fait au click sur une image, suite auquel l'image apparait dans un conteneur prenant toute la taille de l'écran.
-Une fois la visionnneuse ouverte, la fermeture peut se faire de plusieurs manières: 
+Au click sur une image, cette dernière apparait en grand, dans une visionneuse prenant toute la taille de l'écran.
+Une fois la visionneuse ouverte, la fermeture peut se faire de plusieurs manières: 
 - Au click sur le bouton en forme de croix affiché en bas à droite de la visionneuse
 - Au click sur l'espace autour de l'image dans la visionneuse
 - En appuyant sur la touche `escape` du clavier
