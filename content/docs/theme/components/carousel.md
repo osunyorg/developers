@@ -91,7 +91,9 @@ Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôla
 Les carousels sont composés d'un conteneur `js-carousel` disposant d'un conteneur slider et d'un conteneur pour la navigation (pagination ou flèches).
 ``` HTML {filename="Exemple de la structure d'une conteneur carousel dans le cas de la pagination, avec autoplay"}
 <div class="testimonials">
-  <div id="js-carousel-5" class="carousel js-carousel" data-carousel="{'autoplay':true,'autoplayinterval':5000,'pagination':true}">
+  <div  id="js-carousel-5"
+        class="carousel js-carousel" 
+        data-carousel="{'autoplay':true, 'autoplayinterval':5000, 'pagination':true, 'arrows':false}">
     <div class="carousel__slider">
         ... 
     </div>
@@ -104,8 +106,10 @@ Les carousels sont composés d'un conteneur `js-carousel` disposant d'un contene
 ```
 
 ``` HTML {filename="Exemple de la structure d'une conteneur carousel dans le cas des flèches, sans autoplay"}
-<div class="timelime">
-  <div id="js-carousel-2" class="carousel js-carousel" data-carousel="{'autoplay':false, 'pagination':false, 'arrows': true}" >
+<div class="timeline">
+  <div  id="js-carousel-2" 
+        class="carousel js-carousel" 
+        data-carousel="{'autoplay':false, 'pagination':false, 'arrows':true}">
     <div class="carousel__slider">
         ... 
     </div>
@@ -120,67 +124,74 @@ Les carousels sont composés d'un conteneur `js-carousel` disposant d'un contene
 #### Slider
 Le slider est composé d'un conteneur dans lequel les slides (figures) défilent au scroll.
 ``` HTML {filename="Conteneur de slides"}
-    <div class="carousel__slider">
-      <div id="js-carousel-5-items" class="carousel__container">
-        <figure id="js-carousel-5-item-0" aria-hidden="false" tabindex="0"> ... </figure>
-        <figure id="js-carousel-5-item-1" aria-hidden="true" tabindex="-1"> ... </figure>
-        <figure id="js-carousel-5-item-2" aria-hidden="true" tabindex="-1"> ... </figure>
-      </div>
-    </div>
+<div class="carousel__slider">
+  <div id="js-carousel-5-items" class="carousel__container">
+    <figure id="js-carousel-5-item-0" aria-hidden="false" tabindex="0"> ... </figure>
+    <figure id="js-carousel-5-item-1" aria-hidden="true" tabindex="-1"> ... </figure>
+    <figure id="js-carousel-5-item-2" aria-hidden="true" tabindex="-1"> ... </figure>
+  </div>
+</div>
 ```
 
 #### Pagination
-Dans le cas de la pagination, une liste de boutons activant le slide correspondant est affiché: 
+Dans le cas de la pagination, une liste de boutons activant le slide correspondant est affiché.
 ``` HTML {filename="Conteneur de pagination"}
-    <div class="carousel__pagination">
-      <ul class="carousel__pagination__tabcontainer has_toggle">
-        <li>
-          <button aria-selected="true" type="button"
-            aria-controls="js-carousel-5-item-0" aria-current="true">
-            <span class="sr-only">Aller au slide 0</span>
-            <i style="width: 58.36%;"> </i>
-          </button>
-        </li>
-        <li>
-          <button aria-selected="false" type="button"
-            aria-controls="js-carousel-5-item-1" aria-current="false">
-            <span class="sr-only">Aller au slide 1</span>
-            <i style="width: 0%;"></i>
-          </button>
-        </li>
-        <li>
-          <button aria-selected="false" type="button"
-            aria-controls="js-carousel-5-item-2" aria-current="false">
-            <span class="sr-only">Aller au slide 2</span>
-            <i style="width: 0%;"></i>
-          </button>
-        </li>
-      </ul>
-
-Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché
-      <button class="toggle toggle__playing">
-        <span class="play" aria-hidden="true">
-          <span class="sr-only">Carousel actuellement en pause. Démarrer le carousel</span>
-        </span>
-        <span class="pause" aria-hidden="false">
-          <span class="sr-only">Carousel en cours de lecture. Mettre en pause le carousel</span>
-        </span>
+<div class="carousel__pagination">
+  <ul class="carousel__pagination__tabcontainer has_toggle">
+    <li>
+      <button aria-controls="js-carousel-5-item-0"
+              aria-current="true"
+              aria-selected="true"
+              type="button">
+        <span class="sr-only">Aller au slide 0</span>
+        <i></i>
       </button>
-    </div>
+    </li>
+    <li>
+      <button aria-controls="js-carousel-5-item-1"
+              aria-current="false"
+              aria-selected="false"
+              type="button">
+        <span class="sr-only">Aller au slide 1</span>
+        <i></i>
+      </button>
+    </li>
+    <li>
+      <button aria-controls="js-carousel-5-item-2"
+              aria-current="false"
+              aria-selected="false"
+              type="button">
+        <span class="sr-only">Aller au slide 2</span>
+        <i></i>
+      </button>
+    </li>
+  </ul>
+</div>
+```
+
+``` HTML {filename="Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché"}
+<button class="toggle toggle__playing">
+  <span class="play" aria-hidden="true">
+    <span class="sr-only">Carousel actuellement en pause. Démarrer le carousel</span>
+  </span>
+  <span class="pause" aria-hidden="false">
+    <span class="sr-only">Carousel en cours de lecture. Mettre en pause le carousel</span>
+  </span>
+</button>
 ```
 
 #### Flèches
-Dans le cas des flèches de navigation, deux boutons de flèches ainsi qu'on compteur de slides sont affichés
+Dans le cas des flèches de navigation, deux boutons de flèches ainsi qu'on compteur de slides sont affichés.
 ``` HTML {filename="Conteneur de navigation par les flèches"}
-    <div class="carousel__arrows">
-    <button class="arrow-prev" type="button" disabled="">
-        <span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
-    </button>
-    <p class="counter">1/4</p>
-    <button class="arrow-next" type="button">
-        <span class="sr-only" aria-hidden="false">Aller à l'élément suivant</span>
-    </button>
-    </div>
+<div class="carousel__arrows">
+  <button class="arrow-prev" type="button" disabled="">
+      <span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
+  </button>
+  <p class="counter">1/4</p>
+  <button class="arrow-next" type="button">
+      <span class="sr-only" aria-hidden="false">Aller à l'élément suivant</span>
+  </button>
+</div>
 ```
 
 ### Javascript
@@ -265,16 +276,16 @@ Tous les boutons de contrôles sont dotés d'un attribut `aria-describedby` corr
 Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et boutons de pagination) correspondent. 
 
 ``` javaScript {filename="manager.js"}
-    _setCarouselAriaDescribedBy (carousel) {
-        var parent = carousel.element.parentElement,
-            blockTitle = parent ? parent.querySelector('.block-title') : null;
-        if (blockTitle) {
-            blockTitle.setAttribute('id', 'title-'+carousel.id);
-            carousel.element.querySelectorAll('button').forEach(function (child) {
-                child.setAttribute('aria-describedby', String(blockTitle.getAttribute('id')));
-            }.bind(this));
-        }
-    },
+_setCarouselAriaDescribedBy (carousel) {
+    var parent = carousel.element.parentElement,
+        blockTitle = parent ? parent.querySelector('.block-title') : null;
+    if (blockTitle) {
+        blockTitle.setAttribute('id', 'title-'+carousel.id);
+        carousel.element.querySelectorAll('button').forEach(function (child) {
+            child.setAttribute('aria-describedby', String(blockTitle.getAttribute('id')));
+        }.bind(this));
+    }
+}
 ```
 
 Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "témoignages", le bouton correspondant au slide actif prend un attribut : `aria-current="true"`.
@@ -291,17 +302,21 @@ Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "t�
   </button>
 </li>
 <li>
-  <button aria-current="false" aria-selected="false" aria-describedby="title-js-carousel-5" type="button" aria-controls="js-carousel-5-item-1" >
+  <button aria-controls="js-carousel-5-item-1"
+          aria-current="false"
+          aria-describedby="title-js-carousel-5"
+          aria-selected="false"
+          type="button">
     <span class="sr-only">Aller au slide 1</span>
-    <i style="width: 0%;"></i>
+    <i></i>
   </button>
 </li>
 ```
 
 ``` javaScript {filename="paginationButton.js"}
-    setAriaCurrent (current) {
-        this.element.setAttribute('aria-current', String(current));
-    }
+setAriaCurrent (current) {
+    this.element.setAttribute('aria-current', String(current));
+}
 ```
 
 #### Comportement à la navigation
@@ -310,27 +325,27 @@ Au scroll dans la page, s'il y a plusieurs carousels dans la page, un calcul est
 `_findBestCarouselFocusCandidate()` renvoie le carousel verticalement le plus au centre de la fenêtre.
 
 ``` javaScript {filename="manager.js"}
-    _findBestCarouselFocusCandidate: function () {
-        // On démarre avec la plus grande distance possible
-        var distance = window.innerHeight,
-            bestCandidate = null,
-            i = 0,
-            carousel,
-            currentDistanceToCenter;
-        for (i = 0; i < this.carousels.length; i += 1) {
-            carousel = this.carousels[i];
-            carousel.state.hasFocus = false;
-            currentDistanceToCenter = Math.abs(carousel.getCenterPositionY() - this.windowCenterY);
-            if (currentDistanceToCenter < distance) {
-                distance = currentDistanceToCenter;
-                bestCandidate = carousel;
-            }
+_findBestCarouselFocusCandidate: function () {
+    // On démarre avec la plus grande distance possible
+    var distance = window.innerHeight,
+        bestCandidate = null,
+        i = 0,
+        carousel,
+        currentDistanceToCenter;
+    for (i = 0; i < this.carousels.length; i += 1) {
+        carousel = this.carousels[i];
+        carousel.state.hasFocus = false;
+        currentDistanceToCenter = Math.abs(carousel.getCenterPositionY() - this.windowCenterY);
+        if (currentDistanceToCenter < distance) {
+            distance = currentDistanceToCenter;
+            bestCandidate = carousel;
         }
-        if (bestCandidate) {
-            bestCandidate.state.hasFocus = true;
-        }
-        return bestCandidate;
     }
+    if (bestCandidate) {
+        bestCandidate.state.hasFocus = true;
+    }
+    return bestCandidate;
+}
 ```
 
 À l'activation d'un nouveau slide du carousel (au clavier, ou bien au click sur un bouton de navigation), le focus vient se positionner sur l'élément complètement visible qui vient d'apparaître à l'écran.
@@ -341,26 +356,26 @@ Ainsi, à chaque changement de position horizontale, un calcul est fait pour dé
 
 La fonction `_slideIsVisible(index)` retourne `true` si le slide à l'index `index` est complètement visible, `false` sinon.
 ``` javaScript {filename="slider.js"}
-    _slideIsVisible: function (index) {
-        var slidePos = {
-            min: null,
-            max: null
-        };
-        slidePos.min = this._slidePosition(index) - this.element.scrollLeft;
-        slidePos.max = slidePos.min + this.slides[index].width;
-        return slidePos.min >= -2 && slidePos.max <= Math.min(window.screen.width - this.element.getBoundingClientRect().left, this.containerWidth) + 2;
-    }
+_slideIsVisible: function (index) {
+    var slidePos = {
+        min: null,
+        max: null
+    };
+    slidePos.min = this._slidePosition(index) - this.element.scrollLeft;
+    slidePos.max = slidePos.min + this.slides[index].width;
+    return slidePos.min >= -2 && slidePos.max <= Math.min(window.screen.width - this.element.getBoundingClientRect().left, this.containerWidth) + 2;
+}
 ``` 
 `_slidePosition(index)` retourne la position du slide à l'index `index` dans le tableau de slides qui composent le slider.
 ``` javaScript {filename="slider.js"}
-    _slidePosition: function (index) {
-        var position = 0,
-            i;
-        for (i = 0; i < index; i += 1) {
-            position += this.slides[i].width;
-        }
-        return position;
+_slidePosition: function (index) {
+    var position = 0,
+        i;
+    for (i = 0; i < index; i += 1) {
+        position += this.slides[i].width;
     }
+    return position;
+}
 ```
 
 Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour les lecteurs d'écran avec un `aria-hidden="true"` et rendus non-focusables avec un `tabindex=-1`, de même que tous les éléments interactifs contenu dans ce slide (`<a>`, `<button>`, `<iframe>`).
@@ -368,31 +383,35 @@ Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour 
 > [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
 
 ``` HTML {filename="Exemple de changements d'états des slides"}
-<figure id="js-carousel-5-item-0" class="testimonial with-picture is-current" aria-hidden="false" tabindex="0" >
+<figure id="js-carousel-5-item-0" 
+        aria-hidden="false" 
+        class="testimonial with-picture is-current" tabindex="0">
     ...
 </figure>
-<figure id="js-carousel-5-item-1" class="testimonial with-picture is-next" aria-hidden="true" tabindex="-1" >
+<figure id="js-carousel-5-item-1" 
+        aria-hidden="true" 
+        class="testimonial with-picture is-next" tabindex="-1">
     ...
 </figure>    
 ...
 ```
 ``` javaScript {filename="slide.js"}
-    setInteractivityState (slideVisible) {
-        var focusableSubElements = ['a', 'button', 'iframe'];
-        this.visible = slideVisible;
-        this.setFocusable(this.container);
-        focusableSubElements.forEach(function (element) {
-            this.container.querySelectorAll(element).forEach(function (e) {
-                this.setFocusable(e);
-            }.bind(this));
+setInteractivityState (slideVisible) {
+    var focusableSubElements = ['a', 'button', 'iframe'];
+    this.visible = slideVisible;
+    this.setFocusable(this.container);
+    focusableSubElements.forEach(function (element) {
+        this.container.querySelectorAll(element).forEach(function (e) {
+            this.setFocusable(e);
         }.bind(this));
-    },
-    setFocusable (element) {
-        element.setAttribute('aria-hidden', String(!this.visible));
-        if (this.visible) {
-            element.setAttribute('tabindex', String(0));
-        } else {
-            element.setAttribute('tabindex', String(-1));
-        }
-    },
+    }.bind(this));
+},
+setFocusable (element) {
+    element.setAttribute('aria-hidden', String(!this.visible));
+    if (this.visible) {
+        element.setAttribute('tabindex', String(0));
+    } else {
+        element.setAttribute('tabindex', String(-1));
+    }
+}
 ```
