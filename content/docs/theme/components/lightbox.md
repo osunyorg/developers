@@ -75,10 +75,10 @@ Au click sur une image, le `manager` déclenche l'ouverture du container dont il
 Ce contenu est encapsulé dans un objet de classe `Lightbox`.
 
 ``` javaScript {filename="manager.js"}
-    _onLauncherClick (event) { // au click, on récupère l'index de l'image dans la page
+    _onLauncherClick (event) { 
         var index = event.currentTarget.getAttribute('value');
-        this._setLightboxContent(index); // le contenu est mis à jour
-        this._open(); // la visionneuse s'ouvre
+        this._setLightboxContent(index); 
+        this._open();
     },
     _setLightboxContent (index) {
         this.currentLightbox = this.lightboxes[index];
@@ -95,8 +95,10 @@ Le manager intercepte également les évènements `previous`, `next`, `close`, q
 
 ``` javaScript {filename="manager.js"}
     next () {
-        if (this.currentLightbox.next) { // si l'instance de Lightbox a une image suivante
-            this._setLightboxContent(this.currentLightbox.next); // le contenu est mis à jour avec le contenu de l'image suivante
+        // si l'instance de Lightbox a une image suivante
+        if (this.currentLightbox.next) { 
+            // le contenu est mis à jour avec le contenu de l'image suivante
+            this._setLightboxContent(this.currentLightbox.next);
         }
     },
     previous () {
@@ -256,8 +258,8 @@ Lors d'un clic sur un bouton, il déclenche un événement correspondant.
     </button>
 ```
 
-Au chargement les flèches sont affichées au non selon si la visionneuse est enn mmode galerie ou non. 
-Les boutons suivant et précédents sont activées en fonction de si il existe une contennu suivant ou précédent.
+Au chargement les flèches sont affichées au non selon si la visionneuse est en mode galerie ou non. 
+Les boutons suivant et précédents sont activées en fonction de si il existe une contenu suivant ou précédent.
 Puis les boutons credit et description sont affichés en fonction de si le contenu correspondant existe. 
 
 ``` javaScript {filename="controls.js"}
@@ -290,8 +292,8 @@ Liste des événements Javascript émis.
 
 ### PopupDetails
 Fenêtre d'affichage des informations ou des crédits. 
-Le popup est mise à jour à chaque changement d'image `load()`.
-Elle peut montrer les crédits ou description `show(content)`, et se fermer `close()`.
+La popup (pop-in) est mise à jour à chaque changement d'image.
+Elle peut montrer les crédits ou description, et se fermer.
 
 ``` HTML
     <div class="details-window" tabindex="0" style="display: none;">
@@ -304,10 +306,25 @@ Elle peut montrer les crédits ou description `show(content)`, et se fermer `clo
     </div>
 ```
 
+Le `container` charge le contenu dans la pop-in par la fonction `load(lightbox)`, puis au click sur un bouton Crédit ou Information, affiche le contenu correspondant.
+Lorsqu'un changement de contenu a lieu, le focus est forcé sur le nouveau contenu affiché.
 
 ``` javaScript {filename="popupDetail.js"}
     load (lightbox) {
         this.currentContent.description = lightbox.description;
         this.currentContent.credit = lightbox.credit;
+    },
+    show (content) {
+      if (Object.keys(this.currentContent).includes(content)) {
+          this._resetTitle();
+          this.current = content;
+          this.title = this.titles[content];
+          this.content.innerHTML = this.currentContent[content];
+      }
+      this.title.style.display = 'block';
+      if (!this.opened) {
+          this.open();
+      }
+      this.element.focus();
     },
 ```
