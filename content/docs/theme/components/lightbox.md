@@ -218,7 +218,7 @@ Puis le focus est forcé sur la nouvelle image venant d'apparaître à l'écran.
 
 ### Lightbox
 L'instance de lightbox représente une image de la page et ses informations associées (dont éventuellement le crédit et la description).
-Elle détermine également si l'image a une image précédente / suivante ou non et son index de position parmi cette liste d'image
+Elle détermine également si l'image a une image précédente / suivante ou non et son index de position parmi cette liste d'image.
 
 {{< callout type="info" >}}
   Les objets suivants sont par ordre alphabétique.
@@ -236,8 +236,7 @@ Elle dispose, des boutons suivants :
 - Flèche de droite : s'il y a une image suivante
 - Fermer : toujours présent
 
-Lors d'un clic sur un bouton, il déclenche un événement correspondant
-
+Lors d'un clic sur un bouton, il déclenche un événement correspondant.
 
 ``` HTML
     <button class="info">
@@ -257,8 +256,24 @@ Lors d'un clic sur un bouton, il déclenche un événement correspondant
     </button>
 ```
 
-À l'ouverture de la pop-in d'information (description ou crédit), il met à jour l'état de ses boutons avec l'attribut `aria-expanded` à `true` ou `false` en fonction de si le contenu de la pop-in correspondant est affiché ou non.
+Au chargement les flèches sont affichées au non selon si la visionneuse est enn mmode galerie ou non. 
+Les boutons suivant et précédents sont activées en fonction de si il existe une contennu suivant ou précédent.
+Puis les boutons credit et description sont affichés en fonction de si le contenu correspondant existe. 
+
+``` javaScript {filename="controls.js"}
+    load (lightbox) {
+        this._displayArrows(lightbox.isGallery);
+        this.buttons.next.disabled = lightbox.next === null;
+        this.buttons.previous.disabled = lightbox.previous === null;
+
+        this._loadButton(lightbox, 'credit');
+        this._loadButton(lightbox, 'description');
+    },
 ```
+
+À l'ouverture de la pop-in d'information (description ou crédit), il met à jour l'état de ses boutons avec l'attribut `aria-expanded` à `true` ou `false` en fonction de si le contenu de la pop-in correspondant est affiché ou non.
+
+``` javaScript {filename="controls.js"}
     show (popupContent = null) {
         this.buttons.description.setAttribute('aria-expanded', false);
         this.buttons.credit.setAttribute('aria-expanded', false);
@@ -274,7 +289,7 @@ Lors d'un clic sur un bouton, il déclenche un événement correspondant
 Liste des événements Javascript émis.
 
 ### PopupDetails
-Fenêtre d'affichage des informations ou dex crédits. 
+Fenêtre d'affichage des informations ou des crédits. 
 Le popup est mise à jour à chaque changement d'image `load()`.
 Elle peut montrer les crédits ou description `show(content)`, et se fermer `close()`.
 
@@ -287,4 +302,12 @@ Elle peut montrer les crédits ou description `show(content)`, et se fermer `clo
       </div>
       <p class="details-window-content"></p>
     </div>
+```
+
+
+``` javaScript {filename="popupDetail.js"}
+    load (lightbox) {
+        this.currentContent.description = lightbox.description;
+        this.currentContent.credit = lightbox.credit;
+    },
 ```
