@@ -112,9 +112,9 @@ La variable `FTP_HOSTNAME` correspondra à `SSH_HOST` et `FTP_USERNAME` à `SSH_
 
 #### Créer la clé SSH
 
-Ensuite, il vous faudra générer une clé SSH :
+Il vous faudra générer une clé SSH en local, sur votre ordinateur :
 ```bash
-ssh-keygen -t ed25519 -C "votre-adresse-email@exemple.fr"
+ssh-keygen -t ed25519 -C "username@server.com"
 ```
 
 TODO qu'est-ce que c'est que ce mail ? Lequel indiquer ?
@@ -122,14 +122,14 @@ TODO nom ?
 TODO pass ?
 TODO dans quel directory se mettre pour générer la clé ? Où la conserver après ?
 
-Enfin, ajoutez votre clé SSH aux clés autorisées avec : 
+Puis il faut l'envoyer sur le serveur afin de l'ajouter aux clés autorisées avec : 
 ```bash {filename="Description de la commande"}
 ssh-copy-id -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]
 ```
-TODO un chemin ou un nom ? 
+TODO un chemin ou un nom ? comment la nommer ?
 
 ```bash {filename="Commande avec des données d'exemple"}
-ssh-copy-id -i ~/.ssh/id_ed25519 user@mon-domaine.fr
+ssh-copy-id -i ~/.ssh/id_ed25519 username@server.com
 ```
 
 Une fois cela fait, vérifiez que la connexion via SSH fonctionne avec :
@@ -138,8 +138,10 @@ ssh -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]
 ````
 
 ```bash {filename="Commande avec des données d'exemple"}
-ssh -i ~/.ssh/id_ed25519 user@mon-domaine.fr`.
+ssh -i ~/.ssh/id_ed25519 username@server.com
 ````
+
+[En savoir plus sur ssh](https://www.ssh.com/academy/ssh/keygen)
 
 #### Paramétrer Github
 
@@ -147,10 +149,10 @@ Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans
 
 | Nom | Description | Exemple |
 |---|---|---|
-| SSH_HOST | serveur hôte ci-dessus | mon-domaine.fr |
+| SSH_HOST | serveur hôte ci-dessus | server.com |
 | SSH_PORT | Numéro de port | 22 |
-| SSH_PRIVATE_KEY | la clé privée SSH | |
-| SSH_USER | nom de l'utilisateur ci-dessus | | 
+| SSH_PRIVATE_KEY | la clé privée SSH |  |
+| SSH_USER | nom de l'utilisateur ci-dessus | username | 
 | SSH_WORKDIR | Chemin sur le serveur | /web |
 
 #### Créer l'action
