@@ -121,10 +121,10 @@ Les carousels sont composés d'un conteneur `js-carousel` disposant d'un contene
 Le slider est composé d'un conteneur dans lequel les slides (figures) défilent au scroll.
 ``` HTML {filename="Conteneur de slides"}
     <div class="carousel__slider">
-      <div class="carousel__container" id="js-carousel-5-items">
-        <figure aria-hidden="false" tabindex="0" id="js-carousel-5-item-0"> ... </figure>
-        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-1"> ... </figure>
-        <figure aria-hidden="true" tabindex="-1" id="js-carousel-5-item-2"> ... </figure>
+      <div id="js-carousel-5-items" class="carousel__container">
+        <figure id="js-carousel-5-item-0" aria-hidden="false" tabindex="0"> ... </figure>
+        <figure id="js-carousel-5-item-1" aria-hidden="true" tabindex="-1"> ... </figure>
+        <figure id="js-carousel-5-item-2" aria-hidden="true" tabindex="-1"> ... </figure>
       </div>
     </div>
 ```
@@ -364,10 +364,10 @@ Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour 
 > [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
 
 ``` HTML {filename="Exemple de changements d'états des slides"}
-<figure class="testimonial with-picture is-current" aria-hidden="false" tabindex="0" id="js-carousel-5-item-0">
+<figure id="js-carousel-5-item-0" class="testimonial with-picture is-current" aria-hidden="false" tabindex="0" >
     ...
 </figure>
-<figure class="testimonial with-picture is-next" aria-hidden="true" tabindex="-1" id="js-carousel-5-item-1">
+<figure id="js-carousel-5-item-1" class="testimonial with-picture is-next" aria-hidden="true" tabindex="-1" >
     ...
 </figure>    
 ...
