@@ -7,10 +7,12 @@ Le composant carousel est utilisé dans plusieurs blocs natifs de Osuny.
 Ils sont tous construits avec un enchainement de slides, et une interface de controle.
 
 Tous les carousels utilisés disposent des options suivantes:
-- **autoplay (booléen)** : active l'autoplayer si true
-- **autoplayinterval (entier en millisecondes)** : durée d'affichage d'un slide en mode autoplay
-- **pagination (booléen)** : active l'affichage des boutons de pagination si true
-- **arrows (booléen)** : active l'affichage des boutons flèches de navigation si true
+| Option | Type | Description |
+|----|----|----|
+| autoplay | booléen |  active l'autoplayer si true|
+| autoplayinterval | entier en millisecondes |  durée d'affichage d'un slide en mode autoplay|
+| pagination | booléen |  active l'affichage des boutons de pagination si true|
+| arrows | booléen |  active l'affichage des boutons flèches de navigation si true|
 
 ### Blocs utilisant le composant carousel
 #### Bloc galerie
@@ -87,10 +89,9 @@ Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôla
 
 #### Carousel
 Les carousels sont composés d'un conteneur `js-carousel` disposant d'un conteneur slider et d'un conteneur pour la navigation (pagination ou flèches).
-``` HTML 
+``` HTML {filename="Exemple de la structure d'une conteneur carousel dans le cas de la pagination, avec autoplay"}
 <div class="testimonials">
-  <div class="carousel js-carousel" data-carousel="{'autoplay':true,'autoplayinterval':5000,'pagination':true}"
-    id="js-carousel-5">
+  <div id="js-carousel-5" class="carousel js-carousel" data-carousel="{'autoplay':true,'autoplayinterval':5000,'pagination':true}">
     <div class="carousel__slider">
         ... 
     </div>
@@ -98,17 +99,27 @@ Les carousels sont composés d'un conteneur `js-carousel` disposant d'un contene
     <div class="carousel__pagination">
         ...
     </div>
-    ou (dans le cas de l'option arrows)
+  </div>
+</div>
+```
+
+``` HTML {filename="Exemple de la structure d'une conteneur carousel dans le cas des flèches, sans autoplay"}
+<div class="timelime">
+  <div id="js-carousel-2" class="carousel js-carousel" data-carousel="{'autoplay':false, 'pagination':false, 'arrows': true}" >
+    <div class="carousel__slider">
+        ... 
+    </div>
+
     <div class="carousel__arrows">
         ...
-    </div>    
+    </div>
   </div>
 </div>
 ```
 
 #### Slider
 Le slider est composé d'un conteneur dans lequel les slides (figures) défilent au scroll.
-``` HTML
+``` HTML {filename="Conteneur de slides"}
     <div class="carousel__slider">
       <div class="carousel__container" id="js-carousel-5-items">
         <figure aria-hidden="false" tabindex="0" id="js-carousel-5-item-0"> ... </figure>
@@ -120,7 +131,7 @@ Le slider est composé d'un conteneur dans lequel les slides (figures) défilent
 
 #### Pagination
 Dans le cas de la pagination, une liste de boutons activant le slide correspondant est affiché: 
-``` HTML
+``` HTML {filename="Conteneur de pagination"}
     <div class="carousel__pagination">
       <ul class="carousel__pagination__tabcontainer has_toggle">
         <li>
@@ -145,8 +156,8 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
           </button>
         </li>
       </ul>
-    
-    Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché
+
+Si l'autoplayer est actif un bouton activant ou désactivant l'autoplayer est affiché
       <button class="toggle toggle__playing">
         <span class="play" aria-hidden="true">
           <span class="sr-only">Carousel actuellement en pause. Démarrer le carousel</span>
@@ -160,7 +171,7 @@ Dans le cas de la pagination, une liste de boutons activant le slide corresponda
 
 #### Flèches
 Dans le cas des flèches de navigation, deux boutons de flèches ainsi qu'on compteur de slides sont affichés
-``` HTML
+``` HTML {filename="Conteneur de navigation par les flèches"}
     <div class="carousel__arrows">
     <button class="arrow-prev" type="button" disabled="">
         <span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
@@ -244,9 +255,11 @@ Il est composé d'un tableau de `Slide`.
 ### Attributs et comportements spécifiques à l'accessibilité
 
 #### Attributs des contrôles (flèches et pagination)
-Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la déscription, caché visuellement grâce à la classe css `sr- only`. 
+Les intitulés des flèches de navigation et des boutons de pagination sont retranscrits grâce à un `<span>` contenant la déscription, caché visuellement grâce à la classe css `sr-only`. 
 
-`<span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>`
+``` HTML {filename="Exemple de contenu informatif réstitué uniquement pour les technologies d'assistance"}
+<span class="sr-only" aria-hidden="true">Aller à l'élément précédent</span>
+```
 
 Tous les boutons de contrôles sont dotés d'un attribut `aria-describedby` correspondant au titre du carousel. 
 Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecteur d'écran, il ne sera pas possible de savoir à quel contenu les contrôles (flèches et boutons de pagination) correspondent. 
@@ -266,7 +279,7 @@ Il est donc recommandé d'ajouter un titre au carousel, autrement, avec un lecte
 
 Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "témoignages", le bouton correspondant au slide actif prend un attribut : `aria-current="true"`.
 
-``` HTML
+``` HTML {filename="Comportement des boutons de pagination"}
 <li>
   <button aria-current="true" aria-selected="true" aria-describedby="title-js-carousel-5" type="button" aria-controls="js-carousel-5-item-0" >
     <span class="sr-only">Aller au slide 0</span>
@@ -350,7 +363,7 @@ Les slides qui ne sont pas visibles ou partiellement visibles sont cachés pour 
 
 > [**Critère d'accessibilité 10.8**](https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#10.8): Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
 
-``` HTML
+``` HTML {filename="Exemple de changements d'états des slides"}
 <figure class="testimonial with-picture is-current" aria-hidden="false" tabindex="0" id="js-carousel-5-item-0">
     ...
 </figure>
