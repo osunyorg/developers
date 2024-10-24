@@ -281,9 +281,13 @@ Dans le cas spécifique de la pagination, utilisée par exemple dans le bloc "t�
 
 ``` HTML {filename="Comportement des boutons de pagination"}
 <li>
-  <button aria-current="true" aria-selected="true" aria-describedby="title-js-carousel-5" type="button" aria-controls="js-carousel-5-item-0" >
+  <button aria-controls="js-carousel-5-item-0"
+          aria-current="true" 
+          aria-describedby="title-js-carousel-5" 
+          aria-selected="true" 
+          type="button">
     <span class="sr-only">Aller au slide 0</span>
-    <i style="width: 58.36%;"> </i>
+    <i></i>
   </button>
 </li>
 <li>
