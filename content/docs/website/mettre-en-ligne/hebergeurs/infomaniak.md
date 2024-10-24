@@ -10,29 +10,40 @@ Tous les hébergements d'Infomaniak proposent du SSH, sauf l'hébergement 10 Mo 
 
 ### FTP (hébergement gratuit)
 
+#### Créer le compte
+
 Si ce n'est pas déjà fait, créez un compte FTP sur votre hébergement.
 
-![Ajouter un compte FTP sur Infomaniak](/images/infomaniak/ftp1.png)
+![Ajouter un compte FTP sur Infomaniak](ftp1.png)
 
 Les identifiants seront utilisés pour la tâche GitHub (`FTP_USERNAME` et `FTP_PASSWORD`)
 
-![Ajouter un compte FTP sur Infomaniak](/images/infomaniak/ftp2.png)
+![Ajouter un compte FTP sur Infomaniak](ftp2.png)
 
 Une fois validé, vous verrez le serveur hôte, il s'agira de la valeur pour la variable `FTP_HOSTNAME`
 
-![Serveur FTP hôte sur Infomaniak](/images/infomaniak/ftp3.png)
+![Serveur FTP hôte sur Infomaniak](ftp3.png)
+
+#### Paramétrer Github
 
 Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
-- `FTP_HOSTNAME` : `[serveur hôte ci-dessus]`
-- `FTP_USERNAME` : `[nom de l'utilisateur ci-dessus]`
-- `FTP_PASSWORD` : `[mot de passe ci-dessus]`
-- `FTP_PORT` : `21`
-- `FTP_LOCAL_DIR` : `./public/`
-- `FTP_SERVER_DIR` : `./`
 
-Créer l'action automatisée dans le fichier `.github/workflows/deploy.yml`
+| Nom | Description | Exemple |
+|---|---|---|
+| FTP_HOSTNAME | serveur hôte ci-dessus | TODO |
+| FTP_USERNAME | nom de l'utilisateur ci-dessus | TODO |
+| FTP_PASSWORD | mot de passe ci-dessus | TODO |
+| FTP_PORT| Port | 21 |
+| FTP_LOCAL_DIR | Chemin des fichiers compilés | ./public/ |
+| FTP_SERVER_DIR | Chemin sur le serveur | ./ |
 
-```yaml
+Le chemin des fichiers compilés se situe sur l'instance Ubuntu déployée par Github pour exécuter l'action automatisée.
+
+#### Créer l'action
+
+Créer l'action automatisée dans le référentiel Git du site.
+
+```yaml {filename=".github/workflows/deploy.yml"}
 name: FTP deployment
 
 on:
@@ -93,26 +104,60 @@ jobs:
 
 Dans le cas de l'hébergement payant, on peut utiliser le SSH qui est la méthode recommandée. Cependant, cela demande un pré-requis technique pour le mettre en place donc si vous ne savez pas utiliser un terminal de lignes de commande, restez sur la méthode FTP.
 
+#### Créer le compte
+
 Tout d'abord, créer un utilisateur FTP+SSH (voir la création de l'utilisateur FTP au-dessus).
 
 La variable `FTP_HOSTNAME` correspondra à `SSH_HOST` et `FTP_USERNAME` à `SSH_USER`.
 
-Ensuite, il vous faudra générer une clé SSH (`ssh-keygen -t ed25519 -C "votre-adresse-email@exemple.fr"`)
+#### Créer la clé SSH
 
-Enfin, ajoutez votre clé SSH aux clés autorisées avec : `ssh-copy-id -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]`. Exemple : `ssh-copy-id -i ~/.ssh/id_ed25519 user@mon-domaine.fr`
+Ensuite, il vous faudra générer une clé SSH :
+```bash
+ssh-keygen -t ed25519 -C "votre-adresse-email@exemple.fr"
+```
 
-Une fois cela fait, vérifiez que la connexion via SSH fonctionne avec : `ssh -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]`. Exemple : `ssh -i ~/.ssh/id_ed25519 user@mon-domaine.fr`.
+TODO qu'est-ce que c'est que ce mail ? Lequel indiquer ?
+TODO nom ?
+TODO pass ?
+TODO dans quel directory se mettre pour générer la clé ? Où la conserver après ?
+
+Enfin, ajoutez votre clé SSH aux clés autorisées avec : 
+```bash {filename="Description de la commande"}
+ssh-copy-id -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]
+```
+TODO un chemin ou un nom ? 
+
+```bash {filename="Commande avec des données d'exemple"}
+ssh-copy-id -i ~/.ssh/id_ed25519 user@mon-domaine.fr
+```
+
+Une fois cela fait, vérifiez que la connexion via SSH fonctionne avec :
+```bash {filename="Description de la commande"}
+ssh -i [NOM DE VOTRE CLE] [UTILISATEUR FTP]@[NOM HOTE FTP]
+````
+
+```bash {filename="Commande avec des données d'exemple"}
+ssh -i ~/.ssh/id_ed25519 user@mon-domaine.fr`.
+````
+
+#### Paramétrer Github
 
 Aller sur GitHub, dans "Settings", "Secrets and variables", "Actions", puis dans l'onglet "Secrets", définissez les *repository secrets* suivants.
-- `SSH_HOST` : `[serveur hôte ci-dessus]`
-- `SSH_PORT` : `22`
-- `SSH_PRIVATE_KEY` : `[la clé privée SSH]`
-- `SSH_USER` : `[nom de l'utilisateur ci-dessus]`
-- `SSH_WORKDIR` : `/web`
 
-Créer l'action automatisée dans le fichier `.github/workflows/deploy.yml`
+| Nom | Description | Exemple |
+|---|---|---|
+| SSH_HOST | serveur hôte ci-dessus | mon-domaine.fr |
+| SSH_PORT | Numéro de port | 22 |
+| SSH_PRIVATE_KEY | la clé privée SSH | |
+| SSH_USER | nom de l'utilisateur ci-dessus | | 
+| SSH_WORKDIR | Chemin sur le serveur | /web |
 
-```yaml
+#### Créer l'action
+
+Créer l'action automatisée dans le référentiel Git du site.
+
+```yaml {filename=".github/workflows/deploy.yml"}
 name: SSH Deployment
 
 on:
@@ -174,19 +219,20 @@ jobs:
 
 ## Certificat SSL
 
-Pour avoir de l'HTTPS, il vous faudra commander un certificat SSL. Aller dans la partie Domaines et sélectionner votre nom de domaine.
+Pour avoir une connexion sécurisée en HTTPS, il vous faudra commander un certificat SSL. 
+Aller dans la partie Domaines et sélectionner votre nom de domaine.
 
 Aller ensuite dans "Commander un certificat SSL"
 
-![Commander un certificat SSL sur Infomaniak](/images/infomaniak/ssl1.png)
+![Commander un certificat SSL sur Infomaniak](ssl1.png)
 
 Sélectionner le certificat gratuit Let's Encrypt
 
-![Certificat Let's Encrypt sur Infomaniak](/images/infomaniak/ssl2.png)
+![Certificat Let's Encrypt sur Infomaniak](ssl2.png)
 
 Assigner également le certificat au www
 
-![SSL sur les alias sur Infomaniak](/images/infomaniak/ssl3.png)
+![SSL sur les alias sur Infomaniak](ssl3.png)
 
 Cela peut prendre un certain moment avant d'être changé.
 
