@@ -256,12 +256,26 @@ Lors d'un clic sur un bouton, il déclenche un événement correspondant
       <span class="sr-only">Fermer la lightbox</span>
     </button>
 ```
+
+À l'ouverture de la pop-in d'information (description ou crédit), il met à jour l'état de ses boutons avec l'attribut `aria-expanded` à `true` ou `false` en fonction de si le contenu de la pop-in correspondant est affiché ou non.
+```
+    show (popupContent = null) {
+        this.buttons.description.setAttribute('aria-expanded', false);
+        this.buttons.credit.setAttribute('aria-expanded', false);
+        if (popupContent === 'description') {
+            this.buttons.description.setAttribute('aria-expanded', true);
+        } else if (popupContent === 'credit') {
+            this.buttons.credit.setAttribute('aria-expanded', true);
+        }
+    },
+```
+
 ### Events
 Liste des événements Javascript émis.
 
 ### PopupDetails
 Fenêtre d'affichage des informations ou dex crédits. 
-Le popup est mise à jour à chaque changement d'image `load()`
+Le popup est mise à jour à chaque changement d'image `load()`.
 Elle peut montrer les crédits ou description `show(content)`, et se fermer `close()`.
 
 ``` HTML
