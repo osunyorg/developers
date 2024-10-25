@@ -1,5 +1,5 @@
 ---
-title: Carousel
+title: Carrousel
 ---
 
 ## Fonctionnalités
