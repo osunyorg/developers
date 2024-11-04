@@ -18,7 +18,7 @@ fr:
     posts_category: posts_categories
 ```
 
-### Fichiers
+### Organisation des fichiers
 
 Stocker les fichiers dans le dossier de contenu.
 
@@ -44,22 +44,25 @@ Stocker les fichiers dans le dossier de contenu.
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
-### Static d'un term
+### Structure d'un fichier de terme
 
-```
+```yaml{filename="content/fr/posts_categories/a-la-une/vie-etudiante/_index.html"}
 title: >-
   Vie étudiante
 url: "/fr/actualites/a-la-une/vie-etudiante/"
-slug: "vie-etudiante"
-aliases:
-  - /actualites/vie-etudiante/
-hugo:
-  permalink: "/fr/actualites/a-la-une/vie-etudiante/"
-  file: "content/fr/posts_categories/a-la-une/vie-etudiante/_index.html"
-  path: "/a-la-une/vie-etudiante/"
-  slug: "vie-etudiante"
+slug: "a-la-une/vie-etudiante"
+meta:
+  hugo:
+    permalink: "/fr/actualites/a-la-une/vie-etudiante/"
+    file: "content/fr/posts_categories/a-la-une/vie-etudiante/_index.html"
+    path: "/a-la-une/vie-etudiante/"
+    slug: "a-la-une/vie-etudiante"
+  dates:
+    created_at: 2024-05-03T11:11:20+02:00
+    updated_at: 2024-09-29T14:40:43+02:00
+parent: "/fr/actualites/a-la-une/"
 ```
-
+https://developer.mozilla.org/fr/docs/Glossary/Slug
 
 ## Comment connecter aux catégories ?
 
