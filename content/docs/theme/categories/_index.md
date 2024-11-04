@@ -44,11 +44,53 @@ Stocker les fichiers dans le dossier de contenu.
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
+### Static d'un term
+
+```
+title: >-
+  Vie étudiante
+url: "/fr/actualites/a-la-une/vie-etudiante/"
+slug: "vie-etudiante"
+aliases:
+  - /actualites/vie-etudiante/
+hugo:
+  permalink: "/fr/actualites/a-la-une/vie-etudiante/"
+  file: "content/fr/posts_categories/a-la-une/vie-etudiante/_index.html"
+  path: "/a-la-une/vie-etudiante/"
+  slug: "vie-etudiante"
+```
+
 
 ## Comment connecter aux catégories ?
 
-### Dans les objets
+Pour connecter un `post` à un `term` il faut lui donner la chaîne de `slug`.
 
+```
+posts_categories:
+  - "offre-de-formation-animation-sociale-et-socioculturelle"
+  - "a-la-une"
+  - "a-la-une/vie-etudiante"
+```
 
+### Dans les blocs de liste
 
-### Dans les blocs
+#### Bloc actualités en mode catégories
+
+Example avec une sous-catégorie `Vie étudiante` enfant de `À la une`.
+
+Dans le bloc on identifie la catégorie avec sa chaîne de `slug` dans la clé `category`.
+
+```
+  - kind: block
+    template: posts
+    title: >-
+      Actualité - catégorie spécifique - Liste
+    slug: >-
+      actualite-categorie-specifique-liste
+    ranks:
+      self: 3
+      children: 4
+    data:
+      mode: category
+      category: "a-la-une/vie-etudiante"
+```
