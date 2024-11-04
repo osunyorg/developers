@@ -57,7 +57,7 @@ hugo:
   permalink: "/fr/actualites/a-la-une/vie-etudiante/"
   file: "content/fr/posts_categories/a-la-une/vie-etudiante/_index.html"
   path: "/a-la-une/vie-etudiante/"
-  slug: "vie-etudiante"
+  slug: "a-la-une/vie-etudiante"
 ```
 
 
