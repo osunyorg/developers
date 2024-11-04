@@ -50,7 +50,7 @@ Stocker les fichiers dans le dossier de contenu.
 title: >-
   Vie étudiante
 url: "/fr/actualites/a-la-une/vie-etudiante/"
-slug: "vie-etudiante"
+slug: "a-la-une/vie-etudiante"
 aliases:
   - /actualites/vie-etudiante/
 hugo:
