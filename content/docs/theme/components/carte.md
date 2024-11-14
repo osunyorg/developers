@@ -10,7 +10,7 @@ Les cartes permettent une visualisation cartographique de lieux, comme les organ
 
 ## Accessibilité
 
-Suite à l'audit réalisé en octobre 2024, nous avons pu échanger avec [Temesis](https://www.temesis.com/) au sujet de l'intégration correcte de la carte et de son usage de la carte via un lecteur d'écran et/ou clavier.
+Suite à l'audit réalisé en octobre 2024, nous avons pu échanger avec [Temesis](https://www.temesis.com/) au sujet de l'intégration correcte de la carte et de son usage via un lecteur d'écran et/ou clavier.
 
 Le rapport du contre audit, en date du 15 octobre, indiquait ceci :
 
