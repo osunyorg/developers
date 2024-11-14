@@ -1,6 +1,8 @@
 ---
-title: Carte
+title: Cartes
 ---
+
+Les `organisations` et les `campus` on un affichage en mode carte.
 
 ## Composant de carte
 
