@@ -127,7 +127,7 @@ jobs:
     - name: Installation de Hugo
       uses: peaceiris/actions-hugo@v2.6.0
       with:
-        hugo-version: 'latest'
+        hugo-version: '0.136.5'
         extended: true
 
     - name: Compilation du site
