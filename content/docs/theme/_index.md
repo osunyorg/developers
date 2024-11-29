@@ -1,9 +1,9 @@
 ---
 title: "Contribuer au thème"
-weight: 4
+weight: 3
 ---
 
-*Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté*
+*Partager des améliorations du thème Hugo Osuny avec toute la communauté*
 
 ![](/images/home/theme.jpg)
 

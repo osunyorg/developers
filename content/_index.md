@@ -27,15 +27,24 @@ layout: hextra-home
 {{< hextra/hero-button text="Démarrage rapide" link="docs/website/" >}}
 </div>
 
+<h2 class="hx-text-2xl hx-font-medium hx-leading-6 hx-mt-12">Travailler avec Osuny<h2>
 {{< cards >}}
   {{< card  link="/docs/website/" 
             image="/images/home/website.jpg"
             title="Développer un site" 
             subtitle="Intégrer un site Web accessible et sobre avec Osuny, pour produire votre propre site Web" >}}
+  {{< card  link="/docs/audit/" 
+            image="/images/home/audit.jpg"
+            title="Auditer un site" 
+            subtitle="Réaliser l'audit RGAA d'un site créé avec Osuny, en partant de l'audit socle du thème" >}}
+{{< /cards >}}
+
+<h2 class="hx-text-2xl hx-font-medium hx-leading-6 hx-mt-12">Contribuer à Osuny<h2>
+{{< cards >}}
   {{< card  link="/docs/theme/" 
             image="/images/home/theme.jpg"
             title="Contribuer au thème Osuny" 
-            subtitle="Partager des améliorations du thème Osuny Hugo AAA avec toute la communauté" >}}
+            subtitle="Partager des améliorations du thème Hugo Osuny avec toute la communauté" >}}
   {{< card  link="/docs/admin/" 
             image="/images/home/admin.jpg"
             title="Contribuer au CMS Osuny" 

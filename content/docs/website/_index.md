@@ -1,6 +1,6 @@
 ---
 title: "Développer un site"
-weight: 3
+weight: 1
 ---
 
 *Intégrer un site Web accessible et sobre avec Osuny, pour produire votre propre site Web*
