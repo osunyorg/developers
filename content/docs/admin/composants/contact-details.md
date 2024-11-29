@@ -49,7 +49,15 @@ contact_details:
     text: >-
     html: >-
   phone_numbers:
+    list:
+    phone_mobile:
+    phone_professional:
+    phone_personal:
   emails:
+    list:
+    email:
+  websites:
+    website:
   social_networks:
         email:
         facebook:
@@ -62,102 +70,6 @@ contact_details:
         x:
         youtube:
 
-```
-
-### Exemple
-
-```yaml
-contact_details:
-  postal_address:
-    data:
-      address: >-
-        15 rue des Bouviers
-      address_additional: >-
-        Sonner en bas
-      zipcode: >-
-        33800
-      city: >-
-        Bordeaux
-      country: >-
-        name: >-
-          France
-        alpha2: >-
-          FR
-        alpha3: >-
-          FRA
-    text: >-
-      15 rue des Bouviers 33800 Bordeaux FRANCE
-    html: >-
-      <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"> <span itemprop="streetAddress">15 rue des Bouviers</span> <span itemprop="postalCode">33800</span> <span itemprop="addressLocality">Bordeaux</span> <span itemprop="addressCountry">FRANCE</span></address>
-  phone_numbers:
-    - label: >-
-        06 87 60 21 93
-      value: >-
-        tel:0687602193
-    - label: >-
-        +33 6 87 60 21 93
-      value: >-
-        tel:+33687602193
-  emails:
-    - label: >-
-        administratif@noesya.coop
-      value: >-
-        mailto:administratif@noesya.coop
-    - label: >-
-        arnaud.levy@noesya.coop
-      value: >-
-        mailto:arnaud.levy@noesya.coop
-  social_networks:
-    facebook:
-      label: >-
-        noesya.coop
-      value: >-
-        https://www.facebook.com/noesya.coop
-    github:
-      label: >-
-        noesya
-      value: >-
-        https://github.com/noesya
-    instagram:
-      label: >-
-        noesya_coop
-      value: >-
-        https://instagram.com/noesya_coop
-    linkedin:
-      label: >-
-        arnaudlevy
-      value: >-
-        https://www.linkedin.com/in/arnaudlevy/
-    mastodon:
-      label: >-
-        mastodon.social/@arnaudlevy
-      value: >-
-        https://mastodon.social/@arnaudlevy
-    peertube:
-      label: >-
-        peertube.designersethiques.org
-      value: >-
-        https://peertube.designersethiques.org
-    tiktok:
-      label: >-
-        tiktok
-      value: >-
-        https://www.tiktok.com/@tiktok
-    vimeo:
-      label: >-
-        noesya
-      value: >-
-        https://vimeo.com/noesya
-    x:
-      label: >-
-        arnaudlevy
-      value: >-
-        https://x.com/arnaudlevy
-    youtube:
-      label: >-
-        MMIBordeaux
-      value: >-
-        https://www.youtube.com/@MMIBordeaux
 ```
 
 ## Cas d'usages
@@ -204,7 +116,6 @@ contact_details:
       value: >-
         tel:0687602193
 
-
   emails:
     email:
       label: >-
@@ -212,13 +123,12 @@ contact_details:
       value: >-
         mailto:arnaud.levy@noesya.coop
 
-
-  website:
-    label: >-
-      www.noesya.coop
-    value: >-
-      https://www.noesya.coop
-
+  websites:
+    website:
+      label: >-
+        www.noesya.coop
+      value: >-
+        https://www.noesya.coop
 
   social_networks:
     linkedin:
@@ -280,11 +190,12 @@ contact_details:
       value: >-
         mailto:arnaud.levy@noesya.coop
 
-  website:
-    label: >-
-      www.noesya.coop
-    value: >-
-      https://www.noesya.coop
+  websites:
+    website:
+      label: >-
+        www.noesya.coop
+      value: >-
+        https://www.noesya.coop
 
   social_networks:
     linkedin:
@@ -342,11 +253,12 @@ contact_details:
 
   emails:
 
-  website:
-    label: >-
-      www.noesya.coop
-    value: >-
-      https://www.noesya.coop
+  websites:
+    website:
+      label: >-
+        www.noesya.coop
+      value: >-
+        https://www.noesya.coop
 
   social_networks:
 ...
