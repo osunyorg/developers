@@ -83,10 +83,12 @@ Exemples :
 #### `slug`
 
 L'identifiant unique de l'objet, tel quel.
+Les slugs semblent être les identifiants à utiliser dans les taxonomies Hugo, avec des slash à l'intérieur pour les taxonomies et les catégories en arbre.
 
 Exemples :
 - lapplication-osuny-presente-le-niveau-de-securite-bon
 - communs-numerique-et-interet-general
+- taxonomie/taxon-1
 
 #### `file`
 
