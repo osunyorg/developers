@@ -44,6 +44,10 @@ layout: hextra-home
             image="/images/home/theme.jpg"
             title="Contribuer au thème Osuny" 
             subtitle="Partager des améliorations du thème Hugo Osuny avec toute la communauté" >}}
+  {{< card  link="/docs/blocks/" 
+            image="/images/home/blocks.jpg"
+            title="Comprendre les blocs" 
+            subtitle="Les blocs sont les briques de base d'Osuny, ils font le pont entre l'admin et le thème" >}}
   {{< card  link="/docs/admin/" 
             image="/images/home/admin.jpg"
             title="Contribuer au CMS Osuny" 

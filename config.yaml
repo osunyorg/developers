@@ -14,18 +14,9 @@ markup:
 
 menu:
   main:
-    - name: Développer un site
-      pageRef: /docs/website
+    - name: Documentation
+      pageRef: /docs
       weight: 2
-    - name: Auditer un site
-      pageRef: /docs/audit
-      weight: 3
-    - name: Contribuer au thème
-      pageRef: /docs/theme
-      weight: 4
-    - name: Contribuer à l'admin
-      pageRef: /docs/admin
-      weight: 5
     - name: Rechercher
       weight: 6
       params:

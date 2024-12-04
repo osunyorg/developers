@@ -1,6 +1,6 @@
 ---
 title: "Contribuer à l'admin"
-weight: 4
+weight: 5
 ---
 
 *Améliorer l'accessibilité, la sécurité ou développez de nouvelles fonctionnalités dans le système de gestion du contenu (CMS)*
