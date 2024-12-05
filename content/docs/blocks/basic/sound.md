@@ -8,7 +8,23 @@ weight: 5
 Un enregistrement audio, avec sa transcription pour l'accessibilité.
 
 ```yaml {filename="Données Hugo"}
+  - kind: block
+    template: sound
+    title: >-
+      
+    slug: >-
+      
+    ranks:
+      self: 2
+    data:
+      file:
+        id: "9b5f6d0b-18c7-46b8-9d7d-23a59334ea19"
+        file: "9b5f6d0b-18c7-46b8-9d7d-23a59334ea19"
 
+      title: >-
+        
+      transcription: >-
+        
 ```
 
 ## Accessibilité
