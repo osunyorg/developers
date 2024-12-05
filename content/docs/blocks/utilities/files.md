@@ -1,74 +1,29 @@
 ---
-title: "Fichiers"
-description: >
-  Bloc pour lister des fichiers à télécharger
+title: Fichiers
+weight: 1
 ---
 
-## Présentation
+![image](https://raw.githubusercontent.com/osunyorg/admin/refs/heads/main/app/assets/images/communication/blocks/templates/files.jpg)
 
-![image](https://user-images.githubusercontent.com/7761386/171012791-dad5c921-241c-4275-8966-981c2032d636.jpg)
-
-
-## Data
-
-### JSON (Osuny)
-
-* elements ```array```
-  * title ```string```
-  * file ```blob```
-
-```json
-{
-  "elements": [
-    {
-      "title": "Course de 5km",
-      "file": {
-        "id": "9f2fde46-9de0-4b02-97e1-0500fc0bd2da",
-        "filename": "5k.png",
-        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
-      }
-    },
-    {
-      "title": "Course de 10km",
-      "file": {
-        "id": "af05c47b-e3e2-473d-90b1-3593d53dc3a2",
-        "filename": "10k.png",
-        "signed_id": "eyJfcmFpbHMiOnsibWVz..."
-      }
-    }
-  ]
-}
-```
-
-## Static (Hugo)
-
-* files ```array```
-  * id ```references (ActiveStorage::Blob)```
-  * title ```string```
-
-```
-- template: files
+```yaml {filename="Données Hugo"}
+  - kind: block
+    template: files
     title: >-
-      Un bloc files
-    position: 6
+      
+    slug: >-
+      
+    ranks:
+      self: 2
     data:
       description: >-
-        
-
-
+        <p>Description</p>
       files:
-        - id: "9f2fde46-9de0-4b02-97e1-0500fc0bd2da"
-          file: "9f2fde46-9de0-4b02-97e1-0500fc0bd2da"
-
-
+        - id: "02c35690-4616-41e9-8414-c6d5421ab9f2"
+          file: "02c35690-4616-41e9-8414-c6d5421ab9f2"
           title: >-
-            Course de 5km
-
-
-        - id: "af05c47b-e3e2-473d-90b1-3593d53dc3a2"
-          file: "af05c47b-e3e2-473d-90b1-3593d53dc3a2"
-
-
+            Fichier 1
+        - id: "bd15743e-4b98-491a-8dd4-39f0ae8b3b36"
+          file: "bd15743e-4b98-491a-8dd4-39f0ae8b3b36"
           title: >-
-            Course de 10km
+            Fichier 2
 ```
