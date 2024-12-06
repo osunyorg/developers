@@ -40,31 +40,29 @@ Le workflow part des spécifiations dans le dossier `spec`.
 ```ruby {filename="spec/requests/osuny/v1/communication/websites/posts_spec.rb"}
 require 'swagger_helper'
 
-RSpec.describe 'Post API' do
-  path '/communication/websites/:website_id/posts' do
-    get 'List the posts in a website' do
+RSpec.describe 'Communication::Website::Post' do
+  fixtures :all
+
+  path '/communication/websites/{website_id}/posts' do
+    get "Lists a website's posts" do
       tags 'Communication::Website::Post'
-      consumes 'application/json'
+      security [{ api_key: [] }]
+      let("X-Osuny-Token") { university_apps(:default_app).token }
 
-      parameter name: :website_id,
-                in: :path, 
-                type: :string, 
-                description: 'Website identifier',
-                example: 'c8a4bed5-2e05-47e4-90e3-cf334c16453f'
+      parameter name: :website_id, in: :path, type: :string, description: 'Website identifier'
+      let(:website_id) { communication_websites(:website_with_github).id }
 
-      response '200', 'successful operation' do
-        schema type: :object,
-          properties: {
-            id: { type: :string },
-            title: { type: :string },
-          },
-          required: [ 'name', 'url' ]
-        example 'application/json', :response, [
-            {
-              id: 'c8a4bed5-2e05-47e4-90e3-cf334c16453f',
-              title: 'Référentiel général d\'écoconception de services numériques (RGESN)'
-            }
-          ]
+      response '200', 'Successful operation' do
+        run_test!
+      end
+
+      response '401', 'Unauthorized. Please make sure you provide a valid API key.' do
+        let("X-Osuny-Token") { 'fake-token' }
+        run_test!
+      end
+
+      response '404', 'Website not found' do
+        let(:website_id) { 'fake-id' }
         run_test!
       end
     end
@@ -73,6 +71,12 @@ end
 ```
 
 Les tests sont utilisés pour générer des fichiers `openapi.json`, par exemple sur https://demo.osuny.org/api/docs/osuny/v1/openapi.json, avec la commande suivante.
+
+``` {filename="bash"}
+RSWAG_DRY_RUN=0 rake rswag:specs:swaggerize
+```
+
+Pour générer la spécification OpenAPI en évitant les tests, il suffit d'omettre la variable d'environnement `RSWAG_DRY_RUN`. Cela permet d'avoir un aperçu rapide dans Swagger sans les exemples de réponse.
 
 ``` {filename="bash"}
 rake rswag:specs:swaggerize
