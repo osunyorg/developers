@@ -127,12 +127,12 @@ ActiveStorage s'appuie sur 3 tables.
 `ActiveStorage::Blob` représente le fichier lui-même. On relie le Blob à un objet par le biais d'un `ActiveStorage::Attachment`, avec un attribut polymorphe `record`. Dans le contexte d'Osuny, les blobs sont liés à une université, afin de gérer le multi-tenant. La question des variantes n'a pas d'importance pour la médiathèque.
 
 Malheureusement, ActiveStorage ne maintient pas l'unicité des Blobs : le même fichier, envoyé 2 fois, générera 2 blobs. 
-Par ailleurs, la suppression d'un attachment provoque la suppression de son blob.
+Par ailleurs, la suppression d'un attachment provoque la suppression de son blob ([sauf s'il est attaché plusieurs fois](https://discuss.rubyonrails.org/t/activestorage-same-file-attached-multiple-times-single-blob-or-multiple-blobs/73028/3)).
 
-https://discuss.rubyonrails.org/t/activestorage-same-file-attached-multiple-times-single-blob-or-multiple-blobs/73028/3
-
-Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs. 
-Nous choisissons de composer avec le fonctionnement natif, dans le but de rester aussi simples que possible.
+{{< callout type="info" >}}
+  Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs. 
+  Nous choisissons de composer avec le fonctionnement natif, dans le but de rester aussi simples que possible.
+{{< /callout >}}
 
 ### Modèle de données
 
