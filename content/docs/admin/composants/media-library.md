@@ -131,8 +131,8 @@ Par ailleurs, la suppression d'un attachment provoque la suppression de son blob
 
 https://discuss.rubyonrails.org/t/activestorage-same-file-attached-multiple-times-single-blob-or-multiple-blobs/73028/3
 
-Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs.
-
+Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs. 
+Nous choisissons de composer avec le fonctionnement natif, dans le but de rester aussi simples que possible.
 
 ### Modèle de données
 
