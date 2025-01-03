@@ -2,26 +2,13 @@
 title: Médiathèque
 ---
 
-Une médiathèque ou bibliothèque de médias est un espace dans lequel on peut accéder à l'ensemble des médias importés dans une instance Osuny. Le terme “médias” concerne les images (png, jpg, svg), mais aussi les fichiers joints ajoutés dans les blocs de contenus. 
+Une médiathèque ou bibliothèque de médias est un espace dans lequel on peut accéder à l'ensemble des médias importés dans un système. Le terme “médias” concerne les images (png, jpg, svg), mais aussi les fichiers joints ajoutés dans les blocs de contenus. 
 
-{{< callout type="info" >}}
-  Les fichiers d'imports de personnes ou d'organisations ne sont pas considérés comme des médias, et n'apparaissent donc pas dans la bibliothèque.
-{{< /callout >}}
+La demande d’une bibliothèque de médias est systématique de la part des utilisateurs et utilisatrices de WordPress, qui ne conçoivent pas de travailler sans. Une part du besoin vient du fait que WordPress impose souvent de réutiliser les mêmes éléments à plusieurs endroits. Ainsi, on peut être amené à utiliser un visuel deux fois : une fois pour illustrer une page, et une seconde fois pour mentionner la page avec une illustration et un lien au sein d'une autre page. Dans Osuny, beaucoup de choses fonctionnent par référence. Ainsi, quand on utilise un bloc “Actualités” pour lister des actus, on réutilise automatiquement les images à la une et les résumés de chaque actu. Il suffit de les modifier à la source pour que toutes les occurrences se mettent à jour automatiquement. 
 
-
-La demande d’une bibliothèque de médias est systématique de la part des utilisateurs et utilisatrices de WordPress, qui ne conçoivent pas de travailler sans. Une part du besoin vient du fait que WordPress impose souvent de réutiliser les mêmes éléments à plusieurs endroits. Dans Osuny, beaucoup de choses fonctionnent par référence. Ainsi, quand on utilise un bloc “Actualités” pour lister des actus, on réutilise automatiquement les images à la une et les résumés de chaque actu. Il suffit de les modifier à la source pour que toutes les occurrences se mettent à jour automatiquement. 
-
-
-Néanmoins, il y a deux cas qui rendent la bibliothèque de médias pertinente, et qui nous amène à envisager son développement. Le premier cas, c’est l’intégration d’une photothèque spécifique, avec des images dédiées. Osuny intègre de série les photothèques Unsplash et Pexels, avec une gestion des droits conforme. La possibilité d’une photothèque dédiée permet d’ajouter un ensemble d’images à la direction artistique cohérente, avec les bons lieux, les bons sujets, les bonnes personnes. L’autre cas pertinent, c’est la gestion des droits. Le fait de développer la bibliothèque de médias comme nous vous le proposons permettra dans le futur de développer une gestion fine des durées des droits négociés avec les photographes, de prévenir des fins de droits qui approchent et de mettre automatiquement hors ligne les photos dont les droits ont expiré. 
-
+Néanmoins, il y a deux cas qui rendent la bibliothèque de médias pertinente, ce qui nous amène à envisager son développement. Le premier cas, c’est l’intégration d’une photothèque spécifique, avec des images dédiées. Osuny intègre de série les photothèques Unsplash et Pexels, avec une gestion des droits conforme. La possibilité d’une photothèque dédiée permet d’ajouter un ensemble d’images à la direction artistique cohérente, avec les bons lieux, les bons sujets, les bonnes personnes. L’autre cas pertinent, c’est la gestion des droits. Le fait de développer la bibliothèque de médias permettra dans le futur de développer une gestion fine des durées des droits négociés avec les photographes, de prévenir des fins de droits qui approchent et de mettre automatiquement hors ligne les photos dont les droits ont expiré. 
 
 ## Usages
-
-### Dans WordPress
-
-La bibliothèque de média est une fonctionnalité native de WordPress, ce qui donne l'impression aux personnes habituées à ce CMS que c'est indispensable. En réalité, la pertinence dans le cadre de WordPress vient beaucoup de la nécessité d'utiliser plusieurs fois les mêmes médias, notamment quand on veut construire du contenu avec des éditeurs de blocs. Ainsi, on peut être amené à utiliser un visuel deux fois : une fois pour illustrer une page, et une seconde fois pour mentionner la page avec une illustration et un lien au sein d'une autre page. Dans Osuny, les liens entre objets se font par l'utilisation de blocs de liens. Ainsi, si l'on veut présenter une page dans une autre, on utilise un bloc de Pages. On n'a pas besoin de renvoyer l'image, le lien se fait automatiquement. Et si l'on modifie l'image d'illustration de la page, tous les blocs mentionnant cette page se mettent à jour automatiquement. 
-
-Néanmoins, il y a des usages pertinents qui méritent une explication.
 
 ### Collections de photos
 
@@ -82,14 +69,31 @@ Chaque média doit présenter :
 - les informations annexes (alt et crédit pour les images, notes privées)
 - les usages (liste des différents contextes d'usage, avec liens)
 
-### Implémentation
+{{< callout type="info" >}}
+  Les fichiers d'imports de personnes ou d'organisations ne sont pas considérés comme des médias, et n'apparaissent donc pas dans la bibliothèque.
+{{< /callout >}}
+
+### Ergonomie
+
+Une nouvelle partie “Médiathèque” apparaît dans le royaume communication.
+Cette partie donne accès aux médias avec un filtre, permet de gérer les collections, les catégories, et bien sûr les médias eux-mêmes.
+
+
+Dans les contenus susceptibles d'utiliser des médias, le bouton “Chercher une image” présent dans les images à la une devient un bouton “Médiathèque”. On garde la possibilité d'un import direct, qui va incidemment ajouter le fichier aux médias.
+
+
+Lorsqu'on appuie sur le bouton “Médiathèque”, s'ouvre une modale plein écran qui offre un champ de recherche, des filtres et des sources. 
+Cela permet de chercher dans les bases de données Unsplash et Pexels, mais aussi dans la médiathèque de l'instance. 
+Si la recherche textuelle est bien adaptée pour de larges bases de données contenant beaucoup de tags, on peut imaginer que la navigation dans la médiathèque fonctionnera davantage par sélection de catégories.
+
+### Lien avec ActiveStorage
 
 L'implémentation de la media library s'appuie de façon aussi légère que possible sur [ActiveStorage](https://guides.rubyonrails.org/active_storage_overview.html), le système natif de gestion des fichiers de Ruby on Rails. 
 
 ActiveStorage s'appuie sur 3 tables.
 
 ```ruby
-  create_table "active_storage_attachments", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
+  create_table "active_storage_attachments", id: :uuid do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.uuid "record_id", null: false
@@ -99,7 +103,7 @@ ActiveStorage s'appuie sur 3 tables.
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
+  create_table "active_storage_blobs", id: :uuid do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -113,7 +117,7 @@ ActiveStorage s'appuie sur 3 tables.
     t.index ["university_id"], name: "index_active_storage_blobs_on_university_id"
   end
 
-  create_table "active_storage_variant_records", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
+  create_table "active_storage_variant_records", id: :uuid do |t|
     t.uuid "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
@@ -129,25 +133,53 @@ https://discuss.rubyonrails.org/t/activestorage-same-file-attached-multiple-time
 
 Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs.
 
+
+### Modèle de données
+
 ```ruby
-  # The medias themselves
-  create_table "library_medias", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name", null: false
-    # origin
+  # Medias
+  create_table "communication_medias", id: :uuid do |t|
+    # Origin
     # 0   file uploaded through content (default)
     # 1   file uploaded through media library
     # 11  Unsplash
     # 12  Pexels
     t.integer "origin", null: false
-    t.uuid "library_collection_id"
+    # Digest::SHA2.hexdigest
+    t.string "digest"
+    t.string "content_type"
+    t.uuid "communication_media_collection_id"
     t.datetime "created_at", precision: nil, null: false
     t.uuid "university_id"
   end
 
-  # The collections
-  create_table "library_collections", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
+  create_table "communication_media_localizations", id: :uuid do |t|
+    t.string "name"
+    t.uuid "about_id"
+    t.uuid "language_id"
+    t.uuid "university_id"
+    t.text "alt"
+    t.text "credit"
+  end
+
+  # Collections
+  create_table "communication_media_collections", id: :uuid do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: nil, null: false
     t.uuid "university_id"
+  end
+
+  # Categories
+  create_table "communication_media_categories", id: :uuid do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.uuid "communication_media_collection_id"
+    t.uuid "university_id"
+  end
+
+  # Join medias and categories
+  create_table "communication_medias_media_categories", id: false, force: :cascade do |t|
+    t.uuid "communication_media_id", null: false
+    t.uuid "communication_media_category_id", null: false
   end
 ```
