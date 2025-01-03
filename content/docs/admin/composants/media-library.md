@@ -138,7 +138,7 @@ Par ailleurs, la suppression d'un attachment provoque la suppression de son blob
 
 Pour utiliser le terme média avec le pluriel médias (et pas le medium/media latin), il faut un inflecteur spécifique
 
-```ruby{filename="config/initializers/active_storage.rb"}
+```ruby{filename="config/initializers/inflections.rb"}
 inflect.irregular ‘media’, ‘medias’
 ```
 
@@ -146,11 +146,12 @@ inflect.irregular ‘media’, ‘medias’
   # Medias
   create_table "communication_medias", id: :uuid do |t|
     # Origin
-    # 0   file uploaded through content (default)
-    # 1   file uploaded through media library
+    # 0   variant (ignored)
+    # 1   file uploaded through content (default)
+    # 2   file uploaded through media library
     # 11  Unsplash
     # 12  Pexels
-    t.integer "origin", default: 0, null: false
+    t.integer "origin", default: 1, null: false
     # Digest::SHA2.hexdigest
     t.string "digest"
     t.string "content_type"
@@ -166,6 +167,12 @@ inflect.irregular ‘media’, ‘medias’
     t.uuid "university_id"
     t.text "alt"
     t.text "credit"
+  end
+
+  # Join medias and blobs
+  create_table "active_storage_blobs_communication_medias", id: false, force: :cascade do |t|
+    t.uuid "active_storage_blob_id", null: false
+    t.uuid "communication_media_id", null: false
   end
 
   # Collections
@@ -189,3 +196,48 @@ inflect.irregular ‘media’, ‘medias’
     t.uuid "communication_media_category_id", null: false
   end
 ```
+
+### Algorithmes
+
+Il faut s'intercaler dans le processus de création des blobs et des variantes pour créer les médias.
+Il ne faut pas créer trop de médias (les variantes n'en sont pas).
+Il ne faut pas non plus ralentir le processus, donc il faut travailler en arrière plan.
+
+```ruby{filename="config/initializers/active_storage.rb"}
+Rails.application.config.to_prepare do
+  module ActiveStorageMediaLibraryBlob
+    extend ActiveSupport::Concern
+
+    included do
+      after_commit :add_to_media_library
+    end
+
+    protected
+
+    def add_to_media_library
+      Communication::Media::AnalyzeBlobJob.perform_later(self)
+    end
+  end
+
+  ActiveStorage::Blob.include ActiveStorageMediaLibraryBlob
+
+  module ActiveStorageMediaLibraryVariant
+    extend ActiveSupport::Concern
+
+    included do
+      after_commit :add_to_media_library
+    end
+
+    protected
+
+    def add_to_media_library
+      Communication::Media::AnalyzeVariantJob.perform_later(self)
+    end
+  end
+
+  ActiveStorage::VariantRecord.include ActiveStorageMediaLibraryVariant
+end
+```
+
+En principe, la création de variant vient après la création de blob, mais il y faut vérifier s'il n'y a jamais d'inversion possible.
+Lorsqu'on analyse le média, on calcule son digest et on crée le média avec s'il n'existe pas.
