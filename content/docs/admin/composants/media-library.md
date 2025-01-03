@@ -136,6 +136,12 @@ Par ailleurs, la suppression d'un attachment provoque la suppression de son blob
 
 ### Modèle de données
 
+Pour utiliser le terme média avec le pluriel médias (et pas le medium/media latin), il faut un inflecteur spécifique
+
+```ruby{filename="config/initializers/active_storage.rb"}
+inflect.irregular ‘media’, ‘medias’
+```
+
 ```ruby
   # Medias
   create_table "communication_medias", id: :uuid do |t|
@@ -144,7 +150,7 @@ Par ailleurs, la suppression d'un attachment provoque la suppression de son blob
     # 1   file uploaded through media library
     # 11  Unsplash
     # 12  Pexels
-    t.integer "origin", null: false
+    t.integer "origin", default: 0, null: false
     # Digest::SHA2.hexdigest
     t.string "digest"
     t.string "content_type"
