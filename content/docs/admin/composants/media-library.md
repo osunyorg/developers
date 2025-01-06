@@ -155,8 +155,6 @@ Puis il faut un ensemble de tables pour gérer les médias.
     t.integer "origin", default: 1, null: false
     # Digest::SHA2.hexdigest
     t.string "digest"
-    # All variants are ignored
-    t.boolean "variant", default: false
     # The original blob, used for media previews
     t.uuid "active_storage_blob_id", null: false
     # Blob content_type
