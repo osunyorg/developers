@@ -131,22 +131,23 @@ Par ailleurs, la suppression d'un attachment provoque la suppression de son blob
 
 {{< callout type="info" >}}
   Soit on compose avec ce fonctionnement, au prix de fichiers multiples, soit on hack ActiveStorage pour arriver à une unicité des Blobs. 
-  Nous choisissons de composer avec le fonctionnement natif, dans le but de rester aussi simples que possible.
+  Nous choisissons de composer avec le fonctionnement natif, dans le but de rester aussi simple que possible.
 {{< /callout >}}
 
 ### Modèle de données
 
-Pour utiliser le terme média avec le pluriel médias (et pas le medium/media latin), il faut un inflecteur spécifique
+Pour utiliser le terme média avec le pluriel médias (et pas le medium/media latin), il faut un inflecteur spécifique.
 
-```ruby{filename="config/initializers/inflections.rb"}
-inflect.irregular ‘media’, ‘medias’
+```ruby {filename="config/initializers/inflections.rb"}
+inflect.irregular 'media', 'medias'
 ```
+
+Puis il faut un ensemble de tables pour gérer les médias.
 
 ```ruby
   # Medias
   create_table "communication_medias", id: :uuid do |t|
     # Origin
-    # 0   variant (ignored)
     # 1   file uploaded through content (default)
     # 2   file uploaded through media library
     # 11  Unsplash
@@ -154,12 +155,22 @@ inflect.irregular ‘media’, ‘medias’
     t.integer "origin", default: 1, null: false
     # Digest::SHA2.hexdigest
     t.string "digest"
+    # All variants are ignored
+    t.boolean "variant", default: false
+    # The original blob, used for media previews
+    t.uuid "active_storage_blob_id", null: false
+    # Blob content_type
     t.string "content_type"
+    # Blob filename
+    t.string "filename"
+    # Blob size
+    t.bigint "byte_size"
     t.uuid "communication_media_collection_id"
     t.datetime "created_at", precision: nil, null: false
     t.uuid "university_id"
   end
 
+  # Localized texts for medias
   create_table "communication_media_localizations", id: :uuid do |t|
     t.string "name"
     t.uuid "about_id"
@@ -169,10 +180,13 @@ inflect.irregular ‘media’, ‘medias’
     t.text "credit"
   end
 
-  # Join medias and blobs
-  create_table "active_storage_blobs_communication_medias", id: false, force: :cascade do |t|
+  # Context to blobs in use (what are they attached to?) 
+  # We cannot use attachments, because blocks do not use them, they use blob ids in JSON.
+  create_table "communication_media_blobs", id: false do |t|
     t.uuid "active_storage_blob_id", null: false
     t.uuid "communication_media_id", null: false
+    t.string "about_type"
+    t.uuid "about_id"
   end
 
   # Collections
@@ -197,11 +211,16 @@ inflect.irregular ‘media’, ‘medias’
   end
 ```
 
-### Algorithmes
+### Implémentation
 
 Il faut s'intercaler dans le processus de création des blobs et des variantes pour créer les médias.
 Il ne faut pas créer trop de médias (les variantes n'en sont pas).
 Il ne faut pas non plus ralentir le processus, donc il faut travailler en arrière plan.
+
+#### Approche 1 
+
+Hooker la création des blobs et des variantes.
+Pour cela, il faut ajouter des actions à la création des objets, via l'initializer.
 
 ```ruby{filename="config/initializers/active_storage.rb"}
 Rails.application.config.to_prepare do
@@ -231,7 +250,7 @@ Rails.application.config.to_prepare do
     protected
 
     def add_to_media_library
-      Communication::Media::AnalyzeVariantJob.perform_later(self)
+      Communication::Media.discard_variant(self)
     end
   end
 
@@ -239,5 +258,13 @@ Rails.application.config.to_prepare do
 end
 ```
 
-En principe, la création de variant vient après la création de blob, mais il y faut vérifier s'il n'y a jamais d'inversion possible.
+En principe, la création de variante vient après la création de blob, mais il y faut vérifier s'il n'y a jamais d'inversion possible.
 Lorsqu'on analyse le média, on calcule son digest et on crée le média avec s'il n'existe pas.
+
+
+Après implémentation, cette approche est une fausse piste : on ne dispose pas du contexte de création.
+
+#### Approche 2
+
+Il faut, à chaque endroit où l'on crée et utilise des médias, intercaler une action de création du média ou de contexte d'utilisation.
+
