@@ -167,8 +167,6 @@ Puis il faut un ensemble de tables pour gérer les médias.
     t.datetime "created_at", precision: nil, null: false
     t.uuid "university_id"
   end
-
-  # Localized texts for medias
   create_table "communication_media_localizations", id: :uuid do |t|
     t.string "name"
     t.uuid "about_id"
@@ -193,14 +191,26 @@ Puis il faut un ensemble de tables pour gérer les médias.
     t.datetime "created_at", precision: nil, null: false
     t.uuid "university_id"
   end
+  create_table "communication_media_collection_localizations", id: :uuid do |t|
+    t.string "name"
+    t.uuid "about_id"
+    t.uuid "language_id"
+    t.uuid "university_id"
+  end
 
-  # Categories
+# Categories
   create_table "communication_media_categories", id: :uuid do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: nil, null: false
     t.uuid "parent_id"
     t.boolean "is_taxonomy", default: false
     t.uuid "communication_media_collection_id"
+    t.uuid "university_id"
+  end
+  create_table "communication_media_category_localizations", id: :uuid do |t|
+    t.string "name"
+    t.uuid "about_id"
+    t.uuid "language_id"
     t.uuid "university_id"
   end
 
