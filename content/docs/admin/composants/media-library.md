@@ -182,7 +182,7 @@ Puis il faut un ensemble de tables pour gérer les médias.
 
   # Context to blobs in use (what are they attached to?) 
   # We cannot use attachments, because blocks do not use them, they use blob ids in JSON.
-  create_table "communication_media_blobs", id: false do |t|
+  create_table "communication_media_contexts", id: false do |t|
     t.uuid "active_storage_blob_id", null: false
     t.uuid "communication_media_id", null: false
     t.string "about_type"
