@@ -198,6 +198,8 @@ Puis il faut un ensemble de tables pour gérer les médias.
   create_table "communication_media_categories", id: :uuid do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: nil, null: false
+    t.uuid "parent_id"
+    t.boolean "is_taxonomy", default: false
     t.uuid "communication_media_collection_id"
     t.uuid "university_id"
   end
