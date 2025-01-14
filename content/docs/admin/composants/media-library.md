@@ -303,12 +303,13 @@ graph TD;
   MediaOui["Si le média existe déjà"];
   MediaNon["Si le média n'existe pas"];
   CreationMedia["Création du média"];
-  Contexte["Création du contexte"];
+  Contexte["Création du contexte avec l'original blob"];
   Attachement["Attachement du blob à l'objet"]
 ```
 
 #### Cloud (Unsplash & Pexels)
 
+Workflow idéal
 ```mermaid
 graph TD;
   Enregistrement-->Envoi-->RechercheIdentifiant-->Identifiant;
@@ -333,6 +334,27 @@ graph TD;
   Attachement["Attachement du blob à l'objet"]
 ```
 
+Workflow simplifié (idem upload sauf 2 et 3)
+```mermaid
+graph TD;
+  Enregistrement-->EnvoiUrl-->TelechargementImage-->Checksum-->Media;
+  Media-->MediaOui-->Contexte;
+  Media-->MediaNon-->CreationBlob-->CreationMedia-->Contexte;
+  Contexte-->Attachement;
+
+  Enregistrement["Enregistrement des modifications"];
+  EnvoiUrl["Envoi de l'URL de l'image"];
+  TelechargementImage["Téléchargement de l'image"];
+  Checksum["Calcul du checksum"];
+  Media{"Le média existe-t-il ?"};
+  CreationBlob["Création du blob"];
+  MediaOui["Si le média existe déjà"];
+  MediaNon["Si le média n'existe pas"];
+  CreationMedia["Création du média"];
+  Contexte["Création du contexte avec l'original blob"];
+  Attachement["Attachement du blob à l'objet"]
+```
+
 #### Médiathèque
 
 ```mermaid
@@ -344,3 +366,7 @@ graph TD;
   Contexte[Création du contexte];
   Attachement["Attachement du blob à l'objet"]
 ```
+
+#### Suppression de Blob
+
+Il ne faut pas qu'un blob se supprime sans vérifier qu'il n'est réellement utilisé nulle part, notamment en tant qu'original_blob d'un Media.
