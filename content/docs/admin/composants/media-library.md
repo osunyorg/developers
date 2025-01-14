@@ -221,13 +221,13 @@ Puis il faut un ensemble de tables pour gérer les médias.
   end
 ```
 
-### Implémentation
+## Implémentation
 
 Il faut s'intercaler dans le processus de création des blobs et des variantes pour créer les médias.
 Il ne faut pas créer trop de médias (les variantes n'en sont pas).
 Il ne faut pas non plus ralentir le processus, donc il faut travailler en arrière plan.
 
-#### Approche 1 
+### Approche 1 
 
 Hooker la création des blobs et des variantes.
 Pour cela, il faut ajouter des actions à la création des objets, via l'initializer.
@@ -274,7 +274,73 @@ Lorsqu'on analyse le média, on calcule son digest et on crée le média avec s'
 
 Après implémentation, cette approche est une fausse piste : on ne dispose pas du contexte de création.
 
-#### Approche 2
+### Approche 2
 
 Il faut, à chaque endroit où l'on crée et utilise des médias, intercaler une action de création du média ou de contexte d'utilisation.
 
+### Approche 3
+
+![](media-library.png)
+
+On remplace la gestion par les formulaires Rails par un composant Vue, dans la [PR 2567](https://github.com/osunyorg/admin/pull/2567). Cela permet de se séparer du cropper dépendant de jQuery, mais cela implique de passer à un environnement de dev ES6 pour Vue, dans Rails.
+Le composant est capable de gérer des uploads directs d'image, avec [Vue Advanced Cropper](https://advanced-cropper.github.io/vue-advanced-cropper/). Il intègre correctement Summernote, possiblement avec [Vue3 Summernote Editor
+](https://github.com/rafwell/vue3-summernote-editor).
+
+#### Upload
+
+```mermaid
+graph TD;
+  Enregistrement-->Envoi-->Checksum-->Media;
+  Media-->MediaOui-->Contexte;
+  Media-->MediaNon-->CreationBlob-->CreationMedia-->Contexte;
+  Contexte-->Attachement;
+
+  Enregistrement["Enregistrement des modifications"];
+  Envoi["Envoi du fichier d'image"];
+  Checksum["Calcul du checksum"];
+  Media{"Le média existe-t-il ?"};
+  CreationBlob["Création du blob"];
+  MediaOui["Si le média existe déjà"];
+  MediaNon["Si le média n'existe pas"];
+  CreationMedia["Création du média"];
+  Contexte["Création du contexte"];
+  Attachement["Attachement du blob à l'objet"]
+```
+
+#### Cloud (Unsplash & Pexels)
+
+```mermaid
+graph TD;
+  Enregistrement-->Envoi-->RechercheIdentifiant-->Identifiant;
+  Identifiant-->IdentifiantOui-->Contexte;
+  Identifiant-->IdentifiantNon-->Checksum-->Media;
+  Media-->MediaOui-->Contexte;
+  Media-->MediaNon-->CreationBlob-->CreationMedia-->Contexte;
+  Contexte-->Attachement;
+
+  Enregistrement["Enregistrement des modifications"];
+  Envoi["Envoi des infos d'identification Unsplash ou Pexels"];
+  RechercheIdentifiant["Recherche avec l'identifiant"];
+  Identifiant{"Un média avec cet identifiant existe-t-il ?"}
+  IdentifiantOui["L'identifiant existe"];
+  IdentifiantNon["L'identifiant n'existe pas"];
+  Media{"Le média existe-t-il ?"};
+  MediaOui["Si le média existe déjà"];
+  MediaNon["Si le média n'existe pas"];
+  CreationBlob["Création du blob"];
+  CreationMedia["Création du média"];
+  Contexte[Création du contexte];
+  Attachement["Attachement du blob à l'objet"]
+```
+
+#### Médiathèque
+
+```mermaid
+graph TD;
+  Enregistrement-->Envoi-->Contexte-->Attachement;
+
+  Enregistrement["Enregistrement des modifications"];
+  Envoi["Envoi de l'identifiant du média"];
+  Contexte[Création du contexte];
+  Attachement["Attachement du blob à l'objet"]
+```
