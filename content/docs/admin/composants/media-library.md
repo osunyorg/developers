@@ -284,7 +284,7 @@ Il faut, à chaque endroit où l'on crée et utilise des médias, intercaler une
 
 On remplace la gestion par les formulaires Rails par un composant Vue, dans la [PR 2567](https://github.com/osunyorg/admin/pull/2567). Cela permet de se séparer du cropper dépendant de jQuery, mais cela implique de passer à un environnement de dev ES6 pour Vue, dans Rails.
 Le composant est capable de gérer des uploads directs d'image, avec [Vue Advanced Cropper](https://advanced-cropper.github.io/vue-advanced-cropper/). Il intègre correctement Summernote, possiblement avec [Vue3 Summernote Editor
-](https://github.com/rafwell/vue3-summernote-editor).
+](https://github.com/rafwell/vue3-summernote-editor). Il est capable de gérer les imports depuis Unsplash et Pexels, et le choix dans la médiathèque.
 
 #### Upload
 
