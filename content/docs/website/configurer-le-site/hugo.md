@@ -15,6 +15,6 @@ params:
 ```
 
 Les variables disponibles sont ici :
-https://github.com/osunyorg/theme/blob/main/config.yaml
+https://github.com/osunyorg/theme/blob/main/hugo.yaml
 
 C'est le meilleur endroit pour démarrer le site.
