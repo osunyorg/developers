@@ -29,7 +29,7 @@ bin/setup
 
 3. Démarrer le serveur 
 ```bash
-rails app:start
+bin/dev
 ```
 
 4. Pour utiliser des urls locales de type `http://demo.osuny:3000`, il faut paramétrer le fichiers hosts (sur Mac et Linux, `/etc/hosts`)
