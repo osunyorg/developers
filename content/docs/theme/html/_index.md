@@ -50,7 +50,7 @@ Les `list-pages` doivent comporter la bodyclass `[section au pluriel]__section`.
 
 ### Arborescence des fichiers
 
-Avec l'augmentation du nombre de partiel, pour éviter le monolithe (de grandes listes verticales), il faut étendre horizontalement. Pour être plus prévisible il faut facilement pouvoir trouver les partiels :
+Avec l'augmentation du nombre de partiels, pour éviter le monolithe (de grandes listes verticales), il faut étendre horizontalement. Pour être plus prévisible il faut facilement pouvoir trouver les partiels :
 
 Par exemple pour les formations :
 - dans le dossier `partials`
