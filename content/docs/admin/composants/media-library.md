@@ -290,16 +290,16 @@ Le composant est capable de gérer des uploads directs d'image, avec [Vue Advanc
 
 ```mermaid
 graph TD;
-  Enregistrement-->Envoi-->Checksum-->Media;
+  Enregistrement-->Envoi-->CreationBlob-->Checksum-->Media;
   Media-->MediaOui-->Contexte;
-  Media-->MediaNon-->CreationBlob-->CreationMedia-->Contexte;
+  Media-->MediaNon-->CreationMedia-->Contexte;
   Contexte-->Attachement;
 
   Enregistrement["Enregistrement des modifications"];
   Envoi["Envoi du fichier d'image"];
+  CreationBlob["Création du blob"];
   Checksum["Calcul du checksum"];
   Media{"Le média existe-t-il ?"};
-  CreationBlob["Création du blob"];
   MediaOui["Si le média existe déjà"];
   MediaNon["Si le média n'existe pas"];
   CreationMedia["Création du média"];
@@ -337,9 +337,9 @@ graph TD;
 Workflow simplifié (idem upload sauf 2 et 3)
 ```mermaid
 graph TD;
-  Enregistrement-->EnvoiUrl-->TelechargementImage-->Checksum-->Media;
+  Enregistrement-->EnvoiUrl-->TelechargementImage-->CreationBlob-->Checksum-->Media;
   Media-->MediaOui-->Contexte;
-  Media-->MediaNon-->CreationBlob-->CreationMedia-->Contexte;
+  Media-->MediaNon-->CreationMedia-->Contexte;
   Contexte-->Attachement;
 
   Enregistrement["Enregistrement des modifications"];
