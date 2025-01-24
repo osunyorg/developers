@@ -47,3 +47,17 @@ Les `list-pages` doivent comporter la bodyclass `[section au pluriel]__section`.
     [...]
 </body>
 ```
+
+### Arborescence des fichiers
+
+Avec l'augmentation du nombre de partiel, pour éviter le monolithe (de grandes listes verticales), il faut étendre horizontalement. Pour être plus prévisible il faut facilement pouvoir trouver les partiels :
+
+Par exemple pour les formations :
+- dans le dossier `partials`
+- dans le dossier `partials/programs` : tous les fichiers pour représenter les programmes 
+- dans le dossier `partials/programs/single` : tous les fichiers liés à l'affiche d'une formation (par exemple : [Bibliothécaire](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/bibliothecaire/))
+- dans le dossier `partials/programs/list` : tous les fichiers pour afficher des listes de formations, qu'il s'agisse de la page de l'[offre de formation](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/) ou d'un bloc formation
+- dans le dossier `partials/programs/list/item` : tous les fichiers pour afficher une formation au sein d'une liste. Ce dossier peut contenir un format par layout (par exemple : `default.html`, `large.html`, `list.html`, `grid.html`...)
+
+<img width="201" alt="image" src="https://github.com/user-attachments/assets/b441147a-078b-4def-996a-8674e5b9724c" />
+
