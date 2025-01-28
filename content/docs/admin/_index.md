@@ -49,6 +49,11 @@ Pour envoyer en staging (sous réserve d'avoir les droits)
 git push staging main
 ```
 
+Pour envoyer en staging une branche spécifique (dans l'exemple `free-categories-as-taxonomy`)
+```bash
+git push scalingo free-categories-as-taxonomy:main -f
+```
+
 ## Mise en production
 
 Automatique avec Scalingo, quand les Pull Requests sont acceptées.
