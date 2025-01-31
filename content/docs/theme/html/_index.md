@@ -59,6 +59,25 @@ Les fichiers à la racine du dossier layouts suivent la logique de Hugo (`list.h
 Le dossier des partials suit une logique propre à Osuny. 
 D'abord, il y a un dossier pour chaque objets, au pluriel.
 
+{{< filetree/container >}}
+  {{< filetree/folder name="layouts/partials" >}}
+    {{< filetree/folder name="programs" state="open" >}}
+      {{< filetree/folder name="list" state="open" >}}
+        {{< filetree/folder name="components" state="closed" >}}{{< /filetree/folder >}}
+        {{< filetree/folder name="layouts" state="open" >}}
+          {{< filetree/folder name="cards" state="open" >}}
+            {{< filetree/file name="cards-item.html" >}}
+            {{< filetree/file name="cards.html" >}}
+          {{< /filetree/folder >}}
+        {{< /filetree/folder >}}
+      {{< /filetree/folder >}}
+      {{< filetree/folder name="single" state="open" >}}
+        {{< filetree/folder name="hero" state="closed" >}}{{< /filetree/folder >}}
+      {{< /filetree/folder >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
+
 | Dossier | Usage |
 | - | - |
 | `partials` | Tous les fichiers Osuny |
@@ -67,5 +86,6 @@ D'abord, il y a un dossier pour chaque objets, au pluriel.
 | `partials/programs/list/components` | Les composants utilisés dans les items |
 | `partials/programs/list/layouts` | Toutes les mises en page de listes de programmes |
 | `partials/programs/list/layouts/cards` | La liste et l'item de la mise en page en cartes  |
+| `partials/programs/list/hero` | L'entête de la page native  |
 | `partials/programs/single` | Tous les fichiers liés à l'affichage d'une formation (par exemple : [Bibliothécaire](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/bibliothecaire/)) |
 | `partials/programs/single/hero` | Tous les fichiers liés à l'affichage d'une formation (par exemple : [Bibliothécaire](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/bibliothecaire/)) |
