@@ -4,18 +4,13 @@ title: HTML
 
 ## Les objets Osuny
 
-Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 2 façons :
-- dans une liste
-- dans leur propre page
-Ils sont traduits par des sections Hugo.
+Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 2 façons : dans une liste ou  dans leur propre page. Ils sont traduits, dans Hugo, par des `sections` de `content`.
 
 La liste existe dans 2 contextes différents : 
 - la page native (la liste des actualités, l'agenda...)
 - le bloc de l'objet
 
-### Liste
-
-#### Dans la page native
+### Liste dans la page native
 
 C'est la page native de Hugo pour lister les objets.
 Elle est paginée.
@@ -27,7 +22,7 @@ Les objets `Page` sont un peu spéciales : elles sont à la fois une page et une
 </body>
 ```
 
-#### Dans un bloc
+### Liste dans un bloc
 
 Les listes affichent des items.
 
