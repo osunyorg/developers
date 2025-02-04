@@ -48,7 +48,7 @@ Elle est paginée.
 Certains objets, comme `Page`, sont un peu spéciaux : ils sont à la fois une page et une liste (de ses enfants).
 Ce distingo est fait dans les fichiers natifs Hugo, à la racine de `layouts`.
 
-## Un sous-dossier pour la `single`
+## Single
 
 {{< filetree/container >}}
   {{< filetree/folder name="layouts/partials" >}}
@@ -68,7 +68,7 @@ Ce distingo est fait dans les fichiers natifs Hugo, à la racine de `layouts`.
 Une `single` représente la page d'un objet.
 Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'affichage de la single.
 
-## Un sous-dossier pour les `partials`
+## Partials
 
 {{< filetree/container >}}
   {{< filetree/folder name="layouts/partials" >}}
