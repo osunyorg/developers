@@ -57,8 +57,8 @@ D'abord, il y a un dossier pour chaque objets, au pluriel.
 {{< filetree/container >}}
   {{< filetree/folder name="layouts/partials" >}}
     {{< filetree/folder name="programs" state="open" >}}
+      {{< filetree/folder name="commons" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="list" state="open" >}}
-        {{< filetree/folder name="components" state="closed" >}}{{< /filetree/folder >}}
         {{< filetree/folder name="layouts" state="open" >}}
           {{< filetree/folder name="cards" state="open" >}}
             {{< filetree/file name="cards-item.html" >}}
@@ -77,8 +77,8 @@ D'abord, il y a un dossier pour chaque objets, au pluriel.
 | - | - |
 | `partials` | Tous les fichiers Osuny |
 | `partials/programs` | Tous les fichiers pour représenter les programmes |
+| `partials/programs/commons` | Les composants utilisés dans les singles, listes et items |
 | `partials/programs/list` | Toutes les listes de formations, qu'il s'agisse de la page de l'[offre de formation](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/) ou d'un bloc formations |
-| `partials/programs/list/components` | Les composants utilisés dans les items |
 | `partials/programs/list/layouts` | Toutes les mises en page de listes de programmes |
 | `partials/programs/list/layouts/cards` | La liste et l'item de la mise en page en cartes  |
 | `partials/programs/list/hero` | L'entête de la page native  |
