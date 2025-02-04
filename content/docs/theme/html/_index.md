@@ -11,7 +11,9 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
     {{< filetree/folder name="programs" state="open" >}}
       {{< filetree/folder name="partials" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="section" state="closed" >}}{{< /filetree/folder >}}
+      {{< filetree/file name="section.html" >}}
       {{< filetree/folder name="single" state="closed" >}}{{< /filetree/folder >}}
+      {{< filetree/file name="single.html" >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
@@ -24,17 +26,15 @@ Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'affi
 Dans la section et dans le bloc, il s'agit de lister des objets en utilisant une mise en page (`layout`) et des options.
 Les fichiers à la racine du dossier layouts suivent la logique de Hugo (`list.html` et `single.html`), et appellent les partials Osuny.
 
-## Un sous-dossier pour la `section`
+## Section
 
 {{< filetree/container >}}
   {{< filetree/folder name="layouts/partials" >}}
     {{< filetree/folder name="programs" state="open" >}}
       {{< filetree/folder name="section" state="open" >}}
-        {{< filetree/folder name="partials" state="open" >}}
-          {{< filetree/file name="hero.html" >}}
-        {{< /filetree/folder >}}
-        {{< filetree/file name="programs.html" >}}
+        {{< filetree/file name="hero.html" >}}
       {{< /filetree/folder >}}
+      {{< filetree/file name="section.html" >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
@@ -50,6 +50,17 @@ Ce distingo est fait dans les fichiers natifs Hugo, à la racine de `layouts`.
 
 ## Un sous-dossier pour la `single`
 
+{{< filetree/container >}}
+  {{< filetree/folder name="layouts/partials" >}}
+    {{< filetree/folder name="programs" state="open" >}}
+      {{< filetree/folder name="single" state="open" >}}
+        {{< filetree/file name="hero.html" >}}
+      {{< /filetree/folder >}}
+      {{< filetree/file name="single.html" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
+
 {{< callout type="info" >}}
   Tous les fichiers liés à l'affichage d'une formation (par exemple : [Bibliothécaire](https://www.iut.u-bordeaux-montaigne.fr/formation/offre-de-formation/bibliothecaire/))
 {{< /callout >}}
@@ -57,23 +68,7 @@ Ce distingo est fait dans les fichiers natifs Hugo, à la racine de `layouts`.
 Une `single` représente la page d'un objet.
 Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'affichage de la single.
 
-{{< filetree/container >}}
-  {{< filetree/folder name="layouts/partials" >}}
-    {{< filetree/folder name="programs" state="open" >}}
-      {{< filetree/folder name="single" state="open" >}}
-        {{< filetree/folder name="partials" state="open" >}}
-          {{< filetree/file name="hero.html" >}}
-        {{< /filetree/folder >}}
-        {{< filetree/file name="program.html" >}}
-      {{< /filetree/folder >}}
-    {{< /filetree/folder >}}
-  {{< /filetree/folder >}}
-{{< /filetree/container >}}
-
-
 ## Un sous-dossier pour les `partials`
-
-Contenant les fichiers utilisés à la fois par les blocs, par la section et par la single.
 
 {{< filetree/container >}}
   {{< filetree/folder name="layouts/partials" >}}
@@ -82,7 +77,7 @@ Contenant les fichiers utilisés à la fois par les blocs, par la section et par
         {{< filetree/folder name="layouts" state="open" >}}
           {{< filetree/folder name="cards" state="open" >}}
             {{< filetree/file name="cards-item.html" >}}
-            {{< filetree/file name="cards-list.html" >}}
+            {{< filetree/file name="cards.html" >}}
           {{< /filetree/folder >}}
         {{< /filetree/folder >}}
       {{< /filetree/folder >}}
@@ -90,3 +85,8 @@ Contenant les fichiers utilisés à la fois par les blocs, par la section et par
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
+{{< callout type="info" >}}
+  Tous les fichiers utilisés à la fois par les blocs, par la section et par la single
+{{< /callout >}}
+
+Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code.
