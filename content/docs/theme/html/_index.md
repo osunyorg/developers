@@ -4,6 +4,16 @@ title: Structure des fichiers HTML
 
 Ce document fixe la structure des fichiers HTML du thème Osuny.
 
+{{< callout type="warning" >}}
+  Afin d'utiliser des termes courants dans Hugo, on emploie layouts et partials.
+  Cela a l'avantage d'être familier pour les devs Hugo, et l'inconvénient de désigner des dossiers différents avec le même nom.
+{{< /callout >}}
+
+| Terme | Hugo | Osuny |
+| - | - | - |
+| `layouts` | Fichiers HTML utilisés par le site | Fichiers HTML utilisés pour mettre en page possibles des objets (en cartes, en grille...) |
+| `partials` | Composants utilisés par les fichiers natifs | Composants Osuny utilisés par les fichiers spécifiques Osuny |
+
 ## Un dossier pour chaque objet
 
 {{< filetree/container >}}
@@ -24,7 +34,7 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 
 Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 3 façons : dans une section, dans un bloc ou dans une page. 
 Dans la section et dans le bloc, il s'agit de lister des objets en utilisant une mise en page (`layout`) et des options.
-Les fichiers à la racine du dossier layouts suivent la logique de Hugo (`list.html` et `single.html`), et appellent les partials Osuny.
+Les fichiers à la racine du dossier layouts d'Hugo, dans `/layouts` (attention, pas les layouts Osuny !) suivent la logique de Hugo (par exemple `list.html` et `single.html`) et appellent les partials Osuny.
 
 ## Section
 
