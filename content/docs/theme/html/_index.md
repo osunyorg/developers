@@ -89,4 +89,5 @@ Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'
   Tous les fichiers utilisés à la fois par les blocs, par la section et par la single
 {{< /callout >}}
 
+Le dossier partials contient toujours un dossier layouts, avec un dossier par layout.
 Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code.
