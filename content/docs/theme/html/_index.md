@@ -47,6 +47,7 @@ C'est la page native de Hugo pour lister les objets d'un type.
 Elle est paginée.
 Certains objets, comme `Page`, sont un peu spéciaux : ils sont à la fois une page et une liste (de ses enfants).
 Ce distingo est fait dans les fichiers natifs Hugo, à la racine de `layouts`.
+La section est aussi utilisée par les taxonomies, pour afficher une catégorie de formations par exemple.
 
 ## Single
 
@@ -90,4 +91,4 @@ Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'
 {{< /callout >}}
 
 Le dossier partials contient toujours un dossier layouts, avec un dossier par layout.
-Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code.
+Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code. 
