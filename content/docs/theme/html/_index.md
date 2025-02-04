@@ -4,6 +4,8 @@ title: Structure des fichiers HTML
 
 Ce document fixe la structure des fichiers HTML du thème Osuny.
 
+## Précision sémantique
+
 {{< callout type="warning" >}}
   Afin d'utiliser des termes courants dans Hugo, on emploie layouts et partials.
   Cela a l'avantage d'être familier pour les devs Hugo, et l'inconvénient de désigner des dossiers différents avec le même nom.
