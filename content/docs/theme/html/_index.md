@@ -93,6 +93,7 @@ Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'
             {{< filetree/file name="cards.html" >}}
           {{< /filetree/folder >}}
         {{< /filetree/folder >}}
+        {{< filetree/file name="program.html" >}}
       {{< /filetree/folder >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
