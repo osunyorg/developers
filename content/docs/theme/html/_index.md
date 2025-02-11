@@ -23,8 +23,8 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
     {{< filetree/folder name="programs" state="open" >}}
       {{< filetree/folder name="partials" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="section" state="closed" >}}{{< /filetree/folder >}}
-      {{< filetree/file name="section.html" >}}
       {{< filetree/folder name="single" state="closed" >}}{{< /filetree/folder >}}
+      {{< filetree/file name="section.html" >}}
       {{< filetree/file name="single.html" >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
@@ -79,7 +79,8 @@ La section est aussi utilisée par les taxonomies, pour afficher une catégorie 
 {{< /callout >}}
 
 Une `single` représente la page d'un objet.
-Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'affichage de la single.
+Le dossier `single` contient des objets nécessaires à l'affichage de la page.
+Ce sont souvent de simple “passe-plats” vers des partiels plus communs.
 
 ## Partials
 
@@ -94,6 +95,7 @@ Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'
           {{< /filetree/folder >}}
         {{< /filetree/folder >}}
         {{< filetree/file name="program.html" >}}
+        {{< filetree/file name="programs.html" >}}
       {{< /filetree/folder >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
@@ -105,3 +107,6 @@ Le dossier `partials` est optionnel, et doit contenir des fichiers permettant l'
 
 Le dossier partials contient toujours un dossier layouts, avec un dossier par layout.
 Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code. 
+
+
+Le partiel `programs.html` est une liste de formations paginée avec options, utilisée dans la section et dans les catégories de formations.
