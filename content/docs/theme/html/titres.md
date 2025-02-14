@@ -1,19 +1,15 @@
 ---
-title: "Headings"
-linkTitle: "Headings"
-weight: 100
-description: >-
-     Architecture des niveaux de titre dans les pages
+title: Niveaux de titres
 ---
 
 ## Commun
 
-```
+```sass
 body
   header
   main
     .hero
-      hgroup # optionnel
+      hgroup // optionnel
         h1
     .document-content
       .blocks
@@ -28,7 +24,7 @@ body
 
 Visuellement, les blocks font partis du H2 de la section "Présentation", mais il n'y pas de certitude que cette structure ne bouge, on reste donc sur un balisage similaire pour les blocs (comme Commun).
 
-```
+```sass
 body
   header
   main

@@ -1,9 +1,10 @@
 ---
-title: Articulation avec Hugo
-weight: 2
-description: >
-  Comment le thème utilise-t-il Hugo ?
+title: Structure
+weight: 1
 ---
+
+Le thème suit l'organisation des thèmes Hugo, comme expliqué dans la documentation sur  [gohugo.io/documentation](https://gohugo.io/documentation/).
+
 
 ## Home page
 

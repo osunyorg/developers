@@ -1,9 +1,6 @@
 ---
 title: Table des matières
-description: >
-  Gérer le plan du document
 ---
-
 
 ## Le besoin
 

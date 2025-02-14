@@ -1,5 +1,5 @@
 ---
-title: Uniques ou multiples ?
+title: Uniques ou multiples ?
 ---
 
 Les actualités (posts) et les événements de l'agenda (events) utilisent un système de catégories.

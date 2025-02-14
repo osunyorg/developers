@@ -1,11 +1,10 @@
 ---
 title: Typographie
-weight: 6
-description: >
-  Gérer correctement la typographie
 ---
 
-## Alignements verticaux
+## Typographie
+
+Sur les alignements verticaux
 
 https://medium.com/microsoft-design/leading-trim-the-future-of-digital-typesetting-d082d84b202
 

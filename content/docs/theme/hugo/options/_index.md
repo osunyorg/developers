@@ -1,8 +1,6 @@
 ---
 title: Options
-weight: 5
 ---
-
 
 ## Le nœud `options`
 

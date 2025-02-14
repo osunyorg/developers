@@ -1,6 +1,10 @@
 ---
-title: Nommage des classes 
+title: Classes 
 ---
+
+Nommage des classes HTML
+
+Cf BEM
 
 ```html 
 <body class="programs__section">

@@ -5,8 +5,8 @@ description: >
   Comprendre la grille de base
 ---
 
-TODO expliquer pourquoi on utilise une grille
-TODO expliquer les enjeux de responsivité liés à la grille
+- TODO expliquer pourquoi on utilise une grille
+- TODO expliquer les enjeux de responsivité liés à la grille
 
 ## Breakpoints
 
