@@ -4,7 +4,7 @@ weight: 2
 ---
 *Gérer un calendrier d'événements*
 
-Est-ce vraiment du domaine du site ? Ou est-ce plus haut, avec une publication sur le site ? Par souci de simplicité, on développe les événements au sein des sites Web uniquement. S'ils sont développés aussi au sein des extranets, il est probable que les enjeux fonctionnels soient différents (inscription notamment). À la v1 de l'agenda, produite pour La Criée et l'appel d'offres Villa Médicis, s'ajoute la v2 produite pour la Gaîté Lyrique.
+La fonctionnalité permet de gérer un calendrier d'événements et d'expositions, avec tous les cas courants.
 
 ## Événements
 
@@ -17,13 +17,14 @@ Pas d’enfants.
 Exemple
 - Alaska : sur la piste de Telaquana (20 janvier 2025)
 
-| Hugo | Valeur | Exemple |
-| - | - | - |
-| file | /content/fr/events/YYYY/MM/slug.html | /content/fr/events/2025/01/alaska.html |
-| permalink | /fr/agenda/YYYY/MM/slug/ | /fr/agenda/2025/01/alaska/ |
-| path | ? | ? | ?
-
-Aujourd'hui, il y a une page pour l'année (`/fr/agenda/2025/`) et une pour le mois (`/fr/agenda/2025/01/`).
+| Propriété | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/MM/slug.html | 
+| | /content/fr/events/2025/01/alaska.html | 
+| permalink | /fr/agenda/YYYY/MM/slug/ | 
+| | /fr/agenda/2025/01/alaska/ | 
+| path | /events/YYYY/MM/slug | 
+| | /events/2025/01/alaska | 
 
 ### Récurrent
 
@@ -40,11 +41,14 @@ Exemples
 L'événement n'est pas envoyé.
 Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
 
-| Hugo | Valeur | Exemple |
-| - | - | - |
-| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html | /content/fr/events/2024/01/14-16-00-contes-a-paillettes.html
-| permalink | /fr/agenda/YYYY/slug/ |  /fr/agenda/2024/contes-a-paillettes/
-| path | ? | ? | ?
+| Propriété | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html | 
+| | /content/fr/events/2024/01/14-16-00-contes-a-paillettes.html | 
+| permalink | /fr/agenda/YYYY/slug/ | 
+| | /fr/agenda/2024/contes-a-paillettes/ | 
+| path | /events/YYYY/MM/DD-hh-mm-slug | 
+| | /events/2024/01/14-16-00-contes-a-paillettes | 
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
@@ -64,11 +68,14 @@ Exemples
 - Arte Concert Festival
 - Ciné Club Gaze
 
-
-| Hugo | Valeur |
+| Propriété | Valeur |
 | - | - |
-| file | /content/fr/events/YYYY/slug.html |
-| permalink | /fr/agenda/YYYY/slug/ |
+| file | /content/fr/events/YYYY/slug.html | 
+| | /content/fr/events/2024/arte-concert-festival.html | 
+| permalink | /fr/agenda/YYYY/slug/ | 
+| | /fr/agenda/2024/arte-concert-festival/ | 
+| path | /events/YYYY/slug | 
+| | /events/2024/arte-concert-festival | 
 
 ### Enfant
 
@@ -76,9 +83,21 @@ Concert pendant un festival.
 Un parent, pas d'enfant (pas d’enfant d’enfant).
 En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) sont possibles.
 
-
-Exemple
+Exemples
 - Concert de Priya Ragu pendant Arte Concert Festival
+- 2 concerts de Gonzales le même jour
+- 2 concerts de Gonzales sur 2 jours différents
+
+TODO
+
+| Propriété | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/MM/DD-slug.html | 
+| | /content/fr/events/archives/2024/03/03-priya-ragu.html | 
+| permalink | /fr/agenda/YYYY/parent_slug/YY-MM-DD-slug/ | 
+| | /fr/agenda/2024/arte-concert-festival/2024-03-03-priya-ragu/ | 
+| path | /events/YYYY/parent_slug/YY-MM-DD-slug | 
+| | /events/2024/arte-concert-festival/2024-03-03-priya-ragu | 
 
 ## Expositions
 
@@ -105,14 +124,45 @@ Une caractérisation des événements, par exemple un congrès ou un concert. Un
 ## Périodes
 
 Pour avoir des sortes de filtres de calendrier, il est nécessaire de générer des pages pour les années et les mois.
+
+### Année
+
+La page d'une année liste les 12 mois, avec des liens vers chaque mois et des liens ancrés vers chaque jour ayant des événements.
+
+| Propriété | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/_index.html | 
+| | /content/fr/events/2025/_index.html | 
+| permalink | /fr/agenda/YYYY/ | 
+| | /fr/agenda/2025/ | 
+| path | /events/YYYY | 
+| | /events/2025 | 
+
+### Mois
+
 La page d'un mois liste les jours, avec les événements de chaque jour.
-La page d'une année liste les mois.
+Cette page n'est pas paginée, et les jours ont des identifiants permettant de faire un lien avec ancre vers une journée spécifique.
+
+| Propriété | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/MM/_index.html | 
+| | /content/fr/events/2025/02/_index.html | 
+| permalink | /fr/agenda/YYYY/MM/ | 
+| | /fr/agenda/2025/02/ | 
+| path | /events/YYYY/MM | 
+| | /events/2025/02 | 
 
 ## Lieu (pas fait dans la v2)
 
 Un lieu, physique ou virtuel, par exemple l'IUT Bordeaux Montaigne, une chaîne Twitch ou une url de webinaire. Le lieu peuvent avoir des enfants, par exemple des salles à l'IUT, qui sont au sein d'un bâtiment. Un événement peut être connecté à plusieurs lieux, comme c'est le cas pour les événements hybrides.
 
-## Exemples
+## Analyse
+
+### Historique
+
+Est-ce vraiment du domaine du site ? Ou est-ce plus haut, avec une publication sur le site ? Par souci de simplicité, on développe les événements au sein des sites Web uniquement. S’ils sont développés aussi au sein des extranets, il est probable que les enjeux fonctionnels soient différents (inscription notamment). À la v1 de l’agenda, produite pour La Criée et l’appel d’offres Villa Médicis, s’ajoute la v2 produite pour la Gaîté Lyrique.
+
+### Exemples
 
 - https://www.college-de-france.fr/fr/agenda
 - https://www.college-de-france.fr/fr/agenda/colloque/origines-des-planetes-la-vie
