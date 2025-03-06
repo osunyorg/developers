@@ -14,9 +14,14 @@ Un concert unique, une conférence...
 Pas de créneaux du tout (journée) ou 1 créneau horaire unique.
 Pas d’enfants.
 
-
 Exemple
-- Alaska : sur la piste de Telaquana
+- Alaska : sur la piste de Telaquana (20 janvier 2025)
+
+| Hugo | Valeur | Exemple |
+| - | - | - |
+| file | /content/fr/events/YYYY/MM/DD-slug.html | /content/fr/events/2025/01/20-alaska.html |
+| permalink | /fr/agenda/YYYY/MM/DD-slug/ | /fr/agenda/2025/01/20-alaska/ |
+| path | ? | ? |
 
 ### Récurrent
 
@@ -24,13 +29,21 @@ Une série de séances sur une journée ou une série de concerts sur plusieurs 
 Créneaux horaires multiples.
 Pas d’enfants.
 
-
 Les événements récurrents s'appuient sur des time slots (`Agenda::Event::TimeSlot`), qui génèrent des fichiers statiques.
-
 
 Exemples
 - Podcast encore heureux (19h et 20h30 le même jour)
 - Contes à paillettes
+
+Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
+Comment gérer le premier ?
+L'événement est-il envoyé ? 
+
+| Hugo | Valeur | Exemple |
+| - | - | - |
+| file | /content/fr/events/YYYY/MM/DD-HH-mm-slug.html |
+| permalink | /fr/agenda/YYYY/MM/DD-slug/ |
+| path | ? | ? |
 
 ### Parent
 
@@ -48,6 +61,11 @@ Exemples
 - Arte Concert Festival
 - Ciné Club Gaze
 
+
+| Hugo | Valeur |
+| - | - |
+| file | /content/fr/events/YYYY/slug.html |
+| permalink | /fr/agenda/YYYY/slug/ |
 
 ### Enfant
 
