@@ -10,7 +10,7 @@ Est-ce vraiment du domaine du site ? Ou est-ce plus haut, avec une publication s
 
 ### Simple
 
-Un concert unique, une conférence... 
+Un concert unique, une conférence...
 Pas de créneaux du tout (journée) ou 1 créneau horaire unique.
 Pas d’enfants.
 
@@ -37,7 +37,7 @@ Exemples
 
 Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
 Comment gérer le premier ?
-L'événement est-il envoyé ? 
+L'événement est-il envoyé ?
 
 | Hugo | Valeur | Exemple |
 | - | - | - |
@@ -84,6 +84,15 @@ Jour de fin > jour de début.
 Pas de créneaux, pas d’enfants.
 Rien = tout (ouvert tous les jours).
 
+Exemple :
+- PULSE : Au rythme de la lumière et du son (Du 12 décembre 2024 au 13 juillet 2025)
+
+| Hugo | Valeur | Exemple |
+| - | - | - |
+| file | /content/fr/exhibitions/YYYY-MM-DD-slug.html | /content/fr/exhibitions/2024-12-12-pulse.html |
+| permalink | /fr/expositions/YYYY-MM-DD-slug/ | /fr/expositions/2024-12-12-pulse/ |
+| path | ? | ? |
+
 ## Catégories
 
 Une caractérisation des événements, par exemple un congrès ou un concert. Un événement peut avoir un et un seul type. Le fait d'avoir un élément typé permet de filtrer sur le site Web.
@@ -96,7 +105,7 @@ La page d'une année liste les mois.
 
 ## Lieu (pas fait dans la v2)
 
-Un lieu, physique ou virtuel, par exemple l'IUT Bordeaux Montaigne, une chaîne Twitch ou une url de webinaire. Le lieu peuvent avoir des enfants, par exemple des salles à l'IUT, qui sont au sein d'un bâtiment. Un événement peut être connecté à plusieurs lieux, comme c'est le cas pour les événements hybrides. 
+Un lieu, physique ou virtuel, par exemple l'IUT Bordeaux Montaigne, une chaîne Twitch ou une url de webinaire. Le lieu peuvent avoir des enfants, par exemple des salles à l'IUT, qui sont au sein d'un bâtiment. Un événement peut être connecté à plusieurs lieux, comme c'est le cas pour les événements hybrides.
 
 ## Exemples
 
