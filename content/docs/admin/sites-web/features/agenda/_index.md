@@ -19,9 +19,11 @@ Exemple
 
 | Hugo | Valeur | Exemple |
 | - | - | - |
-| file | /content/fr/events/YYYY/MM/DD-slug.html | /content/fr/events/2025/01/20-alaska.html |
-| permalink | /fr/agenda/YYYY/MM/DD-slug/ | /fr/agenda/2025/01/20-alaska/ |
-| path | ? | ? |
+| file | /content/fr/events/YYYY/MM/slug.html | /content/fr/events/2025/01/alaska.html |
+| permalink | /fr/agenda/YYYY/MM/slug/ | /fr/agenda/2025/01/alaska/ |
+| path | ? | ? | ?
+
+Aujourd'hui, il y a une page pour l'année (`/fr/agenda/2025/`) et une pour le mois (`/fr/agenda/2025/01/`).
 
 ### Récurrent
 
@@ -32,18 +34,19 @@ Pas d’enfants.
 Les événements récurrents s'appuient sur des time slots (`Agenda::Event::TimeSlot`), qui génèrent des fichiers statiques.
 
 Exemples
+- Contes à paillettes (14 janvier 2024 à 16h, 19 mai 2024 à 16h et 18h)
 - Podcast encore heureux (19h et 20h30 le même jour)
-- Contes à paillettes
 
+L'événement n'est pas envoyé.
 Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
-Comment gérer le premier ?
-L'événement est-il envoyé ?
 
 | Hugo | Valeur | Exemple |
 | - | - | - |
-| file | /content/fr/events/YYYY/MM/DD-HH-mm-slug.html |
-| permalink | /fr/agenda/YYYY/MM/DD-slug/ |
-| path | ? | ? |
+| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html | /content/fr/events/2024/01/14-16-00-contes-a-paillettes.html
+| permalink | /fr/agenda/YYYY/slug/ |  /fr/agenda/2024/contes-a-paillettes/
+| path | ? | ? | ?
+
+Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
 ### Parent
 
@@ -92,6 +95,8 @@ Exemple :
 | file | /content/fr/exhibitions/YYYY/slug.html | /content/fr/exhibitions/2024/pulse.html |
 | permalink | /fr/expositions/YYYY/slug/ | /fr/expositions/2024/pulse/ |
 | path | ? | ? |
+
+Aujourd'hui, il n'y a pas de page d'année pour les expositions (`/fr/expositions/2025/` n'amène nulle part).
 
 ## Catégories
 
