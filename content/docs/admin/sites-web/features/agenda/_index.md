@@ -70,6 +70,12 @@ Rien = tout (ouvert tous les jours).
 
 Une caractérisation des événements, par exemple un congrès ou un concert. Un événement peut avoir un et un seul type. Le fait d'avoir un élément typé permet de filtrer sur le site Web.
 
+## Périodes
+
+Pour avoir des sortes de filtres de calendrier, il est nécessaire de générer des pages pour les années et les mois.
+La page d'un mois liste les jours, avec les événements de chaque jour.
+La page d'une année liste les mois.
+
 ## Lieu (pas fait dans la v2)
 
 Un lieu, physique ou virtuel, par exemple l'IUT Bordeaux Montaigne, une chaîne Twitch ou une url de webinaire. Le lieu peuvent avoir des enfants, par exemple des salles à l'IUT, qui sont au sein d'un bâtiment. Un événement peut être connecté à plusieurs lieux, comme c'est le cas pour les événements hybrides. 
