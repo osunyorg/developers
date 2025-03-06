@@ -89,8 +89,8 @@ Exemple :
 
 | Hugo | Valeur | Exemple |
 | - | - | - |
-| file | /content/fr/exhibitions/YYYY-MM-DD-slug.html | /content/fr/exhibitions/2024-12-12-pulse.html |
-| permalink | /fr/expositions/YYYY-MM-DD-slug/ | /fr/expositions/2024-12-12-pulse/ |
+| file | /content/fr/exhibitions/YYYY/slug.html | /content/fr/exhibitions/2024/pulse.html |
+| permalink | /fr/expositions/YYYY/slug/ | /fr/expositions/2024/pulse/ |
 | path | ? | ? |
 
 ## Catégories
