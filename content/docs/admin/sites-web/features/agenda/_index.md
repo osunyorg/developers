@@ -14,44 +14,30 @@ La fonctionnalité permet de gérer un calendrier d'événements et d'exposition
       {{< filetree/folder name="archives" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="2025" state="open" >}}
         {{< filetree/folder name="01" state="open" >}}
-          {{< filetree/folder name="01" state="open" >}}
-            {{< filetree/file name="20-00-priya-ragu.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="02" state="open" >}}
-            {{< filetree/file name="20-00-gonzales.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="03" state="open" >}}
-            {{< filetree/file name="20-00-gonzales.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="05" state="open" >}}
-            {{< filetree/file name="20-00-emmanuelle.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="08" state="open" >}}
-            {{< filetree/file name="alaska.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="10" state="open" >}}
-            {{< filetree/file name="14-00-les-fantomes-de-la-liberte.html" >}}
-            {{< filetree/file name="16-00-resistance-fondamentale.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="14" state="open" >}}
-            {{< filetree/file name="16-00-contes-a-paillettes.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="15" state="open" >}}
-            {{< filetree/file name="20-00-atlantique.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="20" state="open" >}}
-            {{< filetree/file name="16-00-contes-a-paillettes.html" >}}
-            {{< filetree/file name="19-00-encore-heureux.html" >}}
-            {{< filetree/file name="20-30-encore-heureux.html" >}}
-          {{< /filetree/folder >}}
-          {{< filetree/folder name="24" state="open" >}}
-            {{< filetree/file name="20-30-anetha-vel.html" >}}
-          {{< /filetree/folder >}}
+          {{< filetree/file name="08-alaska.html" >}}
+          {{< filetree/file name="14-16-00-contes-a-paillettes.html" >}}
+          {{< filetree/file name="20-16-00-contes-a-paillettes.html" >}}
+          {{< filetree/file name="20-19-00-encore-heureux.html" >}}
+          {{< filetree/file name="20-20-30-encore-heureux.html" >}}
+          {{< filetree/file name="24-20-30-anetha-vel.html" >}}
           {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
-        {{< filetree/file name="arte-concert-festival.html" >}}
-        {{< filetree/file name="paris-berlin.html" >}}
-        {{< filetree/file name="cine-club-gaze.html" >}}
+        {{< filetree/folder name="arte-concert-festival" state="open" >}}
+          {{< filetree/file name="2025-01-01-20-00-priya-ragu.html" >}}
+          {{< filetree/file name="2025-01-02-20-00-gonzales.html" >}}
+          {{< filetree/file name="2025-01-03-20-00-gonzales.html" >}}
+          {{< filetree/file name="_index.html" >}}
+        {{< /filetree/folder >}}
+        {{< filetree/folder name="cine-club-gaze" state="open" >}}
+          {{< filetree/file name="2025-01-05-20-00-emmanuelle.html" >}}
+          {{< filetree/file name="2025-01-15-20-00-atlantique.html" >}}
+          {{< filetree/file name="_index.html" >}}
+        {{< /filetree/folder >}}
+        {{< filetree/folder name="paris-berlin" state="open" >}}
+          {{< filetree/file name="2025-01-10-14-00-les-fantomes-de-la-liberte.html" >}}
+          {{< filetree/file name="2025-01-10-16-00-resistance-fondamentale.html" >}}
+          {{< filetree/file name="_index.html" >}}
+        {{< /filetree/folder >}}
         {{< filetree/file name="_index.html" >}}
       {{< /filetree/folder >}}
       {{< filetree/file name="_index.html" >}}
