@@ -66,7 +66,7 @@ Pas d’enfants.
 | 1. | /events/2025/01/08-alaska |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année.  
+> Le slug doit être unique*dans le scope de **l'année**.  
 > Il ne peut pas être composé que de chiffres.  
 > Modèle impliqué : `Communication::Website::Agenda::Event::Localization`
 
@@ -111,8 +111,12 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année.  
+> Le slug de l'événement doit être unique dans le scope de **l'année**.  
 > Il ne peut pas être composé que de chiffres.  
+> Modèle impliqué : `Communication::Website::Agenda::Event::Localization`
+  
+> Le slug des timeslots doit être unique dans le scope de **l'événement**.  
+> Il est forcé sur le pattern DD-hh-mm.  
 > Modèle impliqué : `Communication::Website::Agenda::Event::TimeSlot::Localization` 
 
 ### Parent
