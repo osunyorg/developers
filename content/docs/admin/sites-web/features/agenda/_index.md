@@ -132,12 +132,17 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 3. | /fr/agenda/2025/cine-club-gaze/ |
 | file | /content/fr/events/YYYY/slug/_index.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/_index.html |
+| 1. | /content/fr/events/2025/arte-concert-festival/2025-01-02.html |
+| 1. | /content/fr/events/2025/arte-concert-festival/2025-01-03.html |
 | 2. | /content/fr/events/2025/paris-berlin/_index.html |
 | 3. | /content/fr/events/2025/cine-club-gaze/_index.html |
+| 3. | /content/fr/events/2025/cine-club-gaze/2020-01-15.html |
 | path | /events/YYYY/slug |
 | 1. | /events/2025/arte-concert-festival |
 | 2. | /events/2025/paris-berlin |
 | 3. | /events/2025/cine-club-gaze |
+
+Le premier jour génère l'index.
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
