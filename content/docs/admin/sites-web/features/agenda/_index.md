@@ -14,19 +14,39 @@ La fonctionnalité permet de gérer un calendrier d'événements et d'exposition
       {{< filetree/folder name="archives" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="2025" state="open" >}}
         {{< filetree/folder name="01" state="open" >}}
-          {{< filetree/file name="01-20-00-priya-ragu.html" >}}
-          {{< filetree/file name="02-20-00-gonzales.html" >}}
-          {{< filetree/file name="03-20-00-gonzales.html" >}}
-          {{< filetree/file name="05-20-00-emmanuelle.html" >}}
-          {{< filetree/file name="08-alaska.html" >}}
-          {{< filetree/file name="10-14-00-les-fantomes-de-la-liberte.html" >}}
-          {{< filetree/file name="10-16-00-resistance-fondamentale.html" >}}
-          {{< filetree/file name="14-16-00-contes-a-paillettes.html" >}}
-          {{< filetree/file name="15-20-00-atlantique.html" >}}
-          {{< filetree/file name="20-16-00-contes-a-paillettes.html" >}}
-          {{< filetree/file name="20-19-00-encore-heureux.html" >}}
-          {{< filetree/file name="20-20-30-encore-heureux.html" >}}
-          {{< filetree/file name="24-20-30-anetha-vel.html" >}}
+          {{< filetree/folder name="01" state="open" >}}
+            {{< filetree/file name="20-00-priya-ragu.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="02" state="open" >}}
+            {{< filetree/file name="20-00-gonzales.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="03" state="open" >}}
+            {{< filetree/file name="20-00-gonzales.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="05" state="open" >}}
+            {{< filetree/file name="20-00-emmanuelle.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="08" state="open" >}}
+            {{< filetree/file name="alaska.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="10" state="open" >}}
+            {{< filetree/file name="14-00-les-fantomes-de-la-liberte.html" >}}
+            {{< filetree/file name="16-00-resistance-fondamentale.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="14" state="open" >}}
+            {{< filetree/file name="16-00-contes-a-paillettes.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="15" state="open" >}}
+            {{< filetree/file name="20-00-atlantique.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="20" state="open" >}}
+            {{< filetree/file name="16-00-contes-a-paillettes.html" >}}
+            {{< filetree/file name="19-00-encore-heureux.html" >}}
+            {{< filetree/file name="20-30-encore-heureux.html" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="24" state="open" >}}
+            {{< filetree/file name="20-30-anetha-vel.html" >}}
+          {{< /filetree/folder >}}
           {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
         {{< filetree/file name="arte-concert-festival.html" >}}
@@ -49,17 +69,19 @@ Pas d’enfants.
 > 1. Alaska : sur la piste de Telaquana (8 janvier 2025, pas d'horaire)<br>
 > 2. Anetha & Vel (concert le 24 janvier 2025 à 20h30)
 
+Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul créneau, mais ce concept n'est pas compréhensible pour l'usager.
+
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/agenda/YYYY/MM/slug/ | 
 | 1. | /fr/agenda/2025/01/alaska/ | 
 | 2. | /fr/agenda/2025/01/anetha-vel/ | 
-| file | /content/fr/events/YYYY/MM/dd-slug.html | 
-| 1. | /content/fr/events/2025/01/08-alaska.html | 
-| 2. | /content/fr/events/2025/01/24-20-30-anetha-vel.html | 
+| file | /content/fr/events/YYYY/MM/DD/slug.html | 
+| 1. | /content/fr/events/2025/01/08/alaska.html | 
+| 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html | 
 | path | /events/YYYY/MM/slug | 
-| 1. | /events/2025/01/08-alaska | 
-| 2. | /events/2025/01/24-20-30-anetha-vel | 
+| 1. | /events/2025/01/08/alaska | 
+| 2. | /events/2025/01/24/20-30-anetha-vel | 
 
 ### Récurrent
 
@@ -81,14 +103,14 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 | permalink | /fr/agenda/YYYY/slug/ |
 | 1+2.| /fr/agenda/2025/contes-a-paillettes/ |
 | 3+4.| /fr/agenda/2025/encore-heureux/ | 
-| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
-| 1. | /content/fr/events/2025/01/14-16-00-contes-a-paillettes.html |
-| 2. | /content/fr/events/2025/01/20-16-00-contes-a-paillettes.html |
-| 3. | /content/fr/events/2025/01/20-19-00-encore-heureux.html |
-| 4. | /content/fr/events/2025/01/20-20-30-encore-heureux.html |
-| path | /events/YYYY/MM/DD-hh-mm-slug | 
-| 1+2. | /events/2025/01/14-16-00-contes-a-paillettes TODO le premier?|
-| 3+4. | /events/2025/01/20-19-00-encore-heureux TODO le premier?|
+| file | /content/fr/events/YYYY/MM/DD/hh-mm-slug.html |
+| 1. | /content/fr/events/2025/01/14/16-00-contes-a-paillettes.html |
+| 2. | /content/fr/events/2025/01/20/16-00-contes-a-paillettes.html |
+| 3. | /content/fr/events/2025/01/20/19-00-encore-heureux.html |
+| 4. | /content/fr/events/2025/01/20/20-30-encore-heureux.html |
+| path | /events/YYYY/MM/DD/hh-mm-slug | 
+| 1+2. | /events/2025/01/14/16-00-contes-a-paillettes TODO le premier?|
+| 3+4. | /events/2025/01/20/19-00-encore-heureux TODO le premier?|
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
@@ -148,22 +170,22 @@ TODO
 | 4+5. | /fr/agenda/2025/arte-concert-festival/gonzales/ |
 | 6. | /fr/agenda/2025/cine-club-gaze/emmanuelle/ |
 | 7. | /fr/agenda/2025/cine-club-gaze/atlantique/ |
-| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
-| 1. | /content/fr/events/2025/01/10-14-00-les-fantomes-de-la-liberte.html |
-| 2. | /content/fr/events/2025/01/10-16-00-resistance-fondamentale.html |
-| 3. | /content/fr/events/2025/01/01-20-00-priya-ragu.html |
-| 4. | /content/fr/events/2025/01/02-20-00-gonzales.html |
-| 5. | /content/fr/events/2025/01/03-20-00-gonzales.html |
-| 6. | /content/fr/events/2025/01/05-20-00-emmanuelle.html |
-| 7. | /content/fr/events/2025/01/15-20-00-atlantique.html |
-| path | /events/YYYY/MM/DD-hh-mm-slug |
-| 1. | /events/2025/01/10-14-00-les-fantomes-de-la-liberte |
-| 2. | /events/2025/01/10-16-00-resistance-fondamentale |
-| 3. | /events/2025/01/01-20-00-priya-ragu |
-| 4. | /events/2025/01/02-20-00-gonzales |
-| 5. | /events/2025/01/03-20-00-gonzales |
-| 6. | /events/2025/01/05-20-00-emmanuelle |
-| 7. | /events/2025/01/15-20-00-atlantique |
+| file | /content/fr/events/YYYY/MM/DD/hh-mm-slug.html |
+| 1. | /content/fr/events/2025/01/10/14-00-les-fantomes-de-la-liberte.html |
+| 2. | /content/fr/events/2025/01/10/16-00-resistance-fondamentale.html |
+| 3. | /content/fr/events/2025/01/01/20-00-priya-ragu.html |
+| 4. | /content/fr/events/2025/01/02/20-00-gonzales.html |
+| 5. | /content/fr/events/2025/01/03/20-00-gonzales.html |
+| 6. | /content/fr/events/2025/01/05/20-00-emmanuelle.html |
+| 7. | /content/fr/events/2025/01/15/20-00-atlantique.html |
+| path | /events/YYYY/MM/DD/hh-mm-slug |
+| 1. | /events/2025/01/10/14-00-les-fantomes-de-la-liberte |
+| 2. | /events/2025/01/10/16-00-resistance-fondamentale |
+| 3. | /events/2025/01/01/20-00-priya-ragu |
+| 4. | /events/2025/01/02/20-00-gonzales |
+| 5. | /events/2025/01/03/20-00-gonzales |
+| 6. | /events/2025/01/05/20-00-emmanuelle |
+| 7. | /events/2025/01/15/20-00-atlantique |
 
 ## Périodes
 
