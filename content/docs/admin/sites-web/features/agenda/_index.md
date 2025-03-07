@@ -83,6 +83,8 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 | 1. | /events/2025/01/08/alaska | 
 | 2. | /events/2025/01/24/20-30-anetha-vel | 
 
+Le slug doit être **unique** dans le scope de l'année.
+
 ### Récurrent
 
 Une série de séances sur une journée ou une série de concerts sur plusieurs jours.<br>
@@ -115,6 +117,8 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
+Le slug doit être **unique** dans le scope de l'année.
+
 ### Parent
 
 Pas de créneaux.<br>
@@ -146,6 +150,8 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /events/2025/arte-concert-festival | 
 | 2. | /events/2025/paris-berlin | 
 | 3. | /events/2025/cine-club-gaze | 
+
+Le slug doit être **unique** dans le scope de l'année.
 
 ### Enfant
 
@@ -198,6 +204,8 @@ TODO
 | 5. | /content/fr/events/2025/arte-concert-festival/2025-01-03-20-00-gonzales.html |
 | 6. | /content/fr/events/2025/cine-club-gaze/2025-01-05-20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/cine-club-gaze/2025-01-15-20-00-atlantique.html |
+
+Le slug doit être **unique** dans le scope du jour.
 
 ## Périodes
 
