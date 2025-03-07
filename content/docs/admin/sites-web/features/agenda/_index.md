@@ -182,7 +182,8 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 7. | /events/2025/cine-club-gaze/2025-01-15-20-00-atlantique |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. Il ne peut pas être composé que de chiffres
+> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. <br>
+> Il ne peut pas être composé que de chiffres
 
 
 > [!CAUTION] Attention
@@ -200,8 +201,8 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 7. | /content/fr/events/2025/01/15-20-00-atlantique.html |
 
 > [!CAUTION] Attention
-> Le système de fichier suivant cause des dissonances de date.
-> Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025.
+> Le système de fichier suivant cause des dissonances de date. 
+> Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025. 
 > Ce système paraît, malgré cela, meilleur que le premier.
 
 | Propriété | Valeur |
