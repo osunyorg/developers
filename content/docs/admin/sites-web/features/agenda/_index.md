@@ -73,9 +73,9 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 
 | Propriété | Valeur |
 | - | - |
-| permalink | /fr/agenda/YYYY/MM/slug/ | 
-| 1. | /fr/agenda/2025/01/alaska/ | 
-| 2. | /fr/agenda/2025/01/anetha-vel/ | 
+| permalink | /fr/agenda/YYYY/slug/ | 
+| 1. | /fr/agenda/2025/alaska/ | 
+| 2. | /fr/agenda/2025/anetha-vel/ | 
 | file | /content/fr/events/YYYY/MM/DD/slug.html | 
 | 1. | /content/fr/events/2025/01/08/alaska.html | 
 | 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html | 
