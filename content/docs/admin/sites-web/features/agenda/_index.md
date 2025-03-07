@@ -190,14 +190,14 @@ TODO
 
 | Propriété | Valeur |
 | - | - |
-| file | /content/fr/events/YYYY/parent_slug/MM-DD-hh-mm-slug.html |
-| 1. | /content/fr/events/2025/paris-berlin/01-10-14-00-les-fantomes-de-la-liberte.html |
-| 2. | /content/fr/events/2025/paris-berlin/01-10-16-00-resistance-fondamentale.html |
-| 3. | /content/fr/events/2025/arte-concert-festival/01-01-20-00-priya-ragu.html |
-| 4. | /content/fr/events/2025/arte-concert-festival/01-02-20-00-gonzales.html |
-| 5. | /content/fr/events/2025/arte-concert-festival/01-03-20-00-gonzales.html |
-| 6. | /content/fr/events/2025/cine-club-gaze/01-05-20-00-emmanuelle.html |
-| 7. | /content/fr/events/2025/cine-club-gaze/01-15-20-00-atlantique.html |
+| file | /content/fr/events/YYYY/parent_slug/YYYY-MM-DD-hh-mm-slug.html |
+| 1. | /content/fr/events/2025/paris-berlin/2025-01-10-14-00-les-fantomes-de-la-liberte.html |
+| 2. | /content/fr/events/2025/paris-berlin/2025-01-10-16-00-resistance-fondamentale.html |
+| 3. | /content/fr/events/2025/arte-concert-festival/2025-01-01-20-00-priya-ragu.html |
+| 4. | /content/fr/events/2025/arte-concert-festival/2025-01-02-20-00-gonzales.html |
+| 5. | /content/fr/events/2025/arte-concert-festival/2025-01-03-20-00-gonzales.html |
+| 6. | /content/fr/events/2025/cine-club-gaze/2025-01-05-20-00-emmanuelle.html |
+| 7. | /content/fr/events/2025/cine-club-gaze/2025-01-15-20-00-atlantique.html |
 
 ## Périodes
 
