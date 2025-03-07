@@ -69,7 +69,8 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 | 1. | /events/2025/01/08/alaska |
 | 2. | /events/2025/01/24/20-30-anetha-vel |
 
-Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> [!WARNING] Slug
+> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
 
 ### Récurrent
 
@@ -103,7 +104,8 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
-Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> [!WARNING] Slug
+> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
 
 ### Parent
 
@@ -137,7 +139,8 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 2. | /events/2025/paris-berlin |
 | 3. | /events/2025/cine-club-gaze |
 
-Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> [!WARNING] Slug
+> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
 
 ### Enfant
 
@@ -178,6 +181,9 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 6. | /events/2025/cine-club-gaze/2025/01/05/20-00-emmanuelle |
 | 7. | /events/2025/cine-club-gaze/2025/01/15/20-00-atlantique |
 
+> [!WARNING] Slug
+> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. Il ne peut pas être composé que de chiffres
+
 
 > [!CAUTION] Attention
 > Le système de fichier suivant ignore les parentés, tout est à la racine.
@@ -208,8 +214,6 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 5. | /content/fr/events/2025/arte-concert-festival/2025/01/03/20-00-gonzales.html |
 | 6. | /content/fr/events/2025/cine-club-gaze/2025/01/05/20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/cine-club-gaze/2025/01/15/20-00-atlantique.html |
-
-Le slug doit être **unique** dans le scope du jour. Il ne peut pas être composé que de chiffres.
 
 ## Périodes
 
