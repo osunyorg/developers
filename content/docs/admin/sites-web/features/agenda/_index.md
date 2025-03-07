@@ -116,7 +116,7 @@ Une journée d’études avec des conférences successives ou un festival de mus
 
 
 Afin d'afficher les enfants nichés sous les parents dans les listes, il faut utiliser un objet jour (`Agenda::Event::Day`), qui modélise un jour d'un festival.
-Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier statique afin de permettre à Hugo de retrouver ses petits.
+Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier statique afin de permettre à Hugo de retrouver ses petits. A noter que le premier jour génère l'index, ainsi le fichier `/content/fr/events/2025/arte-concert-festival/2025-01-01.html` n'existera pas, au profit du fichier `/content/fr/events/2025/arte-concert-festival/_index.html`.
 
 
 > [!NOTE] Exemples
@@ -141,8 +141,6 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /events/2025/arte-concert-festival |
 | 2. | /events/2025/paris-berlin |
 | 3. | /events/2025/cine-club-gaze |
-
-Le premier jour génère l'index.
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
