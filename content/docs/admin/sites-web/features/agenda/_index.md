@@ -159,8 +159,6 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 > 4+5. Concerts de Gonzales sur 2 jours différents pendant Arte Concert Festival (le 2 et 3 janvier, 20h)<br>
 > 6+7. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)
 
-> [!CAUTION]
-> Le système de fichier suivant ignore les parentés, tout est à la racine.
 
 | Propriété | Valeur |
 | - | - |
@@ -171,6 +169,29 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 4+5. | /fr/agenda/2025/arte-concert-festival/gonzales/ |
 | 6. | /fr/agenda/2025/cine-club-gaze/emmanuelle/ |
 | 7. | /fr/agenda/2025/cine-club-gaze/atlantique/ |
+| file | /content/fr/events/YYYY/parent_slug/YYYY/MM/DD/hh-mm-slug.html |
+| 1. | /content/fr/events/2025/paris-berlin/2025/01/10/14-00-les-fantomes-de-la-liberte.html |
+| 2. | /content/fr/events/2025/paris-berlin/2025/01/10/16-00-resistance-fondamentale.html |
+| 3. | /content/fr/events/2025/arte-concert-festival/2025/01/01/20-00-priya-ragu.html |
+| 4. | /content/fr/events/2025/arte-concert-festival/2025/01/02/20-00-gonzales.html |
+| 5. | /content/fr/events/2025/arte-concert-festival/2025/01/03/20-00-gonzales.html |
+| 6. | /content/fr/events/2025/cine-club-gaze/2025/01/05/20-00-emmanuelle.html |
+| 7. | /content/fr/events/2025/cine-club-gaze/2025/01/15/20-00-atlantique.html |
+| path | /events/YYYY/MM/DD/hh-mm-slug |
+| 1. | /events/2025/paris-berlin/2025/01/10/14-00-les-fantomes-de-la-liberte |
+| 2. | /events/2025/paris-berlin/2025/01/10/16-00-resistance-fondamentale |
+| 3. | /events/2025/arte-concert-festival/2025/01/01/20-00-priya-ragu |
+| 4. | /events/2025/arte-concert-festival/2025/01/02/20-00-gonzales |
+| 5. | /events/2025/arte-concert-festival/2025/01/03/20-00-gonzales |
+| 6. | /events/2025/cine-club-gaze/2025/01/05/20-00-emmanuelle |
+| 7. | /events/2025/cine-club-gaze/2025/01/15/20-00-atlantique |
+
+
+> [!CAUTION] Attention
+> Le système de fichier suivant ignore les parentés, tout est à la racine.
+
+| Propriété | Valeur |
+| - | - |
 | file | /content/fr/events/YYYY/MM/DD/hh-mm-slug.html |
 | 1. | /content/fr/events/2025/01/10/14-00-les-fantomes-de-la-liberte.html |
 | 2. | /content/fr/events/2025/01/10/16-00-resistance-fondamentale.html |
@@ -179,18 +200,11 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 5. | /content/fr/events/2025/01/03/20-00-gonzales.html |
 | 6. | /content/fr/events/2025/01/05/20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/01/15/20-00-atlantique.html |
-| path | /events/YYYY/MM/DD/hh-mm-slug |
-| 1. | /events/2025/01/10/14-00-les-fantomes-de-la-liberte |
-| 2. | /events/2025/01/10/16-00-resistance-fondamentale |
-| 3. | /events/2025/01/01/20-00-priya-ragu |
-| 4. | /events/2025/01/02/20-00-gonzales |
-| 5. | /events/2025/01/03/20-00-gonzales |
-| 6. | /events/2025/01/05/20-00-emmanuelle |
-| 7. | /events/2025/01/15/20-00-atlantique |
 
-> [!CAUTION]
+> [!CAUTION] Attention
 > Le système de fichier suivant cause des dissonances de date.
 > Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025.
+> Ce système paraît, malgré cela, meilleur que le premier.
 
 | Propriété | Valeur |
 | - | - |
