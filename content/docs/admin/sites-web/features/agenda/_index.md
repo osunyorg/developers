@@ -51,7 +51,7 @@ Un concert unique, une conférence...<br>
 Pas de créneaux du tout (journée) ou 1 créneau horaire unique.<br>
 Pas d’enfants.
 
-#### Simple sans créneau
+#### Sans créneau
 
 > [!NOTE] Exemples
 > 1. Alaska : sur la piste de Telaquana (8 janvier 2025, pas d'horaire)<br>
@@ -69,7 +69,7 @@ Pas d’enfants.
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.  
 > Modèle impliqué : `Communication::Website::Agenda::Event::Localization`
 
-#### Simple avec créneau unique
+#### Avec créneau unique
 
 Ce cas est en réalité un événement récurrent avec un unique timeslot. Il respecte la nomenclature de l'événement récurrent.
 
@@ -107,8 +107,7 @@ Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on po
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 0 slot
-> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 slot
+> Le modèle concerné est `Communication::Website::Agenda::Event::TimeSlot::Localization`.
 
 ### Parent
 
@@ -146,8 +145,7 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> `Communication::Website::Agenda::Event::Localization` pour le premier
-> `Communication::Website::Agenda::Event::Day` pour les jours suivants
+> Le modèle concerné est `Communication::Website::Agenda::Event::Localization` pour le premier jour et `Communication::Website::Agenda::Event::Day` pour les jours suivants.
 
 ### Enfant
 
@@ -191,8 +189,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. <br>
 > Il ne peut pas être composé que de chiffres
-> `Communication::Website::Agenda::Event::Localization` si pas de time slots
-> `Communication::Website::Agenda::Event::TimeSlot::Localization` si time slots
+> Le modèle concerné est `Communication::Website::Agenda::Event::Localization` si pas de créneau horaire et `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 ou plusieurs créneaux horaires.
 
 > [!CAUTION] Attention
 > Le système de fichier suivant ignore les parentés, tout est à la racine.
