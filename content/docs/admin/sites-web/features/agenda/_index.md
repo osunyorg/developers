@@ -54,7 +54,7 @@ Pas d’enfants.
 #### Sans créneau
 
 > [!NOTE] Exemples
-> 1. Alaska : sur la piste de Telaquana (8 janvier 2025, pas d'horaire)<br>
+> 1\. Alaska : sur la piste de Telaquana (8 janvier 2025, pas d'horaire)<br>
 
 | Propriété | Valeur |
 | - | - |
@@ -84,9 +84,9 @@ Pas d’enfants.
 Les événements récurrents s'appuient sur des time slots (`Agenda::Event::TimeSlot`), qui génèrent des fichiers statiques.
 
 > [!NOTE] Exemples
-> 1. Anetha Vel (24 janvier 2025 à 20h30)<br>
-> 2+3. Contes à paillettes (14 janvier 2025 à 16h, 20 janvier 2025 à 16h)<br>
-> 4+5. Podcast encore heureux (19h et 20h30 20 janvier)
+> 1\. Anetha Vel (24 janvier 2025 à 20h30)<br>
+> 2+3\. Contes à paillettes (14 janvier 2025 à 16h, 20 janvier 2025 à 16h)<br>
+> 4+5\. Podcast encore heureux (19h et 20h30 20 janvier)
 
 L'événement n'est pas envoyé.<br>
 Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
@@ -127,9 +127,9 @@ Afin d'afficher les enfants nichés sous les parents dans les listes, il faut ut
 Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier statique afin de permettre à Hugo de retrouver ses petits. A noter que le premier jour génère l'index, ainsi le fichier `/content/fr/events/2025/arte-concert-festival/2025-01-01.html` n'existera pas, au profit du fichier `/content/fr/events/2025/arte-concert-festival/_index.html`.
 
 > [!NOTE] Exemples
-> 1. Arte Concert Festival (Du 1er au 3 janvier 2025)<br>
-> 2. Rencontres Internationales Paris-Berlin (1 journée le 10 janvier)<br>
-> 3. Ciné Club Gaze (plusieurs mois)
+> 1\. Arte Concert Festival (Du 1er au 3 janvier 2025)<br>
+> 2\. Rencontres Internationales Paris-Berlin (1 journée le 10 janvier)<br>
+> 3\. Ciné Club Gaze (plusieurs mois)
 
 | Propriété | Valeur |
 | - | - |
@@ -161,10 +161,10 @@ Un parent, pas d'enfant (pas d’enfant d’enfant).<br>
 En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) sont possibles.
 
 > [!NOTE] Exemples
-> 1+2. Conférences pendant Paris-Berlin<br>
-> 3. Concert de Priya Ragu pendant Arte Concert Festival (1er janvier, 20h)<br>
-> 4+5. Concerts de Gonzales sur 2 jours différents pendant Arte Concert Festival (le 2 et 3 janvier, 20h)<br>
-> 6+7. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)
+> 1+2\. Conférences pendant Paris-Berlin<br>
+> 3\. Concert de Priya Ragu pendant Arte Concert Festival (1er janvier, 20h)<br>
+> 4+5\. Concerts de Gonzales sur 2 jours différents pendant Arte Concert Festival (le 2 et 3 janvier, 20h)<br>
+> 6+7\. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)
 
 
 | Propriété | Valeur |
