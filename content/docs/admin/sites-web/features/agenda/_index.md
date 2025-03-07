@@ -57,16 +57,24 @@ Pas d’enfants.
 
 Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul créneau, mais ce concept n'est pas compréhensible pour l'usager.
 
+Pour le cas 0 slot
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/agenda/YYYY/slug/ |
 | 1. | /fr/agenda/2025/alaska/ |
-| 2. | /fr/agenda/2025/anetha-vel/ |
 | file | /content/fr/events/YYYY/MM/DD-slug.html |
 | 1. | /content/fr/events/2025/01/08-alaska.html |
-| 2. | /content/fr/events/2025/01/24-20-30-anetha-vel.html |
-| path | /events/YYYY/MM/DD/slug |
+| path | /events/YYYY/MM/DD-slug |
 | 1. | /events/2025/01/08-alaska |
+
+Pour le cas 1 slot
+| Propriété | Valeur |
+| - | - |
+| permalink | /fr/agenda/YYYY/slug/ |
+| 2. | /fr/agenda/2025/anetha-vel/ |
+| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
+| 2. | /content/fr/events/2025/01/24-20-30-anetha-vel.html |
+| path | /events/YYYY/MM/DD-mm-hh-slug |
 | 2. | /events/2025/01/24-20-30-anetha-vel |
 
 > [!WARNING] Slug
@@ -107,7 +115,8 @@ Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on po
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> `Communication::Website::Agenda::Event::TimeSlot::Localization`
+> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 0 slot
+> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 slot
 
 ### Parent
 
