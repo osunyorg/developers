@@ -83,8 +83,9 @@ Pas d’enfants.
 Les événements récurrents s'appuient sur des time slots (`Agenda::Event::TimeSlot`), qui génèrent des fichiers statiques.
 
 > [!NOTE] Exemples
-> 1+2. Contes à paillettes (14 janvier 2025 à 16h, 20 janvier 2025 à 16h)<br>
-> 3+4. Podcast encore heureux (19h et 20h30 20 janvier)
+> 1. Anetha Vel (24 janvier 2025 à 20h30)<br>
+> 2+3. Contes à paillettes (14 janvier 2025 à 16h, 20 janvier 2025 à 16h)<br>
+> 4+5. Podcast encore heureux (19h et 20h30 20 janvier)
 
 L'événement n'est pas envoyé.<br>
 Pour chaque time slot, il faut générer un fichier pour affichage dans la liste.
@@ -92,23 +93,25 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/agenda/YYYY/slug/ |
-| 1+2.| /fr/agenda/2025/contes-a-paillettes/ |
-| 3+4.| /fr/agenda/2025/encore-heureux/ |
+| 1.| /fr/agenda/2025/anetha-vel/ |
+| 2+3.| /fr/agenda/2025/contes-a-paillettes/ |
+| 4+5.| /fr/agenda/2025/encore-heureux/ |
 | file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
-| 1. | /content/fr/events/2025/01/14-16-00-contes-a-paillettes.html |
-| 2. | /content/fr/events/2025/01/20-16-00-contes-a-paillettes.html |
-| 3. | /content/fr/events/2025/01/20-19-00-encore-heureux.html |
-| 4. | /content/fr/events/2025/01/20-20-30-encore-heureux.html |
+| 1. | /content/fr/events/2025/01/24-20-30-anetha-vel.html |
+| 2. | /content/fr/events/2025/01/14-16-00-contes-a-paillettes.html |
+| 3. | /content/fr/events/2025/01/20-16-00-contes-a-paillettes.html |
+| 4. | /content/fr/events/2025/01/20-19-00-encore-heureux.html |
+| 5. | /content/fr/events/2025/01/20-20-30-encore-heureux.html |
 | path | /events/YYYY/MM/DD-hh-mm-slug |
-| 1+2. | /events/2025/01/14-16-00-contes-a-paillettes |
-| 3+4. | /events/2025/01/20-19-00-encore-heureux |
+| 1. | /events/2025/01/24-20-30-anetha-vel |
+| 2+3. | /events/2025/01/14-16-00-contes-a-paillettes |
+| 4+5. | /events/2025/01/20-19-00-encore-heureux |
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 0 slot
-> `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 slot
+> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.  
+> Modèle impliqué : `Communication::Website::Agenda::Event::TimeSlot::Localization` 
 
 ### Parent
 
