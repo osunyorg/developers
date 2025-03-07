@@ -86,6 +86,7 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 ### Récurrent
 
 Une série de séances sur une journée ou une série de concerts sur plusieurs jours.<br>
+Si l'événement chevauche 2 années, on prend l'année de début.<br>
 Créneaux horaires multiples.<br>
 Pas d’enfants.
 
@@ -109,8 +110,8 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 | 3. | /content/fr/events/2025/01/20/19-00-encore-heureux.html |
 | 4. | /content/fr/events/2025/01/20/20-30-encore-heureux.html |
 | path | /events/YYYY/MM/DD/hh-mm-slug | 
-| 1+2. | /events/2025/01/14/16-00-contes-a-paillettes TODO le premier?|
-| 3+4. | /events/2025/01/20/19-00-encore-heureux TODO le premier?|
+| 1+2. | /events/2025/01/14/16-00-contes-a-paillettes |
+| 3+4. | /events/2025/01/20/19-00-encore-heureux |
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
@@ -118,6 +119,7 @@ Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on po
 
 Pas de créneaux.<br>
 Enfants (n>1, le cas 1 enfant devrait être traité en événement simple).<br>
+Si l'événement chevauche 2 années, on prend l'année de début.<br>
 Une journée d’études avec des conférences successives ou un festival de musique.
 
 
@@ -144,8 +146,6 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /events/2025/arte-concert-festival | 
 | 2. | /events/2025/paris-berlin | 
 | 3. | /events/2025/cine-club-gaze | 
-
-Si l'événement chevauche 2 années, on prend l'année de début.
 
 ### Enfant
 
