@@ -59,15 +59,15 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 
 | Propriété | Valeur |
 | - | - |
-| permalink | /fr/agenda/YYYY/slug/ | 
-| 1. | /fr/agenda/2025/alaska/ | 
-| 2. | /fr/agenda/2025/anetha-vel/ | 
-| file | /content/fr/events/YYYY/MM/DD/slug.html | 
-| 1. | /content/fr/events/2025/01/08/alaska.html | 
-| 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html | 
-| path | /events/YYYY/MM/DD/slug | 
-| 1. | /events/2025/01/08/alaska | 
-| 2. | /events/2025/01/24/20-30-anetha-vel | 
+| permalink | /fr/agenda/YYYY/slug/ |
+| 1. | /fr/agenda/2025/alaska/ |
+| 2. | /fr/agenda/2025/anetha-vel/ |
+| file | /content/fr/events/YYYY/MM/DD/slug.html |
+| 1. | /content/fr/events/2025/01/08/alaska.html |
+| 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html |
+| path | /events/YYYY/MM/DD/slug |
+| 1. | /events/2025/01/08/alaska |
+| 2. | /events/2025/01/24/20-30-anetha-vel |
 
 Le slug doit être **unique** dans le scope de l'année.
 
@@ -91,13 +91,13 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 | - | - |
 | permalink | /fr/agenda/YYYY/slug/ |
 | 1+2.| /fr/agenda/2025/contes-a-paillettes/ |
-| 3+4.| /fr/agenda/2025/encore-heureux/ | 
+| 3+4.| /fr/agenda/2025/encore-heureux/ |
 | file | /content/fr/events/YYYY/MM/DD/hh-mm-slug.html |
 | 1. | /content/fr/events/2025/01/14/16-00-contes-a-paillettes.html |
 | 2. | /content/fr/events/2025/01/20/16-00-contes-a-paillettes.html |
 | 3. | /content/fr/events/2025/01/20/19-00-encore-heureux.html |
 | 4. | /content/fr/events/2025/01/20/20-30-encore-heureux.html |
-| path | /events/YYYY/MM/DD/hh-mm-slug | 
+| path | /events/YYYY/MM/DD/hh-mm-slug |
 | 1+2. | /events/2025/01/14/16-00-contes-a-paillettes |
 | 3+4. | /events/2025/01/20/19-00-encore-heureux |
 
@@ -124,18 +124,18 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 
 | Propriété | Valeur |
 | - | - |
-| permalink | /fr/agenda/YYYY/slug/ | 
-| 1. | /fr/agenda/2025/arte-concert-festival/ | 
-| 2. | /fr/agenda/2025/paris-berlin/ | 
-| 3. | /fr/agenda/2025/cine-club-gaze/ | 
-| file | /content/fr/events/YYYY/slug.html | 
-| 1. | /content/fr/events/2025/arte-concert-festival.html | 
-| 2. | /content/fr/events/2025/paris-berlin.html | 
-| 3. | /content/fr/events/2025/cine-club-gaze.html | 
-| path | /events/YYYY/slug | 
-| 1. | /events/2025/arte-concert-festival | 
-| 2. | /events/2025/paris-berlin | 
-| 3. | /events/2025/cine-club-gaze | 
+| permalink | /fr/agenda/YYYY/slug/ |
+| 1. | /fr/agenda/2025/arte-concert-festival/ |
+| 2. | /fr/agenda/2025/paris-berlin/ |
+| 3. | /fr/agenda/2025/cine-club-gaze/ |
+| file | /content/fr/events/YYYY/slug/_index.html |
+| 1. | /content/fr/events/2025/arte-concert-festival/_index.html |
+| 2. | /content/fr/events/2025/paris-berlin/_index.html |
+| 3. | /content/fr/events/2025/cine-club-gaze/_index.html |
+| path | /events/YYYY/slug |
+| 1. | /events/2025/arte-concert-festival |
+| 2. | /events/2025/paris-berlin |
+| 3. | /events/2025/cine-club-gaze |
 
 Le slug doit être **unique** dans le scope de l'année.
 
@@ -154,7 +154,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 
 | Propriété | Valeur |
 | - | - |
-| permalink | /fr/agenda/YYYY/parent_slug/slug/ | 
+| permalink | /fr/agenda/YYYY/parent_slug/slug/ |
 | 1. | /fr/agenda/2025/paris-berlin/les-fantomes-de-la-liberte/ |
 | 2. | /fr/agenda/2025/paris-berlin/resistance-fondamentale/ |
 | 3. | /fr/agenda/2025/arte-concert-festival/priya-ragu/ |
@@ -222,12 +222,12 @@ La page d'une année liste les 12 mois, avec des liens vers chaque mois et des l
 
 | Propriété | Valeur |
 | - | - |
-| file | /content/fr/events/YYYY/_index.html | 
-| | /content/fr/events/2025/_index.html | 
-| permalink | /fr/agenda/YYYY/ | 
-| | /fr/agenda/2025/ | 
-| path | /events/YYYY | 
-| | /events/2025 | 
+| file | /content/fr/events/YYYY/_index.html |
+| | /content/fr/events/2025/_index.html |
+| permalink | /fr/agenda/YYYY/ |
+| | /fr/agenda/2025/ |
+| path | /events/YYYY |
+| | /events/2025 |
 
 ### Mois
 
@@ -236,11 +236,11 @@ Cette page n'est pas paginée, et les jours ont des identifiants permettant de f
 
 | Propriété | Valeur |
 | - | - |
-| permalink | /fr/agenda/YYYY/MM/ | 
-| | /fr/agenda/2025/02/ | 
-| file | /content/fr/events/YYYY/MM/_index.html | 
-| | /content/fr/events/2025/02/_index.html | 
-| path | /events/YYYY/MM | 
+| permalink | /fr/agenda/YYYY/MM/ |
+| | /fr/agenda/2025/02/ |
+| file | /content/fr/events/YYYY/MM/_index.html |
+| | /content/fr/events/2025/02/_index.html |
+| path | /events/YYYY/MM |
 | | /events/2025/02 |
 
 ## Expositions
@@ -278,7 +278,7 @@ Aujourd'hui, il n'y a pas de page d'année pour les expositions (`/fr/exposition
 
 ## Catégories
 
-Une caractérisation des événements et des expositions, par exemple un congrès ou un concert. 
+Une caractérisation des événements et des expositions, par exemple un congrès ou un concert.
 
 ## Lieu (pas fait dans la v2)
 
