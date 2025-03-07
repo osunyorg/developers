@@ -62,12 +62,12 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 | permalink | /fr/agenda/YYYY/slug/ |
 | 1. | /fr/agenda/2025/alaska/ |
 | 2. | /fr/agenda/2025/anetha-vel/ |
-| file | /content/fr/events/YYYY/MM/DD/slug.html |
-| 1. | /content/fr/events/2025/01/08/alaska.html |
-| 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html |
+| file | /content/fr/events/YYYY/MM/DD-slug.html |
+| 1. | /content/fr/events/2025/01/08-alaska.html |
+| 2. | /content/fr/events/2025/01/24-20-30-anetha-vel.html |
 | path | /events/YYYY/MM/DD/slug |
-| 1. | /events/2025/01/08/alaska |
-| 2. | /events/2025/01/24/20-30-anetha-vel |
+| 1. | /events/2025/01/08-alaska |
+| 2. | /events/2025/01/24-20-30-anetha-vel |
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
@@ -93,14 +93,14 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 | permalink | /fr/agenda/YYYY/slug/ |
 | 1+2.| /fr/agenda/2025/contes-a-paillettes/ |
 | 3+4.| /fr/agenda/2025/encore-heureux/ |
-| file | /content/fr/events/YYYY/MM/DD/hh-mm-slug.html |
-| 1. | /content/fr/events/2025/01/14/16-00-contes-a-paillettes.html |
-| 2. | /content/fr/events/2025/01/20/16-00-contes-a-paillettes.html |
-| 3. | /content/fr/events/2025/01/20/19-00-encore-heureux.html |
-| 4. | /content/fr/events/2025/01/20/20-30-encore-heureux.html |
-| path | /events/YYYY/MM/DD/hh-mm-slug |
-| 1+2. | /events/2025/01/14/16-00-contes-a-paillettes |
-| 3+4. | /events/2025/01/20/19-00-encore-heureux |
+| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
+| 1. | /content/fr/events/2025/01/14-16-00-contes-a-paillettes.html |
+| 2. | /content/fr/events/2025/01/20-16-00-contes-a-paillettes.html |
+| 3. | /content/fr/events/2025/01/20-19-00-encore-heureux.html |
+| 4. | /content/fr/events/2025/01/20-20-30-encore-heureux.html |
+| path | /events/YYYY/MM/DD-hh-mm-slug |
+| 1+2. | /events/2025/01/14-16-00-contes-a-paillettes |
+| 3+4. | /events/2025/01/20-19-00-encore-heureux |
 
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
@@ -172,7 +172,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 5. | /content/fr/events/2025/arte-concert-festival/2025-01-03-20-00-gonzales.html |
 | 6. | /content/fr/events/2025/cine-club-gaze/2025/01-05-20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/cine-club-gaze/2025/01-15-20-00-atlantique.html |
-| path | /events/YYYY/MM/DD/hh-mm-slug |
+| path | /events/YYYY/parent_slug/YYYY-MM-DD-hh-mm-slug |
 | 1. | /events/2025/paris-berlin/2025-01-10-14-00-les-fantomes-de-la-liberte |
 | 2. | /events/2025/paris-berlin/2025-01-10-16-00-resistance-fondamentale |
 | 3. | /events/2025/arte-concert-festival/2025-01-01-20-00-priya-ragu |
@@ -201,8 +201,8 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 7. | /content/fr/events/2025/01/15-20-00-atlantique.html |
 
 > [!CAUTION] Attention
-> Le système de fichier suivant cause des dissonances de date. 
-> Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025. 
+> Le système de fichier suivant cause des dissonances de date.
+> Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025.
 > Ce système paraît, malgré cela, meilleur que le premier.
 
 | Propriété | Valeur |
