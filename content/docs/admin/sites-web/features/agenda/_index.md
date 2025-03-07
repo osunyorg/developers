@@ -66,7 +66,8 @@ Pas d’enfants.
 | 1. | /events/2025/01/08-alaska |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.  
+> Le slug doit être **unique** dans le scope de l'année.  
+> Il ne peut pas être composé que de chiffres.  
 > Modèle impliqué : `Communication::Website::Agenda::Event::Localization`
 
 #### Avec créneau unique
@@ -110,7 +111,8 @@ Pour chaque time slot, il faut générer un fichier pour affichage dans la liste
 Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on pointe vers le 1er timeslot.
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.  
+> Le slug doit être **unique** dans le scope de l'année.  
+> Il ne peut pas être composé que de chiffres.  
 > Modèle impliqué : `Communication::Website::Agenda::Event::TimeSlot::Localization` 
 
 ### Parent
@@ -148,8 +150,9 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 3. | /events/2025/cine-club-gaze |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> Le modèle concerné est `Communication::Website::Agenda::Event::Localization` pour le premier jour et `Communication::Website::Agenda::Event::Day` pour les jours suivants.
+> Le slug doit être **unique** dans le scope de l'année.  
+> Il ne peut pas être composé que de chiffres.  
+> Modèle impliqué :  `Communication::Website::Agenda::Event::Localization` pour le premier jour et `Communication::Website::Agenda::Event::Day` pour les jours suivants.
 
 ### Enfant
 
@@ -191,9 +194,9 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 7. | /events/2025/cine-club-gaze/2025-01-15-20-00-atlantique |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. <br>
+> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent.  
 > Il ne peut pas être composé que de chiffres
-> Le modèle concerné est `Communication::Website::Agenda::Event::Localization` si pas de créneau horaire et `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 ou plusieurs créneaux horaires.
+> Modèle impliqué : `Communication::Website::Agenda::Event::Localization` si pas de créneau horaire et `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 ou plusieurs créneaux horaires.
 
 > [!CAUTION] Attention
 > Le système de fichier suivant ignore les parentés, tout est à la racine.
