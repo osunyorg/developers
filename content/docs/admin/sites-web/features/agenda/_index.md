@@ -71,6 +71,7 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> `Communication::Website::Agenda::Event::Localization`
 
 ### Récurrent
 
@@ -106,6 +107,7 @@ Si on fait un bloc Agenda et qu'on fait un lien vers Contes à paillettes, on po
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> `Communication::Website::Agenda::Event::TimeSlot::Localization`
 
 ### Parent
 
@@ -117,7 +119,6 @@ Une journée d’études avec des conférences successives ou un festival de mus
 
 Afin d'afficher les enfants nichés sous les parents dans les listes, il faut utiliser un objet jour (`Agenda::Event::Day`), qui modélise un jour d'un festival.
 Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier statique afin de permettre à Hugo de retrouver ses petits. A noter que le premier jour génère l'index, ainsi le fichier `/content/fr/events/2025/arte-concert-festival/2025-01-01.html` n'existera pas, au profit du fichier `/content/fr/events/2025/arte-concert-festival/_index.html`.
-
 
 > [!NOTE] Exemples
 > 1. Arte Concert Festival (Du 1er au 3 janvier 2025)<br>
@@ -144,6 +145,8 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
+> `Communication::Website::Agenda::Event::Localization` pour le premier
+> `Communication::Website::Agenda::Event::Day` pour les jours suivants
 
 ### Enfant
 
@@ -187,7 +190,8 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 > [!WARNING] Slug
 > Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent. <br>
 > Il ne peut pas être composé que de chiffres
-
+> `Communication::Website::Agenda::Event::Localization` si pas de time slots
+> `Communication::Website::Agenda::Event::TimeSlot::Localization` si time slots
 
 > [!CAUTION] Attention
 > Le système de fichier suivant ignore les parentés, tout est à la racine.
