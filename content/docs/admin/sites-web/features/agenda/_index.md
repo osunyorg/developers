@@ -51,13 +51,11 @@ Un concert unique, une conférence...<br>
 Pas de créneaux du tout (journée) ou 1 créneau horaire unique.<br>
 Pas d’enfants.
 
+#### Simple sans créneau
+
 > [!NOTE] Exemples
 > 1. Alaska : sur la piste de Telaquana (8 janvier 2025, pas d'horaire)<br>
-> 2. Anetha & Vel (concert le 24 janvier 2025 à 20h30)
 
-Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul créneau, mais ce concept n'est pas compréhensible pour l'usager.
-
-Pour le cas 0 slot
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/agenda/YYYY/slug/ |
@@ -67,19 +65,13 @@ Pour le cas 0 slot
 | path | /events/YYYY/MM/DD-slug |
 | 1. | /events/2025/01/08-alaska |
 
-Pour le cas 1 slot
-| Propriété | Valeur |
-| - | - |
-| permalink | /fr/agenda/YYYY/slug/ |
-| 2. | /fr/agenda/2025/anetha-vel/ |
-| file | /content/fr/events/YYYY/MM/DD-hh-mm-slug.html |
-| 2. | /content/fr/events/2025/01/24-20-30-anetha-vel.html |
-| path | /events/YYYY/MM/DD-mm-hh-slug |
-| 2. | /events/2025/01/24-20-30-anetha-vel |
-
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.
-> `Communication::Website::Agenda::Event::Localization`
+> Le slug doit être **unique** dans le scope de l'année. Il ne peut pas être composé que de chiffres.  
+> Modèle impliqué : `Communication::Website::Agenda::Event::Localization`
+
+#### Simple avec créneau unique
+
+Ce cas est en réalité un événement récurrent avec un unique timeslot. Il respecte la nomenclature de l'événement récurrent.
 
 ### Récurrent
 
