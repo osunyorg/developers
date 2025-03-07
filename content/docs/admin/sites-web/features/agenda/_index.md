@@ -283,7 +283,7 @@ Rien = tout (ouvert tous les jours).
 > PULSE : Au rythme de la lumière et du son (Du 12 décembre 2025 au 13 juillet 2025)
 
 | Propriété | Valeur |
-| - | - | - |
+| - | - |
 | permalink | /fr/expositions/YYYY/slug/ |
 | | /fr/expositions/2025/pulse/ |
 | file | /content/fr/exhibitions/YYYY/slug.html |
