@@ -79,7 +79,7 @@ Le cas 2 est en réalité plus proche techniquement d'un récurrent avec un seul
 | file | /content/fr/events/YYYY/MM/DD/slug.html | 
 | 1. | /content/fr/events/2025/01/08/alaska.html | 
 | 2. | /content/fr/events/2025/01/24/20-30-anetha-vel.html | 
-| path | /events/YYYY/MM/slug | 
+| path | /events/YYYY/MM/DD/slug | 
 | 1. | /events/2025/01/08/alaska | 
 | 2. | /events/2025/01/24/20-30-anetha-vel | 
 
