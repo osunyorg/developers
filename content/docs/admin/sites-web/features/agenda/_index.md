@@ -159,8 +159,6 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 > 4+5. Concerts de Gonzales sur 2 jours différents pendant Arte Concert Festival (le 2 et 3 janvier, 20h)<br>
 > 6+7. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)
 
-TODO
-
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/agenda/YYYY/parent_slug/slug/ | 
@@ -187,6 +185,9 @@ TODO
 | 6. | /events/2025/01/05/20-00-emmanuelle |
 | 7. | /events/2025/01/15/20-00-atlantique |
 
+> [!CAUTION]
+> Le système de fichier suivant n'est pas implémenté, parce qu'il cause des dissonances de date.
+> Un festival à cheval sur 2 ans peut contenir des événements de 2026 dans un dossier 2025.
 
 | Propriété | Valeur |
 | - | - |
