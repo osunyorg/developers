@@ -198,9 +198,12 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 7. | /events/2025/cine-club-gaze/2025-01-15-20-00-atlantique |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope du jour (`Agenda::Event::Day`) et du parent.  
-> Il ne peut pas être composé que de chiffres
-> Modèle impliqué : `Communication::Website::Agenda::Event::Localization` si pas de créneau horaire et `Communication::Website::Agenda::Event::TimeSlot::Localization` si 1 ou plusieurs créneaux horaires.
+> Le slug de l'événement doit être unique dans le scope du **parent**.  
+> Il ne peut pas être composé que de chiffres.  
+> Modèle impliqué : `Communication::Website::Agenda::Event::Localization`  
+> Le slug des timeslots doit être unique dans le scope de **l'événement**.  
+> Il est forcé sur le pattern DD-hh-mm.  
+> Modèle impliqué : `Communication::Website::Agenda::Event::TimeSlot::Localization`
 
 > [!CAUTION] Attention
 > Le système de fichier suivant ignore les parentés, tout est à la racine.
