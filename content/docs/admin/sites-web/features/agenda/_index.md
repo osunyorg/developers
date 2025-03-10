@@ -153,9 +153,10 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 3. | /events/2025/cine-club-gaze |
 
 > [!WARNING] Slug
-> Le slug doit être **unique** dans le scope de l'année.  
+> Le slug de l'événement doit être unique dans le scope de **l'année**.   
 > Il ne peut pas être composé que de chiffres.  
-> Modèle impliqué :  `Communication::Website::Agenda::Event::Localization` pour le premier jour et `Communication::Website::Agenda::Event::Day` pour les jours suivants.
+> Modèle impliqué :  `Communication::Website::Agenda::Event::Localization`
+> La génération des jours est faite avec les objets `Communication::Website::Agenda::Event::Day` qui n'ont pas de slug
 
 ### Enfant
 
