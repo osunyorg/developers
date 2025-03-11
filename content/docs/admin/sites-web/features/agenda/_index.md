@@ -185,7 +185,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 5. | /content/fr/events/2025/01/03-20-00-gonzales.html |
 | 6. | /content/fr/events/2025/01/05-20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/01/15-20-00-atlantique.html |
-| path | /events/YYYY/parent_slug/YYYY-MM-DD-hh-mm-slug |
+| path | /events/YYYY/MM/DD-hh-mm-slug |
 | 1. | /events/2025/01/10-14-00-les-fantomes-de-la-liberte |
 | 2. | /events/2025/01/10-16-00-resistance-fondamentale |
 | 3. | /events/2025/01/01-20-00-priya-ragu |
