@@ -144,9 +144,9 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-01.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-02.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-03.html |
-| 2. | /content/fr/events/2025/paris-berlin/_index.html |
-| 3. | /content/fr/events/2025/cine-club-gaze/_index.html |
-| 3. | /content/fr/events/2025/cine-club-gaze/2020-01-15.html |
+| 2. | /content/fr/events/2025/paris-berlin/2025-01-10.html |
+| 3. | /content/fr/events/2025/cine-club-gaze/2025-01-05.html |
+| 3. | /content/fr/events/2025/cine-club-gaze/2025-01-15.html |
 | path | /events/YYYY/slug |
 | 1. | /events/2025/arte-concert-festival |
 | 2. | /events/2025/paris-berlin |
