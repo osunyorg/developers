@@ -23,20 +23,23 @@ La fonctionnalité permet de gérer un calendrier d'événements et d'exposition
           {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
         {{< filetree/folder name="arte-concert-festival" state="open" >}}
+          {{< filetree/file name="2025-01-01.html" >}}
           {{< filetree/file name="2025-01-01-20-00-priya-ragu.html" >}}
+          {{< filetree/file name="2025-01-02.html" >}}
           {{< filetree/file name="2025-01-02-20-00-gonzales.html" >}}
+          {{< filetree/file name="2025-01-03.html" >}}
           {{< filetree/file name="2025-01-03-20-00-gonzales.html" >}}
-          {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
         {{< filetree/folder name="cine-club-gaze" state="open" >}}
+          {{< filetree/file name="2025-01-05.html" >}}
           {{< filetree/file name="2025-01-05-20-00-emmanuelle.html" >}}
+          {{< filetree/file name="2025-01-15.html" >}}
           {{< filetree/file name="2025-01-15-20-00-atlantique.html" >}}
-          {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
         {{< filetree/folder name="paris-berlin" state="open" >}}
+          {{< filetree/file name="2025-01-10.html" >}}
           {{< filetree/file name="2025-01-10-14-00-les-fantomes-de-la-liberte.html" >}}
           {{< filetree/file name="2025-01-10-16-00-resistance-fondamentale.html" >}}
-          {{< filetree/file name="_index.html" >}}
         {{< /filetree/folder >}}
         {{< filetree/file name="_index.html" >}}
       {{< /filetree/folder >}}
@@ -140,7 +143,7 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /fr/agenda/2025/arte-concert-festival/ |
 | 2. | /fr/agenda/2025/paris-berlin/ |
 | 3. | /fr/agenda/2025/cine-club-gaze/ |
-| file | /content/fr/events/YYYY/slug/_index.html |
+| file | /content/fr/events/YYYY/slug/YYYY-MM-DD.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-01.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-02.html |
 | 1. | /content/fr/events/2025/arte-concert-festival/2025-01-03.html |
