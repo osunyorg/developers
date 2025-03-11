@@ -244,7 +244,7 @@ Cela ne s'applique que pour les événements, parce qu'il n'y a pas un volume d'
 
 ### Année
 
-La page d'une année liste les 12 mois, avec des liens vers chaque mois et des liens ancrés vers chaque jour ayant des événements.
+La page d'une année liste les 12 mois, avec des liens vers chaque mois et pour chaque jour ayant des événements, un lien vers la page mois et une ancre du jour sélectionné.
 
 | Propriété | Valeur |
 | - | - |
