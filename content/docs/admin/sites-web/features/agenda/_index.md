@@ -137,17 +137,17 @@ Ainsi, l'Arte Concert Festival aura 3 jours, et chaque jour génère un fichier 
 | 1. | /fr/agenda/2025/arte-concert-festival/ |
 | 2. | /fr/agenda/2025/paris-berlin/ |
 | 3. | /fr/agenda/2025/cine-club-gaze/ |
-| file | /content/fr/events/YYYY/slug/YYYY-MM-DD.html |
-| 1. | /content/fr/events/2025/arte-concert-festival/2025-01-01.html |
-| 1. | /content/fr/events/2025/arte-concert-festival/2025-01-02.html |
-| 1. | /content/fr/events/2025/arte-concert-festival/2025-01-03.html |
-| 2. | /content/fr/events/2025/paris-berlin/2025-01-10.html |
-| 3. | /content/fr/events/2025/cine-club-gaze/2025-01-05.html |
-| 3. | /content/fr/events/2025/cine-club-gaze/2025-01-15.html |
-| path | /events/YYYY/slug |
-| 1. | /events/2025/arte-concert-festival |
-| 2. | /events/2025/paris-berlin |
-| 3. | /events/2025/cine-club-gaze |
+| file | /content/fr/events/YYYY/MM/DD-slug.html |
+| 1. | /content/fr/events/2025/01/01-arte-concert-festival.html |
+| 1. | /content/fr/events/2025/01/02-arte-concert-festival.html |
+| 1. | /content/fr/events/2025/01/03-arte-concert-festival.html |
+| 2. | /content/fr/events/2025/01/10-paris-berlin.html |
+| 3. | /content/fr/events/2025/01/05-cine-club-gaze.html |
+| 3. | /content/fr/events/2025/01/15-cine-club-gaze.html |
+| path | /events/YYYY/MM/DD-slug |
+| 1. | /events/2025/01/01-arte-concert-festival |
+| 2. | /events/2025/01/10-paris-berlin |
+| 3. | /events/2025/01/15-cine-club-gaze |
 
 > [!WARNING] Slug
 > Le slug de l'événement doit être unique dans le scope de **l'année**.   
