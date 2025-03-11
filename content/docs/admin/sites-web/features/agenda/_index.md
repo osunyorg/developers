@@ -165,7 +165,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 > 1+2\. Conférences pendant Paris-Berlin<br>
 > 3\. Concert de Priya Ragu pendant Arte Concert Festival (1er janvier, 20h)<br>
 > 4+5\. Concerts de Gonzales sur 2 jours différents pendant Arte Concert Festival (le 2 et 3 janvier, 20h)<br>
-> 6+7\. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)
+> 6+7\. Séances de ciné à 10 jours d'intervalle, à 20h (Emmanuelle le 5 janvier, Atlantique le 15 janvier)<br>
 > 8\. Promenade libre pendant Arte Concert Festival (le 1er janvier, pas d'horaire)
 
 
