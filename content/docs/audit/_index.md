@@ -7,6 +7,6 @@ aliases:
 
 ## Accessibilité
 
-[Audit d'un site](accessibilite/audit-de-site/_index.md)
+[Audit d'un site](accessibilite/audit-de-site/)
 
-[Audit du socle](accessibilite/audit-de-site/_index.md)
+[Audit du socle](accessibilite/audit-de-site/)
