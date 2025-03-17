@@ -5,8 +5,13 @@ aliases:
   - /docs/theme/a11y/change-me/
 ---
 
-## Accessibilité
+![](/images/home/audit.jpg)
 
-[Audit d'un site](accessibilite/audit-de-site/)
+## Auditer l'accessibilité (RGAA)
 
-[Audit du socle](accessibilite/audit-de-site/)
+{{< cards >}}
+  {{< card  link="accessibilite/audit-site/" 
+            title="Audit d'un site" >}}
+  {{< card  link="accessibilite/audit-socle/" 
+            title="Audit du socle" >}}
+{{< /cards >}}

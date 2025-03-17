@@ -7,8 +7,6 @@ aliases:
 
 *Réaliser l'audit RGAA d'un site créé avec Osuny, en partant de l'audit socle du thème*
 
-![](/images/home/audit.jpg)
-
 ## Snippets pour faciliter l'audit
 
 ### 10 : Présentation de l'information

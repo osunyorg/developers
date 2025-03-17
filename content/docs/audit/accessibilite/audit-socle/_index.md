@@ -3,7 +3,7 @@ title: Audit du socle
 weight: 2
 ---
 
-Le premier audit du socle du thème Osuny a été réalisé par Temesis de août à décembre 2024.
+Le premier audit du socle du thème Osuny a été réalisé par Temesis entre août et décembre 2024.
 
 ## Synthèse
 
