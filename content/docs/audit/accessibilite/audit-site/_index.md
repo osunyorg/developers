@@ -21,232 +21,368 @@ aliases:
 
 ## 1. Images 
 
-### 1.1
+### 1.1 🟢
 Chaque image porteuse d’information a-t-elle une alternative textuelle ?
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 1.2
+### 1.2 🟠
 Chaque image de décoration est-elle correctement ignorée par les technologies d’assistance ? 
-
-> [!WARNING] Vérifier les surcouches HTML
+> [!WARNING] Vérifier les surcouches HTML et CSS
 > Il n'est pas possible d'envoyer des images de décoration via l'admin.
 > La seule possibilité de casser ce critère est dans les surcouches HTML.
 
-### 1.3
+### 1.3 🟢
 Pour chaque image porteuse d’information ayant une alternative textuelle, cette alternative est-elle pertinente (hors cas particuliers) ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 1.4
+### 1.4 🔴
 Pour chaque image utilisée comme CAPTCHA ou comme image-test, ayant une alternative textuelle, cette alternative permet-elle d’identifier la nature et la fonction de l’image ? 
-
 > [!CAUTION] Pas besoin de tester
 > Vérifier l'absence de CAPTCHA dans les blocs d'intégration HTML (embed).
 > Comme il n'y a pas de captcha dans le thème Osuny, s'il n'y en a pas dans les blocs embed, le critère est non applicable.
 
-### 1.5
+### 1.5 🔴
 Pour chaque image utilisée comme CAPTCHA, une solution d’accès alternatif au contenu ou à la fonction du CAPTCHA est-elle présente ? 
-
 > [!CAUTION] Pas besoin de tester
 > Vérifier l'absence de CAPTCHA dans les blocs d'intégration HTML (embed).
 > Comme il n'y a pas de captcha dans le thème Osuny, s'il n'y en a pas dans les blocs embed, le critère est non applicable.
 
-### 1.6
+### 1.6 🟢
 Chaque image porteuse d’information a-t-elle, si nécessaire, une description détaillée ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 1.7
+### 1.7 🟢
 Pour chaque image porteuse d’information ayant une description détaillée, cette description est-elle pertinente ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 1.8
+### 1.8 🟢
 Chaque image texte porteuse d’information, en l’absence d’un mécanisme de remplacement, doit si possible être remplacée par du texte stylé. Cette règle est-elle respectée (hors cas particuliers) ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 1.9
+### 1.9 🟢
 Chaque légende d’image est-elle, si nécessaire, correctement reliée à l’image correspondante ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution, on peut remplir les légendes à des endroits incorrects en admin.
 
 ## 2. Cadres 
 
-### 2.1
+### 2.1 🟢
 Chaque cadre a-t-il un titre de cadre ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
-### 2.2
+### 2.2 🟢
 Pour chaque cadre ayant un titre de cadre, ce titre de cadre est-il pertinent ? 
-
 > [!TIP] Tester normalement
 > Ce critère dépend de la contribution.
 
 ## 3. Couleurs 
 
-### 3.1
+### 3.1 🟠
 Dans chaque page web, l’information ne doit pas être donnée uniquement par la couleur. Cette règle est-elle respectée ? 
-
 > [!WARNING] Vérifier les surcouches HTML et CSS
 > Le thème Osuny ne donne jamais d'information uniquement par la couleur.
 
-### 3.2
+### 3.2 🟠
 Dans chaque page web, le contraste entre la couleur du texte et la couleur de son arrière-plan est-il suffisamment élevé (hors cas particuliers) ? 
-
 > [!WARNING] Vérifier les surcouches HTML et CSS
 > Tous les taux de contraste du thème Osuny sont respectueux du WCAG AAA.
 
-### 3.3
+### 3.3 🟠
 Dans chaque page web, les couleurs utilisées dans les composants d’interface ou les éléments graphiques porteurs d’informations sont-elles suffisamment contrastées (hors cas particuliers) ? 
-
 > [!WARNING] Vérifier les surcouches HTML et CSS
 > Tous les taux de contraste du thème Osuny sont respectueux du WCAG AAA.
 
 ## 4. Multimédia 
 
-### 4.1
+### 4.1 🟢
 Chaque média temporel pré-enregistré a-t-il, si nécessaire, une transcription textuelle ou une audiodescription (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.2
+### 4.2 🟢
 Pour chaque média temporel pré-enregistré ayant une transcription textuelle ou une audiodescription synchronisée, celles-ci sont-elles pertinentes (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.3
+### 4.3 🟢
 Chaque média temporel synchronisé pré-enregistré a-t-il, si nécessaire, des sous-titres synchronisés (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.4
+### 4.4 🟢
 Pour chaque média temporel synchronisé pré-enregistré ayant des sous-titres synchronisés, ces sous-titres sont-ils pertinents ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.5
+### 4.5 🟢
 Chaque média temporel pré-enregistré a-t-il, si nécessaire, une audiodescription synchronisée (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.6
+### 4.6 🟢
 Pour chaque média temporel pré-enregistré ayant une audiodescription synchronisée, celle-ci est-elle pertinente ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.7
+### 4.7 🟠
 Chaque média temporel est-il clairement identifiable (hors cas particuliers) ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Les médias temporels sont signalés par des lecteurs.
 
-### 4.8
+### 4.8 🟢
 Chaque média non temporel a-t-il, si nécessaire, une alternative (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.9
+### 4.9 🟢
 Pour chaque média non temporel ayant une alternative, cette alternative est-elle pertinente ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-### 4.10
+### 4.10 🟠
 Chaque son déclenché automatiquement est-il contrôlable par l’utilisateur ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny ne force aucun son.
 
-### 4.11
+### 4.11 🟠
 La consultation de chaque média temporel est-elle, si nécessaire, contrôlable par le clavier et tout dispositif de pointage ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny utilise le lecteur natif pour le son, et délègue la vidéo aux plateformes choisies en contribution (Vimeo, Youtube...).
 
-### 4.12
+### 4.12 🟠
 La consultation de chaque média non temporel est-elle contrôlable par le clavier et tout dispositif de pointage ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny est entièrement navigable au clavier, avec une attention particulière aux "focus traps".
 
-### 4.13
+### 4.13 🟢
 Chaque média temporel et non temporel est-il compatible avec les technologies d’assistance (hors cas particuliers) ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
 
-## 5. Tableaux 
-### 5.1
+## 5. Tableaux
+
+### 5.1 🟢
 Chaque tableau de données complexe a-t-il un résumé ? 
-### 5.2
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 5.2 🟢
 Pour chaque tableau de données complexe ayant un résumé, celui-ci est-il pertinent ? 
-### 5.3
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 5.3 🟢
 Pour chaque tableau de mise en forme, le contenu linéarisé reste-t-il compréhensible ? 
-### 5.4
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 5.4 🟢
 Pour chaque tableau de données ayant un titre, le titre est-il correctement associé au tableau de données ? 
-### 5.5
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 5.5 🟢
 Pour chaque tableau de données ayant un titre, celui-ci est-il pertinent ? 
-### 5.6
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 5.6 🟠
 Pour chaque tableau de données, chaque en-tête de colonne et chaque en-tête de ligne sont-ils correctement déclarés ? 
-### 5.7
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny balise correctement les tableaux avec le bloc "Tableau de données".
+
+### 5.7 🟠
 Pour chaque tableau de données, la technique appropriée permettant d’associer chaque cellule avec ses en-têtes est-elle utilisée (hors cas particuliers) ? 
-### 5.8
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny balise correctement les tableaux avec le bloc "Tableau de données".
+
+### 5.8 🟠
 Chaque tableau de mise en forme ne doit pas utiliser d’éléments propres aux tableaux de données. Cette règle est-elle respectée ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Il n'y a pas de tableau de mise en forme dans le thème Osuny.
+> La seule possibilité de casser ce critère est dans les surcouches HTML.
 
 ## 6. Liens 
-### 6.1
+
+### 6.1 🟢
 Chaque lien est-il explicite (hors cas particuliers) ? 
-### 6.2
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 6.2 🔴
 Dans chaque page web, chaque lien a-t-il un intitulé ? 
+> [!CAUTION] Pas besoin de tester
+> Tous les liens du thème ont un intitulé, qu'il s'agisse de liens structurels ou des liens à l'intérieur des textes contribués.
 
 ## 7. Scripts 
-### 7.1
+
+### 7.1 🔴
 Chaque script est-il, si nécessaire, compatible avec les technologies d’assistance ? 
-### 7.2
+> [!CAUTION] Pas besoin de tester
+> Tous les scripts du thème sont sains.
+
+### 7.2 🔴
 Pour chaque script ayant une alternative, cette alternative est-elle pertinente ? 
-### 7.3
+> [!CAUTION] Pas besoin de tester
+> Le thème fournit un socle sain.
+
+### 7.3 🔴
 Chaque script est-il contrôlable par le clavier et par tout dispositif de pointage (hors cas particuliers) ? 
-### 7.4
+> [!CAUTION] Pas besoin de tester
+> Le thème fournit un socle sain.
+
+### 7.4 🔴
 Pour chaque script qui initie un changement de contexte, l’utilisateur est-il averti ou en a-t-il le contrôle ? 
-### 7.5
+> [!CAUTION] Pas besoin de tester
+> Le thème fournit un socle sain.
+
+### 7.5 🔴
 Dans chaque page web, les messages de statut sont-ils correctement restitués par les technologies d’assistance ? 
+> [!CAUTION] Pas besoin de tester
+> Le thème fournit un socle sain.
 
 ## 8. Éléments obligatoires 
-### 8.1
+
+### 8.1 🔴
 Chaque page web est-elle définie par un type de document ? 
-### 8.2
+> [!CAUTION] Pas besoin de tester
+> Le thème spécifie le doctype.
+
+### 8.2 🔴
 Pour chaque page web, le code source généré est-il valide selon le type de document spécifié ? 
-### 8.3
+> [!CAUTION] Pas besoin de tester
+> Le thème est en surveillance continue sur https://w3c.noesya.coop.
+
+### 8.3 🔴
 Dans chaque page web, la langue par défaut est-elle présente ? 
-### 8.4
+> [!CAUTION] Pas besoin de tester
+> La langue est cohérente avec la contribution en admin.
+
+### 8.4 🔴
 Pour chaque page web ayant une langue par défaut, le code de langue est-il pertinent ? 
-### 8.5
+> [!CAUTION] Pas besoin de tester
+> Les codes de langues utilisés par Osuny respectent la spécification ISO 639-1.
+
+### 8.5 🔴
 Chaque page web a-t-elle un titre de page ? 
-### 8.6
+> [!CAUTION] Pas besoin de tester
+> Les titres sont obligatoires en admin.
+
+### 8.6 🟢
 Pour chaque page web ayant un titre de page, ce titre est-il pertinent ? 
-### 8.7
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 8.7 🟢
 Dans chaque page web, chaque changement de langue est-il indiqué dans le code source (hors cas particuliers) ? 
-### 8.8
+> [!TIP] Tester normalement
+> Osuny n'est pas capable de gérer les extraits de texte dans une langue différente de la page.
+
+### 8.8 🟢
 Dans chaque page web, le code de langue de chaque changement de langue est-il valide et pertinent ? 
-### 8.9
+> [!TIP] Tester normalement
+> Osuny n'est pas capable de gérer les extraits de texte dans une langue différente de la page.
+
+### 8.9 🔴
 Dans chaque page web, les balises ne doivent pas être utilisées uniquement à des fins de présentation. Cette règle est-elle respectée ? 
-### 8.10
+> [!CAUTION] Pas besoin de tester
+> Osuny supprime les attributs et balises de présentation envoyées en contribution, et n'utilise pas de balise à des fins de présentation dans le thème.
+
+### 8.10 🟢
 Dans chaque page web, les changements du sens de lecture sont-ils signalés ? 
+> [!TIP] Tester normalement
+> Osuny ne gère pas encore le RTL.
 
 ## 9. Structuration de l’information 
-### 9.1
+
+### 9.1 🟢
 Dans chaque page web, l’information est-elle structurée par l’utilisation appropriée de titres ? 
-### 9.2
-Dans chaque page web, la structure du document est-elle cohérente (hors cas particuliers) ? 
-### 9.3
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 9.2 🔴
+Dans chaque page web, la structure du document est-elle cohérente (hors cas particuliers) ?
+> [!CAUTION] Pas besoin de tester
+> Osuny gère automatiquement les titres.
+
+### 9.3 🔴
 Dans chaque page web, chaque liste est-elle correctement structurée ? 
-### 9.4
+> [!CAUTION] Pas besoin de tester
+> Osuny gère automatiquement l'arborescence de titres, cf l'article [Accessibilité numérique : un bon plan](https://lab.noesya.coop/publications/2023-12-07-accessibilite-numerique-un-bon-plan/).
+
+### 9.4 🟢
 Dans chaque page web, chaque citation est-elle correctement indiquée ? 
+> [!TIP] Tester normalement
+> Ce critère dépend de la contribution.
+> Si les citations utilisent les blocs "Témoignages", le balisage est nativement correct.
 
 ## 10. Présentation de l’information 
-### 10.1
-Dans le site web, des feuilles de styles sont-elles utilisées pour contrôler la présentation de l’information ? 
-### 10.2
-Dans chaque page web, le contenu visible porteur d’information reste-t-il présent lorsque les feuilles de styles sont désactivées ? 
-### 10.3
-Dans chaque page web, l’information reste-t-elle compréhensible lorsque les feuilles de styles sont désactivées ? 
-### 10.4
-Dans chaque page web, le texte reste-t-il lisible lorsque la taille des caractères est augmentée jusqu’à 200 %, au moins (hors cas particuliers) ? 
-### 10.5
-Dans chaque page web, les déclarations CSS de couleurs de fond d’élément et de police sont-elles correctement utilisées ? 
-### 10.6
-Dans chaque page web, chaque lien dont la nature n’est pas évidente est-il visible par rapport au texte environnant ? 
-### 10.7
-Dans chaque page web, pour chaque élément recevant le focus, la prise de focus est-elle visible ? 
-### 10.8
-Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
-### 10.9
-Dans chaque page web, l’information ne doit pas être donnée uniquement par la forme, taille ou position. Cette règle est-elle respectée ? 
-### 10.10
-Dans chaque page web, l’information ne doit pas être donnée par la forme, taille ou position uniquement. Cette règle est-elle implémentée de façon pertinente ? 
-### 10.11
-Pour chaque page web, les contenus peuvent-ils être présentés sans perte d’information ou de fonctionnalité et sans avoir recours soit à un défilement vertical pour une fenêtre ayant une hauteur de 256 px, soit à un défilement horizontal pour une fenêtre ayant une largeur de 320 px (hors cas particuliers) ? 
-### 10.12
-Dans chaque page web, les propriétés d’espacement du texte peuvent-elles être redéfinies par l’utilisateur sans perte de contenu ou de fonctionnalité (hors cas particuliers) ? 
 
+### 10.1 🔴
+Dans le site web, des feuilles de styles sont-elles utilisées pour contrôler la présentation de l’information ? 
+> [!CAUTION] Pas besoin de tester
+> Osuny fournit les feuilles de style.
+
+### 10.2 🔴
+Dans chaque page web, le contenu visible porteur d’information reste-t-il présent lorsque les feuilles de styles sont désactivées ? 
+> [!CAUTION] Pas besoin de tester
+> Osuny fournit un contenu correct sans style.
+
+### 10.3 🔴
+Dans chaque page web, l’information reste-t-elle compréhensible lorsque les feuilles de styles sont désactivées ? 
+> [!CAUTION] Pas besoin de tester
+> Osuny fournit un contenu correct sans style.
+
+### 10.4 🔴
+Dans chaque page web, le texte reste-t-il lisible lorsque la taille des caractères est augmentée jusqu’à 200 %, au moins (hors cas particuliers) ? 
+> [!CAUTION] Pas besoin de tester
+> Osuny fournit un contenu correct sans style.
+
+### 10.5 🔴
+Dans chaque page web, les déclarations CSS de couleurs de fond d’élément et de police sont-elles correctement utilisées ? 
+> [!CAUTION] Pas besoin de tester
+> Le CSS d'Osuny utilise correctement les couleurs de fond et de police.
+
+### 10.6 🔴
+Dans chaque page web, chaque lien dont la nature n’est pas évidente est-il visible par rapport au texte environnant ? 
+> [!CAUTION] Pas besoin de tester
+> Le CSS d'Osuny met en valeur les liens.
+
+### 10.7 🔴
+Dans chaque page web, pour chaque élément recevant le focus, la prise de focus est-elle visible ? 
+> [!CAUTION] Pas besoin de tester
+> Le CSS d'Osuny ne masque pas le focus.
+
+### 10.8 🔴
+Pour chaque page web, les contenus cachés ont-ils vocation à être ignorés par les technologies d’assistance ? 
+> [!CAUTION] Pas besoin de tester
+> Les contenus cachés sont ignorés.
+
+### 10.9 🟠
+Dans chaque page web, l’information ne doit pas être donnée uniquement par la forme, taille ou position. Cette règle est-elle respectée ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny fournit des informations textuelles pour tout, il faut vérifier que cela n'est pas endommagé par les surcouches.
+
+### 10.10 🟠
+Dans chaque page web, l’information ne doit pas être donnée par la forme, taille ou position uniquement. Cette règle est-elle implémentée de façon pertinente ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny fournit des informations textuelles pour tout, il faut vérifier que cela n'est pas endommagé par les surcouches
+
+### 10.11 🟠
+Pour chaque page web, les contenus peuvent-ils être présentés sans perte d’information ou de fonctionnalité et sans avoir recours soit à un défilement vertical pour une fenêtre ayant une hauteur de 256 px, soit à un défilement horizontal pour une fenêtre ayant une largeur de 320 px (hors cas particuliers) ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny gère correctement les contenus trop larges.
+
+### 10.12 🟠
+Dans chaque page web, les propriétés d’espacement du texte peuvent-elles être redéfinies par l’utilisateur sans perte de contenu ou de fonctionnalité (hors cas particuliers) ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny gère correctement l'espacement du texte.
 
 Pour faciliter ce test, exécutez ce code directement dans la console js du navigateur :
 
@@ -266,13 +402,15 @@ style.innerHTML =
 document.body.append(style);
 ```
 
-
-
-
-### 10.13
+### 10.13 🟠
 Dans chaque page web, les contenus additionnels apparaissant à la prise de focus ou au survol d’un composant d’interface sont-ils contrôlables par l’utilisateur (hors cas particuliers) ? 
-### 10.14
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny gère correctement le focus.
+
+### 10.14 🟠
 Dans chaque page web, les contenus additionnels apparaissant via les styles CSS uniquement peuvent-ils être rendus visibles au clavier et par tout dispositif de pointage ? 
+> [!WARNING] Vérifier les surcouches HTML et CSS
+> Le thème Osuny gère correctement les contenus additionnels.
 
 ## 11. Formulaires 
 ### 11.1
