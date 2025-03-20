@@ -517,43 +517,96 @@ Dans chaque ensemble de pages, la page « plan du site » est-elle accessible à
 ### 12.5 🟢
 Dans chaque ensemble de pages, le moteur de recherche est-il atteignable de manière identique ? 
 > [!TIP] Pas besoin de tester
-> La recherche, si elle est activée, est présente sur toutes les pages au même endroit..
+> La recherche, si elle est activée, est présente sur toutes les pages au même endroit.
 
-### 12.6
+### 12.6 🟢
 Les zones de regroupement de contenus présentes dans plusieurs pages web (zones d’en-tête, de navigation principale, de contenu principal, de pied de page et de moteur de recherche) peuvent-elles être atteintes ou évitées ? 
-### 12.7
-Dans chaque page web, un lien d’évitement ou d’accès rapide à la zone de contenu principal est-il présent (hors cas particuliers) ? 
-### 12.8
-Dans chaque page web, l’ordre de tabulation est-il cohérent ? 
-### 12.9
-Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ? 
-### 12.10
-Dans chaque page web, les raccourcis clavier n’utilisant qu’une seule touche (lettre minuscule ou majuscule, ponctuation, chiffre ou symbole) sont-ils contrôlables par l’utilisateur ? 
-### 12.11
-Dans chaque page web, les contenus additionnels apparaissant au survol, à la prise de focus ou à l’activation d’un composant d’interface sont-ils si nécessaire atteignables au clavier ? 
+> [!TIP] Pas besoin de tester
+> Osuny fournit des liens d'accès rapides.
 
-## 13. Consultation 
-### 13.1
+### 12.7 🟢
+Dans chaque page web, un lien d’évitement ou d’accès rapide à la zone de contenu principal est-il présent (hors cas particuliers) ? 
+> [!TIP] Pas besoin de tester
+> Osuny fournit des liens d'accès rapides.
+
+### 12.8 🟢
+Dans chaque page web, l’ordre de tabulation est-il cohérent ? 
+> [!TIP] Pas besoin de tester
+> Osuny fournit un ordre de tabulation correct.
+
+### 12.9 🟢
+Dans chaque page web, la navigation ne doit pas contenir de piège au clavier. Cette règle est-elle respectée ? 
+> [!TIP] Pas besoin de tester
+> Osuny évite les "focus traps".
+
+### 12.10 🟢
+Dans chaque page web, les raccourcis clavier n’utilisant qu’une seule touche (lettre minuscule ou majuscule, ponctuation, chiffre ou symbole) sont-ils contrôlables par l’utilisateur ? 
+> [!TIP] Pas besoin de tester
+> Le thème Osuny n'utilise pas de raccourci clavier.
+
+### 12.11 🟢
+Dans chaque page web, les contenus additionnels apparaissant au survol, à la prise de focus ou à l’activation d’un composant d’interface sont-ils si nécessaire atteignables au clavier ? 
+> [!TIP] Pas besoin de tester
+> Tous les contenus sont accessibles au clavier.
+
+## 13. Consultation
+
+### 13.1 🟢
 Pour chaque page web, l’utilisateur a-t-il le contrôle de chaque limite de temps modifiant le contenu (hors cas particuliers) ? 
-### 13.2
+> [!TIP] Pas besoin de tester
+> Le bloc "Témoignages" est le seul bloc avec gestion du temps, et on peut arrêter et contrôler le composant.
+
+### 13.2 🟢
 Dans chaque page web, l’ouverture d’une nouvelle fenêtre ne doit pas être déclenchée sans action de l’utilisateur. Cette règle est-elle respectée ? 
-### 13.3
+> [!TIP] Pas besoin de tester
+> Il n'y a aucune popin dans le thème Osuny.
+
+### 13.3 🔴
 Dans chaque page web, chaque document bureautique en téléchargement possède-t-il, si nécessaire, une version accessible (hors cas particuliers) ? 
-### 13.4
+> [!CAUTION] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 13.4 🔴
 Pour chaque document bureautique ayant une version accessible, cette version offre-t-elle la même information ? 
-### 13.5
+> [!CAUTION] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 13.5 🔴
 Dans chaque page web, chaque contenu cryptique (art ASCII, émoticône, syntaxe cryptique) a-t-il une alternative ? 
-### 13.6
+> [!CAUTION] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 13.6 🔴
 Dans chaque page web, pour chaque contenu cryptique (art ASCII, émoticône, syntaxe cryptique) ayant une alternative, cette alternative est-elle pertinente ? 
-### 13.7
+> [!CAUTION] Tester normalement
+> Ce critère dépend de la contribution.
+
+### 13.7 🟢
 Dans chaque page web, les changements brusques de luminosité ou les effets de flash sont-ils correctement utilisés ? 
-### 13.8
+> [!TIP] Pas besoin de tester
+> Le thème Osuny ne fait pas d'animation.
+
+### 13.8 🟢
 Dans chaque page web, chaque contenu en mouvement ou clignotant est-il contrôlable par l’utilisateur ? 
-### 13.9
+> [!TIP] Pas besoin de tester
+> Le thème Osuny ne clignote pas.
+
+### 13.9 🟢
 Dans chaque page web, le contenu proposé est-il consultable quelle que soit l’orientation de l’écran (portrait ou paysage) (hors cas particuliers) ? 
-### 13.10
+> [!TIP] Pas besoin de tester
+> Le thème Osuny est consultable dans toutes les orientations.
+
+### 13.10 🟢
 Dans chaque page web, les fonctionnalités utilisables ou disponibles au moyen d’un geste complexe peuvent-elles être également disponibles au moyen d’un geste simple (hors cas particuliers) ? 
-### 13.11
+> [!TIP] Pas besoin de tester
+> Le thème Osuny ne nécessite pas de geste complexe.
+
+### 13.11 🟢
 Dans chaque page web, les actions déclenchées au moyen d’un dispositif de pointage sur un point unique de l’écran peuvent-elles faire l’objet d’une annulation (hors cas particuliers) ? 
-### 13.12
+> [!TIP] Pas besoin de tester
+> Le thème Osuny ne présente pas ce cas.
+
+### 13.12 🟢
 Dans chaque page web, les fonctionnalités qui impliquent un mouvement de l’appareil ou vers l’appareil peuvent-elles être satisfaites de manière alternative (hors cas particuliers) ? 
+> [!TIP] Pas besoin de tester
+> Le thème Osuny ne présente pas ce cas.
