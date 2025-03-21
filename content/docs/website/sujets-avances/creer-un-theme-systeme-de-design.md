@@ -47,6 +47,27 @@ Dans le dossier `sass`, il est à présent possible de créer les fichiers néce
 
 Le dernier fichier `_theme.sass` sera celui dans lequel les fichiers seront appelé. Il est nécessaire qu'il ait un autre nom que le fichier `main.sass` dans le referentiel Osuny.
 
+> [!TIP] Astuce
+> Dans la configuration, il faut garder les mentions !default afin de permettre les surcharges dans les sites. 
+
+```sass
+// Cette variable peut être modifiée dans le site
+$header-dropdown-full: true !default
+
+// Cette variable ne peut pas être modifiée
+$header-dropdown-full: true
+```
+
+Dans le premier cas, la chaîne de configuration est 
+```sass
+// Dans le thème osuny
+$header-dropdown-full: false !default 
+// Dans le thème système de design 
+$header-dropdown-full: true !default
+// Dans le site
+$header-dropdown-full: false
+```
+
 ### Liaison des thèmes
 
 Pour faire le lien entre le nouveau thème ainsi que le thème Osuny, dans le fichier `theme.sass`, il faudra que appeler le thème Osuny, ainsi que les utils, tel que :
@@ -57,7 +78,7 @@ Pour faire le lien entre le nouveau thème ainsi que le thème Osuny, dans le fi
 ```
 Puis appeler les fichiers nécessaires.
 
-## Dans votre referentiel Osuny
+## Dans votre référentiel Osuny
 
 Dans le dossier `config/_default` il faut aller dans le fichier `config.yaml` et remplacer le thème Osuny par le nouveau. La commande devrait se présenter ainsi :
 
