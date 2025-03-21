@@ -22,7 +22,6 @@ Vous pouvez modifier les options par défaut pour modifier l'affichage de tous l
         display: true
 ```
 
-
 Par exemple pour afficher ou masquer les taxonomies sur la single d'une `person`.
 
 #### Masqué :
