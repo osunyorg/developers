@@ -139,7 +139,7 @@ Quand quelque chose n'est pas personnalisable dans le fichier config.yaml, on pa
 Le fichier est vide, il faut aller chercher dans la documentation ou dans le thème lui-même les variables, et les coller dans le fichier.
 
 Les variables disponibles sont disponibles ici :
-https://github.com/osunyorg/theme/blob/main/config.yaml
+https://github.com/osunyorg/theme/blob/main/hugo.yaml
 
 
 ### 2. Configuration SASS
@@ -171,7 +171,7 @@ Pour écrire les sélecteurs CSS, vous pouvez vous appuyer sur le DOM ou aller r
 Il faut, autant que possible, utiliser les helpers et les conventions du thème (`px2rem(20)`, `@include media-breakpoint-up(desktop)`, etc).
 Cela permet de maintenir la cohérence et d'éviter les effets de bord, particulièrement liés au responsive.
 
-### Surcouche HTML
+### 4. Surcouche HTML
 
 {{< filetree/container >}}
   {{< filetree/folder name="layouts" >}}
