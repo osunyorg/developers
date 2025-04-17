@@ -56,7 +56,7 @@ on:
       - main
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}
       cancel-in-progress: true
@@ -135,7 +135,7 @@ on:
       - main  # Set a branch to deploy
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}
       cancel-in-progress: true
