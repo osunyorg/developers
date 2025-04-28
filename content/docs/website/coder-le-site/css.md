@@ -5,7 +5,7 @@ weight: 1
 
 ## Organiser ses fichiers
 
-Nous recommandons deux arborescences pour ranger les styles : 
+Nous recommandons deux arborescences pour ranger les styles :
 - architecture simple
 - architecture complète
 
@@ -26,7 +26,7 @@ Si votre style n'excède pas les 200 lignes, vous pouvez adopter une version sim
 
 `_configuration.sass` : contient les paramètres de sass, son contenu doit se limiter à uniquement les variables `sass`
 
-`_fonts.sass` : contient les font-face uniquement. Voir ["Ajouter des polices"](/docs/website/coder-le-side/fonts/)
+`_fonts.sass` : contient les font-face uniquement. Voir ["Ajouter des polices"](/docs/website/coder-le-site/fonts/)
 
 `_style.sass` : contient les styles spécifiques. De façon à maintenir le code du site au plus proche du thème, vérifiez bien que les modifications nécessaires au site ne soit pas réalisable via les configurations de style [`_configuration.sass`](https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sass) et du thème [`config.yaml`](https://github.com/osunyorg/theme/blob/main/config.yaml)
 

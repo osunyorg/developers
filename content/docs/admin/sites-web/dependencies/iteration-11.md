@@ -5,7 +5,7 @@ weight: 11
 ---
 
 Il est peut-être pertinent de couper le processus actuel en 3 morceaux :
-1. l'identification des fichiers possiblement modifiés (l'objet modifié et ses dépendances et références récursives)
+1. l'identification des fichiers possiblement modifiés
 2. la génération de ces fichiers, avec stockage dans les `git_files`
 3. la synchronisation sur Git des fichiers modifiés
 
