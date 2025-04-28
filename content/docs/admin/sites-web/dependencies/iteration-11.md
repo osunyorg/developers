@@ -81,6 +81,10 @@ Le fait de séparer la génération de l'envoi limite l'usage de la RAM, parce q
 - La génération va baisser parce qu'elle est faite objet par objet.
 - La synchronisation va baisser radicalement parce que le contenu statique est déjà généré en base de données.
 
+### Permettre la parallélisation
+
+La génération ne pose plus de problème de race condition.
+
 ## Risques
 
 ### Augmenter le nombre de tâches
