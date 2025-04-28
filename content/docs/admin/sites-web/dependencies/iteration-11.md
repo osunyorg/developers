@@ -30,6 +30,8 @@ Tâches à faire :
 
 Question : en cas de multiples mises à jour, faut-il garder la première date de désynchro ou la dernière ?
 
+> [!TIP] Question
+> En cas de multiples mises à jour, faut-il garder la première date de désynchro ou la dernière ?
 
 Ces tâches vont permettre de supprimer les tentatives de cache de certains fichiers statiques, qui ne sont plus nécessaires.
 
