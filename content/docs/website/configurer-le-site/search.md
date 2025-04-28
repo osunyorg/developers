@@ -36,4 +36,4 @@ window.osuny.pagefindOptions.mergeIndex = [
 ];
 ```
 
-> ⚠️ Si les sites ont des domaines différents, il faut configurer les CORS pour que les sites autorisent la recherche depuis un autre site : [voir la documentation de pagefind](https://pagefind.app/docs/multisite/#cross-origin-indexes)
+> ⚠️ Si les sites ont des domaines différents, il faut configurer les CORS pour que les sites autorisent la recherche depuis un autre site : [voir la documentation de pagefind](https://pagefind.app/docs/multisite/#cross-origin-indexes).
