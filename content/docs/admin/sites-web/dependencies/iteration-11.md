@@ -88,3 +88,9 @@ La génération ne pose plus de problème de race condition.
 ### Augmenter le nombre de tâches
 
 Le fait de fragmenter va générer beaucoup plus de tâches qu'aujourd'hui
+
+### Alourdir la base de données
+
+Stocker les contenus statiques dans la base va alourdir.
+Ce n'est que du texte, mais il y en a beaucoup.
+Si c'est trop, on peut sortir les fichiers, soit dans une autre base soit sur un Object Storage.
