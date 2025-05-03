@@ -1,14 +1,17 @@
-theme: hextra
-baseURL: /
 title: Osuny
-
+baseURL: /
+theme: hextra
 defaultContentLanguage: fr
-enableInlineShortcodes: true
+
+security:
+  enableInlineShortcodes: true
 
 markup:
+  # allow raw html
   goldmark:
     renderer:
       unsafe: true
+  # enable hextra syntax highlight
   highlight:
     noClasses: false
 

@@ -171,6 +171,8 @@ Le concern `WithGitFiles` est renommé `HasGitFiles` afin de respecter l'usage d
 
 Les méthodes `sync_with_git` et `sync_with_git_safely` du site web se déplacent dans le trait `WithGitRepository`.
 
+La méthode `syncable?` est problématique, parce qu'elle indique si le contenu est publié, et qu'elle est définie par le concern `WithDependencies`. `WithDependencies` est chargé par les blocs, les templates, les sites, les objets directs et indirects. Elle a été pensée pour avoir des overrides, mais en fait elle n'en a pas. La seule autre définition est dans `ActiveStorage::Blob`. Cela fait doublon avec `exportable_to_git?`, qui répond à la même question mais sans regarder la publication. Comment clarifier ?
+
 ### Synchronisation automatique
 
 Une routine s'exécute à intervalles réguliers (toutes les 10 minutes pour commencer) afin de synchoniser les sites qui en ont besoin.
