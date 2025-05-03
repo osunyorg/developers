@@ -141,8 +141,8 @@ Toutes les méthodes qui déclenchent des synchronisations aux opérations de CR
 - `save_and_sync` 
 - `update_and_sync`
 - `sync_with_git`
+- `force_sync_about`
 Cela redevient des `save`, `update` et `touch` normaux, et c'est le `save` qui initie la connexion aux sites.
-
 
 Toutes les méthodes qui visaient à minimiser le nombre de synchronisations disparaissent : 
 - `update_columns` dans les reorder
@@ -153,6 +153,10 @@ Toutes les méthodes qui visaient à minimiser le nombre de synchronisations dis
 Toutes les méthodes qui mettent en pause les callbacks :
 - `pause_git_sync`
 - `unpause_git_sync`
+
+Le concern `WithReferences` rejoint `WithDependencies`, il se contentait de déclarer un tableau vide.
+
+Le concern `WithGit` disparaît, parce qu'aucun objet ne se synchronise plus directement, tout passe par le site web.
 
 ### Nouveaux jobs
 
@@ -165,11 +169,22 @@ Les jobs de synchonisation disparaissent :
 - `Communication::Website::DirectObject::SyncWithGitJob`
 - `Communication::Website::IndirectObject::ConnectAndSyncDirectSourcesJob`
 
+### Réécriture de `Git::Analyzer``
+
+Les méthodes sont clarifiées et simplifiées : 
+- `exists?`
+- `moved?`
+- `different?`
+
+Elles s'appuient sur les nouvelles propriétés des objets `git_files`.
+
 ### Nettoyage
 
 Le concern `WithGitFiles` est renommé `HasGitFiles` afin de respecter l'usage de `With` pour les traits uniquement.
 
 Les méthodes `sync_with_git` et `sync_with_git_safely` du site web se déplacent dans le trait `WithGitRepository`.
+
+La méthode `mark_as_synced` du `Git::Repository` est renommée `refresh_git_files`, parce qu'elle fait des destuctions en plus des marquages de synchronisation.
 
 La méthode `syncable?` est problématique, parce qu'elle indique si le contenu est publié, et qu'elle est définie par le concern `WithDependencies`. `WithDependencies` est chargé par les blocs, les templates, les sites, les objets directs et indirects. Elle a été pensée pour avoir des overrides, mais en fait elle n'en a pas. La seule autre définition est dans `ActiveStorage::Blob`. Cela fait doublon avec `exportable_to_git?`, qui répond à la même question mais sans regarder la publication. Comment clarifier ?
 
@@ -185,7 +200,7 @@ Un nouveau bouton permet d'indiquer le nombre de fichiers désynchronisés, et d
 
 De nouvelles routes permettent d'examiner les git_files des sites web. 
 Ces routes ne sont pas interfacées.
-````
+```
 /admin/fr/communication/websites/:website_id/git_files
 /admin/fr/communication/websites/:website_id/git_files/:id
 ```
