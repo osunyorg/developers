@@ -24,11 +24,13 @@ jobs:
     - name: Installation des dépendances JavaScript
       run: yarn install --frozen-lockfile
 
+    # https://github.com/peaceiris/actions-hugo/pull/659
     - name: Installation de Hugo
-      uses: peaceiris/actions-hugo@v2.6.0
+      uses: jorkle/actions-hugo-withdeploy-temp@88ed9e517c81f665fd90e09f2ff9fa27ac3e7cb8
       with:
-        hugo-version: '0.136.5'
+        hugo-version: "0.147.1"
         extended: true
+        withdeploy: true
 
     - name: Compilation du site
       run: hugo -e production --minify
