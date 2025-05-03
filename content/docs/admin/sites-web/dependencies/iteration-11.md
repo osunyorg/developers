@@ -169,7 +169,7 @@ Les jobs de synchonisation disparaissent :
 - `Communication::Website::DirectObject::SyncWithGitJob`
 - `Communication::Website::IndirectObject::ConnectAndSyncDirectSourcesJob`
 
-### Réécriture de `Git::Analyzer``
+### Réécriture de `Git::Analyzer`
 
 Les méthodes sont clarifiées et simplifiées : 
 - `exists?`
