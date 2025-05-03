@@ -9,12 +9,12 @@ Il est peut-être pertinent de couper le processus actuel en 3 morceaux :
 2. la génération de ces fichiers, avec stockage dans les `git_files`
 3. la synchronisation sur Git des fichiers modifiés
 
-## Identification
+## Phase 1 — Identification
 
 L'idée est, à la sauvegarde d'un objet, de déclencher un certain nombre de jobs visant à regénérer chaque dépendance et chaque référence.
 Le fait de créer une tâche pour chaque permet de bénéficier du dédoublonnage de GoodJob.
 
-## Génération
+## Phase 2 — Génération
 
 La génération consiste, pour un `git_file`, à :
 1. faire le rendu du fichier statique
@@ -33,7 +33,7 @@ Tâches à faire :
 
 Ces tâches vont permettre de supprimer les tentatives de cache de certains fichiers statiques, qui ne sont plus nécessaires.
 
-## Synchronisation
+## Phase 3 — Synchronisation
 
 Pour chaque site, il devient donc possible de savoir le nombre de fichiers nécessitant une synchronisation.
 On peut alors, sans se préoccuper de la cause ou de la répétition, générer des lots de synchronisation.
@@ -94,3 +94,96 @@ Le fait de fragmenter va générer beaucoup plus de tâches qu'aujourd'hui
 Stocker les contenus statiques dans la base va alourdir.
 Ce n'est que du texte, mais il y en a beaucoup.
 Si c'est trop, on peut sortir les fichiers, soit dans une autre base soit sur un Object Storage.
+
+## Migration
+
+### Point unique de migration
+
+Le site web devient l'unique point d'entrée permettant de synchroniser.
+Ainsi, le code 
+```ruby
+  def publish
+    @l10n.publish!
+    @event.sync_with_git
+    ...
+  end
+```
+devient 
+```ruby
+  def publish
+    @l10n.publish!
+    @website.sync_with_git
+    ...
+  end
+```
+
+### Nouvelles méthodes
+
+La méthode asynchrone connect to websites permet de connecter les objets indirects aux sites.
+Cela se passe en 2 temps : d'abord se connecter aux objets directs, puis générer les git_files nécessaires, dans chaque site.
+
+```ruby
+  def connect_to_websites
+    Communication::Website::IndirectObject::ConnectToWebsitesJob.perform_later self
+  end
+
+  def connect_to_websites_safely
+    transaction do
+      connect_direct_sources
+      generate_git_files
+    end
+  end
+```
+
+### Méthodes obsolètes
+
+Toutes les méthodes qui déclenchent des synchronisations aux opérations de CRUD :
+- `save_and_sync` 
+- `update_and_sync`
+- `sync_with_git`
+Cela redevient des `save`, `update` et `touch` normaux, et c'est le `save` qui initie la connexion aux sites.
+
+
+Toutes les méthodes qui visaient à minimiser le nombre de synchronisations disparaissent : 
+- `update_columns` dans les reorder
+- `reorder_object`
+- `sync_after_reorder`
+- `trigger_category_sync`
+
+Toutes les méthodes qui mettent en pause les callbacks :
+- `pause_git_sync`
+- `unpause_git_sync`
+
+### Nouveaux jobs
+
+Un nouveau job apparaît, permettant de réaliser la phase 2, de génération :
+- `Communication::Website::GitFile::GenerateContentJob`
+
+### Jobs obsolètes
+
+Les jobs de synchonisation disparaissent : 
+- `Communication::Website::DirectObject::SyncWithGitJob`
+- `Communication::Website::IndirectObject::ConnectAndSyncDirectSourcesJob`
+
+### Nettoyage
+
+Le concern `WithGitFiles` est renommé `HasGitFiles` afin de respecter l'usage de `With` pour les traits uniquement.
+
+Les méthodes `sync_with_git` et `sync_with_git_safely` du site web se déplacent dans le trait `WithGitRepository`.
+
+### Synchronisation automatique
+
+Une routine s'exécute à intervalles réguliers (toutes les 10 minutes pour commencer) afin de synchoniser les sites qui en ont besoin.
+
+### Synchronisation manuelle
+
+Un nouveau bouton permet d'indiquer le nombre de fichiers désynchronisés, et de lancer une migration sans attendre la routine régulière. Le site est doté d'une propriété `last_sync_at` afin de permettre de ne pas compter les fichiers en cours de synchronisation (dans une tâche en arrière-plan).
+
+### Monitoring des git_files
+
+De nouvelles routes permettent d'examiner les git_files des sites web. 
+Ces routes ne sont pas interfacées.
+````
+/admin/fr/communication/websites/:website_id/git_files
+/admin/fr/communication/websites/:website_id/git_files/:id
+```
