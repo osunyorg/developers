@@ -97,7 +97,7 @@ Si c'est trop, on peut sortir les fichiers, soit dans une autre base soit sur un
 
 ## Migration
 
-### Point unique de migration
+### Point unique de synchronisation
 
 Le site web devient l'unique point d'entrée permettant de synchroniser.
 Ainsi, le code 
@@ -119,7 +119,7 @@ devient
 
 ### Nouvelles méthodes
 
-La méthode asynchrone connect to websites permet de connecter les objets indirects aux sites.
+La méthode asynchrone `connect_to_websites` permet de connecter les objets indirects aux sites.
 Cela se passe en 2 temps : d'abord se connecter aux objets directs, puis générer les git_files nécessaires, dans chaque site.
 
 ```ruby
@@ -142,6 +142,7 @@ Toutes les méthodes qui déclenchent des synchronisations aux opérations de CR
 - `update_and_sync`
 - `sync_with_git`
 - `force_sync_about`
+
 Cela redevient des `save`, `update` et `touch` normaux, et c'est le `save` qui initie la connexion aux sites.
 
 Toutes les méthodes qui visaient à minimiser le nombre de synchronisations disparaissent : 
@@ -167,6 +168,7 @@ Un nouveau job apparaît, permettant de réaliser la phase 2, de génération :
 
 Les jobs de synchonisation disparaissent : 
 - `Communication::Website::DirectObject::SyncWithGitJob`
+- `Communication::Website::IndirectObject::SyncWithGitJob`
 - `Communication::Website::IndirectObject::ConnectAndSyncDirectSourcesJob`
 
 ### Réécriture de `Git::Analyzer`
