@@ -100,22 +100,7 @@ Si c'est trop, on peut sortir les fichiers, soit dans une autre base soit sur un
 ### Point unique de synchronisation
 
 Le site web devient l'unique point d'entrée permettant de synchroniser.
-Ainsi, le code 
-```ruby
-  def publish
-    @l10n.publish!
-    @event.sync_with_git
-    ...
-  end
-```
-devient 
-```ruby
-  def publish
-    @l10n.publish!
-    @website.sync_with_git
-    ...
-  end
-```
+
 
 ### Nouvelles méthodes
 
