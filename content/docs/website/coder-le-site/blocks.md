@@ -21,7 +21,7 @@ Pour ne pas afficher un ou plusieurs blocs en particulier, il faut leur ajouter 
       - block-class-in-hero
 ```
 
-Tous les blocs avec cette classe ne s'afficheront plus dans le contenu des pages grâce à un filtre dans partials/content/list.html, qui est notre liste de blocs dans chaque page : 
+Tous les blocs avec cette classe ne s'afficheront plus dans le contenu des pages grâce à un filtre dans la liste des blocs de chaque page :
 
 ```html {filename="partials/content/list.html"}
 {{ if and (eq .kind "block") (not (in site.Params.hero.blocks .html_class) )}}
