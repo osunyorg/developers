@@ -1,0 +1,30 @@
+---
+title: "Questions diverses"
+description: >
+  De petits sujets qui peuvent être problématiques
+---
+
+## Cloner le site "example" (branche ```site-style```)
+
+https://github.com/osunyorg/example/tree/site-style
+
+## Si vous souhaitez déployer
+
+Créer une autre branche à partir de ```site-style```
+
+
+## Ajouter le répertoire du site à tester
+
+```
+cd themes
+git submodules add https://github.com/osunyorg/rebootcommunication
+```
+
+## Configurer les themes
+
+Dans ```/config/_default/config.yaml```
+
+```
+theme:
+  - rebootcommunication
+```
