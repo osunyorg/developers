@@ -7,8 +7,8 @@ weight: 6
 
 De nombreux mixins permettent de simplifier l'intégration et la customisation du site :
 
-- [Les grilles](/docs/website/coder-le-side/grilles/)
-- [Les icônes](/docs/website/coder-le-side/icons/)
+- [Les grilles](/docs/website/coder-le-site/grilles/)
+- [Les icônes](/docs/website/coder-le-site/icons/)
 
 ## Raccourcis de développement
 

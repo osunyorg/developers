@@ -11,7 +11,7 @@ Placer les fichiers dans `static/assets/fonts`. Favoriser les formats `woff` pou
 
 ## Charger les polices
 
-Dans le fichier `assets/sass/_fonts.sass` (voir ["Organiser ses fichiers"](/docs/website/coder-le-side/#organiser-ses-fichiers)), utiliser le mixin `font-face`.
+Dans le fichier `assets/sass/_fonts.sass` (voir ["Organiser ses fichiers"](/docs/website/coder-le-site/#organiser-ses-fichiers)), utiliser le mixin `font-face`.
 
 ```sass {filename="assets/sass/_fonts.sass"}
 @mixin font-face($name, $path, $weight: 400, $style: normal, $exts: (eot woff2 woff ttf svg))
