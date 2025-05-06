@@ -1,5 +1,5 @@
 ---
-title: Blocks
+title: Blocs
 weight: 6
 ---
 
