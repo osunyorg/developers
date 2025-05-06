@@ -17,7 +17,7 @@ Créer une autre branche à partir de ```site-style```
 
 ```
 cd themes
-git submodules add https://github.com/osunyorg/rebootcommunication
+git submodule add https://github.com/osunyorg/rebootcommunication
 ```
 
 ## Configurer les themes
