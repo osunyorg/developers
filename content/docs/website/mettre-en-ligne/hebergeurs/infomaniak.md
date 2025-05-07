@@ -29,6 +29,9 @@ Il vous faudra générer une clé SSH en local, sur votre ordinateur :
 ssh-keygen -t ed25519
 ```
 
+> [!WARNING]
+> Il ne faut pas générer la clé en RSA, car Infomaniak ne les autorise pas. Source : https://www.infomaniak.com/fr/support/faq/2054/se-connecter-avec-cle-ssh
+
 Le script va demander un nom de clé, que l'on désignera ici par `KEY_NAME`.
 Une bonne pratique peut être de mettre le nom du site référentiel, avec des underscores (_) et pas des tirets, suivi de `_osuny`.
 
