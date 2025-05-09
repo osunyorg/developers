@@ -49,7 +49,7 @@ Dans `partials/blocks/ignored.html`, un fichier créé spécifiquement sur un si
 <div class="blocks">
   {{ range $index, $content := . }}
     {{ if in site.Params.blocks.ignored .html_class }}
-      {{ if eq .template (or "chapter" "call_to_action" "organizations") }}
+      {{ if or (eq .template "chapter") (eq .template "call_to_action") (eq .template "organizations") (eq .template "image") }}
         {{ $template := printf "blocks/templates/%s.html" .template }}
   
         {{ if templates.Exists ( printf "partials/%s" $template ) }}
