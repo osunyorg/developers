@@ -22,6 +22,11 @@ yarn osuny update-theme
 Lancer ensuite le site en local, pour vérifier que tout se passe bien.
 Si vous avez des overrides HTML dans `/layouts`, vérifiez qu'ils sont toujours fonctionnels.
 
+## Branches, pre-release et release
+
+Avant une release du thème, une branche est déployée. Les différentes PR d'évolutions et de maintenance sont merge à l'intérieur de cette branche. Ensuite une pre-release est déployée, un temps est alloué aux développeuses et développeurs qui maintiennent les sites pour s'assurer des impacts de ces évolutions sur leurs sites. 
+
+
 ## Et le template ?
 
 La mise à jour du template n'est en général pas nécessaire.
