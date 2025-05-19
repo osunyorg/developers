@@ -10,8 +10,8 @@ aliases:
 ## Auditer l'accessibilité (RGAA)
 
 {{< cards >}}
-  {{< card  link="accessibilite/audit-site/" 
+  {{< card  link="accessibilite/audit-site/"
             title="Audit d'un site" >}}
-  {{< card  link="accessibilite/audit-socle/" 
+  {{< card  link="accessibilite/audit-socle/"
             title="Audit du socle" >}}
 {{< /cards >}}
