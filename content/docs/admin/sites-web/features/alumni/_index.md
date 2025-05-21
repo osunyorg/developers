@@ -5,15 +5,42 @@ weight: 6
 
 Cette nouvelle fonctionnalité est codée pour les Beaux Arts de Marseille.
 
+## Périmètre fonctionnel
+
+### Page d'accueil
+
+![Page d'accueil](home.png)
+
+Dans le menu :
+- une liste des années
+- une liste des formations (options ici)
+
+
+Dans la page :
+- des métriques (nombre d'alumni, nombre de nationalités)
+- les premiers alumni par ordre alphabétique
+
+### Page d'une personne
+
+![Page d'une personne](person.png)
+
+Atypique : formation, promotion et diplôme sous forme de tags cliquables.
+Dans le thème, on peut probablement plutôt faire un tableau, plus robuste s'il y a plusieurs formations.
+Il faut peut-être utiliser le tableau aussi pour ça, parce que le cursus complet implique 2 promos et 2 diplômes, donc 5 tags.
+
+
+> [!WARNING]
+> Les backlinks sont dans un autre site !
+
 ## Architecture
 
 Plusieurs architectures possibles :
 1. Extranet en mode public
 2. Nouvelle fonctionnalité au niveau du site Web
 3. Type particulier de site Web
-4. Sous-partie spécifique du site des Beaux-Arts
+4. Sous-partie spécifique d'un site
 
-### Extranet en mode public
+### 1. Extranet en mode public
 
 Avantages :
 - ça permet de faire ce que l'on veut en fonctionnel
@@ -23,7 +50,7 @@ Inconvénients :
 - maintenance CSS
 - nouvelle porte d'entrée "publique" dans Osuny
 
-### Nouvelle fonctionnalité au niveau du site Web
+### 2. Nouvelle fonctionnalité au niveau du site Web
 
 Fonctionnalité uniquement activable pour les sites d'écoles et de formations, s'il y a des alumni.
 
@@ -36,7 +63,7 @@ Avantages :
 Inconvénients :
 - pb pour gérer la home et les menus spécifiques en automatique
 
-### Type particulier de site Web
+### 3. Type particulier de site Web
 
 Avantages :
 - permet de gérer spécifiquement certains fonctionnalités comme le menu ou la page d'accueil
@@ -44,8 +71,9 @@ Avantages :
 
 Inconvénients :
 - les objets des backlinks des personnes viennent d'un autre site (question de fédération de contenu)
+- les sites sont définis par leur about, il n'y a pas réellement de type
 
-### Sous-partie spécifique du site des Beaux-Arts
+### 4. Sous-partie spécifique du site des Beaux-Arts
 
 C'est une sous-option de l'option 2.
 
@@ -57,33 +85,51 @@ Inconvénients :
 - URLs confuses
 - 2 menu et 2 CSS en fonction
 
-### Choix : Type particulier de site Web
+### Choix : fonctionnalité conditionnelle
 
-Il n'y a pas d'inconvénient !
+On reste sur le choix de fonctionnalités, mais on conditionne à l'about : soit une école, soit une formation.
 
 ## Implémentation
 
-### Nouveau type
+### Admin
 
-En plus de pouvoir déclarer un site "Site d'école", ou "Site de laboratoire", on peut déclarer un site comme étant "Site d'alumni d'école" ou "Site d'alumni de formation". Il faut dépendre d'un attribut en + de l'about_type.
+#### Fonctionnalité
 
-### Dépendance des alumnis
+Ajout de la fonctionnalité.
+Mention de la fonctionnalité quelque part dans les fichiers statiques.
+
+#### Dépendance des alumnis
 
 A déclarer via les dépendances de formation, via les promotions. N'était pas en place car jusque là spécifique aux extranets.
 
-### Export des personnes
+#### Export des personnes
 
 Git files pour les personnes. Pas d'url spécifique, url normale de personne.
+Il faut ajouter des infos sur les promotions
 
-### Gestion du menu
+> [!WARNING]
+> Comment générer les connexions ? Le processus de connexion des dépendances du about du site n'est pas clair.
+
+#### Backlinks fédérés
+
+Prendre les backlinks d'une personne à partir de contenus fédérés d'un autre site.
+
+#### Export des promotions
+
+En section ou en taxonomie ?
+
+#### Export des années
+
+En taxonomie ?
+
+### Thème
+
+#### Menu spécifique
 
 Lister les promos et les formations (parcours, mentions, options...).
 
-### Gestion de la home
+#### Home
 
-- lister n alumni
+- lister les n premiers alumni
 - remonter les métriques (nombre d'alumni depuis, nombre de nationalités via taxonomie)
 
-### Backlinks fédérés
-
-Prendre les backlinks d'une personne à partir de contenus fédérés d'un autre site.

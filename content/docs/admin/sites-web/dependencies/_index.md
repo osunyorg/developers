@@ -7,7 +7,7 @@ description: Envoyer tous les fichiers nécessaires
 Pour être mis en ligne, les sites doivent être envoyés sur un référentiel Git.
 Pour cela, il faut lister tous les objets nécessaires et les mettre à jour s'ils ont évolué.
 Certains doivent être créés, d'autres modifiés, d'autres supprimés.
-Le processus est documenté dans la page [Export Hugo](/docs/admin/communication/sites-web/export/).
+Le processus est documenté dans la page [Export vers Git](/docs/admin/sites-web/git/).
 
 La question traitée ici est celle de la liste des objets, et de la mise à jour efficiente :
 - comment ajouter les objets à la liste quand c'est nécessaire ?

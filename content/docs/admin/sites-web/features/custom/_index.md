@@ -1,7 +1,6 @@
 ---
-title: Objets personnalisés
-weight: 4
-description: Étendre les fonctionnalités de base
+title: Objets personnalisés ?
+weight: 10
 ---
 
 Au-delà des pages et des actualités, les sites ont souvent besoin d'objets spécifiques, au cas par cas.
