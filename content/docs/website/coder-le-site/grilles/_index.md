@@ -1,6 +1,8 @@
 ---
 title: Grilles
 weight: 20
+aliases: 
+- /docs/website/coder-le-side/grilles/
 ---
 
 ## En bref

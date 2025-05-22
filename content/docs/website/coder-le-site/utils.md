@@ -1,6 +1,8 @@
 ---
 title: Outils
 weight: 6
+aliases: 
+- /docs/website/coder-le-side/utils/
 ---
 
 ## Utilitaires

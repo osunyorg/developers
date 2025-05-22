@@ -1,6 +1,8 @@
 ---
 title: JavaScript
 weight: 3
+aliases: 
+- /docs/website/coder-le-side/javascript/
 ---
 
 Vous pouvez ajouter du javascript en ajoutant vos fichiers dans `assets/js`. 

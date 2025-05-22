@@ -1,6 +1,8 @@
 ---
 title: Coder le site
 weight: 3
+aliases: 
+- /docs/website/coder-le-side/
 ---
 
 Quand les paramètres ne suffisent plus, on peut facilement coder ce que l'on veut.

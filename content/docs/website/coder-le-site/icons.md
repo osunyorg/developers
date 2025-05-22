@@ -1,6 +1,8 @@
 ---
 title: Icônes
 weight: 10
+aliases: 
+- /docs/website/coder-le-side/icons/
 ---
 
 *Comment utiliser des icônes dans son site ?*

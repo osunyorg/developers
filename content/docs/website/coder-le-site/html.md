@@ -1,6 +1,8 @@
 ---
 title: HTML
 weight: 2
+aliases: 
+- /docs/website/coder-le-side/html/
 ---
 
 Vous pouvez remplacer n'importe quel fichiers du thème grace à Hugo.

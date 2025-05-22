@@ -1,6 +1,8 @@
 ---
 title: Fonts
 weight: 5
+aliases: 
+- /docs/website/coder-le-side/fonts/
 ---
 
 Comment modifier les polices du site ?
