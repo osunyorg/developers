@@ -1,6 +1,8 @@
 ---
 title: CSS
 weight: 1
+aliases: 
+- /docs/website/coder-le-side/css/
 ---
 
 ## Organiser ses fichiers
