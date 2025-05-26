@@ -155,10 +155,10 @@ Une année rassemble 1 ou plusieurs cohortes.
 | - | - |
 | permalink | /fr/alumni/YYYY/ |
 | | /fr/alumni/2025/ |
-| file | /content/fr/alumni/YYYY/_index.html |
-| | /content/fr/alumni/2025/_index.html |
-| path | /alumni/YYYY |
-| | /alumni/2025 |
+| file | /content/fr/academic_years/YYYY/_index.html |
+| | /content/fr/academic_years/2025/_index.html |
+| path | /academic_years/YYYY |
+| | /academic_years/2025 |
 
 #### Cohorte
 
@@ -168,8 +168,8 @@ Une cohorte regroupe une formation (avec son possible diplôme) et une année.
 | - | - |
 | permalink | /fr/alumni/:cohort_year/:program_slug/ |
 | | /fr/alumni/2025/metiers-du-multimedia-et-de-l-internet/ |
-| file | /content/fr/alumni/YYYY/:program_slug.html |
-| | /content/fr/alumni/2025/metiers-du-multimedia-et-de-l-internet.html |
-| path | /alumni/YYYY/:program_slug |
-| | /alumni/2025/metiers-du-multimedia-et-de-l-internet |
+| file | /content/fr/academic_years/YYYY/:program_slug.html |
+| | /content/fr/academic_years/2025/metiers-du-multimedia-et-de-l-internet.html |
+| path | /academic_years/YYYY/:program_slug |
+| | /academic_years/2025/metiers-du-multimedia-et-de-l-internet |
 
