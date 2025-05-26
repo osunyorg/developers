@@ -154,11 +154,11 @@ Une année rassemble 1 ou plusieurs cohortes.
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/alumni/YYYY/ |
-| 1. | /fr/alumni/2025/ |
+| | /fr/alumni/2025/ |
 | file | /content/fr/alumni/YYYY/_index.html |
-| 1. | /content/fr/alumni/2025/_index.html |
+| | /content/fr/alumni/2025/_index.html |
 | path | /alumni/YYYY |
-| 1. | /alumni/2025 |
+| | /alumni/2025 |
 
 #### Cohorte
 
@@ -167,9 +167,9 @@ Une cohorte regroupe une formation (avec son possible diplôme) et une année.
 | Propriété | Valeur |
 | - | - |
 | permalink | /fr/alumni/:cohort_year/:program_slug/ |
-| 1. | /fr/alumni/2025/metiers-du-multimedia-et-de-l-internet/ |
+| | /fr/alumni/2025/metiers-du-multimedia-et-de-l-internet/ |
 | file | /content/fr/alumni/YYYY/:program_slug.html |
-| 1. | /content/fr/alumni/2025/metiers-du-multimedia-et-de-l-internet.html |
+| | /content/fr/alumni/2025/metiers-du-multimedia-et-de-l-internet.html |
 | path | /alumni/YYYY/:program_slug |
-| 1. | /alumni/2025/metiers-du-multimedia-et-de-l-internet |
+| | /alumni/2025/metiers-du-multimedia-et-de-l-internet |
 
