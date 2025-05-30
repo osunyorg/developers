@@ -237,6 +237,54 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 | 6. | /content/fr/events/2025/cine-club-gaze/2025-01-05-20-00-emmanuelle.html |
 | 7. | /content/fr/events/2025/cine-club-gaze/2025-01-15-20-00-atlantique.html |
 
+### Décalage des créneaux
+
+Quand on décale un événement, les créneaux horaires restent au jour précédent, éventuellement hors du jour. Avant la résolution de [l'issue 3105](https://github.com/osunyorg/admin/issues/3106), les événements enfants ne bougent pas du tout. L'objectif est de définir des actions simples et prévisibles à effectuer sur les créneaux quand on change les dates d'un événement.
+
+> Exemple 1
+> 1. Je fais un concert le mardi 20 janvier
+> 2. J'ajoute un créneau à 20h
+> 3. Je décale le concert au 21 janvier
+> 4. Le créneau est toujours le 20 janvier
+
+Dans ce cas, la solution est simple : décaler le créneau. 
+S'il y avait plusieurs créneaux le 20 janvier, ce serait pareil, il faudrait les décaler tous.
+
+> Exemple 2 (plus délicat)
+> 1. Je fais un cycle de conférences du 20 a 25 janvier
+> 2. J'ajoute un créneau par jour à 20h
+> 3. Je décale le cycle du 23 au 28 janvier
+
+Dans ce cas, la solution peut être de décaler les créneaux par rapport au jour de début, ou de supprimer les créneaux hors de la période.
+
+
+> Exemple 3 (encore plus délicat)
+> 1. Je fais un cycle de conférences du 20 a 25 janvier
+> 2. J'ajoute un créneau par jour à 20h
+> 3. Je décale le cycle du 23 au 26 janvier, parce qu'on raccourcit le temps disponible
+
+Dans ce cas, la solution pour les 3 premiers créneaux est identique à l'exemple 2. En revanche, pour les 2 derniers, qui sortent du cycle, il faut nécessairement les supprimer.
+
+> Exemple 4
+> 1. Je fais un cycle du 20 au 25
+> 2. Je mets le premier créneau les 22
+> 3. J'étends le cycle au 19 au 25
+
+Le créneau du 22 n'a aucune raison de bouger.
+On peut définir que les durées qui s'étendent n'impliquent pas de modification, mais...
+
+> Exemple 5
+> 1. Je fais un cycle du 20 au 25
+> 2. Je mets le premier créneau les 22
+> 3. Je raccourcis le cycle au 21 au 25
+
+... la durée s'est réduite, et il n'y a aucune raison de décaler le 22.
+
+
+Il semble qu'une bonne politique soit double :
+- pour les événements sur 1 seul jour, quand on déplace l'événement on déplace les créneaux
+- pour les événements sur plusieurs jours, on se contente de supprimer les créneaux qui sortent des nouvelles dates
+
 ## Périodes
 
 Pour avoir des sortes de filtres de calendrier, il est nécessaire de générer des pages pour les années et les mois.
