@@ -4,29 +4,28 @@ layout: hextra-home
 ---
 
 {{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
+  <div class="hx-w-2 hx-h-2 hx-rounded-full hx-bg-primary-400"></div>
   <span>Licence MIT</span>
 {{< /hextra/hero-badge >}}
 
-<div class="hx:mt-6 hx:mb-6">
+<div class="hx-mt-6 hx-mb-6">
 {{< hextra/hero-headline >}}
   Espace développement
 {{< /hextra/hero-headline >}}
 </div>
 
-<div class="hx:mb-12">
+<div class="hx-mb-12">
 {{< hextra/hero-subtitle >}}
-  Toutes les ressources pour permettre <br class="sm:block hidden" />
-  aux développeuses et développeurs<br class="sm:block hidden" />
+  Toutes les ressources pour permettre 
   de coder sereinement avec Osuny
 {{< /hextra/hero-subtitle >}}
 </div>
 
-<div class="hx:mb-6">
+<div class="hx-mb-6">
 {{< hextra/hero-button text="Démarrage rapide" link="docs/website/" >}}
 </div>
 
-<h2 class="hx:text-2xl hx:font-medium hx:leading-6 hx:mt-12">Travailler avec Osuny<h2>
+<h2 class="hx-text-2xl hx-font-medium hx-leading-6 hx-mt-12">Travailler avec Osuny<h2>
 {{< cards >}}
   {{< card  link="/docs/website/" 
             image="/images/home/website.jpg"
@@ -38,7 +37,7 @@ layout: hextra-home
             subtitle="Réaliser l'audit RGAA d'un site créé avec Osuny, en partant de l'audit socle du thème" >}}
 {{< /cards >}}
 
-<h2 class="hx:text-2xl hx:font-medium hx:leading-6 hx:mt-12">Contribuer à Osuny<h2>
+<h2 class="hx-text-2xl hx-font-medium hx-leading-6 hx-mt-12">Contribuer à Osuny<h2>
 {{< cards >}}
   {{< card  link="/docs/theme/" 
             image="/images/home/theme.jpg"

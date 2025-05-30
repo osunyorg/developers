@@ -207,7 +207,7 @@ $breadcrumb-icon-color: $color-text-alt !default
 
 ```sass
 /* TODO: réécrire en sass les mixins bootstrap */
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
+$grid-breakpoints: (xs: 0, sm: 576px, md- 768px, lg: 992px, xl: 1200px, xxl: 1400px)
 ```
 
 ### Header

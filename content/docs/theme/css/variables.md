@@ -9,7 +9,7 @@ Variables associées :
 ```sass
 $grid-gutter: 60px
 $grid-max-width: 1980px
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px)
+$grid-breakpoints: (xs: 0, sm: 576px, md- 768px, lg: 992px, xl: 1200px, xxl: 1400px)
 ```
 
 Pour placer un container (goutières latérales et max-width)

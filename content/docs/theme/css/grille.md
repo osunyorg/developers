@@ -13,7 +13,7 @@ description: >
 Les points de rupture pour le responsive se base sur une double logique : 
  - Nous nous appuyons sur les breakpoints proposés par bootstrap. Ces derniers sont éditables dans le fichier de configuration.sass
     ```
-    $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, desktop: 992px, lg: 992px, xl: 1200px, xxl: 1440px) !default
+    $grid-breakpoints: (xs: 0, sm: 576px, md- 768px, desktop: 992px, lg: 992px, xl: 1200px, xxl: 1440px) !default
     ```
  - Nous y ajoutons le breakpoint nommé 'desktop', équivalent au breakpoint 'lg' de façon à appeler dans le mixin de breakpoint-media-up / breakpoint-media-down avec le nommage "desktop"
  - Les variables dans config ont un suffix ```-desktop```
