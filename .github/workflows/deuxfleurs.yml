@@ -12,25 +12,17 @@ jobs:
 
     - name: Récupération des données
       uses: actions/checkout@v3
-      with:
-        submodules: true
-
-    - name: Installation de Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 'lts/*'
-        cache: 'yarn'
-
-    - name: Installation des dépendances JavaScript
-      run: yarn install --frozen-lockfile
-
+    
     # https://github.com/peaceiris/actions-hugo/pull/659
     - name: Installation de Hugo
-      uses: jorkle/actions-hugo-withdeploy-temp@88ed9e517c81f665fd90e09f2ff9fa27ac3e7cb8
+      uses: noesya/actions-hugo@release
       with:
-        hugo-version: "0.147.1"
+        hugo-version: "0.147.3"
         extended: true
         withdeploy: true
+
+    - name: Installation du thème
+      uses: evantorrie/mott-the-tider@v1-beta
 
     - name: Compilation du site
       run: hugo -e production --minify
