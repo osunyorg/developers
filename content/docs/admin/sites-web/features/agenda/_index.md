@@ -239,7 +239,7 @@ En général avec un créneau, les cas 0 (pas d’horaire) et n>1 (récurrent) s
 
 ### Décalage des créneaux
 
-Quand on décale un événement, les créneaux horaires restent au jour précédent, éventuellement hors du jour. Avant la résolution de [l'issue 3105](https://github.com/osunyorg/admin/issues/3106), les événements enfants ne bougent pas du tout. L'objectif est de définir des actions simples et prévisibles à effectuer sur les créneaux quand on change les dates d'un événement.
+Quand on décale un événement, les créneaux horaires restent au jour précédent, éventuellement hors du jour. Avant la résolution de [l'issue 3106](https://github.com/osunyorg/admin/issues/3106), les événements enfants ne bougent pas du tout. L'objectif est de définir des actions simples et prévisibles à effectuer sur les créneaux quand on change les dates d'un événement.
 
 > Exemple 1
 > 1. Je fais un concert le mardi 20 janvier
