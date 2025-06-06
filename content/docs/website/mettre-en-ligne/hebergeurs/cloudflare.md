@@ -8,4 +8,6 @@ Le pointage se fait toujours vers `production.osuny.site.` (avec le point à la 
 
 D'abord, créer un pointage CNAME du www vers `production.osuny.site.`.
 
-Ensuite, faire une règle de redirection de l'apex vers www.
+Créer également un pointage CNAME de l'apex vers `production.osuny.site.`.
+
+Ensuite, dans la partie "Rules", faire une règle de redirection de l'apex vers www.
