@@ -1,5 +1,5 @@
 ---
-title: Publication
+title: Itération 12
 ---
 
 ## Situation au 21 juillet 2025
