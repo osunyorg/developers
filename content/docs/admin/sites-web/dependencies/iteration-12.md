@@ -4,6 +4,9 @@ title: Itération 12
 
 ## Situation au 21 juillet 2025
 
+Trop de méthodes répondent à des questions proches, tournant autour de "cet objet doit-il être envoyé en ligne ?".
+Il faut rationaliser pour avoir des sources de vérité unique, en simplifiant, et sans perdre de fonctionnalité.
+
 ### syncable?
 l'objet doit-il (globalement) aller sur Git  
 => renommé `can_have_git_file?`
