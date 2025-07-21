@@ -45,6 +45,8 @@ Dans le calcul des dépendances, on se fiche de la présence ou de l'absence de 
 Il faut utiliser `published?` pour vérifier si on creuse encore.
 Le website, le menu ne répondent pas à `published?`
 
+On essaie là d'enlever tous les appels aux méthodes de synchronisation. La liste de dépendances ne doit pas mélanger le syncable. Par contre on doit vérifier si les objets sont publiés.
+
 
 ## Nouvelle structure simplifiée
 
