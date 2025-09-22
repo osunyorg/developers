@@ -20,6 +20,25 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 {{- end -}}
 ```
 
+
+### Partiels 
+
+Appel d'un partiel avec un seul paramètre :
+
+```
+{{- partial "programs/single/image.html" .Params.image -}}
+```
+
+Appel d'un partiel avec plusieurs paramètre en utilisant `dict` :
+
+```
+{{ partial "contents/list.html" (dict
+  "context" .
+  "contents" .Params.contents
+) }}
+```
+
+
 ## Précision sémantique
 
 {{< callout type="warning" >}}

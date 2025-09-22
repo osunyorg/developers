@@ -103,11 +103,10 @@ Cela pose un problème de migration des blocs existants, qu'il faut réaliser en
 
 ```hugo{filename="themes/osuny/layouts/partials/posts/posts.html"}
   {{ range .Paginator.Pages }}
-    {{  partial "posts/post.html"
-        (dict
-          "post" .
-          "options" site.Params.posts.index.options
-        )}}
+    {{ partial "posts/post.html" (dict
+      "post" .
+      "options" site.Params.posts.index.options
+    ) }}
   {{ end }}
 ```
 

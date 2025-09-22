@@ -56,9 +56,9 @@ Dans `partials/blocks/ignored.html`, un fichier créé spécifiquement sur un si
   
         {{ if templates.Exists ( printf "partials/%s" $template ) }}
           {{ partial $template (dict
-              "block" $content
-              "index" $index
-            )}}
+            "block" $content
+            "index" $index
+          )}}
         {{ end }}
       {{ end }}
     {{ end }}
