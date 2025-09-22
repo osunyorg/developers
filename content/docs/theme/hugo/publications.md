@@ -32,9 +32,9 @@ build:
 
 Il faut également ré-écrire les permalinks des enfants de la section concernée :
 
-Exemple d'un projet : 
+Exemple d'un projet `content/fr/projects/2012-ecole-maternelle-structure-bois.html` :
 
-```yaml (content/fr/projects/2012-ecole-maternelle-structure-bois.html)
+```yaml
 url: "/projets/2012-ecole-maternelle-structure-bois/"
 slug: "ecole-maternelle-structure-bois"
 meta:
