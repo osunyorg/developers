@@ -57,3 +57,11 @@ git push scalingo free-categories-as-taxonomy:main -f
 ## Mise en production
 
 Automatique avec Scalingo, quand les Pull Requests sont acceptées.
+
+## Test
+
+Parfois la base de test est désynchronisée. Pour résoudre :
+
+```bash
+RAILS_ENV=test rails db:schema:load
+```
