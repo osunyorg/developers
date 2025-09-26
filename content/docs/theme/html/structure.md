@@ -8,16 +8,18 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 ## Style
 
 - Indentation = 2 espaces
-- Espaces entre les chevrons
+- utilisation du tiret `{{- -}}` lorsque l'on veut supprimer des espaces entres des éléments d'inline. Le HTML étant minifié il n'est pas nécessaire d'en mettre partout.
 
 ```
 {{ if something }}
   something
 {{ end }}
 
-{{- if something -}}
-  <div> something </div>
-{{- end -}}
+<p>
+  {{- if something -}}
+    <span>something</span>
+  {{- end -}}
+</p>
 ```
 
 
@@ -26,7 +28,7 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 Appel d'un partiel avec un seul paramètre :
 
 ```
-{{- partial "programs/single/image.html" .Params.image -}}
+{{ partial "programs/single/image.html" .Params.image }}
 ```
 
 Appel d'un partiel avec plusieurs paramètre en utilisant `dict` :
