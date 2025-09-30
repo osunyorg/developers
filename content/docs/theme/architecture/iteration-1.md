@@ -1,9 +1,10 @@
 ---
 title: Itération 1
 weight: 1
+date: 2023-09-30
 ---
 
-## Atelier d'itération 1 du jeudi 2 octobre
+## Atelier d'itération 1
 
 ### Problématique
 
