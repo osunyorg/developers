@@ -16,6 +16,8 @@ A l'abandon de Bootstrap, nous avons recodé en JavaScript vanille :
 - menu
 - scrollspy 
 - dropdown
+- lightbox
+- slideshow
 
 
 Certains blocs nécessitent du JavaScript spécifique :
