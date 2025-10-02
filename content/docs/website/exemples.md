@@ -1,6 +1,6 @@
 ---
 title: Exemples
-weight: 6
+weight: 10
 description: >
   Exemples produits avec Osuny et inspirations hors Osuny
 ---
@@ -22,6 +22,9 @@ https://www.iut.u-bordeaux-montaigne.fr
 
 https://github.com/noesya/bordeauxmontaigne-iut
 
+### Showcase
+
+[Voir les sites réalisés avec Osuny](https://showcase.osuny.org/)
 
 <hr>
 

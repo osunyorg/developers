@@ -1,6 +1,6 @@
 ---
 title: Mise en page
-weight: 1
+weight: 3
 ---
 
 ## Principes

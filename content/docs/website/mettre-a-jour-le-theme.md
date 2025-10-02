@@ -35,7 +35,7 @@ Malheureusement, cette méthode génère des conflits, qu'il faut traiter à la 
 
 Pour faire la mise à jour du template :
 ```bash
-git remote add template git@github.com:noesya/osuny-hugo-template-aaa.git
+git remote add template git@github.com:osunyorg/template.git
 git fetch --all
 git merge template/main --allow-unrelated-histories
 ```

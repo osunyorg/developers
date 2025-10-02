@@ -48,6 +48,32 @@ params:
     base: "https://github.com/noesya/osuny-developers/edit/main/content"
   displayUpdatedDate: true
   dateFormat: "2 January 2006"
+
+menu:
+  sidebar:
+    - identifier: more
+      name: ""
+      params:
+        type: separator
+      weight: 1
+    - identifier: contribution-guidelines
+      name: Règles de contribution
+      pageRef: /docs/contribution-guidelines
+      weight: 2
+    - identifier: glossaire
+      name: Glossaire
+      pageRef: /docs/glossaire/
+      weight: 3
+    - identifier: troubleshooting
+      name: En cas de problème
+      pageRef: /docs/troubleshooting/
+      weight: 4
+
+    - identifier: showcase
+      name: Showcase ↗
+      url: "https://showcase.osuny.org/"
+      weight: 4
+
 deployment:
   targets:
     - URL: "s3://0aee1314c8e7a8e8afb407a7d7a4a33e2e45593c94b98d8b229a3fc8abb582f8?endpoint=garage.deuxfleurs.fr&s3ForcePathStyle=true&region=garage&awssdk=v1"

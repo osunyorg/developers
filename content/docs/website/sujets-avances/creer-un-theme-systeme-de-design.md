@@ -2,6 +2,7 @@
 title: Créer un thème "système de design"
 description: >-
   Pour pouvoir utiliser le même système de design sur plusieurs sites
+weight: 1
 ---
 
 [Schéma](https://www.osuny.org/fonctionnalites/theme-osuny/schema-1/)

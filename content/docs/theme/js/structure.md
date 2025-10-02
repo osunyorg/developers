@@ -1,5 +1,6 @@
 ---
 title: Structure
+weight: 1
 ---
 
 ## Objectifs

@@ -1,6 +1,6 @@
 ---
 title: "Sujets avancés"
-weight: 1000
+weight: 5
 description: >
   Aide pour des problématiques plus sophistiquées
 ---

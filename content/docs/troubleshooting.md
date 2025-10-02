@@ -3,6 +3,8 @@ title: En cas de problème
 weight: 10
 description: >
   Répondre aux questions fréquentes
+sidebar:
+  exclude: true
 ---
 
 Si vous êtes perdus, venez sur le [Forum Osuny](https://forum.osuny.org), on vous aidera avec plaisir !

@@ -1,6 +1,6 @@
 ---
 title: Barre latérale
-weight: 1
+weight: 10
 ---
 
 ## Principe

@@ -1,5 +1,7 @@
 ---
 title: Glossaire
+sidebar:
+  exclude: true
 ---
 
 ## Admin Osuny

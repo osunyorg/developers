@@ -2,6 +2,7 @@
 title: "Questions diverses"
 description: >
   De petits sujets qui peuvent être problématiques
+weight: 100
 ---
 
 ## Ajouter le thème à un site Hugo existant

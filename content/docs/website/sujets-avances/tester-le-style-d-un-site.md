@@ -1,7 +1,8 @@
 ---
-title: "Questions diverses"
+title: "Tester le style d'un site"
 description: >
   De petits sujets qui peuvent être problématiques
+weight: 3
 ---
 
 ## Cloner le site "example" (branche ```site-style```)
