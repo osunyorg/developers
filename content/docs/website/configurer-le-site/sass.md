@@ -4,7 +4,22 @@ weight: 3
 ---
 
 Le thème `osuny-hugo-theme-aaa` inclus dans le dossier `/themes/osuny` est un thème Hugo, de nombreuses variables SASS sont définis dans celui-ci. Il est donc possible d'utiliser ces variables pour personnaliser le site de différentes manières.
-L'intégralité des variables SASS disponible à la modification ce trouve dans le fichier [assets/sass/\_theme/\_configuration.sass](https://github.com/osunyorg/theme/blob/main/assets/sass/_theme/_configuration.sass) du theme.
+L'intégralité des variables SASS disponible à la modification ce trouve dans les fichiers constituant le dossier [assets/sass/\_theme/configuration](https://github.com/osunyorg/theme/tree/main/assets/sass/_theme/configuration) du theme.
+
+| Nom du fichier | Impact |
+|----------------|--------|
+| animations     | toutes les animations du site (déplacement des flèches, couleurs au survol) |
+| blocks         | layouts et style par défaut des différents blocs |
+| colors         | toutes les couleurs de base du site (ex: `$color-accent`) |
+| components     | couleurs, tailles, espacements des composants du système (ex: `header`, `hero`, `footer`) |
+| icons          | liste de toutes les icônes du système <br>→ visibles sur [example.osuny.org](https://example.osuny.org/icones/) |
+| layouts        | style propre à certains layouts (ex: couleur de fond des pages en mode cartes) |
+| sections       | style spécifique aux sections Hugo (ex: `.jobs__section`), aux pages (`.jobs__page`) et à la home |
+| spacings       | configuration de la grille (gouttières) et des espacements du système |
+| typography     | taille, interlignage, police du système (ex: titres `hn`, meta, signatures...) <br>→ visible sur votre site en local à l'adresse `/typography` |
+| zindex         | gestion des niveaux de superposition des éléments |
+
+
 
 ## Couleurs
 
