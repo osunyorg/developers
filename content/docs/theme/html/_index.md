@@ -1,6 +1,8 @@
 ---
 title: HTML
 weight: 3
+aliases: 
+  - /docs/theme/html/classes
 ---
 
 {{< cards >}}

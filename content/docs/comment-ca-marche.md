@@ -1,5 +1,7 @@
 ---
 title: Comment ça marche ?
+aliases: 
+  - /docs/theme/enjeux/dx
 weight: 1
 ---
 

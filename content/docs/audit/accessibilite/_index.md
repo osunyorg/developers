@@ -1,5 +1,7 @@
 ---
 title: Accessibilité
+aliases: 
+  - /docs/theme/a11y
 weight: 2
 ---
 

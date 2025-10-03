@@ -1,5 +1,7 @@
 ---
 title: "Contribuer au thème"
+aliases: 
+  - /docs/theme/enjeux
 weight: 3
 ---
 
@@ -12,9 +14,11 @@ Contributions bienvenues !
 
 
 {{< cards >}}
-  {{< card link="enjeux" title="Le thème doit être..." subtitle="Tous les enjeux du thème Osuny" >}}
   {{< card link="hugo" title="Hugo" subtitle="Comment s'articulent Osuny et Hugo ?" >}}
   {{< card link="html" title="HTML" subtitle="Comment écrire le code HTML ?" >}}
   {{< card link="css" title="CSS" subtitle="Comment écrire le code SASS ?" >}}
   {{< card link="js" title="JavaScript" subtitle="Comment coder en JavaScript ?" >}}
+
+  {{< card link="architecture" title="Architecture" subtitle="" >}}
+  {{< card link="maintenance" title="Maintenance" subtitle="" >}}
 {{< /cards >}}

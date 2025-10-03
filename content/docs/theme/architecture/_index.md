@@ -1,6 +1,6 @@
 ---
 title: Architecture
-weight: 6
+weight: 7
 ---
 
 ## Atelier d'architecture

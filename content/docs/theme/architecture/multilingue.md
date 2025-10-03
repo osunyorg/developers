@@ -1,9 +1,10 @@
 ---
 title: Multilingue
+aliases: 
+  - /docs/theme/enjeux/i18n
+  - /docs/website/sujets-avances/gerer-le-multilingue
 weight: 2
 ---
-
-
 
 ## Les contenus
 
