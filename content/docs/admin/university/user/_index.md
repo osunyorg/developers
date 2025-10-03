@@ -11,6 +11,7 @@ https://[instance].osuny.org/admin/[langue]/profile
 ## GDPR
 
 Pour se conformer aux obligatuons légales les comptes utilisateurs non actifs sont supprimés automatiquement après une période d'inactivité de 3 ans. 
+
 1 mois avant la suppression automatique ils reçoivent un email pour les prévenir de la suppression à venir de leur compte et les inviter à revtourner se connecter. En cas d'inaction le compte est ensuite supprimé.
 
 ## Model
