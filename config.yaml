@@ -50,6 +50,11 @@ params:
   dateFormat: "2 January 2006"
 
 menu:
+  main:
+    - name: Search
+      weight: 1
+      params:
+        type: search
   sidebar:
     - identifier: more
       name: ""
