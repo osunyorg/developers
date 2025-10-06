@@ -18,21 +18,6 @@ markup:
   highlight:
     noClasses: false
 
-menu:
-  main:
-    - name: Documentation
-      pageRef: /docs
-      weight: 2
-    - name: Rechercher
-      weight: 6
-      params:
-        type: search
-    - name: GitHub
-      weight: 7
-      url: "https://github.com/noesya/osuny"
-      params:
-        icon: github
-
 params:
   navbar:
     displayTitle: false
@@ -51,10 +36,18 @@ params:
 
 menu:
   main:
-    - name: Search
-      weight: 1
+    - name: Documentation
+      pageRef: /docs
+      weight: 2
+    - name: Rechercher
+      weight: 6
       params:
         type: search
+    - name: GitHub
+      weight: 7
+      url: "https://github.com/noesya/osuny"
+      params:
+        icon: github
   sidebar:
     - identifier: more
       name: ""
