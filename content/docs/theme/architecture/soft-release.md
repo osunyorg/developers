@@ -18,4 +18,4 @@ On lance une commande bulk sur plusieurs sites et on obtient un rapport final su
 
 ## Solution proposée
 
-Sur une machine locale, on lance la commande avec une liste de site. Une fois le processus terminé on a un retour sur l'ensemble des diff des sites.
+Sur une machine locale, on lance la commande avec une liste de sites. Une fois le processus terminé on a un retour sur l'ensemble des différences des sites.
