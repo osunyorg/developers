@@ -66,7 +66,6 @@ menu:
       name: En cas de problème
       pageRef: /docs/troubleshooting/
       weight: 4
-
     - identifier: showcase
       name: Showcase ↗
       url: "https://showcase.osuny.org/"
