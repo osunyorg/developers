@@ -25,10 +25,10 @@ Pouvoir modifier simplement la taille d'une image en fonction de son type et sa 
 Un fichier bien rangé avec une configuration par défaut. 
 
 ```
+components:
+  lightbox: …
 image_sizes:
-  components:
-    lightbox: …
-  default:
+  _default:
     hero:
       single: …
       index: …
