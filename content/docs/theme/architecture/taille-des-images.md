@@ -58,7 +58,7 @@ image_sizes:
         tablet:   555
         desktop:  374
   jobs:
-    hero: 
+    hero: …
     layouts:
       alternate: …
 ```
