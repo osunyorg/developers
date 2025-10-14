@@ -86,7 +86,7 @@ Modification de la clé `design-system` pour `_default`.
 | `image_sizes.design_system.hero`                         | `image_sizes._default.hero`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 | `image_sizes.design_system.layouts`                         | `image_sizes._default.layouts`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 
-#### `section` et `layouts`
+#### `sections` et `layouts`
 
 Rangement des sections dans `section` et pas dans `blocks` et ajout de la clé `layouts` pour grouper les mises en forme.
 
