@@ -67,7 +67,6 @@ Un système de fallback pour utiliser la valeur par défaut : ça permet de nett
 
 
 ### Migration
-
 ## Ajout de la clé `components`
 
 Modification de la clé `design-system` pour `components`.
@@ -82,6 +81,7 @@ Modification de la clé `design-system` pour `components`.
 Modification de la clé `design-system` pour `_default`.
 
 | Ancienne clé                                                    | Nouvelle clé                                            | Type de changement | Commentaire / Action                                                          |
+| --------------------------------------------------------------- | ------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
 | `image_sizes.design_system.hero`                         | `image_sizes._default.hero`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 | `image_sizes.design_system.layouts`                         | `image_sizes._default.layouts`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 
@@ -90,6 +90,7 @@ Modification de la clé `design-system` pour `_default`.
 Rangement des sections dans `section` et pas dans `blocks` et ajout de la clé `layouts` pour grouper les mises en forme.
 
 | Ancienne clé                                                    | Nouvelle clé                                            | Type de changement | Commentaire / Action                                                          |
+| --------------------------------------------------------------- | ------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
 | `image_sizes.blocks.jobs.alternate`                      | `image_sizes.sections.jobs.layouts.alternate`      | move               | Les variantes de layout des blocks sont maintenant regroupées sous `layouts`. |
 | `image_sizes.blocks.jobs.grid`                           | `image_sizes.sections.jobs.layouts.grid`           | move               | Idem pour grid.                                                               |
 | `image_sizes.blocks.jobs.large`                          | `image_sizes.sections.jobs.layouts.large`          | move               | Idem pour large.                                                              |
@@ -103,6 +104,7 @@ Rangement des sections dans `section` et pas dans `blocks` et ajout de la clé `
 Création de la clé `children_in_agenda` pour la taille des images des événements enfants dans le layout agenda.
 
 | Ancienne clé                                                    | Nouvelle clé                                            | Type de changement | Commentaire / Action                                                          |
+| --------------------------------------------------------------- | ------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
 | `image_sizes.sections.events.parent`                     | `image_sizes.sections.events.layouts.parent`     | move               | La taille “parent” des events est maintenant dans layouts.                    |
 | `image_sizes.sections.events.agenda`                     | `image_sizes.sections.events.layouts.agenda`     | move               | Idem pour agenda.                                                             |
 | `image_sizes.sections.events.children_in_agenda`         | `image_sizes.sections.events.children_in_agenda` | new                | Nouvelle clé pour gérer la largeur des enfants dans l’agenda.                 |
@@ -110,6 +112,7 @@ Création de la clé `children_in_agenda` pour la taille des images des événem
 ## Legacy
 
 | Ancienne clé                                                    | Nouvelle clé                                            | Type de changement | Commentaire / Action                                                          |
+| --------------------------------------------------------------- | ------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
 | `image_sizes.blocks.organization_chart`                  | removed                                                 | remove             | Clé legacy supprimée.                                                         |
 | `image_sizes.blocks.partners`                            | removed                                                 | remove             | Clé legacy supprimée.                                                         |
 
