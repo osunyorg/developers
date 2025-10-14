@@ -57,10 +57,8 @@ image_sizes:
         mobile:   360
         tablet:   555
         desktop:  374
-  projects:
+  jobs:
     hero: 
-      single: …
-      index: …
     layouts:
       alternate: …
 ```
