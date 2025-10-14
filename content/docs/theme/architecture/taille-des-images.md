@@ -67,7 +67,8 @@ Un système de fallback pour utiliser la valeur par défaut : ça permet de nett
 
 
 ### Migration
-## Ajout de la clé `components`
+
+#### Ajout de la clé `components`
 
 Modification de la clé `design-system` pour `components`.
 
@@ -76,7 +77,7 @@ Modification de la clé `design-system` pour `components`.
 | `image_sizes.design_system.lightbox.disabled`            | `components.lightbox.disabled`                   | move               | La configuration du lightbox a été déplacée dans `components`.                |
 | `image_sizes.design_system.lightbox.in_gallery.disabled` | `components.lightbox.in_gallery.disabled`        | move               | Déplacement pour cohérence avec `components`.                                 |
 
-## Ajout de la clé `_default`
+#### Ajout de la clé `_default`
 
 Modification de la clé `design-system` pour `_default`.
 
@@ -85,7 +86,7 @@ Modification de la clé `design-system` pour `_default`.
 | `image_sizes.design_system.hero`                         | `image_sizes._default.hero`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 | `image_sizes.design_system.layouts`                         | `image_sizes._default.layouts`                      | move               | Déplacement dans `_default` pour uniformiser les tailles par défaut.          |
 
-## `section` et `layouts`
+#### `section` et `layouts`
 
 Rangement des sections dans `section` et pas dans `blocks` et ajout de la clé `layouts` pour grouper les mises en forme.
 
@@ -99,7 +100,7 @@ Rangement des sections dans `section` et pas dans `blocks` et ajout de la clé `
 | `image_sizes.sections.*.list`                            | `image_sizes.sections.*.layouts.list`            | move               | Même logique que pour `large`.                                                |
 
 
-## Cas particulier de l'agenda
+#### Cas particulier de l'agenda
 
 Création de la clé `children_in_agenda` pour la taille des images des événements enfants dans le layout agenda.
 
@@ -109,7 +110,7 @@ Création de la clé `children_in_agenda` pour la taille des images des événem
 | `image_sizes.sections.events.agenda`                     | `image_sizes.sections.events.layouts.agenda`     | move               | Idem pour agenda.                                                             |
 | `image_sizes.sections.events.children_in_agenda`         | `image_sizes.sections.events.children_in_agenda` | new                | Nouvelle clé pour gérer la largeur des enfants dans l’agenda.                 |
 
-## Legacy
+#### Legacy
 
 | Ancienne clé                                                    | Nouvelle clé                                            | Type de changement | Commentaire / Action                                                          |
 | --------------------------------------------------------------- | ------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
