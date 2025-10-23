@@ -47,3 +47,20 @@ Voici un exemple pour utiliser la Times New Roman pour la titraille et la Helvet
 $heading-font-family: "Times New Roman", serif
 $body-font-family: "Helvetica Neue", sans-serif
 ```
+
+## Correspondance des graisses
+
+Nous recommandons d'utiliser les valeurs numériques pour définir les graisses en suivant les [spécifications OpenType](https://learn.microsoft.com/fr-fr/typography/opentype/spec/os2#usweightclass)
+
+| Valeur | Nom communément utilisé   |
+|--------|---------------------------|
+| 100    | Thin (Hairline)           |
+| 200    | Extra Light (Ultra Light) |
+| 300    | Light                     |
+| 400    | Normal                    |
+| 500    | Medium                    |
+| 600    | Semi Bold (Demi Bold)     |
+| 700    | Bold                      |
+| 800    | Extra Bold (Ultra Bold)   |
+| 900    | Black (Heavy)             |
+| 950    | Extra Black (Ultra Black) |
