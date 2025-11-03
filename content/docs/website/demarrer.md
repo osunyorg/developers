@@ -15,6 +15,8 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 
 ## Installer Hugo
 
+> ⚠ Le thème supporte actuellement la version 0.145 de hugo. Voir [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
+
 {{< tabs items="MAC,PC" >}}
   {{< tab >}}
     Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
