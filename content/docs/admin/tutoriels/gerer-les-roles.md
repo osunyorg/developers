@@ -2,30 +2,35 @@
 title: Gérer les rôles
 ---
 
-## Administrateurice
+## Visiteur·euse
 
-Peut tout faire.
+Aucun droit (en attente de « promotion » du compte par un ou une admin, don de droits). 
 
-## Responsable de site Web
+## Contributeur·ice
 
-Peut tout faire sur les sites choisis.
+Écriture, modification des actualités, posts, événements de l’agenda, expositions de l’agenda, jobs du jobboard, projets du portfolio, ajout de personnes et organisations. Pas de droit de publication, nécessite une validation par un·e responsable site web ou un·e admin.
+
+## Auteur·e
+
+Écriture, modification des actualités, posts, événements de l’agenda, expositions de l’agenda, jobs du jobboard, projets du portfolio, ajout de personnes et organisations. Ne peut éditer que ses propres objets.
+
+## Enseignant·e
+
+Dans le cadre d’une école, gérer ses participations aux différents programmes.
 
 ## Responsable de formation
 
-Peut gérer les formations choisies.
+Gérer tous les objets liés au site web (post, jobs events, expositions, personnes), gérer les programmes liés à son domaine, connecter les personnes à son programme de responsabilité. Pas de droit sur les organisations.
 
-## Enseignant
 
-?
+## Responsable de site web
 
-## Auteurice
+Écriture, modification des pages et des actualités, accès au tableau de bord complet du ou des sites webs dont il est responsable. Accès à des objets indirects : organisations, catégories d’organisations, personnes, catégories de personnes, expériences, implications. Gestion des médias (média library).
 
-Peut écrire et publier ses propres articles, et uniquement sur les sites choisis.
+## Administrateur·ice
 
-## Contributeurice
+Écriture, accès complet aux sites web et extranet de son instance Osuny. 
 
-Peut écrire des articles mais pas les publier, et uniquement sur les sites choisis.
+## Administrateur·ice du serveur
 
-## Visiteur
-
-Ne peut rien faire, rien voir.
+Écriture, accès complet aux sites web et extranet de son instance Osuny. Administration du serveur Osuny, création et gestion des différentes instances d’université.
