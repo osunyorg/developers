@@ -11,10 +11,11 @@ Vous pouvez configurer ces options pour chaque type de contenu (`posts`, `events
 
 Les pages d'index ont des sélecteurs de catégories triées par taxonomies.
 
-![index-with-categories-dropdown](image.png)
+![Sélecteurs sur l'index](image.png)
 
 Il est possible de conserver ces sélecteurs sur les pages des catégories.
 
+![Sélecteurs dans la page d'une catégorie](term-with-categories-dropdown.png)
 
 #### Options par défaut
 
@@ -36,7 +37,6 @@ Par exemple pour afficher ou masquer les taxonomies sur la single d'une `person`
 params:
   persons:
     categories:
-      single:
-        taxonomies:
-          display: true
+      taxonomies:
+        display: true
 ```
