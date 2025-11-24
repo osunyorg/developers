@@ -26,12 +26,12 @@ params:
   categories:
     single:
       taxonomies:
-        display: true
+        display: false
 ```
 
-Par exemple pour afficher ou masquer les taxonomies sur la single d'une `person`.
+Par exemple pour afficher les sélecteurs de catégories uniquement sur les catégories de personnes (`person`).
 
-#### Masqué :
+#### Configuration :
 
 ```yml
 params:
