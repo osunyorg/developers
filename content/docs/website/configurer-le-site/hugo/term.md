@@ -11,11 +11,11 @@ Vous pouvez configurer ces options pour chaque type de contenu (`posts`, `events
 
 Les pages d'index ont des sélecteurs de catégories triées par taxonomies.
 
-![Sélecteurs sur l'index](image.png)
+![Sélecteurs sur l'index](index-with-categories-dropdown.png)
 
 Il est possible de conserver ces sélecteurs sur les pages des catégories.
 
-![Sélecteurs dans la page d'une catégorie](term-with-categories-dropdown.png)
+![Sélecteurs dans la page d'une catégorie](term-categories-dropdown.png)
 
 #### Options par défaut
 
