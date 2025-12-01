@@ -7,7 +7,9 @@ weight: 10
 
 ### Configuration de la taille des images
 
-Rangement et homogénéisation des configurations de la taille des images : https://developers.osuny.org/docs/theme/architecture/taille-des-images/
+Rangement et homogénéisation des configurations de la taille des images.
+
+[En savoir plus](/docs/theme/architecture/taille-des-images/)
 
 ### Balisage `<ul>` et `<ol>` pour toutes les listes
 
@@ -76,13 +78,64 @@ layout-list
 layout-grid
 ```
 
-https://developers.osuny.org/docs/theme/css/mise-en-page/
+[En savoir plus](/docs/theme/css/mise-en-page/)
 
 ### Fédération des actualités
 
+Support de la fédération des actualités.
 
 ### Lazy loading d'image dans un bouton
 
 Correction du chargement progressif des images dans les boutons d'ouverture de lightbox.
+
+[En savoir plus](/docs/audit/accessibilite/audit-site/sujets-avances/#2-une-img-dans-un-button)
+
+### Bloc formation
+
+Meilleur affichage des informations
+
+
+### Options d'affichage des filtres de catégories
+
+Option pour afficher les filtres de catégories sur toutes les pages de catégories.
+
+```
+params:
+  categories:
+    single:
+      taxonomies:
+        display: false
+```
+
+### Gestion des catégories profondes
+
+Gestion des arbres des catégories dans les filtres.
+
+![alt text](image-5.png)
+
+### Gestion de la qualité des images pour les écrans ayant un ratio de pixel > 1
+
+Une option pour sélectionner le niveau de compression est ajouté :
+
+```
+params:
+  keycdn:
+    quality:
+      default: 80
+      high_ratio: 50
+```
+
+### Homogénéisation du séparateurs des meta
+
+Seul le point médian `•` est désormais utilisé pour afficher une suite de meta.
+
+### Factorisation des blocs de liste
+
+L'homogénéisation des mise en forme des blocs de liste est accompagnée d'une factorisation du html et du css.
+
+
+### Correction des données du bloc chapitre
+
+Homogénéisation des données de l'image du bloc chapitre `alt` et `credit`.
 
 
