@@ -3,7 +3,7 @@ title: "v8"
 weight: 10
 ---
 
-## Liste des modifications
+## Liste des modifications majeures
 
 ### Configuration de la taille des images
 
