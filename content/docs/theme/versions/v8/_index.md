@@ -139,3 +139,20 @@ L'homogénéisation des mise en forme des blocs de liste est accompagnée d'une 
 Homogénéisation des données de l'image du bloc chapitre `alt` et `credit`.
 
 
+### Gestion des sous-titre dans les catégories
+
+Support des données des catégories : 
+
+```
+subtitle: >-
+  Sous-titre
+header_text: >-
+  Titre haut de page
+header_cta:
+  label: >-
+    Bouton
+  target: "url du bouton"
+  external: true
+shared_image:
+  id: "fb13e704-ad5c-45f8-8d83-c46c76136a99"
+```
