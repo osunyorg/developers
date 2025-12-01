@@ -56,3 +56,33 @@ Cela permet de modifier le comportement en fonction de l'éléments suivant :
   margin-top: var(--grid-gutter)
 ```
 
+### Contenus liés à une formation
+
+Ajout des expositions
+
+
+### Factorisation CSS des mises en forme
+
+Application des mixins
+
+```
+# Mixins
+
+layout-alternate
+layout-cards
+layout-carousel
+layout-large
+layout-list
+layout-grid
+```
+
+https://developers.osuny.org/docs/theme/css/mise-en-page/
+
+### Fédération des actualités
+
+
+### Lazy loading d'image dans un bouton
+
+Correction du chargement progressif des images dans les boutons d'ouverture de lightbox.
+
+
