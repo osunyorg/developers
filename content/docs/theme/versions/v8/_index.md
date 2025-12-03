@@ -156,3 +156,14 @@ header_cta:
 shared_image:
   id: "fb13e704-ad5c-45f8-8d83-c46c76136a99"
 ```
+
+### Suppression des doublons dans les actualités
+
+
+Cela répare l'apparition d'actualités dupliquées lorsqu'elles sont catégorisées dans une catégorie et une catégorie fille de cette même catégorie : 
+
+```
+posts_categories:
+  - "litterature"
+  - "litterature/science-fiction"
+```
