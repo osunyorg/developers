@@ -58,6 +58,8 @@ Cela permet de modifier le comportement en fonction de l'éléments suivant :
   margin-top: var(--grid-gutter)
 ```
 
+De même, les espacements verticaux à l'intérieur des items de liste ont été harmonisés.
+
 ### Contenus liés à une formation
 
 Ajout des expositions
