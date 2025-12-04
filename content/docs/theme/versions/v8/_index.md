@@ -33,9 +33,9 @@ https://github.com/osunyorg/theme/issues/1015
 
 ### Harmonisation des meta dans les blocs de liste
 
-L'ordre d'affichage des catégories dans une liste est désormais toujours le même.
+#### Ordre des éléments
 
-Les catégories se trouvent sous le résumé pour toutes les natures éditoriales.
+L'ordre d'affichage des catégories dans une liste est désormais toujours le même : les catégories se trouvent sous le résumé pour toutes les natures éditoriales.
 
 {{< cards >}}
   {{< card link="/" title="Actualité" image="image-1.png" >}}
@@ -46,6 +46,12 @@ Les catégories se trouvent sous le résumé pour toutes les natures éditoriale
 {{< /cards >}}
 
 https://github.com/osunyorg/theme/pull/1184
+
+#### Homogénéisation du séparateurs des meta
+
+Seul le point médian `•` est désormais utilisé pour afficher une suite de meta.
+
+![](/docs/theme/versions/v8/image-6.png)
 
 ### Espacement verticaux
 
@@ -64,8 +70,21 @@ De même, les espacements verticaux à l'intérieur des items de liste ont été
 
 Ajout des expositions
 
+### Amélioration des blocs
 
-### Factorisation CSS des mises en forme
+#### Fédération des actualités
+
+Support de la fédération des actualités.
+
+#### Bloc formation
+
+Meilleur affichage des informations
+
+#### Factorisation des blocs de liste
+
+L'homogénéisation des mise en forme des blocs de liste est accompagnée d'une factorisation du html et du css.
+
+##### Factorisation CSS des mises en forme
 
 Application des mixins
 
@@ -80,11 +99,12 @@ layout-list
 layout-grid
 ```
 
-[En savoir plus](/docs/theme/css/mise-en-page/)
+> [!NOTE]
+> Pour en savoir plus : [mise en page](/docs/theme/css/mise-en-page/)
 
-### Fédération des actualités
+#### Correction des données du bloc chapitre
 
-Support de la fédération des actualités.
+Homogénéisation des données de l'image du bloc chapitre `alt` et `credit`.
 
 ### Lazy loading d'image dans un bouton
 
@@ -92,12 +112,9 @@ Correction du chargement progressif des images dans les boutons d'ouverture de l
 
 [En savoir plus](/docs/audit/accessibilite/audit-site/sujets-avances/#2-une-img-dans-un-button)
 
-### Bloc formation
+### Amélioration des catégories
 
-Meilleur affichage des informations
-
-
-### Options d'affichage des filtres de catégories
+#### Options d'affichage des filtres de catégories
 
 Option pour afficher les filtres de catégories sur toutes les pages de catégories.
 
@@ -109,7 +126,7 @@ params:
         display: false
 ```
 
-### Gestion des catégories profondes
+#### Gestion des catégories profondes
 
 Gestion des arbres des catégories dans les filtres.
 
@@ -127,23 +144,9 @@ params:
       high_ratio: 50
 ```
 
-### Homogénéisation du séparateurs des meta
-
-Seul le point médian `•` est désormais utilisé pour afficher une suite de meta.
-
-### Factorisation des blocs de liste
-
-L'homogénéisation des mise en forme des blocs de liste est accompagnée d'une factorisation du html et du css.
-
-
-### Correction des données du bloc chapitre
-
-Homogénéisation des données de l'image du bloc chapitre `alt` et `credit`.
-
-
 ### Gestion des sous-titre dans les catégories
 
-Support des données des catégories : 
+Support des données des catégories, sur le modèle des pages (titre, sous-titre, bouton, image de partage) : 
 
 ```
 subtitle: >-
@@ -163,7 +166,6 @@ shared_image:
 > Cette fonctionnalité n'est pas encore disponible dans le back-office.
 
 ### Suppression des doublons dans les actualités
-
 
 Cela répare l'apparition d'actualités dupliquées lorsqu'elles sont catégorisées dans une catégorie et une catégorie fille de cette même catégorie : 
 
