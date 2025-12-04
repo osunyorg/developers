@@ -157,6 +157,9 @@ shared_image:
   id: "fb13e704-ad5c-45f8-8d83-c46c76136a99"
 ```
 
+> [!NOTE]
+> Cette fonctionnalité n'est pas encore disponible dans le back-office.
+
 ### Suppression des doublons dans les actualités
 
 
