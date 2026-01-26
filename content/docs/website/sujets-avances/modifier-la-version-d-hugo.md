@@ -1,23 +1,24 @@
 ---
 title: Modifier la version de Hugo.io
 weight: 1
+date: 2026-01-26
 ---
 
 ## Installer une version spécifique (>= 0.153.0) en .pkg 
 
 Aller dans la liste des versions d’Hugo : https://github.com/gohugoio/hugo/releases
 
-Aller sur la version choisie : https://github.com/gohugoio/hugo/releases/tag/v0.153.0
+Aller sur la version choisie : https://github.com/gohugoio/hugo/releases/tag/v0.154.5
 
-Dans la liste des assets, télécharger celle contenant “darwin” et toutes les options (extended et withdeploy) : https://github.com/gohugoio/hugo/releases/download/v0.153.0/hugo_extended_withdeploy_0.153.0_darwin-universal.tar.gz
+Dans la liste des assets, télécharger celle contenant “darwin” et toutes les options (extended et withdeploy) : hugo_extended_withdeploy_0.154.5_darwin-universal.pkg
 
 Dans un Terminal, aller dans le dossier du téléchargement, puis décompresser le pkg avec la commande suivante
 
-`pkgutil --expand-full hugo_0.153.0_darwin-universal.pkg hugo_0.153.0`
+`pkgutil --expand-full hugo_0.154.5_darwin-universal.pkg hugo_0.154.5`
 
 Ouvrir le Finder dans le dossier contenant le bin avec la commande suivante
 
-`open hugo_0.153.0/Payload`
+`open hugo_0.154.5/Payload`
 
 Ouvrez une autre fenêtre de Finder, faire `Cmd+Shift+G`, et aller dans `/opt`.
 
