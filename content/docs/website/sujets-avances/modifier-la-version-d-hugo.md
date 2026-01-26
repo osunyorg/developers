@@ -3,7 +3,41 @@ title: Modifier la version de Hugo.io
 weight: 1
 ---
 
-## Installer une version spécifique (ex: 0.145.0)
+## Installer une version spécifique (>= 0.153.0) en .pkg 
+
+Aller dans la liste des versions d’Hugo : https://github.com/gohugoio/hugo/releases
+
+Aller sur la version choisie : https://github.com/gohugoio/hugo/releases/tag/v0.153.0
+
+Dans la liste des assets, télécharger celle contenant “darwin” et toutes les options (extended et withdeploy) : https://github.com/gohugoio/hugo/releases/download/v0.153.0/hugo_extended_withdeploy_0.153.0_darwin-universal.tar.gz
+
+Dans un Terminal, aller dans le dossier du téléchargement, puis décompresser le pkg avec la commande suivante
+
+`pkgutil --expand-full hugo_0.153.0_darwin-universal.pkg hugo_0.153.0`
+
+Ouvrir le Finder dans le dossier contenant le bin avec la commande suivante
+
+`open hugo_0.153.0/Payload`
+
+Ouvrez une autre fenêtre de Finder, faire `Cmd+Shift+G`, et aller dans `/opt`.
+
+Si inexistant, créer un dossier hugo, puis à l’intérieur, un dossier `bin`
+
+Déplacer l’exécutable hugo du dossier Payload vers ce dossier `bin`
+
+Si c’est la première fois qu’on installe une version spécifique, éditer le fichier `.zshrc` pour mettre l’exécutable dans le `PATH`.
+
+On édite avec la commande `nano ~/.zshrc`
+
+Descendre tout en bas du fichier et ajouter
+
+export `PATH=/opt/hugo/bin:$PATH`
+
+Sauvegarder le fichier et quitter avec `Ctrl+O`, `Entrée`, `Ctrl+X`
+
+Relancer un Terminal et vérifier l’installation avec `hugo version`
+
+## Installer une version spécifique (< 0.153.0)
 
 Aller dans la liste des versions d’Hugo : https://github.com/gohugoio/hugo/releases
 
