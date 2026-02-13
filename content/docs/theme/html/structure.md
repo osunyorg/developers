@@ -8,7 +8,7 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 ## Style
 
 - Indentation = 2 espaces
-- utilisation du tiret `{{- -}}` lorsque l'on veut supprimer des espaces entres des éléments d'inline. Le HTML étant minifié il n'est pas nécessaire d'en mettre partout.
+- utilisation du tiret `{{- -}}` lorsque l'on veut supprimer des espaces entres des éléments d'inline qui causeraient des espaces visuels. Le HTML étant minifié il n'est pas nécessaire d'en mettre partout.
 
 ```
 {{ if something }}
