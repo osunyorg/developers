@@ -80,34 +80,4 @@ Si votre ficher _style.sass dépasse les 200 lignes, séparez les trois fichiers
 
 ## Architecture complète
 
-Si en mode architecture avancée les fichiers sont trop longs (+ 200 lignes).
-
-{{< filetree/container >}}
-  {{< filetree/folder name="assets" >}}
-    {{< filetree/folder name="sass" state="open" >}}
-      {{< filetree/file name="_configuration.sass" >}}
-      {{< filetree/file name="_fonts.sass" >}}
-      {{< filetree/file name="_blocks.sass" >}}
-      {{< filetree/file name="_design-system.sass" >}}
-      {{< filetree/file name="_sections.sass" >}}
-      {{< filetree/file name="main.sass" >}}
-    {{< /filetree/folder >}}
-  {{< /filetree/folder >}}
-{{< /filetree/container >}}
-
-`_design-system.sass` : Premier niveau, concerne les éléments du design system.
-
-`_blocks.sass` : Second niveau, concerne les blocs.
-
-`_sections.sass` : Troisième niveau, concerne les spécificités liés aux différentes sections (types de contenu).
-
-```sass {filename="assets/sass/main.sass"}
-@import "_theme/utils"
-@import "_fonts"
-@import "_configuration"
-@import "_theme/hugo-osuny"
-@import "_utils"
-@import "_design-system"
-@import "_blocks"
-@import "_sections"
-```
+Si en mode architecture avancée les fichiers sont trop longs (+ 200 lignes), il faut faire les dossiers et les fichiers par éléments du systèmes, sections, et blocs.
