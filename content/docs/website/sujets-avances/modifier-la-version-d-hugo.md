@@ -1,9 +1,27 @@
 ---
-title: Modifier la version de Hugo.io
+title: Modifier la version de Hugo
 weight: 1
 ---
 
-## Installer une version spécifique (ex: 0.145.0)
+## Sur Mac
+
+### Avec Homebrew
+
+1. Aller chercher le commit sur [Github](https://github.com/search?q=repo%3AHomebrew%2Fhomebrew-core+hugo&type=commits)
+2. Chercher la bonne version (ex: [hugo : update 0.95.0 bottle](https://github.com/Homebrew/homebrew-core/commit/c27b162abd2f40785678da93924b47660bf98f5a))
+3. Dans le menu `...`, choisir `View file`
+4. Cliquer le bouton `Raw`
+5. Télécharger le fichier (n'importe où)
+6. Lancer `HOMEBREW_DEVELOPER=true brew install hugo.rb` (dans le même répertoire)
+
+Versions intéressantes
+- [Hugo 0.154.5](https://raw.githubusercontent.com/Homebrew/homebrew-core/7a8acec609d49396c95c76e7b294fa85f0bb1318/Formula/h/hugo.rb)
+
+Sources : 
+- [Switching Hugo versions](https://discourse.gohugo.io/t/switching-hugo-versions/38251/2)
+- [How to downgrade hugo to a previous version?](https://discourse.gohugo.io/t/how-to-downgrade-hugo-to-a-previous-version/40388/5)
+
+### Sans outil
 
 Aller dans la liste des versions d’Hugo : https://github.com/gohugoio/hugo/releases
 
