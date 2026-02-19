@@ -43,7 +43,7 @@ Si votre style n'excède pas les 200 lignes, vous pouvez adopter une version sim
 ```
 
 
-## Architecture complète
+## Architecture avancée
 
 Si votre ficher _style.sass dépasse les 200 lignes, séparez les trois fichiers reprenant l'architecture du thème.
 
@@ -76,3 +76,8 @@ Si votre ficher _style.sass dépasse les 200 lignes, séparez les trois fichiers
 @import "_blocks"
 @import "_sections"
 ```
+
+
+## Architecture complète
+
+Si en mode architecture avancée les fichiers sont trop longs (+ 200 lignes), il faut faire les dossiers et les fichiers par éléments du systèmes, sections, et blocs.
