@@ -57,7 +57,7 @@ Le déploiement d'une version majeure n'est pas autorisée le vendredi : les sit
 
 ### Vérifier les versions des sites
 
-Via l'interface en admin, s'assurer des bonnes compilations et versions des sites.
+Via l'interface en server admin, s'assurer des bonnes compilations et versions des sites.
 
 Les sites qui bénéficient d'une maintenance facturée doivent être vérifiés en premier.
 
