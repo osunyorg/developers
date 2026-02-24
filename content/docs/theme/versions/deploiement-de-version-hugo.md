@@ -18,10 +18,7 @@ Lorsque les statics sont modifiés, il faut tester :
 
 - Utiliser le [CLI](https://github.com/osunyorg/cli) pour tester la compilation avec les commandes de `osuny test` et `osuny test-factory`
 - Utiliser le [CLI](https://github.com/osunyorg/cli) pour tester les regressions visuelles avec `osuny backstop` et `osuny backstop-factory`
-
-### Vérifier les overrides
-
-Rechercher que les sites qui ont des overrides soient toujours compatibles. Si besoin il faut prévoir une soft-release de ces sites.
+- Vérifier les overrides : Rechercher que les sites qui ont des overrides soient toujours compatibles. Si besoin il faut prévoir une soft-release de ces sites.
 
 ### Tests des hébergeurs
 
