@@ -18,9 +18,9 @@ aliases:
 
 À partir de 0.155, Hugo génére les alias absolus non pas à partir de la racine du site, mais à partir du site dans un contexte de langue.
 
-Exemple : pour la page située dans `content/fr/pages/a-propos/index.html`, imaginons un alias `/nous/`
+Exemple : pour la page située dans `content/fr/pages/a-propos/index.html`, imaginons un alias `/nous/`.
 
-A côté de ça, il peut gérer les urls relatifs à l'emplacement du fichier
+A côté de ça, il peut gérer les urls relatifs à l'emplacement du fichier.
 
 | Path type | File path | Alias | Server-relative path |
 | :--- | :--- | :--- | :--- |
@@ -53,7 +53,6 @@ Pour un site est multilingue :
 Comme hugo considère la racine "/" de l'alias comme le contexte de langue, il faut remonter l'alias d'un niveau pour être à la racine du site : 
 
 `/ancien/chemin/` deviens alors `/../ancien/chemin/`
-
 
 ## Cas à tester
 
