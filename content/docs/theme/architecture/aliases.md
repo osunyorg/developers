@@ -71,11 +71,11 @@ On veut rediriger :
 
 Piste : 
 
-`
+```
 url: "/fr/a-propos/"
 aliases:
   - /../nous/
-`
+```
 
 #### 2. Alias dans la même langue
 
@@ -85,11 +85,11 @@ On veut rediriger :
 
 Piste : 
 
-`
+```
 url: "/fr/a-propos/"
 aliases:
   - /../fr/nous/
-`
+```
 
 
 #### 3. Alias d'une langue à une autre langue
@@ -102,9 +102,9 @@ On veut rediriger :
 
 Piste : 
 
-`
+```
 url: "/fr/a-propos/"
 aliases:
   - /../en/us/
-`
+```
 
