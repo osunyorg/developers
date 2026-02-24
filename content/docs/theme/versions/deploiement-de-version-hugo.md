@@ -1,5 +1,5 @@
 ---
-title: "Nouvelle version d'hugo.io"
+title: "Nouvelle version d'hugo"
 weight: 10
 ---
 
