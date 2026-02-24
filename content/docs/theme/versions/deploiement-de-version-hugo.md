@@ -1,5 +1,5 @@
 ---
-title: "Nouvelle version d'hugo"
+title: "Nouvelle version d'Hugo"
 weight: 10
 ---
 
@@ -24,7 +24,7 @@ Lorsque les statics sont modifiés, il faut tester :
 
 #### Deuxfleurs
 
-Modifier la github action pour changer la version d'hugo et tester sur un site hébergé chez deuxfleurs. D'abord en staging puis en production sur le [site d'example](https://github.com/osunyorg/example).
+Modifier la github action pour changer la version d'Hugo et tester sur un site hébergé chez deuxfleurs. D'abord en staging puis en production sur le [site d'example](https://github.com/osunyorg/example).
 
 #### Netlify
 
@@ -32,7 +32,7 @@ Tester le [site d'example](https://github.com/osunyorg/example) sur netlify avec
 
 #### Autres hébergeurs
 
-Réaliser le test de monter en version d'hugo sur des sites hébergés sur : 
+Réaliser le test de monter en version d'Hugo sur des sites hébergés sur : 
 
 - OVH
 - Hébergement de Rennes
@@ -51,7 +51,7 @@ Le déploiement d'une version majeure n'est pas autorisée le vendredi : les sit
 
 - Alerter sur le déploiement de la nouvelle version
 - Expliquer la monter en version et ses impacts
-- Rappeler qu'il faut changer la version d'hugo locale sur leur machine
+- Rappeler qu'il faut changer la version d'Hugo locale sur leur machine
 
 ## Après la release
 
