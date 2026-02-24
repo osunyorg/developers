@@ -1,5 +1,6 @@
 ---
 title: Soft release
+weight: 5
 ---
 
 ## Problématique

@@ -1,6 +1,6 @@
 ---
 title: "v8"
-weight: 10
+weight: 20
 ---
 
 ## Liste des modifications majeures

@@ -2,7 +2,7 @@
 title: Mise à jour et versionning
 aliases: 
   - /docs/theme/enjeux/maintenable
-weight: 6
+weight: 1
 ---
 
 ## Processus de mise à jour
