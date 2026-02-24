@@ -56,3 +56,10 @@ Le déploiement d'une version majeure n'est pas autorisée le vendredi : les sit
 - Expliquer la monter en version et ses impacts
 - Rappeler qu'il faut changer la version d'hugo locale sur leur machine
 
+## Après la release
+
+### Vérifier les versions des sites
+
+Via l'interface en admin, s'assurer des bonnes compilations et versions des sites.
+
+Les sites qui bénéficient d'une maintenance facturée doivent être vérifiés en premier.
