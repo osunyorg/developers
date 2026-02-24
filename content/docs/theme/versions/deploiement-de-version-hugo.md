@@ -63,3 +63,7 @@ Le déploiement d'une version majeure n'est pas autorisée le vendredi : les sit
 Via l'interface en admin, s'assurer des bonnes compilations et versions des sites.
 
 Les sites qui bénéficient d'une maintenance facturée doivent être vérifiés en premier.
+
+### Informer
+
+Informer les usagers que le déploiement est terminé.
