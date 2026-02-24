@@ -5,7 +5,7 @@ weight: 10
 
 ## Étapes
 
-### Staging
+### Utiliser la staging
 
 Utiliser la version staging d'Osuny s'il y a des modifications des statics (`content` et `data`) et/ou de la structure des fichiers.
 
@@ -14,13 +14,13 @@ Lorsque les statics sont modifiés, il faut tester :
 - La présence ou absence de clé
 - Vérifier les fichiers statics orphelins. Faire attention à ne pas supprimer des orphelins nécessaires : une page spécifique non connectée à Osuny, comme dans [le jeu Alice par exemple](https://github.com/osunyorg/alice/blob/main/content/fr/jouer.html)
 
-### Tests en local
+### Tester en local
 
 - Utiliser le [CLI](https://github.com/osunyorg/cli) pour tester la compilation avec les commandes de `osuny test` et `osuny test-factory`
 - Utiliser le [CLI](https://github.com/osunyorg/cli) pour tester les regressions visuelles avec `osuny backstop` et `osuny backstop-factory`
 - Vérifier les overrides : Rechercher que les sites qui ont des overrides soient toujours compatibles. Si besoin il faut prévoir une soft-release de ces sites.
 
-### Tests des hébergeurs
+### Tester l'hébergement
 
 #### Deuxfleurs
 
