@@ -23,7 +23,16 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 ```
 
 
-### Partiels 
+### Nommage et appels des partiels
+
+
+#### Partiels normaux
+
+Les partiels normaux sont ceux qui génèrent du html.
+
+Les noms des fichiers s'écrivent en lowercase et tiret (hyphen `-`) avec l'extension `.html`.
+
+Par exemple : `image-figure.html`.
 
 Appel d'un partiel avec un seul paramètre :
 
@@ -40,6 +49,19 @@ Appel d'un partiel avec plusieurs paramètre en utilisant `dict` :
 ) }}
 ```
 
+#### Partiels helpers
+
+Les helpers sont les partiels qui renvoient une valeur. Ils incluent systèmatiquement un `{{ return }}`.
+
+Les noms des fichiers helpers s'écrivent en CamelCase avec l'extension `.html`.
+
+{{< callout type="warning" >}}
+L'appel d'un partiel helper s'écrie sans l'extension `.html` 
+{{< /callout >}}
+
+```
+{{ $transcription := partial "PrepareHTML" .transcription }}
+```
 
 ## Précision sémantique
 
