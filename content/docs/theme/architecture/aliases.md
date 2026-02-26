@@ -107,3 +107,7 @@ aliases:
   - /../en/us/
 ```
 
+### Discussion sur le forum Hugo
+
+[Échanges sur le forum hugo](https://discourse.gohugo.io/t/help-with-server-relative-aliases/56758/2)
+
