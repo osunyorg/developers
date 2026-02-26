@@ -32,7 +32,7 @@ Tester le [site d'example](https://github.com/osunyorg/example) sur netlify avec
 
 #### Autres hébergeurs
 
-Réaliser le test de monter en version d'Hugo sur des sites hébergés sur : 
+Réaliser le test de montée en version d'Hugo sur des sites hébergés sur : 
 
 - OVH
 - Hébergement de Rennes
@@ -50,7 +50,7 @@ Le déploiement d'une version majeure n'est pas autorisée le vendredi : les sit
 #### Prévenir les développeuses et développeurs
 
 - Alerter sur le déploiement de la nouvelle version
-- Expliquer la monter en version et ses impacts
+- Expliquer la montée en version et ses impacts
 - Rappeler qu'il faut changer la version d'Hugo locale sur leur machine
 
 ## Après la release
