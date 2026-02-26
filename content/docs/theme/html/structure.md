@@ -41,7 +41,7 @@ Par exemple : `image-figure.html`.
 Appel d'un partiel avec un seul paramètre :
 
 ```
-{{ partial "programs/single/image.html" .Params.image }}
+{{ partial "jobs/single/image.html" .Params.image }}
 ```
 
 Appel d'un partiel avec plusieurs paramètre en utilisant `dict` :
@@ -86,8 +86,8 @@ L'appel d'un partiel helper s'écrie sans l'extension `.html`
 ## Un dossier pour chaque objet
 
 {{< filetree/container >}}
-  {{< filetree/folder name="layouts/partials" >}}
-    {{< filetree/folder name="programs" state="open" >}}
+  {{< filetree/folder name="layouts/_partials" >}}
+    {{< filetree/folder name="jobs" state="open" >}}
       {{< filetree/folder name="partials" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="section" state="closed" >}}{{< /filetree/folder >}}
       {{< filetree/folder name="single" state="closed" >}}{{< /filetree/folder >}}
@@ -98,7 +98,7 @@ L'appel d'un partiel helper s'écrie sans l'extension `.html`
 {{< /filetree/container >}}
 
 {{< callout type="info" >}}
-  Tous les fichiers pour représenter les programmes sont dans le dossier `layouts/partials/programs`
+  Tous les fichiers pour représenter les jobmes sont dans le dossier `layouts/_partials/jobs`
 {{< /callout >}}
 
 Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 3 façons : dans une section, dans un bloc ou dans une page. 
@@ -108,8 +108,8 @@ Les fichiers à la racine du dossier layouts d'Hugo, dans `/layouts` (attention,
 ## Section
 
 {{< filetree/container >}}
-  {{< filetree/folder name="layouts/partials" >}}
-    {{< filetree/folder name="programs" state="open" >}}
+  {{< filetree/folder name="layouts/_partials" >}}
+    {{< filetree/folder name="jobs" state="open" >}}
       {{< filetree/folder name="section" state="open" >}}
         {{< filetree/file name="hero.html" >}}
       {{< /filetree/folder >}}
@@ -131,8 +131,8 @@ La section est aussi utilisée par les taxonomies, pour afficher une catégorie 
 ## Single
 
 {{< filetree/container >}}
-  {{< filetree/folder name="layouts/partials" >}}
-    {{< filetree/folder name="programs" state="open" >}}
+  {{< filetree/folder name="layouts/_partials" >}}
+    {{< filetree/folder name="jobs" state="open" >}}
       {{< filetree/folder name="single" state="open" >}}
         {{< filetree/file name="hero.html" >}}
       {{< /filetree/folder >}}
@@ -152,17 +152,17 @@ Ce sont souvent de simple “passe-plats” vers des partiels plus communs.
 ## Partials
 
 {{< filetree/container >}}
-  {{< filetree/folder name="layouts/partials" >}}
-    {{< filetree/folder name="programs" state="open" >}}
+  {{< filetree/folder name="layouts/_partials" >}}
+    {{< filetree/folder name="jobs" state="open" >}}
       {{< filetree/folder name="partials" state="open" >}}
-        {{< filetree/folder name="layouts" state="open" >}}
-          {{< filetree/folder name="cards" state="open" >}}
-            {{< filetree/file name="cards-item.html" >}}
-            {{< filetree/file name="cards.html" >}}
-          {{< /filetree/folder >}}
+        {{< filetree/folder name="job" state="open" >}}
+          {{< filetree/file name="dates.html" >}}
+          {{< filetree/file name="heading.html" >}}
+          {{< filetree/file name="media.html" >}}
+          {{< filetree/file name="summary.html" >}}
         {{< /filetree/folder >}}
-        {{< filetree/file name="program.html" >}}
-        {{< filetree/file name="programs.html" >}}
+        {{< filetree/file name="job.html" >}}
+        {{< filetree/file name="jobs.html" >}}
       {{< /filetree/folder >}}
     {{< /filetree/folder >}}
   {{< /filetree/folder >}}
@@ -172,8 +172,4 @@ Ce sont souvent de simple “passe-plats” vers des partiels plus communs.
   Tous les fichiers utilisés à la fois par les blocs, par la section et par la single
 {{< /callout >}}
 
-Le dossier partials contient toujours un dossier layouts, avec un dossier par layout.
-Les fichiers `cards.html` et `cards-item.html` pourraient s'appeler `list.html` et `item.html`, mais cela causerait des onglets qui ont tous le même nom dans l'éditeur de code. 
-
-
-Le partiel `programs.html` est une liste de formations paginée avec options, utilisée dans la section et dans les catégories de formations.
+Le partiel `jobs.html` est une liste de formations paginée avec options, utilisée dans la section et dans les catégories de formations.
