@@ -37,7 +37,7 @@ Certaines évolutions ne nécessitent pas de délai entre la pre-release et la r
 - Correctif mineur
 - Réparation urgente
 
-> Si d'autre modifications (comme des corrections de la pre-release) sont réalisées avant la realise, on nomme la nouvelle pre-release `x.x.x-beta` puis `x.x.x-beta-2`...
+> Si d'autre modifications (comme des corrections de la pre-release) sont réalisées avant la realise, on nomme la nouvelle pre-release `x.x.x-beta.1` puis `x.x.x-beta.2`...
 
 ### Vérifications de non regression
 
