@@ -59,7 +59,7 @@ Appel d'un partiel avec plusieurs paramètre en utilisant `dict` :
 
 Les helpers sont les partiels qui renvoient une valeur. Ils incluent systèmatiquement un `{{ return }}`.
 
-Les noms des fichiers helpers s'écrivent en CamelCase avec l'extension `.html`.
+Les noms des fichiers helpers s'écrivent en CamelCase avec l'extension `.html`. Les helpers sont des actions : `Get`, `Is`, `Has`... le nom du fichier doit toujours contenir un verbe, sinon c'est un partiel simple qui ne dit pas son nom.
 
 ##### Appels
 
