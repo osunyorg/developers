@@ -349,9 +349,7 @@ Si les liens sont externes, mettre un target blank.
 GetMedia permet de récupérer les données relatives au media dans les data.
 
 
-GetImageUrl transforme une URL de média Osuny pour y ajouter des demandes de transformation (taille, format...).
-Il faudrait peut-être le renommer GetOsunyImageUrl.
-
+`commons/image/helpers/GetUrl` transforme une URL de média Osuny pour y ajouter des demandes de transformation (taille, format...).
 
 Le partial commons/image génère une balise picture et des src-set, équivalent à [Kamifusen](https://rubygems.org/gems/kamifusen), mais sur la base d'un media. Il faudrait peut-être le renommer imageFromOsuny.
 
@@ -402,7 +400,7 @@ Cela génère :
 Syntaxe de transformation
 
 ```
-{{ partial "GetImageUrlOsuny" (dict 
+{{ partial "commons/image/helpers/GetUrl" (dict 
   "url" $url
   "size" "500x500"
   "crop" "center"
