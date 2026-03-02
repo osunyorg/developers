@@ -1,6 +1,13 @@
 title: Osuny
 baseURL: /
 defaultContentLanguage: fr
+languages:
+  en:
+    languageName: English
+    weight: 1
+  fr:
+    languageName: Français
+    weight: 2
 
 module:
   imports:
