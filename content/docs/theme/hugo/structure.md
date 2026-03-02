@@ -400,7 +400,7 @@ Cela génère :
 Syntaxe de transformation
 
 ```
-{{ partial "commons/image/helpers/GetUrl" (dict 
+{{ partial "commons/image/helpers/get-url/Osuny" (dict 
   "url" $url
   "size" "500x500"
   "crop" "center"
