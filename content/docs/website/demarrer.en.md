@@ -1,5 +1,6 @@
 ---
-title: Démarrer
+title: Getting started
+slug: getting-started
 weight: 1
 ---
 

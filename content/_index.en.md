@@ -21,7 +21,7 @@ layout: hextra-home
 </div>
 
 <div class="hx:mb-6">
-{{< hextra/hero-button text="Démarrage rapide" link="docs/website/" >}}
+{{< hextra/hero-button text="Getting started" link="docs/website/getting-started" >}}
 </div>
 
 <h2 class="hx:text-2xl hx:font-medium hx:leading-6 hx:mt-12">Travailler avec Osuny<h2>
