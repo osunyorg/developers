@@ -10,18 +10,18 @@ description: >
 
 ## Breakpoints
 
-Les points de rupture pour le responsive se base sur une double logique : 
+Les points de rupture pour le responsive se base sur une double logique :
  - Nous nous appuyons sur les breakpoints proposés par bootstrap. Ces derniers sont éditables dans le fichier de configuration.sass
     ```
     $grid-breakpoints: (xs: 0, sm: 576px, md- 768px, desktop: 992px, lg: 992px, xl: 1200px, xxl: 1440px) !default
     ```
  - Nous y ajoutons le breakpoint nommé 'desktop', équivalent au breakpoint 'lg' de façon à appeler dans le mixin de breakpoint-media-up / breakpoint-media-down avec le nommage "desktop"
  - Les variables dans config ont un suffix ```-desktop```
-  
+
 
 ## Débuggage
 
-Vous pouvez afficher la grille desktop de 12 colonnes en appuyant sur ```ctrl + g```. Le code de la grille (html, css, et js) se trouve dans le partial footer/debug.html
+Vous pouvez afficher la grille desktop de 12 colonnes en appuyant sur ```ctrl + g```. Le code de la grille (html, css, et js) se trouve dans le partial debug/debug.html
 
 Ce débuggage n'est pas disponible en mode production (!hugo.IsProduction)
 
@@ -30,7 +30,7 @@ Ce débuggage n'est pas disponible en mode production (!hugo.IsProduction)
 
 Le thème prévoit 6 espacements différents, calculés en REM à partir de multiple de 12px. Nous utilisons des valeurs en REM de façon à conserver les proportions d'espacements entre les éléments peut importe les préférences d'affichage de la taille de texte de l'utilisateur.
 
-> Questionnement 
+> Questionnement
 > Comment préciser l'impact sur le design system de changement de ces valeurs ?
 
 ```
@@ -72,7 +72,7 @@ Configuration par défaut de la grille du Thème Osuny
 
 ### Blocs
 
-Difficultés rencontrées : 
+Difficultés rencontrées :
 Comment gérer les espacements verticaux entre les blocs et les divers contenus des pages (sidebar ou pleine largeur) ?
 Gestion des séquences de bloc : certains blocs possèdent des fonds de couleur, il ne faut alors pas créer d'espaces en trop entre ces blocs. L'usage de padding top/bottom uniquement est une piste.
 
@@ -80,8 +80,8 @@ Gestion des séquences de bloc : certains blocs possèdent des fonds de couleur,
 Utilisation de margin uniquement :
 - Ne permet pas de gérer simplement les blocs avec des fonds de couleurs
 
-Utilisation de margin-top uniquement : 
-- 
+Utilisation de margin-top uniquement :
+-
 
 
 ## Usage des unités
