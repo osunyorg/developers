@@ -34,7 +34,7 @@ Les partiels normaux sont ceux qui génèrent du html.
 
 Les noms des fichiers s'écrivent en lowercase et tiret (hyphen `-`) avec l'extension `.html`.
 
-Par exemple : `image-figure.html`.
+Par exemple : `contact-details.html`.
 
 ##### Appels
 
@@ -64,7 +64,7 @@ Les noms des fichiers helpers s'écrivent en CamelCase avec l'extension `.html`.
 ##### Appels
 
 {{< callout type="warning" >}}
-L'appel d'un partiel helper s'écrie sans l'extension `.html` 
+L'appel d'un partiel helper s'écrie sans l'extension `.html`
 {{< /callout >}}
 
 ```
@@ -101,7 +101,7 @@ L'appel d'un partiel helper s'écrie sans l'extension `.html`
   Tous les fichiers pour représenter les jobmes sont dans le dossier `layouts/_partials/jobs`
 {{< /callout >}}
 
-Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 3 façons : dans une section, dans un bloc ou dans une page. 
+Les objets Osuny (`organizations`, `posts`, `pages`, `events`...) peuvent s'afficher de 3 façons : dans une section, dans un bloc ou dans une page.
 Dans la section et dans le bloc, il s'agit de lister des objets en utilisant une mise en page (`layout`) et des options.
 Les fichiers à la racine du dossier layouts d'Hugo, dans `/layouts` (attention, pas les layouts Osuny !) suivent la logique de Hugo (par exemple `list.html` et `single.html`) et appellent les partials Osuny.
 
