@@ -10,7 +10,7 @@ Créer un pointage CNAME du www vers `production.osuny.site.`. Noter ce pointage
 
 ![Pointage CNAME](cname-record.png)
 
-### Redirection de l'apex vers le www
+## Redirection de l'apex vers le www
 
 Créer un pointage A de l'apex vers `192.0.2.1`, et activer le mode "Proxied" de Cloudflare (donc pas en DNS only). C'est un pointage blanc, valide pour Cloudflare, qui va permettre de gérer la redirection.
 
