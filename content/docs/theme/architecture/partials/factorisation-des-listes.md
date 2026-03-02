@@ -72,7 +72,7 @@ Un fichier `item` pour chaque `type`
   {{ $class := "job" }}
   {{ if and .Params.image $options.image }}
     {{ $class = printf "%s job--with-image" $class }}
-    {{ $image_direction := partial "GetImageDirection" .Params.image }}
+    {{ $image_direction := partial "commons/image/helpers/GetDimensions" .Params.image }}
     {{ $class = printf "%s %s" $class $image_direction }}
   {{ end }}
 
