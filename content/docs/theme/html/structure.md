@@ -22,6 +22,14 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 </p>
 ```
 
+- Une directive hugo générant du html (partial ou variable) est suivi d'un saut de ligne :
+
+```
+{{ .heading_items.open }}
+  {{- i18n "commons.contact.socials.title" -}}
+{{ .heading_items.close }}
+```
+
 
 ### Nommage et appels des partiels
 
