@@ -68,7 +68,7 @@ L'appel d'un partiel helper s'écrie sans l'extension `.html`
 {{< /callout >}}
 
 ```
-{{ $transcription := partial "PrepareHTML" .transcription }}
+{{ $media := partial "GetMedia" . }}
 ```
 
 ## Précision sémantique
