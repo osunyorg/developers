@@ -91,3 +91,15 @@ Sauvegarder le fichier et quitter avec Ctrl+O, Entrée, Ctrl+X
 
 Relancer un Terminal et vérifier l’installation avec la commande `hugo version`.
 
+
+### Avec [mise-en-place](https://mise.jdx.dev/)
+
+#### Installation
+
+TODO
+
+#### Changer de version globalement (recommandé)
+
+```
+mise use --global hugo-extended@0.155
+```
