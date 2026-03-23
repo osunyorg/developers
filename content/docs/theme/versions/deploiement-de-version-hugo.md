@@ -37,6 +37,7 @@ Réaliser le test de montée en version d'Hugo sur des sites hébergés sur :
 - OVH
 - Hébergement de Rennes
 - Infomaniak
+- NGINX (IUT de Bordeaux)
 
 ### Planifier le déploiement
 
