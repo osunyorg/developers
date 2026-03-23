@@ -92,7 +92,9 @@ Sauvegarder le fichier et quitter avec Ctrl+O, Entrée, Ctrl+X
 Relancer un Terminal et vérifier l’installation avec la commande `hugo version`.
 
 
-### Avec [mise-en-place](https://mise.jdx.dev/)
+### Avec `mise en place`
+
+[mise-en-place](https://mise.jdx.dev/)
 
 #### Installation
 
