@@ -22,10 +22,9 @@ Ce document fixe la structure des fichiers HTML du thème Osuny.
 </p>
 ```
 
-Cas particulier : la lisibilité des conditions dans un élément. Il faut rendre lisible la class sans coller les accolades.
+    Cas particulier : la lisibilité des conditions dans un élément. Il faut rendre lisible la class sans coller les accolades.
 ```
 <blockquote {{- if $is_long }} class="is-long" {{- end }}>
-
 ```
 
 - Une directive hugo générant du html (partial ou variable) est suivi d'un saut de ligne :
