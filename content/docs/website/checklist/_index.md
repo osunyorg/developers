@@ -5,7 +5,7 @@ weight: 20
 
 ## Liste de vérification
 
-Cette liste a pour but d'assurer le bon déroulement du projet, jusqu'à sa mise en ligne.
+Cette liste a pour but d'aider au bon déroulement du projet, jusqu'à sa mise en ligne.
 
 ### Au départ du projet
 
