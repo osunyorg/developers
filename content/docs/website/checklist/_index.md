@@ -7,7 +7,7 @@ weight: 20
 
 Cette liste a pour but d'aider au bon déroulement du projet, jusqu'à sa mise en ligne.
 
-### Au départ du projet
+### Au démarrage du projet
 
 - [ ] Faut-il archiver le site existant ?
 - [ ] Le site est-il multilingue ?
