@@ -17,7 +17,7 @@ Cette liste a pour but d'aider au bon déroulement du projet, jusqu'à sa mise e
 
 - [ ] Faut-il activer le tracking avec Plausible ?
 - [ ] Connecter le domaine à la Search Console
-- [ ] Les re-directions sont-elles prêtes ?
-- [ ] Les informations et accès nécessaires pour la configuration du NDD sont-ils disponibles ?
-- [ ] Si l'hébergement n'est pas DF, les accès nécessaires sont-ils disponibles ?
+- [ ] Les redirections des anciennes urls (en cas de précédent site) sont-elles prêtes ?
+- [ ] Dispose-t-on des accès nécessaires pour la configuration du nom de domaine (DNS) ?
+- [ ] Si l'hébergement n'est pas celui par défaut (Deuxfleurs), dispose-t-on des accès nécessaires ?
 
