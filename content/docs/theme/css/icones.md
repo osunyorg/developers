@@ -21,3 +21,17 @@ Le mixin icon, déclaré comme ceci : ```@include icon(icon-name, pseudo-element
         @content // TODO : important de documenter ça
 ```
 
+## Overider les icônes Osuny
+
+Il est possible d'écraser les icônes d'Osuny en utilisant la configuration css.
+
+Le code repose sur le tableau `$icons-custom`.
+
+### Example
+```sass
+$icons-custom-font-family: "my-custom-icon-font-family-name"
+
+$icons-custom: ()
+// Override de la flèche pointant la droite avec le code typo de la font icon custom
+$icons-custom: map-merge($icons-custom, ("arrow-right-line": "\ea6c"))
+```
