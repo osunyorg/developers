@@ -14,9 +14,9 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 
 ## Installer Hugo
 
-> ⚠ Le thème supporte actuellement la version 0.145 de hugo. Voir [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
+> ⚠ Le thème supporte actuellement la version 0.157.0 de hugo. Voir [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
 
-{{< tabs items="MAC,PC" >}}
+{{< tabs items="macOS,macOS (mise),Windows" >}}
   {{< tab >}}
     Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 
@@ -26,6 +26,19 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 
     C'est la méthode que nous utilisons dans l'équipe [noesya](https://www.noesya.coop).
     Pour d'autres méthodes, la [documentation officielle d'installation](https://gohugo.io/getting-started/installing/) est disponible sur le site [gohugo.io](https://gohugo.io).
+  {{< /tab >}}
+  {{< tab >}}
+    Il est également possible d'installer Hugo avec l'outil [mise](https://mise.jdx.dev/),  un version manager pour une multitude d'outils comme Ruby, Node, etc.
+
+    Pour installer mise:
+    ```bash
+    curl https://mise.run | sh
+    ```
+
+    Une fois mise installé, pour installer une version d'Hugo au global (exemple : 0.157.0) :
+    ```
+    mise use -g hugo-extended@0.157.0
+    ```
   {{< /tab >}}
   {{< tab >}}
     La méthode la plus simple pour installer Hugo sur Windows est d'utiliser un package manager, comme [Scoop](https://scoop.sh) ou [Chocolatey](https://chocolatey.org).
@@ -41,7 +54,7 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 
 ## Installer Yarn
 
-{{< tabs items="MAC,PC" >}}
+{{< tabs items="macOS,Windows" >}}
   {{< tab >}}
     Sur Mac, avec [Homebrew](https://brew.sh), il faut utiliser la commande :
 
@@ -52,7 +65,7 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
     [Documentation officielle d'installation](https://yarnpkg.com/getting-started/install).
   {{< /tab >}}
   {{< tab >}}
-    Pour installer Yarn sur Windows, la méthode recommandé est d'utiliser NPM inclu avec l'installation de Node.js.
+    Pour installer Yarn sur Windows, la méthode recommandé est d'utiliser NPM inclus avec l'installation de Node.js.
 
     ```bash
     npm install --global yarn
@@ -65,7 +78,7 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 ## Cloner le référentiel Git
 
 Les référentiels Git sont créés par Osuny, il n'y a plus de nécessité de les créer à la main.
-S'il fallait le faire à la main, ça part de [la page du template](https://github.com/noesya/osuny-hugo-template-AAA).
+S'il fallait le faire à la main, ça part de [la page du template](https://github.com/osunyorg/template).
 Il faut cliquer sur le bouton "Use this template", puis donner un nom et valider.
 Dans ce tutoriel, nous utiliserons le nom `monreferentiel`.
 
