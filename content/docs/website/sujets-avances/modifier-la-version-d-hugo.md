@@ -58,7 +58,7 @@ Sauvegarder le fichier et quitter avec `Ctrl+O`, `Entrée`, `Ctrl+X`
 
 Relancer un Terminal et vérifier l’installation avec `hugo version`
 
-## Avant la 0.153.0
+#### Avant la 0.153.0
 
 Aller dans la liste des versions d’Hugo : https://github.com/gohugoio/hugo/releases
 
