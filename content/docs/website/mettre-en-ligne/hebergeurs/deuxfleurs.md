@@ -36,6 +36,10 @@ Si le domaine que vous avez choisi est un sous-domaine (ex: www.monsite.fr), vou
 www IN CNAME production.osuny.site.
 ```
 
+#### Ajouter la redirection du domaine nu vers le www
+
+Dans Infomaniak, il faut ajouter une redirection au domaine pour le re-diriger vers le www.
+
 ## Mise en ligne manuelle (obsolète)
 
 Cette partie de la documentation est obsolète parce que tout se fait automatiquement dans Osuny avec l'API Deuxfleurs.
