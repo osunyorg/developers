@@ -79,6 +79,20 @@ Responsabilité :
 - calcul du permalink
 - fonctionnements spécifiques par type d'objet
 
+## Fonctionnement
+
+Chemin de création d'un permalink
+1. Les objets `Communication::Website::GitFile` incluent le trait `Communication::Website::GitFile::WithContent`
+2. Dans `WithContent`, la méthode `generate_content_safely` appelle `manage_permalink`, qui appelle `about.manage_permalink_in_website(website)`
+3. Dans le concern `Permalinkable`, la méthode `manage_permalink_in_website` appelle `new_permalink_in_website(website).save_if_needed`
+4. La méthode `new_permalink_in_website` appelle `Communication::Website::Permalink.for_objet`
+5. Dans le trait `Communication::Website::Permalink::WithMapping`, la méthode choisit le bon type de Permalink pour l'objet envoyé et renvoie un objet intancié mais non persisté en db
+6. Dans `Communication::Website::Permalink`, `save_if_needed` on cherche le permalink actuel
+7. On vérifie s'il faut bien l'enregistrer (objet publié, soit la première fois soit avec un changement de chemin)
+8. On enregistre le nouveau permalink
+9. On supprime les collisions avec d'anciens alias
+10. On bascule le précédent en alias
+
 ## Objets directs
 
 ### Page
