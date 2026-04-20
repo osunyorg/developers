@@ -14,7 +14,7 @@ Cela se fait tout seul quand on crée le site dans l'admin Osuny, il suffit de c
 
 ## Installer Hugo
 
-> ⚠ Le thème supporte actuellement la version 0.157.0 de hugo. Voir [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
+> ⚠ La version d'Hugo supportée par le thème est indiquée dans le nom de la release, par exemple `v9.2.0-hugo-0.157.0`. Voir [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
 
 {{< tabs items="macOS,macOS (mise),Windows" >}}
   {{< tab >}}
