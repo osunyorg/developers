@@ -12,6 +12,7 @@ Cette liste a pour but d'aider au bon déroulement du projet, jusqu'à sa mise e
 - [ ] Faut-il archiver le site existant ?
 - [ ] Le site est-il multilingue ?
 - [ ] Quelles sont les fonctionnalités à activer ?
+- [ ] Y'a-t-il une [contribution à osuny](https://transparence.osuny.org/) ?
 
 ### Pour la mise en ligne
 
