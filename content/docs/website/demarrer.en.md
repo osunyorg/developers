@@ -15,7 +15,7 @@ This happens automatically when you create the site in the Osuny admin interface
 
 ## Install Hugo
 
-> ⚠ The theme currently supports the 0.157.0 version of hugo. See [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
+> ⚠ The theme currently supports the 0.159.2 version of hugo. See [modifier la version d'Hugo.io](/docs/website/sujets-avances/modifier-la-version-d-hugo/)
 
 {{< tabs items="MAC,PC" >}}
   {{< tab >}}
@@ -36,9 +36,9 @@ This happens automatically when you create the site in the Osuny admin interface
     curl https://mise.run
     ````
 
-    Once installed, to install a complete version of Hugo (e.g. 0.157.0):
+    Once installed, to install a complete version of Hugo (e.g. 0.159.2):
     ````
-    mise use -g hugo-extended@0.157.0
+    mise use -g hugo-extended@0.159.2
     ````
   {{</tab>}}
   {{< tab >}}
