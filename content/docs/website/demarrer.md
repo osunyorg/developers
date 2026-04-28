@@ -3,7 +3,7 @@ title: Démarrer
 weight: 1
 ---
 
-> Si vous ne savez pas trop par où démarrer, commencez [ici](https://support.osuny.org/commencer-simplement/demarrer-rapidement/) ! 
+> Si vous ne savez pas trop par où démarrer pour créer le site, commencez [ici](https://support.osuny.org/commencer-simplement/demarrer-rapidement/) ! 
 
 Pour faire un site avec Osuny, la solution la plus simple est de le générer depuis l'admin, qui utilise le [template](https://github.com/osunyorg/template).
 Ce template utilise le [thème osuny](https://github.com/osunyorg/theme).
