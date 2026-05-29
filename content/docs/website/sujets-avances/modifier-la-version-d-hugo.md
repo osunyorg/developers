@@ -103,5 +103,5 @@ TODO
 #### Changer de version globalement (recommandé)
 
 ```
-mise use --global hugo-extended@0.155
+mise use --global hugo-extended@0.161
 ```
