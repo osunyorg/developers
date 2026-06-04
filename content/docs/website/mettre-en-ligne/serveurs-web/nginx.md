@@ -15,7 +15,7 @@ server {
   server_name www.mon-domaine.fr;
   root /var/www/chemin/vers/votre/site;
   index index.html;
-  error_page 404 /404.html;
+  error_page 404 /error.html;
 }
 ```
 
