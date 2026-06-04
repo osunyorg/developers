@@ -95,4 +95,4 @@ La configuration d'exemple ci-dessus, génère deux balises html supplémentaire
 
 ```
 
-Cela peut paraître peu, mais si vous ajouter des `breakpoints` sur la grille des actualités, une page présentant 36 actualités aura donc 72 balises supplémentaires pour chaque `breakpointà. 
+Cela peut paraître peu, mais si vous ajouter des `breakpoints` sur la grille des actualités, une page présentant 36 actualités aura donc 72 balises supplémentaires pour chaque `breakpoint`. 
