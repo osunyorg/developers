@@ -15,4 +15,7 @@ description: >
   {{< card  link="sass" 
             title="Configuration SASS" 
             subtitle="Configurer le style dans SASS" >}}
+  {{< card  link="images" 
+            title="Configuration les images" 
+            subtitle="Configurer les tailles d'images" >}}
 {{< /cards >}}
