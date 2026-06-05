@@ -11,7 +11,7 @@ Comment modifier les polices du site ?
 
 Placer les fichiers dans `static/assets/fonts`. Favoriser les formats `woff` pour une bonne retro-compatibilité [caniuse.com/woff](https://caniuse.com/woff) et `woff2` pour la réduction du poids [caniuse.com/woff2](https://caniuse.com/woff2).
 
-Vous pouvez [convertir des polices en ligne](https://fontsource.org/).
+Vous pouvez [convertir des polices en ligne](https://fontsource.org/tools/converter).
 
 ## Charger les polices
 
