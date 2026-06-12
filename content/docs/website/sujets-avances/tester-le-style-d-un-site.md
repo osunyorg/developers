@@ -29,3 +29,10 @@ Dans ```/config/_default/config.yaml```
 theme:
   - rebootcommunication
 ```
+
+## Si les contenus d'example et du site entrent en conflit : 
+
+```
+ignoreFiles: "themes/rebootcommunication/content"
+```
+
