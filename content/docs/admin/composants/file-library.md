@@ -44,6 +44,8 @@ graph TD;
   Enregistrement["Enregistrement de l'objet about (block ou program_localization)"]
   Contextes["Récupération des contextes de l'objet"]
   Contexte["Pour chaque contexte"]
+  ContexteNecessaire["Le contexte est toujours nécessaire"]
+  ContexteObsolete["Le contexte est obsolète"]
   SuppressionContexte["Suppression du contexte"]
   CreationContexte["Création du contexte"]
   Rien["Aucune action"]
