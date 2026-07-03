@@ -36,19 +36,16 @@ Lors de l'enregistrement, on entre dans un autre flux.
 
 ```mermaid
 graph TD;
-  Enregistrement-->Contextes-->Contexte;
-  Contexte-->ContexteNecessaire-->Rien-->FichiersSansContexte;
-  Contexte-->ContexteObsolete-->SuppressionContexte-->FichiersSansContexte;
-  FichiersSansContexte-->FichierSansContexte-->CreationContexte
+  Enregistrement-->Fichiers-->Fichier;
+  Fichier-->ContexteNecessaire-->CreationContexte-->SuppressionContexteObsolete;
+  Fichier-->ContexteExiste-->Rien-->SuppressionContexteObsolete;
 
   Enregistrement["Enregistrement de l'objet about (block ou program_localization)"]
-  Contextes["Récupération des contextes de l'objet"]
-  Contexte["Pour chaque contexte"]
-  ContexteNecessaire["Le contexte est toujours nécessaire"]
-  ContexteObsolete["Le contexte est obsolète"]
-  SuppressionContexte["Suppression du contexte"]
+  Fichiers["On liste les fichiers en cours de l'objet"]
+  Fichier["Pour chaque fichier"]
+  ContexteNecessaire["Le contexte n'existe pas encore ?"]
+  ContexteExiste["Un contexte existe déjà ?"]
   CreationContexte["Création du contexte"]
   Rien["Aucune action"]
-  FichiersSansContexte["Liste des fichiers sans contexte"]
-  FichierSansContexte["Pour chaque fichier sans contexte"]
+  SuppressionContexteObsolete["On supprime les contextes de l'objet ayant un fichier non présent dans la liste ci-dessus"]
 ```
