@@ -41,7 +41,7 @@ graph TD;
   Contexte-->ContexteObsolete-->SuppressionContexte-->FichiersSansContexte;
   FichiersSansContexte-->FichierSansContexte-->CreationContexte
 
-  Enregistrement["Enregistrement de l'objet about (block ou formation_localization)"]
+  Enregistrement["Enregistrement de l'objet about (block ou program_localization)"]
   Contextes["Récupération des contextes de l'objet"]
   Contexte["Pour chaque contexte"]
   SuppressionContexte["Suppression du contexte"]
