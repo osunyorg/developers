@@ -12,7 +12,9 @@ L'intérêt est multiple :
 - permettre la mise à jour centralisée
 - fournir une base propre de fichiers aux équipes qui les utilisent
 
-## Upload
+## Envoi direct de fichier
+
+### Upload
 
 ```mermaid
 graph TD;
@@ -29,9 +31,12 @@ graph TD;
   CreationFichier["Création du fichier"];
   EnvoiInfos["Envoi des informations sur le fichier"]
 ```
-
 À cette étape, le fichier physique est sur Scaleway, le fichier logique est créé dans la base de données, mais le bloc n'a pas été enregistré.
+
+### Enregistrement
+
 Lors de l'enregistrement, on entre dans un autre flux.
+Ce flux n'est pas encore correct, du fait des localisations.
 
 ```mermaid
 graph TD;
@@ -55,4 +60,4 @@ graph TD;
   SuppressionContextesObsoletes["Suppression des contextes de l'objet ayant un fichier non présent dans la liste ci-dessus"]
 ```
 
-Le flux n'est pas encore correct, du fait des localisations
+### Suppression
