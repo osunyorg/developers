@@ -143,3 +143,6 @@ graph TD;
 
 
 ### Suppression
+
+Lors de la suppression d'un bloc ou d'une formation, il faut détruire les contextes dont l'objet est l'about.
+Comme c'est une propriété polymorphe, il faut passer par un before_destroy.
