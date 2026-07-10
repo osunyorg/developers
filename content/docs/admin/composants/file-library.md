@@ -146,3 +146,32 @@ graph TD;
 
 Lors de la suppression d'un bloc ou d'une formation, il faut détruire les contextes dont l'objet est l'about.
 Comme c'est une propriété polymorphe, il faut passer par un before_destroy.
+
+## Création du fichier via le back-office
+
+### Enregistrement
+
+```mermaid
+graph TD;
+  SoumissonFormulaire-->AnalyseFichierPhysique-->CheckIntegrite
+  CheckIntegrite-->IntegreNon-->Erreur
+  CheckIntegrite-->IntegreOui-->CheckUnicite
+  CheckUnicite-->UniqueNon-->Erreur
+  CheckUnicite-->UniqueOui-->UploadFichierPhysique-->CreationFichierLogique
+
+  SoumissonFormulaire["On soumet le formulaire de création de fichier logique"]
+  AnalyseFichierPhysique["Analyse du fichier physique"]
+  CheckIntegrite["Le fichier physique est-il intégre ? (Est bien un fichier, taille autorisée)"]
+  IntegreNon["Le fichier n'est pas intègre"]
+  Erreur["Renvoi d'une erreur"]
+  IntegreOui["Le fichier est intègre"]
+  CheckUnicite["Le fichier physique est-il unique ? (à partir du checksum)"]
+  UniqueNon["Le fichier physique existe déjà"]
+  UniqueOui["Le fichier physique n'existe pas encore"]
+  UploadFichierPhysique["Upload du fichier physique sur Scaleway"]
+  CreationFichierLogique["Création du fichier logique et de sa localisation"]
+```
+
+À cette étape : 
+1. le fichier physique existe sur Scaleway
+2. le fichier logique existe dans la base de données avec sa localisation
