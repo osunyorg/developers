@@ -38,9 +38,11 @@ Il y a 2 possibilités :
 Pour résoudre simplement les choses, on ne peut mettre à jour que via la bibliothèque de fichiers.
 Dans les blocs, tout ce qu'on envoie est considéré comme nouveau.
 
-## Envoi direct de fichier
+## Via les blocs
 
-### Upload
+### Direct upload
+
+Ce cas se passe lors de l'envoi via un bloc Fichiers.
 
 ```mermaid
 graph TD;
@@ -62,7 +64,7 @@ graph TD;
 2. le fichier logique existe dans la base de données avec sa localisation
 3. mais le bloc n'a pas été enregistré
 
-### Enregistrement
+### Enregistrement d'un `about`
 
 Lors de l'enregistrement du bloc (ou de la formation), on entre dans un autre flux.
 
@@ -95,7 +97,12 @@ graph TD;
 
 ### Traduction
 
-#### Option absence (non)
+Cela se passe parce que l'on traduit l'objet lié (la page dans laquelle est le bloc, par exemple).
+
+Il y a 2 options pour le traitement, mais l'une des 2 est mauvaise.
+Les 2 sont documentées ci-dessous.
+
+Mauvaise option : absence de localisation
 
 ```mermaid
 graph TD;
@@ -125,7 +132,7 @@ graph TD;
 Cette option créée des complications architecturales et ergonomiques.
 {{< /callout >}}
 
-#### Option duplication (oui)
+Bonne option : duplication du fichier original
 
 ```mermaid
 graph TD;
@@ -141,15 +148,14 @@ graph TD;
   Enregistrement["Enregistrement avec l'identifiant du fichier (donc non linguistique)"]
 ```
 
-
 ### Suppression
 
-Lors de la suppression d'un bloc ou d'une formation, il faut détruire les contextes dont l'objet est l'about.
+Lors de la suppression d'un bloc, d'une formation ou autre, il faut détruire les contextes dont l'objet est l'about.
 Comme c'est une propriété polymorphe, il faut passer par un before_destroy.
 
-## Création du fichier via le back-office
+## Via la bibliothèque de fichiers
 
-### Enregistrement
+### Création
 
 ```mermaid
 graph TD;
@@ -175,3 +181,28 @@ graph TD;
 À cette étape : 
 1. le fichier physique existe sur Scaleway
 2. le fichier logique existe dans la base de données avec sa localisation
+
+### Modification
+
+Il s'agit là de mettre à jour le fichier physique, ou les propriétés de la localisation (nom, catégories, description interne, image).
+Tout le début est identique à l'enregistrement, on reprend à la dernière étape.
+
+```mermaid
+graph TD;
+  Enregistrement-->Contextes-->UpdateName-->UpdateImage-->RegenerateGitFiles
+
+  Enregistrement["Enregistrement du fichier logique et de sa localisation"]
+  Contextes([Pour chaque contexte])
+  UpdateName["Mise à jour du nom de fichier s'il était identique à la valeur avant changement"]
+  UpdateImage["Mise à jour de l'image si elle était identique à la valeur avant changement"]
+  RegenerateGitFiles["Régénération du GitFile"]
+```
+
+### Suppression
+
+On ne peut supprimer que les fichiers sans contexte.
+
+### Fusion
+
+Il y aura, tôt ou tard, le besoin de fusionner des fichiers qui sont en fait des versions locales l'un de l'autre.
+
