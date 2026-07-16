@@ -167,11 +167,11 @@ graph TD;
 
   SoumissonFormulaire["On soumet le formulaire de création de fichier logique"]
   AnalyseFichierPhysique["Analyse du fichier physique"]
-  CheckIntegrite["Le fichier physique est-il intégre ? (Est bien un fichier, taille autorisée)"]
+  CheckIntegrite{"Le fichier physique est-il intégre ? (Est bien un fichier, taille autorisée)"}
   IntegreNon["Le fichier n'est pas intègre"]
   Erreur["Renvoi d'une erreur"]
   IntegreOui["Le fichier est intègre"]
-  CheckUnicite["Le fichier physique est-il unique ? (à partir du checksum)"]
+  CheckUnicite{"Le fichier physique est-il unique ? (à partir du checksum)"}
   UniqueNon["Le fichier physique existe déjà"]
   UniqueOui["Le fichier physique n'existe pas encore"]
   UploadFichierPhysique["Upload du fichier physique sur Scaleway"]
