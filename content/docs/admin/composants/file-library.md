@@ -51,7 +51,7 @@ graph TD;
   Checksum-->ChecksumNon-->ChecksumOtherLanguage
   ChecksumOtherLanguage-->ChecksumOtherLanguageOui-->CreationLoca-->EnvoiInfos
   ChecksumOtherLanguage-->ChecksumOtherLanguageNon-->CreationFichier-->EnvoiInfos
-  
+
   Envoi["Envoi du fichier physique"]
   CreationBlob["Création du blob"]
   ChecksumCalculation["Calcul du checksum"]
@@ -60,7 +60,7 @@ graph TD;
   ChecksumNon["Si le checksum n'existe pas"]
   ChecksumOtherLanguage{"Le checksum existe-t-il dans une autre langue ?"}
   ChecksumOtherLanguageOui{"Le checksum existe"}
-  ChecksumOtherLanguageNon{"Le checksum n'existe"}
+  ChecksumOtherLanguageNon{"Le checksum n'existe pas"}
   CreationLoca["Création de la localisation et rattachement au fichier logique existant"]
   CreationFichier["Création du fichier logique et de sa localisation"]
   EnvoiInfos["Envoi de l'identifiant du fichier logique et du nom du fichier physique"]
