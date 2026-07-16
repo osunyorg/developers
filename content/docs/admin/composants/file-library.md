@@ -56,11 +56,11 @@ graph TD;
   CreationBlob["Création du blob"]
   ChecksumCalculation["Calcul du checksum"]
   Checksum{"Le checksum existe-t-il dans cette langue ?"}
-  ChecksumOui["Si le checksum existe déjà"]
+  ChecksumOui["Si le checksum existe"]
   ChecksumNon["Si le checksum n'existe pas"]
   ChecksumOtherLanguage{"Le checksum existe-t-il dans une autre langue ?"}
-  ChecksumOtherLanguageOui{"Le checksum existe"}
-  ChecksumOtherLanguageNon{"Le checksum n'existe pas"}
+  ChecksumOtherLanguageOui{"Si le checksum existe"}
+  ChecksumOtherLanguageNon{"Si le checksum n'existe pas"}
   CreationLoca["Création de la localisation et rattachement au fichier logique existant"]
   CreationFichier["Création du fichier logique et de sa localisation"]
   EnvoiInfos["Envoi de l'identifiant du fichier logique et du nom du fichier physique"]
