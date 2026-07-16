@@ -51,6 +51,7 @@ graph TD;
   Checksum-->ChecksumNon-->ChecksumOtherLanguage
   ChecksumOtherLanguage-->ChecksumOtherLanguageOui-->CreationLoca-->EnvoiInfos
   ChecksumOtherLanguage-->ChecksumOtherLanguageNon-->CreationFichier-->EnvoiInfos
+  
   Envoi["Envoi du fichier physique"]
   CreationBlob["Création du blob"]
   ChecksumCalculation["Calcul du checksum"]
