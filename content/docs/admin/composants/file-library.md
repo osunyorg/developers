@@ -46,16 +46,22 @@ Ce cas se passe lors de l'envoi via un bloc Fichiers.
 
 ```mermaid
 graph TD;
-  Envoi-->CreationBlob-->Checksum-->Fichier
-  Fichier-->FichierOui-->EnvoiInfos
-  Fichier-->FichierNon-->CreationFichier-->EnvoiInfos
+  Envoi-->CreationBlob-->ChecksumCalculation-->Checksum
+  Checksum-->ChecksumOui-->EnvoiInfos
+  Checksum-->ChecksumNon-->ChecksumOtherLanguage
+  ChecksumOtherLanguage-->ChecksumOtherLanguageOui-->CreationLoca-->EnvoiInfos
+  ChecksumOtherLanguage-->ChecksumOtherLanguageNon-->CreationFichier-->EnvoiInfos
 
   Envoi["Envoi du fichier physique"]
   CreationBlob["Création du blob"]
-  Checksum["Calcul du checksum"]
-  Fichier{"Le checksum existe-t-il dans cette langue ?"}
-  FichierOui["Si le checksum existe déjà"]
-  FichierNon["Si le checksum n'existe pas"]
+  ChecksumCalculation["Calcul du checksum"]
+  Checksum{"Le checksum existe-t-il dans cette langue ?"}
+  ChecksumOui["Si le checksum existe"]
+  ChecksumNon["Si le checksum n'existe pas"]
+  ChecksumOtherLanguage{"Le checksum existe-t-il dans une autre langue ?"}
+  ChecksumOtherLanguageOui["Si le checksum existe"]
+  ChecksumOtherLanguageNon["Si le checksum n'existe pas"]
+  CreationLoca["Création de la localisation et rattachement au fichier logique existant"]
   CreationFichier["Création du fichier logique et de sa localisation"]
   EnvoiInfos["Envoi de l'identifiant du fichier logique et du nom du fichier physique"]
 ```
