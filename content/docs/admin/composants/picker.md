@@ -18,8 +18,8 @@ Le système s'articule avec les [filtres](/docs/admin/composants/filters/) afin 
 Le sélecteur ouvre une modale en pleine page.
 
 L'écran est divisé en 2 : 
-- paramètres
-- résultats
+- paramètres (à gauche en desktop)
+- résultats (à droite en desktop)
 
 La pagination est intégrée aux résultats.
 
@@ -99,7 +99,7 @@ La pagination fournit toutes les infos nécessaires aux gros volumes.
 
 Les résultats fournissent le snippet à afficher et les data à renvoyer lors de la sélection.
 
-### Vues
+### Vues Rails
 
 ```html{filename="app/views/admin/communication/blocks/components/file/_edit.html.erb"}
 <Picker
@@ -113,6 +113,11 @@ On utilise le picker dans une app Vue, en lui fournissant 3 paramètres :
 - son modèle, qui indique la donnée à mettre à jour
 - son kind, qui indique les locas à utiliser
 - son endpoint, qui indique la source du JSON
+
+### Application Vue.js
+
+L'application est dans `app/javascript/apps/picker/Picker.vue`.
+Elle utilise les 3 composants, `Parameters`, `Pagination` et `Results`.
 
 ### Routes et controllers
 
