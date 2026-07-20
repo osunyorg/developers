@@ -9,6 +9,7 @@ Cette liste a pour but d'aider au bon déroulement du projet, jusqu'à sa mise e
 
 ### Au démarrage du projet
 
+- [ ] Faut-il migrer les contenus existants ?
 - [ ] Faut-il archiver le site existant ?
 - [ ] Le site est-il multilingue ?
 - [ ] Quelles sont les fonctionnalités à activer ?
