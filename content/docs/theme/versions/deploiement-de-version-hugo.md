@@ -68,5 +68,6 @@ Informer les usagers que le déploiement est terminé.
 
 ### Modifier les versions des sites (hors deuxfleurs)
 
-[Recherche github](https://github.com/search?q=org%3Aosunyorg+0.157.0+NOT+path%3A.github%2Fworkflows%2Fdeuxfleurs.yml&type=code)
+[Recherche github](https://github.com/search?q=org%3Aosunyorg+0.161.1+NOT+path%3A.github%2Fworkflows%2Fdeuxfleurs.yml+AND+NOT+path%3Anetlify.toml&type=code)
+
 
