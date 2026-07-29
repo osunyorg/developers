@@ -139,11 +139,11 @@ Le site étant codé en mobile-first, les apparences des titres sont par défaut
 
 ```sass
 $h1-size: px2rem(30) !default
-$h2-size: px2rem(40) !default
-$h3-size: px2rem(30) !default
-$h4-size: px2rem(20) !default
-$h5-size: px2rem(18) !default
-$h6-size: px2rem(16) !default
+$h2-size: px2rem(24) !default
+$h3-size: px2rem(20) !default
+$h4-size: px2rem(16) !default
+$h5-size: px2rem(20) !default
+$h6-size: px2rem(14) !default
 ```
 
 ##### Desktop
@@ -151,48 +151,121 @@ $h6-size: px2rem(16) !default
 ```sass
 $h1-size-desktop: px2rem(60) !default
 $h2-size-desktop: px2rem(40) !default
-$h3-size-desktop: px2rem(30) !default
-$h4-size-desktop: px2rem(20) !default
-$h5-size-desktop: px2rem(18) !default
-$h6-size-desktop: px2rem(16) !default
+$h3-size-desktop: px2rem(28) !default
+$h4-size-desktop: px2rem(22) !default
+$h5-size-desktop: px2rem(24) !default
+$h6-size-desktop: px2rem(20) !default
 ```
 
 #### Typographies particulières
 
-De nombreuses variables permettent de personnaliser l'affichage des différents niveaux de titres dans le site :
+De nombreuses variables permettent de personnaliser l'affichage des différents niveaux de titres dans le site.
+
+Le lead correspond au chapô d'une page :
 
 ```sass
-/* Lead */
+/* Lead dans le contenu de la page */
+$lead-font-family: $heading-font-family !default
+$lead-size-desktop: pxToRem(60) !default
+$lead-size: pxToRem(24) !default
+$lead-line-height: 120% !default
+$lead-line-height-desktop: $lead-line-height !default
 $lead-weight: $heading-font-weight !default
+$lead-letter-spacing: normal !default
 
+/* Lead dans le contenu avec une sidebar */
+$lead-sidebar-font-family: $lead-font-family !default
+$lead-sidebar-size-desktop: pxToRem(32) !default
+$lead-sidebar-size: $lead-size !default
+$lead-sidebar-line-height: $lead-line-height !default
+$lead-sidebar-line-height-desktop: $lead-sidebar-line-height !default
+$lead-sidebar-weight: $lead-weight !default
+$lead-sidebar-letter-spacing: normal !default
+
+/* Lead dans le hero de la page */
+$lead-hero-font-family: $lead-sidebar-font-family !default
+$lead-hero-size: $lead-size !default
+$lead-hero-size-desktop: $lead-sidebar-size-desktop !default
+$lead-hero-line-height: $lead-sidebar-line-height !default
+$lead-hero-line-height-desktop: $lead-hero-line-height !default
+$lead-hero-weight: $lead-sidebar-weight !default
+$lead-hero-letter-spacing: normal !default
+```
+
+"Small" correspond au texte de la même police que le corps de texte, mais en plus petit (ex: les notes des chapitres) :
+
+```sass
 /* Small */
+$small-font-family: $body-font-family !default
+$small-size-desktop: pxToRem(18) !default
+$small-size: pxToRem(14) !default
+$small-line-height: 130% !default
+$small-line-height-desktop: $small-line-height !default
 $small-weight: normal !default
+$small-letter-spacing: normal !default
+```
 
+"Signature" correspond à la police de titre et à la taille du corps de texte (ex: sous-menu dans le header, titre des définitions) :
+
+```sass
 /* Signature */
+$signature-font-family: $heading-font-family !default
+$signature-size-desktop: pxToRem(22) !default
+$signature-size: pxToRem(18) !default
+$signature-line-height: 130% !default
+$signature-line-height-desktop: $signature-line-height !default
 $signature-weight: $heading-font-weight !default
+$signature-letter-spacing: normal !default
+```
 
+"Meta" correspond au texte secondaire, en police plus petite (ex: les éléments du header) :
+
+```sass
 /* Meta */
+$meta-font-family: $heading-font-family !default
+$meta-size-desktop: pxToRem(16) !default
+$meta-size: pxToRem(14) !default
+$meta-line-height: 150% !default
+$meta-line-height-desktop: 130% !default
 $meta-weight: $heading-font-weight !default
+$meta-text-transform: none !default
+$meta-letter-spacing: normal !default
+```
 
-/* Quote */
+"Quote" correspond aux citations, notamment dans le bloc témoignage. On gère deux formats d'affichage avec une police plus ou moins grande selon la longueur du texte :
+
+```sass
+/* Quote */$quote-font-family: $body-font-family !default
+$quote-size-desktop-short: pxToRem(60) !default
+$quote-size-desktop-long: pxToRem(40) !default
+$quote-size-desktop: pxToRem(40) !default
+$quote-size: pxToRem(24) !default
+$quote-line-height: 120% !default
+$quote-line-height-desktop: $quote-line-height !default
 $quote-weight: normal !default
 $quote-style: italic !default
+$quote-letter-spacing: normal !default
 ```
 
 ## Grid et espacements
 
 ```sass
 /* Spacing */
-$spacing1: 24px !default
-$spacing2: 48px !default
-$spacing3: 64px !default
-$spacing4: 128px !default
-$spacing5: 256px !default
+$space-unit: 4
+$spacing-1: space(2) !default   // 8px
+$spacing-2: space(3) !default   // 12px
+$spacing-3: space(6) !default   // 24px
+$spacing-4: space(12) !default  // 48px
+$spacing-5: space(16) !default  // 64px
+$spacing-6: space(32) !default  // 128px
+$spacing-7: space(64) !default  // 256px
 
 /* Grid */
 $grid-gutter: 60px
 $grid-max-width: 1980px
 ```
+
+> La fonction `space` multiplie par `$space-unit` le nombre indiqué.
 
 ## Z-index
 
@@ -210,19 +283,16 @@ $zindex-stretched-link: 2 !default
 Pour personnaliser l'apparence du fil d'ariane, on peut utiliser les variables suivantes :
 
 ```sass
-$breadcrumb-below-h1: false !default
-$breadcrumb-color: $color-text !default
-$breadcrumb-icon: "caret-right" !default
-$breadcrumb-icon-color: $color-text-alt !default
+$breadcrumb-color: $hero-color !default
+$breadcrumb-color-active: $hero-color !default
+$breadcrumb-icon: "arrow-right-s-line" !default
+$breadcrumb-icon-color: var(--color-text-alt) !default
 ```
-
-> L'option breadcrumb-below-h1 permet de changer l'affichage du fil d'ariane, en le plaçant au-dessus ou en-dessous de la page.
 
 ### Breakpoints
 
 ```sass
-/* TODO: réécrire en sass les mixins bootstrap */
-$grid-breakpoints: (xs: 0, sm: 576px, md- 768px, lg: 992px, xl: 1200px, xxl: 1400px)
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, desktop: 992px, lg: 992px, xl: 1200px, xxl: 1440px, xxxl: 1600px) !default
 ```
 
 ### Header
@@ -242,6 +312,7 @@ L'animation du header (sticky) et des dropdowns est paramétrable :
 
 ```sass
 $header-sticky-enabled: true !default
+$header-border-bottom-width: var(--border-width) !default
 
 /* Couleurs */
 $header-sticky-background: $color-background !default
@@ -266,8 +337,6 @@ $header-height-desktop: 74px !default
 Customisation des sous-menus :
 
 ```sass
-$header-dropdown-full: false !default
-
 /* Couleurs */
 $header-dropdown-background: $header-background !default
 $header-dropdown-color: $header-color !default
@@ -276,13 +345,102 @@ $header-dropdown-color: $header-color !default
 $header-dropdown-transition: $header-transition !default
 ```
 
-> L'option header-dropdown-full change l'affichage des sous-menu et permet un affichage pleine largeur avec une mise en place des liens en colonnes.
+#### Affichage des dropdown du header
+
+Il est possible de choisir entre 2 affichages du menu déplié : en dropdown sous l'élément cliqué ou en pleine largeur. Dans le dropdown, les liens sont en liste, les uns au-dessus des autres, en pleine largeur ils sont répartis en colonne.
+
+```sass
+$header-dropdown-full: false !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+Dropdown normaux :
+![](image-2.png)
+→ Voir [futurs-lejeu.fr](https://www.futurs-lejeu.fr/fr/)
+
+Dropdown pleine largeur :
+![](image-3.png)
+→ Voir [cityorchestra.metropole.rennes.fr](https://cityorchestra.metropole.rennes.fr/)
+</details>
 
 Une variable permet de changer automatiquement la couleur du logo du site lorsque le header devient fixe :
 
 ```sass
 $header-sticky-invert-logo: false !default
 ```
+
+Si l'option `site.Params.menu.level_2.title` (config hugo) est activée, un titre (et potentiellement un résumé) s'affichent sous l'item sélectionné dans le header. L'apparence de ce titre se paramètre également :
+
+```sass
+$header-dropdown-title-summary-font-family: $lead-hero-font-family !default
+$header-dropdown-title-summary-font-size: $body-size !default
+$header-dropdown-title-summary-font-size-desktop: $lead-hero-size-desktop !default
+$header-dropdown-title-summary-line-height: 120% !default
+$header-dropdown-title-summary-line-height-desktop: $header-dropdown-title-summary-line-height !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+Sans résumé :
+![](image-4.png)
+→ Voir [la-criee.org](https://www.la-criee.org/fr/)
+
+Avec résumé :
+![](image-1.png)
+→ Voir [mids.ch](https://mids.ch/)
+</details>
+
+#### Upper menu : un sur-menu au-dessus du header
+
+Donner le nom `upper-menu` à un des menus de l'admin permet d'afficher ce dernier au-dessus du menu principal. Ça permet de mettre en valeur des liens internes ou externes.
+
+```sass
+$header-upper-menu-background: $header-background !default
+$header-upper-menu-color: $header-color !default
+```
+
+Le upper menu possède les même propriétés que le header :
+
+```sass
+$header-upper-menu-sticky-background: $header-sticky-background !default
+$header-upper-menu-sticky-color: $header-sticky-color !default
+$header-upper-menu-border-bottom-width: $header-border-bottom-width !default
+$header-upper-menu-padding-y: $header-nav-padding-y !default
+$header-upper-menu-padding-y-desktop: $header-upper-menu-padding-y !default
+$header-upper-menu-mobile-height: pxToRem(50) !default
+```
+
+Le upper menu intègre l'affichage d'un item actif (une bordure en bas) lorsque l'on est sur la page du lien :
+
+```sass
+$header-upper-menu-active-decoration-color: var(--color-border) !default
+$header-upper-menu-active-decoration-height: 4px !default
+```
+
+Dans le cas d'un écosystème de site, par exemple, cette variable permet de mettre la class `active` sur les liens externes plutôt que le lien courrant :
+
+```sass
+$header-upper-menu-active-style-for-sites: false !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+![](image-5.png)
+→ Voir [example.osuny.org](https://example.osuny.org/fr/)
+
+![](image-6.png)
+→ Voir [communication-publique.fr](https://www.communication-publique.fr/)
+</details>
 
 ### Footer
 
@@ -296,6 +454,27 @@ $footer-logo-height: $header-logo-height !default
 $footer-logo-height-desktop: $footer-logo-height !default
 ```
 
+Il est possible de configurer l'affichage des icônes de réseaux sociaux dans le footer (avec ou sans texte) :
+
+```sass
+$footer-icons-enabled: true !default
+$footer-icons-size: pxToRem(20) !default
+$footer-icons-size-desktop: pxToRem(16) !default
+$footer-text-hidden: false !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+![](image-7.png)
+→ Voir [reseauexcellence.fr](https://www.reseauexcellence.fr/fr/)
+
+![](image-8.png)
+→ Voir [gaite-lyrique.net](https://www.gaite-lyrique.net/)
+</details>
+
 ### Hero
 
 ```sass
@@ -303,6 +482,12 @@ $hero-height: 300px !default
 $hero-height-desktop: 400px !default
 $hero-color: $color-text !default
 $hero-background-color: $color-background-alt !default
+```
+
+Par souci d'accessibilité, il est possible d'ajuster la couleur des crédits sous l'image du hero :
+```sass
+$hero-credit-color: var(--color-text-alt) !default
+$hero-credit-color-desktop: $hero-credit-color !default
 ```
 
 ### Icons
@@ -370,6 +555,14 @@ $toc-title-font-size: $meta-size !default
 $toc-title-font-size-desktop: $meta-size-desktop !default
 ```
 
+#### Offcanvas
+
+La hauteur de la bordure de la toc lorsqu'elle est dépliée en offcanvas est configurable :
+
+```sass
+$toc-border-width: 1px !default
+```
+
 ### Tableaux
 
 Pour personnaliser l'apparence des typographies utilisées dans les tableaux de données :
@@ -383,15 +576,54 @@ $table-body-size-desktop: $body-size-desktop !default
 
 ## Blocks
 
-### Call to action
+### Chapter
+
+Le bloc chapitre se décline en trois mises en page : sans fond, avec un fond discret, avec un fond accentué.
+
+Les couleurs sont configurables pour ces deux derniers layouts :
 
 ```sass
-$block-call-to-action-background: $color-accent !default
-$block-call-to-action-color: $color-background !default
+$block-chapter-layout-accent-background: var(--color-accent) !default
+$block-chapter-layout-accent-color: var(--color-background) !default
+$block-chapter-layout-alt-background: var(--color-background-alt) !default
+$block-chapter-layout-alt-color: var(--color-text) !default
+```
+
+### Call to action
+
+Le bloc appel à actions se décline en deux mises en page : celle avec un fond accentué, et celle simple.
+Deux sets de variables sont donc disponibles :
+
+```sass
+$block-call-to-action-color: var(--color-text) !default
 
 /* Apparence du bouton du premier lien */
-$block-call-to-action-button-background: $color-background !default
-$block-call-to-action-button-color: $color-text !default
+$block-call-to-action-button-background: var(--color-text) !default
+$block-call-to-action-button-border: var(--border-width) solid $block-call-to-action-button-background !default
+$block-call-to-action-button-color: var(--color-background) !default
+$block-call-to-action-button-hover-background: var(--color-text-alt) !default
+$block-call-to-action-button-hover-border: var(--border-width) solid $block-call-to-action-button-hover-background !default
+$block-call-to-action-button-hover-color: var(--color-background) !default
+```
+
+```sass
+/* Apparence du bloc */
+$block-call-to-action-accent-background: var(--color-accent) !default
+$block-call-to-action-accent-color: var(--color-background) !default
+
+/* Apparence du bouton du premier lien */
+$block-call-to-action-accent-button-background: var(--color-background) !default
+$block-call-to-action-accent-button-border: var(--border-width) solid $block-call-to-action-accent-button-background !default
+$block-call-to-action-accent-button-color: var(--color-text) !default
+$block-call-to-action-accent-button-hover-background: var(--color-text-alt) !default
+$block-call-to-action-accent-button-hover-border: var(--border-width) solid $block-call-to-action-accent-button-hover-background !default
+$block-call-to-action-accent-button-hover-color: var(--color-background) !default
+```
+
+Par défaut, les cta suivant le bouton sont représentés comme des liens, cette variable permet de le changer et de n'afficher que des boutons :
+
+```sass
+$block-call-to-action-all-actions-as-buttons: false !default
 ```
 
 ### Definitions
@@ -409,23 +641,40 @@ $block-definition-font-size-desktop: $body-size-desktop !default
 
 ### Key figures
 
+La configuration de ce bloc permet d'ajuster les détails typograhiques :
+
+```sass
+$block-key_figures-number-font-family: $heading-font-family !default
+$block-key_figures-unit-font-weight: normal !default
+$block-key_figures-number-font-weight: bold !default
+```
+
+Mais aussi la taille des images :
+
+```sass
+$block-key_figures-image-max-width-desktop: pxToRem(128) !default
+$block-key_figures-image-max-width: pxToRem(60) !default
+$block-key_figures-png-max-width-desktop: pxToRem(60) !default
+$block-key_figures-png-max-width: pxToRem(60) !default
+```
+
 La taille de la police de ce bloc est personnalisable pour plusieurs breakpoints, pour les chiffres (`block-key_figures-number-font-size`) et leur légende (`block-key_figures-font-size`) :
 
 ```sass
-$block-key_figures-font-size: px2rem(16) !default
-$block-key_figures-number-font-size: px2rem(32) !default
+$block-key_figures-font-size-desktop: pxToRem(18) !default
+$block-key_figures-number-font-size-desktop: pxToRem(40) !default
 
-$block-key_figures-font-size-desktop: px2rem(18) !default
-$block-key_figures-number-font-size-desktop: px2rem(40) !default
-
-$block-key_figures-font-size-lg: px2rem(20) !default
-$block-key_figures-number-font-size-lg: px2rem(50) !default
+$block-key_figures-font-size-lg: pxToRem(20) !default
+$block-key_figures-number-font-size-lg: pxToRem(50) !default
 
 $block-key_figures-font-size-xl: $block-key_figures-font-size-lg !default
-$block-key_figures-number-font-size-xl: px2rem(60) !default
+$block-key_figures-number-font-size-xl: pxToRem(60) !default
 
 $block-key_figures-font-size-xxl: $block-key_figures-font-size-xl !default
-$block-key_figures-number-font-size-xxl: px2rem(80) !default
+$block-key_figures-number-font-size-xxl: pxToRem(80) !default
+
+$block-key_figures-font-size: $block-key_figures-font-size-lg !default
+$block-key_figures-number-font-size: $block-key_figures-number-font-size-lg !default
 ```
 
 ### Gallery
@@ -434,6 +683,13 @@ La couleur de fond de la galerie est personnalisable :
 
 ```sass
 $block-gallery-carousel-background: $color-background-alt
+```
+
+Ainsi que la hauteur de ses images :
+
+```sass
+$block-gallery-carousel-height: 350px !default
+$block-gallery-carousel-height-desktop: calc(60 * var(--rvh)) !default
 ```
 
 ### Image
@@ -451,14 +707,30 @@ Seul le layout cards est personnalisable :
 
 ```sass
 /* Fond du bloc */
-$block-pages-card-background: color-contrast($color-background, 10%) !default
+$block-pages-card-background: var(--color-background-alt) !default
 
 /* Apparence des cartes */
-$block-pages-card-page-background: invert($color-text) !default
-$block-pages-card-page-background-hover: $color-accent !default
-$block-pages-card-page-color: $color-text !default
-$block-pages-card-page-color-hover: $color-background !default
+$block-pages-card-page-background: var(--color-background) !default
+$block-pages-card-page-color: var(--color-text) !default
+$block-pages-card-page-background-hover: var(--color-accent) !default
+$block-pages-card-page-color-hover: var(--color-background) !default
 ```
+
+## Posts
+
+La grille des actualités est configurable :
+
+```sass
+$block-posts-grid-columns: 3 !default
+```
+
+## Programs
+
+La taille des images est configurable :
+
+```sass
+$block-programs-aspect-ratio: 16/9 !default
+````
 
 ### Testimonials
 
@@ -488,30 +760,48 @@ $block-testimonials-xl-line-height-long-text: $quote-line-height !default
 
 ### Timeline
 
+Le fond et les couleurs de la frise chronologique sont remplaçables, de même que la bordure et les puces :
+
 ```sass
-$block-timeline-horizontal-background: $color-background-alt !default
-$block-timeline-horizontal-color: $color-text !default
+$block-timeline-horizontal-background: var(--color-background-alt) !default
+$block-timeline-horizontal-color: var(--color-text) !default
+$block-timeline-bullet-width: 9px !default
+$block-timeline-border-width: var(--border-width) !default
+```
+
+###
+
+Dans le cas d'un bloc titre avec la mise en page rétractée, la bordure inférieure de la zone cliquable est configurable :
+
+```sass
+$block-title-border-bottom: var(--border-width) solid var(--color-border)
+```
+
+### Layout "cards"
+
+Le layout cartes possède des variables spécifiques par souci d'uniformisation :
+
+```sass
+$layout-cards-item-background: var(--color-background-alt) !default
+$layout-cards-item-color: var(--color-text) !default
+$layout-cards-item-background-hover: var(--color-accent) !default
+$layout-cards-item-color-hover: var(--color-background) !default
 ```
 
 ## Sections
 
+### Posts
+
+Si la section des actualités est en layout "grid", alors la grille est personnalisable :
+
 ```sass
-$post-media-background: $article-media-background !default
-$post-categories-color: color-contrast($color-text, 20%) !default
-$post-time-color: $color-text-alt !default
-
-/* Layout posts list (ne concerne pas les blocks posts) */
-$posts-layout-list: true !default
-
-/* Si layout posts grid (ne concerne pas les blocks posts) */
 $posts-grid-columns: $block-posts-grid-columns !default
 ```
 
 ### Articles
 
 ```sass
-$article-media-background: color-contrast($color-background, 3%) !default
-$article-media-aspect-ratio: 2 !default
+$article-media-aspect-ratio: 16 / 9 !default
 ```
 
 ### Person
@@ -519,7 +809,15 @@ $article-media-aspect-ratio: 2 !default
 Personnalisation de la couleur de fond des ronds qui remplacent les photo d'une personne lorsqu'il n'y en a pas :
 
 ```sass
-$persons-avatar-background-color: $color-background-alt !default
+$persons-avatar-background-color: var(--color-background-alt) !default
+```
+
+### Organization
+
+Pour le même objectif que pour les personnes, on utilise cette fois une variable sass plutôt que css afin de ne pas avoir de logo sombre en dark mode.
+
+```sass
+$organization-background-color: $color-background-alt !default
 ```
 
 ### Program
@@ -531,17 +829,12 @@ $program-essential-font-size: $meta-size !default
 $program-essential-font-size-desktop: $meta-size-desktop !default
 ```
 
-Font-size du bouton de partage d'une formation :
+## Taxonomies
+
+On peut choisir d'afficher le dropdown des catégories en pleine largeur ou directement en-dessous de leur taxonomie :
 
 ```sass
-$program-share-font-size: $meta-size !default
-$program-share-font-size-desktop: $meta-size-desktop !default
-```
-
-Paramétrage du z-index de l'aside horizontal et sticky :
-
-```sass
-$program-zindex-toc: $zindex-toc !default
+$section-taxonomies-full-width: true !default
 ```
 
 ## MISC
@@ -549,6 +842,16 @@ $program-zindex-toc: $zindex-toc !default
 ### Animations
 
 ```sass
+/* Animations */
 $arrow-ease-transition: cubic-bezier(0, 0.65, 0.4, 1.2) !default
 $arrow-ease-transition-2: cubic-bezier(0, 0.65, 0.4, 1) !default
+
+/* Transition duration */
+$default-duration: 0.25s !default
+$opacity-duration: $default-duration !default
+$color-duration: $default-duration !default
+$background-duration: $default-duration !default
+$arrow-duration: 0.55s !default
+$button-duration: $default-duration !default
+$menu-link-duration: $default-duration !default
 ```
