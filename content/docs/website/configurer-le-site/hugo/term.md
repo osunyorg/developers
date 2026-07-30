@@ -1,6 +1,6 @@
 ---
 title: Term (catégorie)
-weight: 2
+weight: 3
 description: >
   Option pour modifier le fonctionnement ou l'apparence d'une page de catégorie
 ---

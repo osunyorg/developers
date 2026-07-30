@@ -1,6 +1,6 @@
 ---
 title: Single
-weight: 1
+weight: 2
 description: >
   Option pour modifier le fonctionnement ou l'apparence d'une `single`
 ---
