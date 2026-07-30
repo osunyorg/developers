@@ -128,6 +128,39 @@ Si l'on ne veut pas de partage sur X, ça doit être global.
         status: false
 ```
 
+## Expositions
+
+![](exhibitions.png)
+
+
+```YAML{filename="config/_default/config.yaml"}
+  exhibitions:
+    index:
+      options:
+        categories: true
+        dates: true
+        image: true
+        status: false
+        subtitle: true
+        summary: true
+        place: true
+```
+
+```YAML{filename="Bloc"}
+  - kind: block
+    template: exhibitions
+    data:
+      mode: all
+      layout: list
+      options:
+        categories: true
+        dates: true
+        image: true
+        subtitle: true
+        summary: true
+        status: false
+```
+
 ## Formations
 
 ![](programs.png)
