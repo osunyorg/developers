@@ -71,9 +71,14 @@ $body-size: px2rem(18) !default
 /* Lead */
 $lead-size-desktop: px2rem(60) !default
 $lead-size: px2rem(24) !default
+$lead-sidebar-size-desktop: pxToRem(32) !default
+$lead-sidebar-size: $lead-size !default
+$lead-hero-size: $lead-size !default
+$lead-hero-size-desktop: $lead-sidebar-size-desktop !default
 
 /* Small */
-$small-size-desktop: px2rem(18) !default
+$small-size-desktop: pxToRem(18) !default
+$small-size: pxToRem(14) !default
 
 /* Signature */
 $small-size: px2rem(14) !default
@@ -84,6 +89,14 @@ $signature-size: px2rem(18) !default
 $meta-size-desktop: px2rem(16) !default
 $meta-size: px2rem(14) !default
 ```
+
+> "Small" correspond au texte de la même police que le corps de texte, mais en plus petit (ex: les notes des chapitres)
+
+> "Signature" correspond à la police de titre et à la taille du corps de texte (ex: sous-menu dans le header, titre des définitions)
+
+> "Meta" correspond au texte secondaire, en police plus petite (ex: les éléments du header)
+
+> "Quote" correspond aux citations, notamment dans le bloc témoignage. On gère deux formats d'affichage avec une police plus ou moins grande selon la longueur du texte
 
 #### Line height
 
@@ -102,6 +115,8 @@ $h6-line-height: 130% !default
 
 /* Cas particuliers */
 $lead-line-height: 120% !default
+$lead-sidebar-line-height: $lead-line-height !default
+$lead-hero-line-height: $lead-sidebar-line-height !default
 $small-line-height: 130% !default
 $signature-line-height: 130% !default
 $meta-line-height: 150% !default
@@ -131,6 +146,86 @@ $h5-weight: $heading-font-weight !default
 $h6-weight: $heading-font-weight !default
 ```
 
+De même que les autres niveaux typographiques :
+
+```sass
+/* Lead */
+$lead-weight: $heading-font-weight !default
+$lead-sidebar-weight: $lead-weight !default
+$lead-hero-weight: $lead-sidebar-weight !default
+
+/* Small */
+$small-weight: normal !default
+
+/* Signature */
+$signature-weight: $heading-font-weight !default
+
+/* Meta */
+$meta-weight: $heading-font-weight !default
+
+/* Quote */
+$quote-weight: normal !default
+```
+
+#### Letter-spacing
+
+Chaque niveau typographique peut être ajusté au niveau de l'espacement de ses lettres : 
+
+```sass
+/* Titres */
+$h1-letter-spacing: normal !default
+$h2-letter-spacing: normal !default
+$h3-letter-spacing: normal !default
+$h4-letter-spacing: normal !default
+$h5-letter-spacing: normal !default
+$h6-letter-spacing: normal !default
+
+/* Lead */
+$lead-letter-spacing: normal !default
+$lead-sidebar-letter-spacing: normal !default
+$lead-hero-letter-spacing: normal !default
+
+/* Small */
+$small-letter-spacing: normal !default
+
+/* Signature */
+$signature-letter-spacing: normal !default
+
+/* Meta */
+$meta-letter-spacing: normal !default
+
+/* Quote */
+$quote-letter-spacing: normal !default
+```
+
+#### Text-transform
+
+La casse de chaque niveau d'information peut être ajustée :
+
+```sass
+/* Titres */
+$h1-text-transform: normal !default
+$h2-text-transform: normal !default
+$h3-text-transform: normal !default
+$h4-text-transform: normal !default
+$h5-text-transform: uppercase !default
+$h6-text-transform: uppercase !default
+
+/* Lead */
+$lead-text-transform: normal !default
+$lead-sidebar-text-transform: normal !default
+$lead-hero-text-transform: normal !default
+
+/* Small */
+$small-text-transform: normal !default
+
+/* Signature */
+$signature-text-transform: normal !default
+
+/* Meta */
+$meta-text-transform: none !default
+```
+
 #### Headings sizes
 
 Le site étant codé en mobile-first, les apparences des titres sont par défaut définies pour correspondre au mobile.
@@ -155,96 +250,6 @@ $h3-size-desktop: px2rem(28) !default
 $h4-size-desktop: px2rem(22) !default
 $h5-size-desktop: px2rem(24) !default
 $h6-size-desktop: px2rem(20) !default
-```
-
-#### Typographies particulières
-
-De nombreuses variables permettent de personnaliser l'affichage des différents niveaux de titres dans le site.
-
-Le lead correspond au chapô d'une page :
-
-```sass
-/* Lead dans le contenu de la page */
-$lead-font-family: $heading-font-family !default
-$lead-size-desktop: pxToRem(60) !default
-$lead-size: pxToRem(24) !default
-$lead-line-height: 120% !default
-$lead-line-height-desktop: $lead-line-height !default
-$lead-weight: $heading-font-weight !default
-$lead-letter-spacing: normal !default
-
-/* Lead dans le contenu avec une sidebar */
-$lead-sidebar-font-family: $lead-font-family !default
-$lead-sidebar-size-desktop: pxToRem(32) !default
-$lead-sidebar-size: $lead-size !default
-$lead-sidebar-line-height: $lead-line-height !default
-$lead-sidebar-line-height-desktop: $lead-sidebar-line-height !default
-$lead-sidebar-weight: $lead-weight !default
-$lead-sidebar-letter-spacing: normal !default
-
-/* Lead dans le hero de la page */
-$lead-hero-font-family: $lead-sidebar-font-family !default
-$lead-hero-size: $lead-size !default
-$lead-hero-size-desktop: $lead-sidebar-size-desktop !default
-$lead-hero-line-height: $lead-sidebar-line-height !default
-$lead-hero-line-height-desktop: $lead-hero-line-height !default
-$lead-hero-weight: $lead-sidebar-weight !default
-$lead-hero-letter-spacing: normal !default
-```
-
-"Small" correspond au texte de la même police que le corps de texte, mais en plus petit (ex: les notes des chapitres) :
-
-```sass
-/* Small */
-$small-font-family: $body-font-family !default
-$small-size-desktop: pxToRem(18) !default
-$small-size: pxToRem(14) !default
-$small-line-height: 130% !default
-$small-line-height-desktop: $small-line-height !default
-$small-weight: normal !default
-$small-letter-spacing: normal !default
-```
-
-"Signature" correspond à la police de titre et à la taille du corps de texte (ex: sous-menu dans le header, titre des définitions) :
-
-```sass
-/* Signature */
-$signature-font-family: $heading-font-family !default
-$signature-size-desktop: pxToRem(22) !default
-$signature-size: pxToRem(18) !default
-$signature-line-height: 130% !default
-$signature-line-height-desktop: $signature-line-height !default
-$signature-weight: $heading-font-weight !default
-$signature-letter-spacing: normal !default
-```
-
-"Meta" correspond au texte secondaire, en police plus petite (ex: les éléments du header) :
-
-```sass
-/* Meta */
-$meta-font-family: $heading-font-family !default
-$meta-size-desktop: pxToRem(16) !default
-$meta-size: pxToRem(14) !default
-$meta-line-height: 150% !default
-$meta-line-height-desktop: 130% !default
-$meta-weight: $heading-font-weight !default
-$meta-text-transform: none !default
-$meta-letter-spacing: normal !default
-```
-
-"Quote" correspond aux citations, notamment dans le bloc témoignage. On gère deux formats d'affichage avec une police plus ou moins grande selon la longueur du texte :
-
-```sass
-/* Quote */$quote-font-family: $body-font-family !default
-$quote-size-desktop-short: pxToRem(60) !default
-$quote-size-desktop-long: pxToRem(40) !default
-$quote-size-desktop: pxToRem(40) !default
-$quote-size: pxToRem(24) !default
-$quote-line-height: 120% !default
-$quote-line-height-desktop: $quote-line-height !default
-$quote-weight: normal !default
-$quote-style: italic !default
-$quote-letter-spacing: normal !default
 ```
 
 ## Grid et espacements
