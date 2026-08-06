@@ -43,6 +43,30 @@ Une grille de 2, ça veut dire 2 objets de 6 colonnes.
 Une grille de 6, ça veut dire 6 objets de 2 colonnes.
 ![](grille-6.png)
 
+Un mixin permet d'utiliser la grille d'osuny :
+
+```sass {filename="sass/_theme/utils/grid"}
+@mixin grid($cols: 12, $breakpoint: false, $gap-y: var(--grid-gutter), $gap-x: var(--grid-gutter))
+  word-break: break-word
+  @if $breakpoint
+    @include media-breakpoint-up($breakpoint)
+        display: grid
+        grid-gap: $gap-y $gap-x
+        grid-template-columns: repeat($cols, 1fr)
+  @else
+    display: grid
+    grid-gap: $gap-y $gap-x
+    grid-template-columns: repeat($cols, 1fr)
+```
+
+Il est appelé de cette manière :
+
+```sass
+@include grid(1)
+@include grid(2, md)
+@include grid(3, desktop)
+```
+
 ### Colonnes
 
 Inversement, 4 colonnes `columns(4)` pour un objet, ça veut dire une grille de 3 objets
@@ -50,6 +74,19 @@ Inversement, 4 colonnes `columns(4)` pour un objet, ça veut dire une grille de 
 ![](grille-3.png)
 
 Pour être précis, il faudrait parler d'une grille horizontale `grid-h` mais on n'utilise pas de grille verticale, donc la précision n'est pas nécessaire.
+
+Un mixin permet d'utiliser les colonnes dans osuny :
+
+```sass {filename="sass/_theme/utils/grid"}
+@function columns($quantity)
+  $width: calc( (var(--column-width) * #{$quantity}) + var(--grid-gutter) * ( #{$quantity} - 1 ))
+  @return #{$width}
+```
+
+Il est appelé de cette manière :
+```sass
+@include columns(x)
+```
 
 ## Les grilles dans des grilles
 
