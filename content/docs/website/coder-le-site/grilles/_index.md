@@ -50,9 +50,9 @@ Un mixin permet d'utiliser la grille d'osuny :
   word-break: break-word
   @if $breakpoint
     @include media-breakpoint-up($breakpoint)
-        display: grid
-        grid-gap: $gap-y $gap-x
-        grid-template-columns: repeat($cols, 1fr)
+      display: grid
+      grid-gap: $gap-y $gap-x
+      grid-template-columns: repeat($cols, 1fr)
   @else
     display: grid
     grid-gap: $gap-y $gap-x
