@@ -88,6 +88,14 @@ Il est appelé de cette manière :
 @include columns(x)
 ```
 
+Pour au contraire utiliser l'espace équivalent à x colonnes + une gouttière, il faut utiliser `offet(x)`:
+
+```sass
+@function offset($quantity)
+  $width: calc( #{columns($quantity)} + var(--grid-gutter) )
+  @return #{$width}
+```
+
 ## Les grilles dans des grilles
 
 Imaginons que l'on coupe la page en 1/3, 2/3.
