@@ -531,6 +531,108 @@ Définition du background de l'overlay qui apparaît lorsque les dropdowns du me
 $body-overlay-color: rgba(0, 0, 0, 0.3) !default
 ```
 
+### Bouttons
+
+Les bouttons ont un style par défaut, puis deux styles distincts en fonction de la taille de deux variantes (`large` et `small`).
+
+La typographie des boutons est personnalisable :
+
+```sass
+$btn-font-family: $heading-font-family !default
+$btn-font-size: $meta-size !default
+$btn-font-size-desktop: $meta-size-desktop !default
+$btn-font-style: normal !default
+$btn-font-weight: normal !default
+$btn-line-height: $body-line-height !default
+$btn-text-transform: none !default
+```
+
+Mais aussi ses couleurs :
+
+```sass
+$btn-color: var(--color-text) !default
+$btn-hover-color: var(--color-text) !default
+$btn-background: transparent !default
+$btn-hover-background: var(--color-background) !default
+```
+
+Des détails comme ses bordures :
+
+```sass
+$btn-border-width: 1px !default
+$btn-border: $btn-border-width solid var(--color-border) !default
+$btn-hover-border: $btn-border !default
+$btn-border-desktop: $btn-border !default
+$btn-border-radius: pxToRem(4) !default
+$btn-border-radius-desktop: $btn-border-radius !default
+```
+
+Leurs espacements :
+
+```sass
+$btn-padding: pxToRem(12) pxToRem(10) !default
+$btn-padding-desktop: pxToRem(18) pxToRem(16) !default
+```
+
+Par défaut, les boutons ont une largeur minimale, qui peut être overridée :
+```sass
+$btn-min-width: pxToRem(100) !default
+$btn-min-width-desktop: pxToRem(190) !default
+```
+
+La class `disabled` ajoute aussi un style propre :
+
+```sass
+$btn-disabled-color: var(--color-text-alt) !default
+$btn-disabled-background: var(--color-background-alt) !default
+$btn-disabled-border: $btn-disabled-background !default
+```
+
+#### `Large` et `small``
+
+Les deux variantes du boutton par défaut changent la typographie et les espacements :
+
+```sass
+$btn-small-font-size: $btn-font-size !default
+$btn-small-font-size-desktop: $btn-font-size-desktop !default
+$btn-small-line-height: $btn-line-height !default
+$btn-small-padding: pxToRem(6) pxToRem(10) !default
+$btn-small-padding-desktop: pxToRem(6) pxToRem(10) !default
+```
+
+```sass
+$btn-large-font-size: $btn-font-size !default
+$btn-large-font-size-desktop: $btn-font-size-desktop !default
+$btn-large-line-height: $btn-line-height !default
+$btn-large-padding: pxToRem(14) pxToRem(12) !default
+$btn-large-padding-desktop: pxToRem(20) pxToRem(18) !default
+```
+
+#### Bouton `accent` et `alt`
+
+Deux mixin permettent encore de changer le style d'un bouton : `button-accent` et `button-alt`. Ils remplacent la valeur des variables css définies par la configuration par défaut.
+
+```sass
+@mixin button-accent
+  @include button
+  --btn-color: #{$color-background}
+  --btn-background: #{$color-accent}
+  --btn-border: #{$btn-border-width} solid var(--btn-background)
+  --btn-hover-color: #{$color-background}
+  --btn-hover-background: #{alphaColor($color-accent, 0.85)}
+  --btn-hover-border: #{$btn-border-width} solid var(--btn-hover-background)
+```
+
+```sass
+@mixin button-alt
+  @include button
+  --btn-color: #{$color-background}
+  --btn-background: #{$color-text-alt}
+  --btn-border: #{$btn-border-width} solid var(--btn-background)
+  --btn-hover-color: #{$color-background}
+  --btn-hover-background: #{$color-text}
+  --btn-hover-border: #{$btn-border-width} solid var(--btn-hover-background)
+```
 ### Table of content
 
 #### Couleurs
