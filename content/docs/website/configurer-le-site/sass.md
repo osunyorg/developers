@@ -535,6 +535,14 @@ $body-overlay-color: rgba(0, 0, 0, 0.3) !default
 
 Les bouttons ont un style par défaut, puis deux styles distincts en fonction de la taille de deux variantes (`large` et `small`).
 
+<details>
+<summary>
+Aperçu du style basique des boutons
+</summary>
+
+![](image-9.png)
+</details>
+
 La typographie des boutons est personnalisable :
 
 ```sass
@@ -588,26 +596,6 @@ $btn-disabled-background: var(--color-background-alt) !default
 $btn-disabled-border: $btn-disabled-background !default
 ```
 
-#### `Large` et `small``
-
-Les deux variantes du boutton par défaut changent la typographie et les espacements :
-
-```sass
-$btn-small-font-size: $btn-font-size !default
-$btn-small-font-size-desktop: $btn-font-size-desktop !default
-$btn-small-line-height: $btn-line-height !default
-$btn-small-padding: pxToRem(6) pxToRem(10) !default
-$btn-small-padding-desktop: pxToRem(6) pxToRem(10) !default
-```
-
-```sass
-$btn-large-font-size: $btn-font-size !default
-$btn-large-font-size-desktop: $btn-font-size-desktop !default
-$btn-large-line-height: $btn-line-height !default
-$btn-large-padding: pxToRem(14) pxToRem(12) !default
-$btn-large-padding-desktop: pxToRem(20) pxToRem(18) !default
-```
-
 #### Bouton `accent` et `alt`
 
 Deux mixin permettent encore de changer le style d'un bouton : `button-accent` et `button-alt`. Ils remplacent la valeur des variables css définies par la configuration par défaut.
@@ -633,6 +621,45 @@ Deux mixin permettent encore de changer le style d'un bouton : `button-accent` e
   --btn-hover-background: #{$color-text}
   --btn-hover-border: #{$btn-border-width} solid var(--btn-hover-background)
 ```
+
+#### `Large` et `small``
+
+Les deux variantes du boutton par défaut changent la typographie et les espacements :
+
+```sass
+/* Small */
+$btn-small-font-size: $btn-font-size !default
+$btn-small-font-size-desktop: $btn-font-size-desktop !default
+$btn-small-line-height: $btn-line-height !default
+$btn-small-padding: pxToRem(6) pxToRem(10) !default
+$btn-small-padding-desktop: pxToRem(6) pxToRem(10) !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+![](image-11.png)
+</details>
+
+```sass
+/* Large */
+$btn-large-font-size: $btn-font-size !default
+$btn-large-font-size-desktop: $btn-font-size-desktop !default
+$btn-large-line-height: $btn-line-height !default
+$btn-large-padding: pxToRem(14) pxToRem(12) !default
+$btn-large-padding-desktop: pxToRem(20) pxToRem(18) !default
+```
+
+<details>
+<summary>
+Aperçu
+</summary>
+
+![](image10.png)
+</details>
+
 ### Table of content
 
 #### Couleurs
