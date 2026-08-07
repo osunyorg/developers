@@ -640,7 +640,7 @@ $btn-small-padding-desktop: pxToRem(6) pxToRem(10) !default
 Aperçu
 </summary>
 
-![](image-11.png)
+![](image-10.png)
 </details>
 
 ```sass
@@ -657,7 +657,7 @@ $btn-large-padding-desktop: pxToRem(20) pxToRem(18) !default
 Aperçu
 </summary>
 
-![](image10.png)
+![](image-11.png)
 </details>
 
 ### Table of content
