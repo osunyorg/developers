@@ -13,7 +13,7 @@ Les 3 choix aboutissent au même résultat : un identifiant de média.
 
 ```mermaid
 graph TD;
-  ModeChoix-->Upload-->FindOrCreateMedia-->IdMedia
+  ModeChoix-->Upload-->Crop-->FindOrCreateMedia-->IdMedia
   ModeChoix-->UnsplashPexels-->FindOrCreateMedia-->IdMedia
   ModeChoix-->Phototheque-->IdMedia
 
@@ -21,6 +21,7 @@ graph TD;
   Upload["Upload de fichier"]
   UnsplashPexels["Unsplash ou Pexels"]
   Phototheque["Photothèque"]
+  Crop["Recadrage"]
   FindOrCreateMedia["Intégration à la médiathèque"]
   IdMedia["Identifiant du média"]
 ```
