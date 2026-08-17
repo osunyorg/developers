@@ -3,10 +3,10 @@ baseURL: /
 defaultContentLanguage: fr
 languages:
   en:
-    languageName: English
+    label: English
     weight: 1
   fr:
-    languageName: Français
+    label: Français
     weight: 2
 
 module:

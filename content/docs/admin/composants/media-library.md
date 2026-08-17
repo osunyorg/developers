@@ -1,5 +1,5 @@
 ---
-title: Médiathèque
+title: Photothèque
 ---
 
 Une médiathèque ou bibliothèque de médias est un espace dans lequel on peut accéder à l'ensemble des médias importés dans un système. Le terme “médias” concerne les images (png, jpg, svg), mais aussi les fichiers joints ajoutés dans les blocs de contenus. 
