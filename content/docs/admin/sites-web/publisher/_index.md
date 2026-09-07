@@ -26,13 +26,24 @@ La Kelmscott Press représente l'aboutissement de la carrière de William Morris
 
 ```mermaid
 graph TD;
-  ModifRepo-->Compilation
-  Admin-->Compilation
-  Compilation-->EtatCompilation
-  EtatCompilation-->CompilationOk-->Upload-->EtatUpload
-  EtatCompilation-->CompilationKo-->Alerte
-  EtatUpload-->UploadOk-->Log
-  EtatUpload-->UploadKo-->Alerte
+  ModifRepo-->Declenchement
+  Admin-->Declenchement
+  Declenchement-->GitPull-->Compilation
+  Compilation-->CompilationOk-->Upload
+  Compilation-->CompilationKo-->Alerte
+  Upload-->UploadOk-->Log
+  Upload-->UploadKo-->Alerte
   Alerte-->Log
 
+  ModifRepo["Modification du référentiel Git"]
+  Admin["Modification du contenu via l'admin osuny"]
+  GitPull["Mise à jour du référentiel"]
+  Compilation{"Compilation Hugo"}
+  CompilationOk["Succès de la compilation"]
+  CompilationKo["Échec lors de la compilation"]
+  Upload{"Envoi en production"}
+  UploadOk["Succès de l'envoi"]
+  UploadKo["Échec lors de l'envoi"]
+  Alerte["Envoi d'une alerte"]
+  Log["Enregistrement du journal"]
 ```
