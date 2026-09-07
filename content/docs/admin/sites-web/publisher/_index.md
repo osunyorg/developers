@@ -52,3 +52,13 @@ graph TD;
 
 - Confidentialité des credentials
 - Protection des processus (pour éviter le defacing)
+- IP fixe
+
+## Questions à résoudre
+
+1. Comment déclencher les processus ?
+2. Comment envoyer les alertes ?
+3. Comment consulter les logs ? 
+4. Comment mettre à jour la stack, notamment la version Hugo ?
+5. Chez qui héberger la machine ?
+
