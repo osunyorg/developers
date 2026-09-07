@@ -47,3 +47,8 @@ graph TD;
   Alerte["Envoi d'une alerte"]
   Log["Enregistrement du journal"]
 ```
+
+## Enjeux
+
+- Confidentialité des credentials
+- Protection des processus (pour éviter le defacing)
