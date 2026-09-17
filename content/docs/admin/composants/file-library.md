@@ -187,7 +187,6 @@ graph TD;
   Contexte["Création du contexte"]
 ```
 
-
 ## Via la bibliothèque de fichiers
 
 ### Création
@@ -239,5 +238,28 @@ On ne peut supprimer que les fichiers sans contexte.
 
 ### Fusion
 
-Il y aura, tôt ou tard, le besoin de fusionner des fichiers qui sont en fait des versions locales l'un de l'autre.
+Il y aura, tôt ou tard, le besoin de fusionner des fichiers qui sont en fait des versions localisées l'un de l'autre.
 
+
+### Pérennité
+
+Les fichiers envoyés par la bibliothèque de fichiers sont naturellement pérennes.
+L'idée est que si on envoie par ce biais, c'est qu'on pense l'utilisation future.
+On peut bien sûr désactiver la pérennité au cas par cas.
+
+```mermaid
+graph TD;
+  Creation-->RechercheHash
+  RechercheHash-->HashVivant-->RefusHashVivant
+  RechercheHash-->HashMort-->RefusHashMort
+  RechercheHash-->Nada-->CreationFile
+
+  Creation["Formulaire de création du fichier"]
+  RechercheHash{"Recherche du fichier par son hash"}
+  HashVivant["Le fichier existe"]
+  HashMort["Le fichier existe, mais il est à la corbeille"]
+  Nada["Le fichier n'existe pas"]
+  RefusHashVivant["Refus de création, indication du fichier déjà existant"]
+  RefusHashMort["Refus de création, indication du fichier à la corbeille"]
+  CreationFile["Création"]
+```
