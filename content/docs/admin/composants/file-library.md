@@ -187,6 +187,8 @@ graph TD;
   Contexte["Création du contexte"]
 ```
 
+Il n'y a aucun message dans l'interface des blocs, ça marche dans tous les cas et on n'encombre pas l'utilisateurice avec de la plomberie.
+
 ## Via la bibliothèque de fichiers
 
 ### Création
