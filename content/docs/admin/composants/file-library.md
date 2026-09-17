@@ -159,6 +159,35 @@ graph TD;
 Lors de la suppression d'un bloc, d'une formation ou autre, il faut détruire les contextes dont l'objet est l'about.
 Comme c'est une propriété polymorphe, il faut passer par un before_destroy.
 
+### Pérennité
+
+Les fichiers envoyés par les blocs ne sont pas naturellement pérennes.
+L'idée est de permettre aux contributeurices de se tromper, et d'envoyer différentes versions qui seront nettoyées automatiquement.
+Le mécanisme de nettoyage est de mettre à la corbeille automatiquement les fichiers qui n'ont pas de contexte, et qui ne sont pas pérennes.
+Au bout de 30 jours, ils sont supprimés définitivement.
+
+
+```mermaid
+graph TD;
+  Envoi-->RechercheHash
+  RechercheHash-->HashVivant-->Id
+  RechercheHash-->HashMort-->RestaurationFile-->Id
+  RechercheHash-->Nada-->CreationFile-->Id
+  Id-->EnregistrementBloc-->Contexte
+
+  Envoi["Envoi via un bloc"]
+  RechercheHash{"Recherche du fichier par son hash"}
+  HashVivant["Le fichier existe"]
+  HashMort["Le fichier existe, mais il est à la corbeille"]
+  Nada["Le fichier n'existe pas"]
+  RestaurationFile["On restaure le fichier, sans toucher à sa pérennité"]
+  CreationFile["On crée le fichier non pérenne"]
+  Id["Envoi de l'identifiant"]
+  EnregistrementBloc["Enregistrement du bloc"]
+  Contexte["Création du contexte"]
+```
+
+
 ## Via la bibliothèque de fichiers
 
 ### Création
