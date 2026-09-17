@@ -18,7 +18,7 @@ www IN CNAME production.osuny.site.
 Comme OVH ne permet pas les ALIAS à l'apex, il faut faire une redirection. Malheureusement, OVH ne sait pas non plus faire des redirections en HTTPS à l'apex, donc il faut activer l'hébergement gratuit, et poser un fichier .htaccess avec un redirect vers le domaine avec le www.
 
 ```htaccess
-RedirectPermanent / https://www.VOTRE-DOMAINE.org
+RedirectPermanent / https://www.VOTRE-DOMAINE.org/
 ```
 
 
