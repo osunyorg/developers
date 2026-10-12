@@ -60,8 +60,11 @@ graph TD;
   ModifRepo-->Rien
   Admin-->Declenchement
   Declenchement-->GitPull-->Compilation
-  Compilation-->CompilationOk-->WarnAdmin
+  Compilation-->CompilationOk-->WarnForge
   Compilation-->CompilationKo-->Alerte
+  WarnForge-->Deploiement
+  Deploiement-->DeploiementOk
+  Deploiement-->DeploiementKo
   Alerte-->Log
 
   ModifRepo["Modification du référentiel Git (CSS, assets, config Hugo, thème custom)"]
@@ -71,7 +74,10 @@ graph TD;
   Compilation{"Compilation Hugo"}
   CompilationOk["Succès de la compilation"]
   CompilationKo["Échec lors de la compilation"]
-  WarnAdmin{"Préviens l'admin"}
+  WarnForge{"Préviens la forge"}
+  Deploiement{"Déploiement"}
+  DeploiementOk{"Succès du déploiement"}
+  DeploiementKo{"Échec du déploiement"}
   Alerte["Envoi d'une alerte"]
   Log["Enregistrement du journal"]
 ```
