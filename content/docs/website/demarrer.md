@@ -96,7 +96,7 @@ git clone git@github.com:monorganisation/monreferentiel.git --recurse-submodules
 > 
 > ```bash
 > git clone git@github.com:osunyorg/theme.git --recurse-submodules
-> cd theme
+> cd themes
 > yarn
 > hugo server
 > ```
