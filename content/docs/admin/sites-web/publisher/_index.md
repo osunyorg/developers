@@ -72,4 +72,11 @@ graph TD;
 
 Instance CPU
 
+#### A monitorer
+
+- Espace disque
+- RAM
+- CPU
+
+
 
