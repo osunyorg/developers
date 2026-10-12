@@ -52,6 +52,30 @@ graph TD;
   Log["Enregistrement du journal"]
 ```
 
+## Flux alternatif
+
+
+```mermaid
+graph TD;
+  ModifRepo-->Rien
+  Admin-->Declenchement
+  Declenchement-->GitPull-->Compilation
+  Compilation-->CompilationOk-->WarnAdmin
+  Compilation-->CompilationKo-->Alerte
+  Alerte-->Log
+
+  ModifRepo["Modification du référentiel Git (CSS, assets, config Hugo, thème custom)"]
+  Rien["Aucune action, il faut lancer via l'admin"]
+  Admin["Modification du contenu ou lancement manuel via l'admin osuny"]
+  GitPull["Mise à jour du référentiel"]
+  Compilation{"Compilation Hugo"}
+  CompilationOk["Succès de la compilation"]
+  CompilationKo["Échec lors de la compilation"]
+  WarnAdmin{"Préviens l'admin"}
+  Alerte["Envoi d'une alerte"]
+  Log["Enregistrement du journal"]
+```
+
 ## Enjeux
 
 - Confidentialité des credentials (y compris dans les logs)
@@ -72,16 +96,11 @@ graph TD;
 
 Instance CPU
 
-![Configuration](scaleway.png)
-
-IP : 78.232.57.255
-
-https://compilation.osuny.org
-
-
 #### A monitorer
 
 - Espace disque
 - RAM
 - CPU
+
+
 
