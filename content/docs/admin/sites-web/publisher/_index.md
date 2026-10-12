@@ -72,4 +72,8 @@ graph TD;
 
 Instance CPU
 
+![Configuration](scaleway.png)
 
+IP : 78.232.57.255
+
+https://compilation.osuny.org
