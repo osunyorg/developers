@@ -2,7 +2,7 @@
 title: Kelmscott
 ---
 
-Kelmscott est une imprimerie de sites web. 
+Kelmscott est une imprimerie de sites web.
 
 
 C'est une machine qui :
@@ -54,31 +54,33 @@ graph TD;
 
 ## Flux alternatif
 
-
 ```mermaid
 graph TD;
-  ModifRepo-->Rien
-  Admin-->Declenchement
-  Declenchement-->GitPull-->Compilation
-  Compilation-->CompilationOk-->WarnForge
-  Compilation-->CompilationKo-->Alerte
-  WarnForge-->Deploiement
+  ModifRepo-->AucunDeclenchement
+  Admin-->AppelKelmscott-->GitPull-->Compilation
+  Compilation-->CompilationOk-->GenerationArtefact-->WarnForge
+  Compilation-->CompilationKo-->AlerteCompilation-->Log
+  WarnForge-->WorkflowForge-->TelechargementArtefact-->Deploiement
   Deploiement-->DeploiementOk
-  Deploiement-->DeploiementKo
-  Alerte-->Log
+  Deploiement-->DeploiementKo-->AlerteDeploiement
 
   ModifRepo["Modification du référentiel Git (CSS, assets, config Hugo, thème custom)"]
-  Rien["Aucune action, il faut lancer via l'admin"]
-  Admin["Modification du contenu ou lancement manuel via l'admin osuny"]
+  AucunDeclenchement["Aucune action, il faut lancer via l'admin"]
+  Admin["Modification du contenu ou déclenchement manuel via l'admin osuny"]
+  AppelKelmscott["Appel de la machine Kelmscott"]
   GitPull["Mise à jour du référentiel"]
   Compilation{"Compilation Hugo"}
   CompilationOk["Succès de la compilation"]
   CompilationKo["Échec lors de la compilation"]
-  WarnForge{"Préviens la forge"}
-  Deploiement{"Déploiement"}
-  DeploiementOk{"Succès du déploiement"}
-  DeploiementKo{"Échec du déploiement"}
-  Alerte["Envoi d'une alerte"]
+  GenerationArtefact["On génère l'artefact (fichier ZIP à partir du dossier généré)"]
+  WarnForge["On prévient la forge"]
+  WorkflowForge["La forge lance son workflow de déploiement"]
+  TelechargementArtefact["Elle télécharge l'artefact"]
+  Deploiement{"Elle déploie le contenu grâce aux secrets du référentiel"}
+  DeploiementOk["Succès du déploiement"]
+  DeploiementKo["Échec du déploiement"]
+  AlerteCompilation["Envoi d'une alerte depuis Kelmscott"]
+  AlerteDeploiement["Envoi d'une alerte depuis la forge"]
   Log["Enregistrement du journal"]
 ```
 
@@ -92,11 +94,11 @@ graph TD;
 
 1. Comment déclencher les processus ?
 2. Comment envoyer les alertes ?
-3. Comment consulter les logs ? 
+3. Comment consulter les logs ?
 4. Comment mettre à jour la stack, notamment la version Hugo ?
 5. Chez qui héberger la machine ?
 
-## Implémentation 
+## Implémentation
 
 ### Scaleway
 
@@ -107,6 +109,3 @@ Instance CPU
 - Espace disque
 - RAM
 - CPU
-
-
-
