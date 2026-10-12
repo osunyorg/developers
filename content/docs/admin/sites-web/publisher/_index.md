@@ -23,10 +23,13 @@ La Kelmscott Press représente l'aboutissement de la carrière de William Morris
 
 ## Flux
 
+La version d'Hugo est globale dans Kelmscott.
+Les alertes sont envoyées à Slack/Mattermost.
+Le statut de compilation s'affiche en admin, à la place des badges de workflow.
 
 ```mermaid
 graph TD;
-  ModifRepo-->Declenchement
+  ModifRepo-->Rien
   Admin-->Declenchement
   Declenchement-->GitPull-->Compilation
   Compilation-->CompilationOk-->Upload
@@ -35,8 +38,9 @@ graph TD;
   Upload-->UploadKo-->Alerte
   Alerte-->Log
 
-  ModifRepo["Modification du référentiel Git"]
-  Admin["Modification du contenu via l'admin osuny"]
+  ModifRepo["Modification du référentiel Git (CSS, assets, config Hugo, thème custom)"]
+  Rien["Aucune action, il faut lancer via l'admin"]
+  Admin["Modification du contenu ou lancement manuel via l'admin osuny"]
   GitPull["Mise à jour du référentiel"]
   Compilation{"Compilation Hugo"}
   CompilationOk["Succès de la compilation"]
@@ -50,9 +54,9 @@ graph TD;
 
 ## Enjeux
 
-- Confidentialité des credentials
+- Confidentialité des credentials (y compris dans les logs)
 - Protection des processus (pour éviter le defacing)
-- IP fixe
+- IP fixe -> Scaleway
 
 ## Questions à résoudre
 
@@ -61,4 +65,11 @@ graph TD;
 3. Comment consulter les logs ? 
 4. Comment mettre à jour la stack, notamment la version Hugo ?
 5. Chez qui héberger la machine ?
+
+## Implémentation 
+
+### Scaleway
+
+Instance CPU
+
 
