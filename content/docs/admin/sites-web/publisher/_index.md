@@ -32,6 +32,111 @@ graph LR;
   Kelmscott -- compilation et mise en ligne --> Site
 ```
 
+## Séquence
+
+```mermaid
+sequenceDiagram
+  autonumber
+  actor Commoner
+  Admin->>Forge: Envoi sur git
+  Admin->>Kelmscott: Demande de compilation
+  Kelmscott->>Admin: Paramètres de compilation
+  Kelmscott->>Forge: Récupération depuis git
+  Kelmscott->>Kelmscott: Compilation du site
+  Kelmscott->>Hosting: Synchronisation du site
+  Kelmscott->>Kelmscott: Publication des logs
+  Admin->>Kelmscott: Badge d'état
+  Commoner->>Kelmscott: Consultation des logs
+```
+
+Enjeux de sécurité
+- Confidentialité des credentials (y compris dans les logs)
+- Protection des processus (pour éviter le defacing)
+- IP fixe -> Scaleway
+
+
+{{% steps %}}
+
+### Envoi sur git
+
+L'admin push vers Git, comme actuellement.
+
+### Demande de compilation
+
+L'admin émet une requête vers Kelmscott pour demander une compilation
+Kelmscott filtre les requêtes qui ne viennent pas du pool d'IP.
+Un système de jeton ou de clé doit permettre de vérifier que la demande vient bien de l'admin osuny.
+
+```{filename="Requête POST"}
+https://compilation.osuny.org/noesya/noesya-www
+```
+
+### Paramètres de compilation
+
+Kelmscott demande à l'admin osuny les infos pour compiler.
+L'admin ne répond qu'à l'IP de Kelmscott.
+Dans l'admin osuny, les informations de connexion sont stockées cryptées, avec la clé publique de Kelmscott.
+L'interface doit permettre de mettre à jour une clé, comme les GitHub secrets.
+Pas de vulnérabilité de ce côté, rien n'est en clair.
+
+```{filename="Requête GET"}
+https://noesya.osuny.org/compilation/noesya-www
+```
+
+```json
+{
+  "git" : {
+    "url" : "https://github.com/osunyorg/noesya-www",
+    "endpoint" : "https://github.com/osunyorg/noesya-www.git"
+  },
+  "sync" : {
+    "mode" : "dxfl",
+    "secrets" : {
+      "ENDPOINT_URL" : "encoded value",
+      "ACCESS_TOKEN" : "encoded value",
+      "SECRET" : "encoded value",
+    }
+  }
+}
+```
+
+### Récupération depuis git
+
+Kelmscott clone le repo s'il n'existe pas, pull s'il existe.
+Il faut mettre à jour les submodules, dans la branche choisie.
+
+### Compilation du site
+
+Kelmscott lance un processus autonome (avec un user aux droits limités ?). 
+Ce processus install les dépendances, puis compile le site.
+
+```bash
+yarn install
+yarn osuny build
+```
+
+### Synchronisation du site
+
+Kelmscott décrypte les secrets avec la clé privée. 
+Kelmscott les fournit au script de synchronisation, sans les écrire nulle part.
+Le site peut ajouter l'IP de Kelmscott à sa liste blanche.
+La synchronisation s'exécute.
+
+### Publication des logs
+
+Les logs sont purgés des infos secrètes.
+
+### Badge d'état
+
+Le badge d'état affiche le succès ou l'échec de la publication.
+
+### Consultation des logs
+
+Les commoners peuvent consulter le dernier log, notamment pour débugger.
+
+{{% /steps %}}
+
+Le risque est la compromission root de Kelmscott, c'est tout.
 
 ## Flux
 
@@ -65,6 +170,8 @@ graph TD;
   Alerte["Envoi d'une alerte"]
   Log["Enregistrement du journal"]
 ```
+
+Version optimale, à bien sécuriser.
 
 ### 2. Upload en CI
 
@@ -101,11 +208,7 @@ graph TD;
   Log["Enregistrement du journal"]
 ```
 
-## Enjeux
-
-- Confidentialité des credentials (y compris dans les logs)
-- Protection des processus (pour éviter le defacing)
-- IP fixe -> Scaleway
+Version sous-optimale.
 
 ## Questions à résoudre
 
@@ -117,9 +220,7 @@ graph TD;
 
 ## Implémentation
 
-### Scaleway
-
-Instance CPU
+Instance CPU Scaleway
 
 ![config](scaleway.png)
 
