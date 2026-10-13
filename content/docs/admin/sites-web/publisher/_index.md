@@ -61,15 +61,24 @@ Enjeux de sécurité
 
 L'admin push vers Git, comme actuellement.
 
+{{< callout type="success" >}}
+  Risque déjà audité
+{{< /callout >}}
+
 ### Demande de compilation
 
 L'admin émet une requête vers Kelmscott pour demander une compilation
 Kelmscott filtre les requêtes qui ne viennent pas du pool d'IP.
-Un système de jeton ou de clé doit permettre de vérifier que la demande vient bien de l'admin osuny.
 
 ```{filename="Requête POST"}
 https://compilation.osuny.org/noesya/noesya-www
 ```
+
+{{< callout type="success" >}}
+  Risque de relance de build (DOS)
+  - filtrer le pool d'IP
+  - vérifier que la requête vient bien d'osuny avec un jeton ou une clé
+{{< /callout >}}
 
 ### Paramètres de compilation
 
@@ -91,19 +100,35 @@ https://noesya.osuny.org/compilation/noesya-www
   },
   "sync" : {
     "mode" : "dxfl",
+    "variables": {
+      "BUCKET" : "www.noesya.coop",
+    },
     "secrets" : {
-      "ENDPOINT_URL" : "encoded value",
-      "ACCESS_TOKEN" : "encoded value",
-      "SECRET" : "encoded value",
+      "AWS_ACCESS_KEY_ID" : "valeur encodée",
+      "AWS_SECRET_ACCESS_KEY" : "valeur encodée",
     }
   }
 }
 ```
 
+{{< callout type="error" >}}
+  Risque d'usurpation d'identité et d'envoi de fausses données
+  - limitation de la saisie aux admins
+  - liste blanche des modes
+  - liste blanche des variables
+  - liste blanche des secrets
+  - restriction d'IP
+{{< /callout >}}
+
 ### Récupération depuis git
 
 Kelmscott clone le repo s'il n'existe pas, pull s'il existe.
 Il faut mettre à jour les submodules, dans la branche choisie.
+
+{{< callout type="warning" >}}
+  Risque de remplissage du disque
+  - sonde disque avec alerte
+{{< /callout >}}
 
 ### Compilation du site
 
@@ -115,6 +140,12 @@ yarn install
 yarn osuny build
 ```
 
+{{< callout type="error" >}}
+  Risque d'exécution de code non maîtrisé
+  - un user par build, aux droits limités au dossier
+  - pourquoi faire un yarn install local et pas une commande de build globale ?
+{{< /callout >}}
+
 ### Synchronisation du site
 
 Kelmscott décrypte les secrets avec la clé privée. 
@@ -122,21 +153,40 @@ Kelmscott les fournit au script de synchronisation, sans les écrire nulle part.
 Le site peut ajouter l'IP de Kelmscott à sa liste blanche.
 La synchronisation s'exécute.
 
+{{< callout type="warning" >}}
+  Risque de sortie du dossier (lien symbolique) et de mise en ligne d'une compilation ratée
+  - ignorer les liens symboliques
+  - interrompre correctement le processus en cas d'échec de compilation
+{{< /callout >}}
+
 ### Publication des logs
 
 Les logs sont purgés des infos secrètes.
+
+{{< callout type="warning" >}}
+  Risque de publication de données secrètes
+  - masquer les données confidentielles à l'écriture des logs
+{{< /callout >}}
 
 ### Badge d'état
 
 Le badge d'état affiche le succès ou l'échec de la publication.
 
+{{< callout type="success" >}}
+  Pas de risque
+{{< /callout >}}
+
 ### Consultation des logs
 
 Les commoners peuvent consulter le dernier log, notamment pour débugger.
 
-{{% /steps %}}
+{{< callout type="warning" >}}
+  Risque d'exposition de beaucoup d'infos
+  - afficher les résultats uniquement via l'admin osuny
+  - filtrage idem étape 2 
+{{< /callout >}}
 
-Le risque est la compromission root de Kelmscott, c'est tout.
+{{% /steps %}}
 
 ## Flux
 
