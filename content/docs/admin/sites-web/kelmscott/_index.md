@@ -1,5 +1,7 @@
 ---
 title: Kelmscott
+aliases:
+  - /docs/admin/sites-web/publisher/
 ---
 
 Kelmscott est une imprimerie de sites web.
