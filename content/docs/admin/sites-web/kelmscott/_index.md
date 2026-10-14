@@ -176,7 +176,7 @@ Pour l'instant, les logs sont publics sur Kelmscott, et le badge renvoie vers eu
 
 ## Flux
 
-### 1. Tout dans Kelmscott
+### 1. Tout dans Kelmscott (flux OK)
 
 La version d'Hugo est globale dans Kelmscott.
 Les alertes sont envoyées à Slack/Mattermost.
@@ -209,7 +209,7 @@ graph TD;
 
 Version optimale, à bien sécuriser.
 
-### 2. Upload en CI
+### 2. Upload en CI (flux KO)
 
 Cette version est plus sécurisée, parce qu'elle ne connaît pas les credentials.
 En revanche, ça ne résout pas la question de l'IP unique, ça la délègue à la forge, et ça n'optimise pas vraiment les déploiements parce que ça complique le processus.
@@ -248,11 +248,13 @@ Version sous-optimale.
 
 ## Questions à résoudre
 
-1. Comment déclencher les processus ?
-2. Comment envoyer les alertes ?
-3. Comment consulter les logs ?
-4. Comment mettre à jour la stack, notamment la version Hugo ?
-5. Chez qui héberger la machine ?
+1. Comment envoyer les alertes ?
+
+2. Comment mettre à jour la stack, notamment la version Hugo ?
+Sebou ?
+
+3. Chez qui héberger la machine ?
+Scaleway ? Bearstech
 
 ## Implémentation
 
