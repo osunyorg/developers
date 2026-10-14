@@ -121,13 +121,20 @@ Seul le dernier commit est conservé (clone superficiel), et le dossier revient 
 
 ### Compilation du site
 
-Kelmscott lance un processus autonome, avec les paramètres décryptés 
-Ce processus compile le site.
+Kelmscott lance un processus autonome, sans les secrets : seule la synchronisation les reçoit.
+Ce processus tourne dans un sandbox systemd, sous un utilisateur dédié sans droits (`kelmscott-build`), qui ne voit et ne peut écrire que le dossier de son site.
 La compilation est reproduite entièrement, ce n'est pas un yarn osuny build, parce que c'est très inefficace de réinstaller tout le temps.
+Les dépendances du thème viennent d'une toolchain partagée, en lecture seule, et aucun script npm du thème n'est exécuté.
+
+```bash
+hugo --minify
+pagefind
+```
 
 {{< callout type="error" >}}
   Risque d'exécution de code non maîtrisé
-  - un user par build, aux droits limités au dossier
+  - sandbox systemd, utilisateur sans droits limité au dossier du site
+  - secrets absents de la compilation
   - commande de build globale
 {{< /callout >}}
 
@@ -268,3 +275,10 @@ Indicateurs à monitorer :
 - Espace disque
 - RAM
 - CPU
+
+## Interfaces
+
+### Admin
+
+![Réglages](admin-settings.png)
+![Badge et action](admin-badge.png)
