@@ -30,7 +30,6 @@ graph LR;
   Admin -- git push --> Forge
   Admin -- demande de compilation --> Kelmscott
   Kelmscott -. git pull .-> Forge
-  Kelmscott -- récupération des credentials --> Admin
   Kelmscott -- compilation et mise en ligne --> Site
 ```
 
@@ -42,7 +41,6 @@ sequenceDiagram
   actor Commoner
   Admin->>Forge: Envoi sur git
   Admin->>Kelmscott: Demande de compilation
-  Kelmscott->>Admin: Paramètres de compilation
   Kelmscott->>Forge: Récupération depuis git
   Kelmscott->>Kelmscott: Compilation du site
   Kelmscott->>Hosting: Synchronisation du site
@@ -69,49 +67,36 @@ L'admin push vers Git, comme actuellement.
 
 ### Demande de compilation
 
-L'admin émet une requête vers Kelmscott pour demander une compilation
-Kelmscott filtre les requêtes qui ne viennent pas du pool d'IP.
+L'admin émet une requête vers Kelmscott pour demander une compilation, sur le chemin du dépôt (`organisation/dépôt`).
+La requête contient tous les paramètres : dépôt, mode de synchronisation, variables et secrets.
+Elle est signée avec la clé privée de l'admin (Ed25519), qui n'existe que dans l'admin.
+Kelmscott vérifie la signature avec la clé publique de l'admin : il ne peut pas lui-même fabriquer de requête valide.
+La signature porte sur l'horodatage, le chemin et le contenu : une requête modifiée ou de plus de 5 minutes est refusée.
+L'admin n'envoie la requête qu'en HTTPS.
 
 ```{filename="Requête POST"}
-https://compilation.osuny.org/noesya/noesya-www
+https://kelmscott.osuny.org/noesya/noesya-www
+X-Kelmscott-Timestamp: 1791990000
+X-Kelmscott-Signature: <signature de "horodatage, POST chemin, corps", en base 64>
 ```
 
-{{< callout type="success" >}}
-  Risque de relance de build (DOS)
-  - filtrer le pool d'IP
-  - vérifier que la requête vient bien d'osuny avec un jeton ou une clé
-{{< /callout >}}
-
-### Paramètres de compilation
-
-Kelmscott demande à l'admin osuny les infos pour compiler.
-L'admin ne répond qu'à l'IP de Kelmscott.
-Dans l'admin osuny, les informations de connexion sont stockées cryptées, avec la clé publique de Kelmscott.
-L'interface doit permettre de mettre à jour une clé, comme les GitHub secrets.
-Pas de vulnérabilité de ce côté, rien n'est en clair.
-
-```{filename="Requête GET"}
-https://noesya.osuny.org/compilation/noesya-www
-```
-
-```json
+```{filename="Payload"}
 {
-  "git" : {
-    "url" : "https://github.com/osunyorg/noesya-www",
-    "endpoint" : "https://github.com/osunyorg/noesya-www.git"
-  },
-  "sync" : {
-    "mode" : "dxfl",
-    "variables": {
-      "BUCKET" : "www.noesya.coop",
-    },
-    "secrets" : {
-      "AWS_ACCESS_KEY_ID" : "valeur encodée",
-      "AWS_SECRET_ACCESS_KEY" : "valeur encodée",
-    }
+  "git_url": "https://github.com/noesya/noesya-www.git",
+  "sync_method": "sftp",
+  "variables": {
+    "SFTP_HOST": "ftp.example.org",
+    "SFTP_USER": "noesya",
+    "SFTP_PASSWORD": "<base64 du texte chiffré>",
+    ...
   }
 }
 ```
+
+Les variables dépendent du mode de synchronisation (`sftp`, `dxfl`, `rsync`, `s3`).
+Dans l'admin osuny, les secrets sont chiffrés à l'enregistrement, avec la clé publique de Kelmscott (sealed box libsodium).
+L'interface permet de remplacer un secret, comme les GitHub secrets, mais jamais de le relire : l'admin lui-même ne peut pas le déchiffrer.
+Les variables non secrètes (hôte, utilisateur, chemin, bucket) restent lisibles dans l'admin, et ne sont protégées que par TLS pendant le transport.
 
 {{< callout type="error" >}}
   Risque d'usurpation d'identité et d'envoi de fausses données
@@ -119,13 +104,15 @@ https://noesya.osuny.org/compilation/noesya-www
   - liste blanche des modes
   - liste blanche des variables
   - liste blanche des secrets
-  - restriction d'IP
+  - liste blanche des forges git (github.com, gitlab.com)
+  - signature des requêtes par l'admin, avec horodatage
+  - HTTPS obligatoire
 {{< /callout >}}
 
 ### Récupération depuis git
 
-Kelmscott clone le repo s'il n'existe pas, pull s'il existe.
-Il faut mettre à jour les submodules, dans la branche choisie.
+Kelmscott clone le repo s'il n'existe pas, le met à jour s'il existe, submodules compris.
+Seul le dernier commit est conservé (clone superficiel), et le dossier revient exactement à l'état distant.
 
 {{< callout type="warning" >}}
   Risque de remplissage du disque
@@ -134,18 +121,14 @@ Il faut mettre à jour les submodules, dans la branche choisie.
 
 ### Compilation du site
 
-Kelmscott lance un processus autonome (avec un user aux droits limités ?). 
-Ce processus install les dépendances, puis compile le site.
-
-```bash
-yarn install
-yarn osuny build
-```
+Kelmscott lance un processus autonome, avec les paramètres décryptés 
+Ce processus compile le site.
+La compilation est reproduite entièrement, ce n'est pas un yarn osuny build, parce que c'est très inefficace de réinstaller tout le temps.
 
 {{< callout type="error" >}}
   Risque d'exécution de code non maîtrisé
   - un user par build, aux droits limités au dossier
-  - pourquoi faire un yarn install local et pas une commande de build globale ?
+  - commande de build globale
 {{< /callout >}}
 
 ### Synchronisation du site
@@ -164,10 +147,11 @@ La synchronisation s'exécute.
 ### Publication des logs
 
 Les logs sont purgés des infos secrètes.
+Les scripts de synchronisation évitent d'afficher les secrets, mais le masquage à l'écriture des logs n'est pas encore en place.
 
 {{< callout type="warning" >}}
   Risque de publication de données secrètes
-  - masquer les données confidentielles à l'écriture des logs
+  - masquer les données confidentielles à l'écriture des logs (à faire)
 {{< /callout >}}
 
 ### Badge d'état
@@ -181,11 +165,11 @@ Le badge d'état affiche le succès ou l'échec de la publication.
 ### Consultation des logs
 
 Les commoners peuvent consulter le dernier log, notamment pour débugger.
+Pour l'instant, les logs sont publics sur Kelmscott, et le badge renvoie vers eux.
 
 {{< callout type="warning" >}}
   Risque d'exposition de beaucoup d'infos
-  - afficher les résultats uniquement via l'admin osuny
-  - filtrage idem étape 2 
+  - afficher les résultats uniquement via l'admin osuny (à faire)
 {{< /callout >}}
 
 {{% /steps %}}
