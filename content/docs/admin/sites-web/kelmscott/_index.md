@@ -154,11 +154,11 @@ La synchronisation s'exécute.
 ### Publication des logs
 
 Les logs sont purgés des infos secrètes.
-Les scripts de synchronisation évitent d'afficher les secrets, mais le masquage à l'écriture des logs n'est pas encore en place.
+La sortie de la synchronisation est relue avant d'être écrite : chaque secret, et chaque ligne d'une clé SSH, est remplacé par `[secret masqué]`.
 
 {{< callout type="warning" >}}
   Risque de publication de données secrètes
-  - masquer les données confidentielles à l'écriture des logs (à faire)
+  - masquer les données confidentielles à l'écriture des logs
 {{< /callout >}}
 
 ### Badge d'état
@@ -172,11 +172,13 @@ Le badge d'état affiche le succès ou l'échec de la publication.
 ### Consultation des logs
 
 Les commoners peuvent consulter le dernier log, notamment pour débugger.
-Pour l'instant, les logs sont publics sur Kelmscott, et le badge renvoie vers eux.
+Les logs sont publics sur Kelmscott, et le badge renvoie vers eux.
+Les secrets y sont masqués : il ne reste que des hôtes, des chemins et des noms de fichiers. Ce risque est accepté.
 
 {{< callout type="warning" >}}
   Risque d'exposition de beaucoup d'infos
-  - afficher les résultats uniquement via l'admin osuny (à faire)
+  - secrets masqués dans les logs
+  - risque résiduel accepté : hôtes, chemins et noms de fichiers restent visibles
 {{< /callout >}}
 
 {{% /steps %}}
