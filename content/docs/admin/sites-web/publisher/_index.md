@@ -46,8 +46,7 @@ sequenceDiagram
   Kelmscott->>Hosting: Synchronisation du site
   Kelmscott->>Kelmscott: Publication des logs
   Admin->>Kelmscott: Badge d'état
-  Commoner->>Admin: Consultation des logs
-  Admin->>Kelmscott: Récupération des logs
+  Commoner->>Kelmscott: Consultation des logs
 ```
 
 Enjeux de sécurité
