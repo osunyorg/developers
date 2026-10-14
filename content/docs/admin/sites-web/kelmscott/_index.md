@@ -67,7 +67,7 @@ L'admin push vers Git, comme actuellement.
 
 ### Demande de compilation
 
-L'admin émet une requête vers Kelmscott pour demander une compilation, sur le chemin du dépôt (`organisation/dépôt`).
+L'admin émet une requête vers Kelmscott pour demander une compilation, sur le chemin `université/site` : l'identifiant de l'université dans l'admin, puis le nom du dépôt du site.
 La requête contient tous les paramètres : dépôt, mode de synchronisation, variables et secrets.
 Elle est signée avec la clé privée de l'admin (Ed25519), qui n'existe que dans l'admin.
 Kelmscott vérifie la signature avec la clé publique de l'admin : il ne peut pas lui-même fabriquer de requête valide.
