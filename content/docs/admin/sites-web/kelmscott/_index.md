@@ -115,6 +115,10 @@ Kelmscott clone le repo s'il n'existe pas, le met à jour s'il existe, submodule
 Seul le dernier commit est conservé (clone superficiel), et le dossier revient exactement à l'état distant.
 
 {{< callout type="warning" >}}
+  Il est important que les submodules soient connectés en HTTPS et non en SSH pour être récupérés correctement.
+{{< /callout >}}
+
+{{< callout type="warning" >}}
   Risque de remplissage du disque
   - sonde disque avec alerte
 {{< /callout >}}
