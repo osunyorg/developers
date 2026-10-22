@@ -269,6 +269,8 @@ Sebou ?
 3. Chez qui héberger la machine ?
 Scaleway ? Bearstech
 
+4. Comment faire pour qu'on n'ait pas à lancer la publication du site via osuny lorsque l'on commit sur le repo ? On risque fortement d'oublier de faire cette manipulation.
+
 ## Implémentation
 
 https://kelmscott.osuny.org
