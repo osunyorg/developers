@@ -8,7 +8,6 @@ aliases:
 ## Les blocs
 
 
-
 ## Manipuler les blocs dans le contenu de la page
 
 Il est possible d'exclure des blocs du contenu d'une page, ce qui permet notamment de les replacer ailleurs, pour les besoins du design.
@@ -65,3 +64,32 @@ Dans `partials/blocks/ignored.html`, un fichier créé spécifiquement sur un si
   {{ end }}
 </div>
 ```
+
+## Personnalisation et surcouche du bloc selon sa classe
+
+Il est possible de remplacer le partiel d'un bloc spécifique par un partiel propre au site. Le thème détecte la classe ajoutée au bloc dans l'espace d'administration osuny et charge en surcouche le fichier correspondant, s'il existe.
+
+### Principe
+
+1. Dans l'espace d'administration, ajouter une classe supplémentaire au bloc, par exemple `alphabet` sur un bloc Organisations.
+2. Dans le site (ou le sous-thème), créer le partiel correspondant :
+
+`layouts/_partials/custom/blocks/organizations--alphabet.html`
+
+Le nom du fichier suit la convention `<type-de-bloc>--<classe>.html`.
+
+Si le fichier existe, le thème l'utilise pour afficher le bloc. Sinon, le bloc s'affiche normalement : aucune configuration n'est nécessaire.
+
+### Exemple
+
+Un site souhaite afficher la liste des organisations par ordre alphabétique, avec une présentation différente du rendu par défaut :
+
+1. Ajouter la classe `alphabet` au bloc Organisations de la page.
+2. Créer le fichier `layouts/_partials/custom/blocks/organizations--alphabet.html` avec le code HTML de la présentation souhaitée.
+
+Tous les blocs Organisations portant la classe `alphabet` utiliseront ce rendu. Les autres blocs Organisations ne sont pas modifiés.
+
+### Différence avec l'exclusion
+
+- **[Exclusion](#exclusion)** : le bloc n'est plus affiché dans le contenu de la page, ce qui permet de l'afficher ailleurs (par exemple dans un hero).
+- **Surcouche par classe** : le bloc reste à sa place dans le contenu, mais avec un rendu spécifique au site.
